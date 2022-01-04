@@ -1722,13 +1722,17 @@ stacksidebar.sidebar:dir(rtl) list, stacksidebar.sidebar.right list, .sidebar:no
 
 paned .sidebar.left, paned .sidebar.right, paned .sidebar.left:dir(rtl), paned .sidebar:dir(rtl), paned .sidebar:dir(ltr), paned .sidebar { border-style: none; }
 
+.sidebar row { border-radius: 6px; }
+
+.sidebar row, .sidebar separator { margin: 2px 4px; }
+
 stacksidebar row { padding: 10px 4px; }
 
 stacksidebar row > label { padding-left: 6px; padding-right: 6px; }
 
 stacksidebar row.needs-attention > label { background-size: 6px 6px, 0 0; }
 
-separator.sidebar { background-color: #494949; }
+separator.sidebar { background-color: #494949; margin: 0 4px; }
 
 separator.sidebar:backdrop { background-color: #424242; }
 

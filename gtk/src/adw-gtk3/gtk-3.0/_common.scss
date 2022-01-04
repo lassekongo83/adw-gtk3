@@ -4144,6 +4144,13 @@ filechooserbutton:drop(active) {
   list { background-color: transparent; }
 
   paned & { &.left, &.right, &.left:dir(rtl), &:dir(rtl), &:dir(ltr), & { border-style: none; }}
+
+  row {
+    border-radius: $button_radius;
+  }
+  row, separator {
+    margin: 2px 4px;
+  }
 }
 
 stacksidebar {
@@ -4174,6 +4181,7 @@ stacksidebar {
 
 separator.sidebar {
   background-color: $borders_color;
+  margin: 0 4px;
 
   &:backdrop {
     background-color: $backdrop_borders_color;
