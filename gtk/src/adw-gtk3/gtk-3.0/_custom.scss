@@ -1,0 +1,31 @@
+// Nautilus
+.nautilus-window {
+  // Border radius on .nautilus-window since version 40
+  &, decoration {
+    &:not(.tiled):not(.tiled-top):not(.tiled-right):not(.tiled-left):not(.tiled-bottom):not(.maximized):not(.fullscreen) {
+      border-radius: $window_radius;
+    }
+  }
+
+  // Without this nautilus iconview grabs the bg_color
+  notebook,
+  notebook > stack:not(:only-child) searchbar { @extend %view; }
+
+  // Expand path-bar buttons to the edges of the header bar
+  .nautilus-path-bar .text-button {
+    min-height: $_headerbar_height;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 0;
+    &:last-child {
+      background-color: $button_hover_color;
+    }
+  }
+}
+
+// Gedit
+.gedit-search-slider {
+  background-color: $base_color;
+  border-radius: $button_radius;
+}

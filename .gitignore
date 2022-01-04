@@ -1,0 +1,5 @@
+# Ignore Backup Copies from Text Editor
+*~
+
+# Ignore meson build directory
+build
