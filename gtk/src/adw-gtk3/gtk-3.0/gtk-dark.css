@@ -2152,4 +2152,34 @@ read if you used those and something break with a version upgrade you're on your
 
 .nautilus-window .nautilus-path-bar button:not(:first-child) { border-width: 0px 1px 0px 1px; border-radius: 0px 0px 0px 0px; }
 
+.nautilus-window .search + .toggle { background-color: alpha(currentColor,0.1); border-radius: 0 6px 6px 0; }
+
+.nautilus-window .search + .toggle:hover { background-color: alpha(currentColor,0.15); }
+
+.nautilus-window .search + .toggle:active, .nautilus-window .search + .toggle:checked { background-color: alpha(currentColor,0.3); }
+
+.nautilus-window .floating-bar { padding: 3px; background-color: #1e1e1e; border-width: 1px; border-style: solid solid none; border-color: #494949; border-radius: 8px 0 0 0; }
+
+.nautilus-window .floating-bar.bottom.left { /* axes left border and border radius */ border-left-style: none; border-top-left-radius: 0; }
+
+.nautilus-window .floating-bar.bottom.right { /* axes right border and border radius */ border-right-style: none; border-top-right-radius: 0; }
+
+.nautilus-window .floating-bar:backdrop { background-color: #1e1e1e; border-color: #424242; }
+
+.nautilus-window .floating-bar button { padding: 0px; }
+
+.nautilus-window .disk-space-display { border-style: solid; border-width: 2px; }
+
+.nautilus-window .disk-space-display.unknown { background-color: #888a85; border-color: shade(#888a85, 0.7); color: #888a85; }
+
+.nautilus-window .disk-space-display.unknown.border { color: shade(#888a85, 0.7); }
+
+.nautilus-window .disk-space-display.used { background-color: #729fcf; border-color: shade(#729fcf, 0.7); color: #729fcf; }
+
+.nautilus-window .disk-space-display.used.border { color: shade(#729fcf, 0.7); }
+
+.nautilus-window .disk-space-display.free { background-color: #eeeeec; border-color: shade(#eeeeec, 0.7); color: #eeeeec; }
+
+.nautilus-window .disk-space-display.free.border { color: shade(#eeeeec, 0.7); }
+
 .gedit-search-slider { background-color: #1e1e1e; border-radius: 6px; }
