@@ -1071,25 +1071,25 @@ notebook > stack:not(:only-child) { background-color: #ffffff; }
 notebook > stack:not(:only-child):backdrop { background-color: #fcfcfc; }
 
 /************** Scrollbars * */
-scrollbar { background-color: rgba(214, 214, 214, 0.96); transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+scrollbar { background-color: #ffffff; transition: all 200ms linear; }
 
 * { -GtkScrollbar-has-backward-stepper: false; -GtkScrollbar-has-forward-stepper: false; }
 
-scrollbar.top { border-bottom: 1px solid #cfcfcf; }
+scrollbar.top { box-shadow: inset 0 -1px #cfcfcf; padding-bottom: 1px; }
 
-scrollbar.bottom { border-top: 1px solid #cfcfcf; }
+scrollbar.bottom { box-shadow: inset 0 1px #cfcfcf; padding-top: 1px; }
 
-scrollbar.left { border-right: 1px solid #cfcfcf; }
+scrollbar.left { box-shadow: inset -1px 0 #cfcfcf; padding-right: 1px; }
 
-scrollbar.right { border-left: 1px solid #cfcfcf; }
+scrollbar.right { box-shadow: inset 1px 0 #cfcfcf; padding-left: 1px; }
 
 scrollbar:backdrop { background-color: #f2f2f2; border-color: #d8d8d8; transition: 200ms ease-out; }
 
-scrollbar slider { min-width: 8px; min-height: 8px; margin: -1px; border: 4px solid transparent; border-radius: 10px; background-clip: padding-box; background-color: rgba(125, 125, 125, 0.88); transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+scrollbar slider { min-width: 8px; min-height: 8px; margin: -1px; border: 4px solid transparent; border-radius: 10px; background-clip: padding-box; background-color: alpha(currentColor,0.2); transition: all 200ms linear; }
 
-scrollbar slider:hover { background-color: rgba(68, 68, 68, 0.84); }
+scrollbar slider:hover { background-color: alpha(currentColor,0.4); }
 
-scrollbar slider:hover:active { background-color: #1659ab; }
+scrollbar slider:hover:active { background-color: alpha(currentColor,0.6); }
 
 scrollbar slider:backdrop { background-color: rgba(215, 215, 215, 0.96); }
 
@@ -1121,17 +1121,17 @@ scrollbar.horizontal slider { min-width: 40px; }
 
 scrollbar.vertical slider { min-height: 40px; }
 
-scrollbar button { padding: 0; min-width: 12px; min-height: 12px; border-style: none; border-radius: 0; transition-property: min-height, min-width, color; border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; color: rgba(125, 125, 125, 0.88); }
+scrollbar button { padding: 0; min-width: 12px; min-height: 12px; border-style: none; border-radius: 0; transition-property: min-height, min-width, color; border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; color: alpha(currentColor,0.2); }
 
-scrollbar button:hover { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; color: rgba(68, 68, 68, 0.84); }
+scrollbar button:hover { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; color: alpha(currentColor,0.4); }
 
-scrollbar button:active, scrollbar button:checked { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; color: #1659ab; }
+scrollbar button:active, scrollbar button:checked { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; color: alpha(currentColor,0.6); }
 
-scrollbar button:disabled { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; color: rgba(125, 125, 125, 0.08); }
+scrollbar button:disabled { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; color: alpha(currentColor,0.2); }
 
 scrollbar button:backdrop { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; color: rgba(215, 215, 215, 0.96); }
 
-scrollbar button:backdrop:disabled { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; color: rgba(215, 215, 215, 0.16); }
+scrollbar button:backdrop:disabled { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; color: rgba(215, 215, 215, 0.96); }
 
 scrollbar.vertical button.down { -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
 
@@ -1627,7 +1627,7 @@ scrolledwindow overshoot.right { background-image: -gtk-gradient(radial, right c
 
 scrolledwindow overshoot.right:backdrop { background-image: -gtk-gradient(radial, right center, 0, right center, 0.5, to(#d8d8d8), to(rgba(216, 216, 216, 0))); background-size: 5% 100%; background-repeat: no-repeat; background-position: right center; background-color: transparent; border: none; box-shadow: none; }
 
-scrolledwindow junction { border-color: transparent; border-image: linear-gradient(to bottom, #cfcfcf 1px, transparent 1px) 0 0 0 1/0 1px stretch; background-color: rgba(214, 214, 214, 0.96); }
+scrolledwindow junction { border-color: transparent; border-image: linear-gradient(to bottom, #cfcfcf 1px, transparent 1px) 0 0 0 1/0 1px stretch; background-color: #ffffff; }
 
 scrolledwindow junction:dir(rtl) { border-image-slice: 0 1 0 0; }
 

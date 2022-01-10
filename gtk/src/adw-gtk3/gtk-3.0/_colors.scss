@@ -21,10 +21,10 @@ $menu_color: if($variant == 'light', $base_color, mix($bg_color, $base_color, 20
 $popover_bg_color: $bg_color;
 $popover_hover_color: lighten($bg_color, 5%);
 
-$scrollbar_bg_color: if($variant == 'light', mix($bg_color, $fg_color, 80%), mix($base_color, $bg_color, 50%));
-$scrollbar_slider_color: mix($fg_color, $bg_color, 60%);
-$scrollbar_slider_hover_color: mix($fg_color, $bg_color, 80%);
-$scrollbar_slider_active_color: if($variant=='light', darken($selected_bg_color, 10%), lighten($selected_bg_color, 10%));
+$scrollbar_bg_color: $base_color;
+$scrollbar_slider_color: gtkalpha(currentColor, .2);
+$scrollbar_slider_hover_color: gtkalpha(currentColor, .4);
+$scrollbar_slider_active_color: gtkalpha(currentColor, .6);
 
 $warning_color: #f57900;
 $error_color: #cc0000;
