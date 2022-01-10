@@ -11,16 +11,26 @@
   notebook,
   notebook > stack:not(:only-child) searchbar { @extend %view; }
 
-  // Expand path-bar buttons to the edges of the header bar
-  .nautilus-path-bar .text-button {
-    min-height: $_headerbar_height;
-    margin: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    border-radius: 0;
-    &:last-child {
-      background-color: $button_hover_color;
-    }
+  // path-bar
+  .path-bar-box {
+    border-radius: $button_radius;
+    border: none;
+    background-color: $button_color;
+    padding-right: 6px;
+  }
+
+  .nautilus-path-bar button {
+    margin: 0px;
+  }
+
+  .nautilus-path-bar button:first-child {
+    border-width: 0px 1px 0px 0px;
+    border-radius: $button_radius 0px 0px $button_radius;
+  }
+
+  .nautilus-path-bar button:not(:first-child) {
+    border-width: 0px 1px 0px 1px;
+    border-radius: 0px 0px 0px 0px;
   }
 }
 

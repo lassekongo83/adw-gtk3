@@ -2144,8 +2144,12 @@ read if you used those and something break with a version upgrade you're on your
 @define-color text_view_bg #0f0f0f;
 .nautilus-window:not(.tiled):not(.tiled-top):not(.tiled-right):not(.tiled-left):not(.tiled-bottom):not(.maximized):not(.fullscreen), .nautilus-window decoration:not(.tiled):not(.tiled-top):not(.tiled-right):not(.tiled-left):not(.tiled-bottom):not(.maximized):not(.fullscreen) { border-radius: 12px; }
 
-.nautilus-window .nautilus-path-bar .text-button { min-height: 46px; margin: 0; padding-top: 0; padding-bottom: 0; border-radius: 0; }
+.nautilus-window .path-bar-box { border-radius: 6px; border: none; background-color: alpha(currentColor,0.1); padding-right: 6px; }
 
-.nautilus-window .nautilus-path-bar .text-button:last-child { background-color: alpha(currentColor,0.15); }
+.nautilus-window .nautilus-path-bar button { margin: 0px; }
+
+.nautilus-window .nautilus-path-bar button:first-child { border-width: 0px 1px 0px 0px; border-radius: 6px 0px 0px 6px; }
+
+.nautilus-window .nautilus-path-bar button:not(:first-child) { border-width: 0px 1px 0px 1px; border-radius: 0px 0px 0px 0px; }
 
 .gedit-search-slider { background-color: #1e1e1e; border-radius: 6px; }
