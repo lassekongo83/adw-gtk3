@@ -111,3 +111,49 @@
   background-color: $base_color;
   border-radius: $button_radius;
 }
+
+// Gnome system monitor
+window#gnome-system-monitor.background.csd {
+  border-radius: $window_radius $window_radius 0 0; // FIXME bottom edges gets buggy roundness anyway
+
+  // The stack buttons
+  .titlebar .horizontal.radio {
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    max-height: $_headerbar_height;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    &:backdrop {
+      background-color: $bg_color;
+    }
+    &:active, &:checked {
+      background: $button_color;
+      &:backdrop {
+        background: $button_backdrop_color;
+      }
+    }
+  }
+}
+
+.background.csd.unified.preferences { // system monitor preferences
+  border-radius: $window_radius $window_radius 0 0;
+
+  .titlebar .horizontal.radio {
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    max-height: $_headerbar_height;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    &:backdrop {
+      background-color: $bg_color;
+    }
+    &:active, &:checked {
+      background: $button_color;
+      &:backdrop {
+        background: $button_backdrop_color;
+      }
+    }
+  }
+}

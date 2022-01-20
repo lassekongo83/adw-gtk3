@@ -2187,3 +2187,23 @@ read if you used those and something break with a version upgrade you're on your
 .nautilus-window .disk-space-display.free.border { color: shade(#eeeeec, 0.7); }
 
 .gedit-search-slider { background-color: #1e1e1e; border-radius: 6px; }
+
+window#gnome-system-monitor.background.csd { border-radius: 12px 12px 0 0; }
+
+window#gnome-system-monitor.background.csd .titlebar .horizontal.radio { margin: 0; border-radius: 0; border: none; max-height: 46px; padding-top: 0px; padding-bottom: 0px; }
+
+window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:backdrop { background-color: #242424; }
+
+window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:active, window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:checked { background: alpha(currentColor,0.1); }
+
+window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:active:backdrop, window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:checked:backdrop { background: alpha(currentColor,0.09); }
+
+.background.csd.unified.preferences { border-radius: 12px 12px 0 0; }
+
+.background.csd.unified.preferences .titlebar .horizontal.radio { margin: 0; border-radius: 0; border: none; max-height: 46px; padding-top: 0px; padding-bottom: 0px; }
+
+.background.csd.unified.preferences .titlebar .horizontal.radio:backdrop { background-color: #242424; }
+
+.background.csd.unified.preferences .titlebar .horizontal.radio:active, .background.csd.unified.preferences .titlebar .horizontal.radio:checked { background: alpha(currentColor,0.1); }
+
+.background.csd.unified.preferences .titlebar .horizontal.radio:active:backdrop, .background.csd.unified.preferences .titlebar .horizontal.radio:checked:backdrop { background: alpha(currentColor,0.09); }
