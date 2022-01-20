@@ -2204,7 +2204,7 @@ read if you used those and something break with a version upgrade you're on your
 
 .gedit-search-slider { background-color: #ffffff; border-radius: 6px; }
 
-window#gnome-system-monitor.background.csd { border-radius: 12px 12px 0 0; }
+window#gnome-system-monitor.background.csd:not(.tiled):not(.tiled-top):not(.tiled-right):not(.tiled-left):not(.tiled-bottom):not(.maximized):not(.fullscreen), window#gnome-system-monitor.background.csd decoration:not(.tiled):not(.tiled-top):not(.tiled-right):not(.tiled-left):not(.tiled-bottom):not(.maximized):not(.fullscreen) { border-radius: 12px; }
 
 window#gnome-system-monitor.background.csd .titlebar .horizontal.radio { margin: 0; border-radius: 0; border: none; max-height: 46px; padding-top: 0px; padding-bottom: 0px; }
 
@@ -2214,7 +2214,7 @@ window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:active, w
 
 window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:active:backdrop, window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:checked:backdrop { background: alpha(currentColor,0.09); }
 
-.background.csd.unified.preferences { border-radius: 12px 12px 0 0; }
+.background.csd.unified.preferences:not(.tiled):not(.tiled-top):not(.tiled-right):not(.tiled-left):not(.tiled-bottom):not(.maximized):not(.fullscreen), .background.csd.unified.preferences decoration:not(.tiled):not(.tiled-top):not(.tiled-right):not(.tiled-left):not(.tiled-bottom):not(.maximized):not(.fullscreen) { border-radius: 12px; }
 
 .background.csd.unified.preferences .titlebar .horizontal.radio { margin: 0; border-radius: 0; border: none; max-height: 46px; padding-top: 0px; padding-bottom: 0px; }
 

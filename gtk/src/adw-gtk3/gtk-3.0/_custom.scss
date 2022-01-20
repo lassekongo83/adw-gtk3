@@ -114,7 +114,11 @@
 
 // Gnome system monitor
 window#gnome-system-monitor.background.csd {
-  border-radius: $window_radius $window_radius 0 0; // FIXME bottom edges gets buggy roundness anyway
+  &, decoration {
+    &:not(.tiled):not(.tiled-top):not(.tiled-right):not(.tiled-left):not(.tiled-bottom):not(.maximized):not(.fullscreen) {
+      border-radius: $window_radius;
+    }
+  }
 
   // The stack buttons
   .titlebar .horizontal.radio {
@@ -137,7 +141,11 @@ window#gnome-system-monitor.background.csd {
 }
 
 .background.csd.unified.preferences { // system monitor preferences
-  border-radius: $window_radius $window_radius 0 0;
+  &, decoration {
+    &:not(.tiled):not(.tiled-top):not(.tiled-right):not(.tiled-left):not(.tiled-bottom):not(.maximized):not(.fullscreen) {
+      border-radius: $window_radius;
+    }
+  }
 
   .titlebar .horizontal.radio {
     margin: 0;
