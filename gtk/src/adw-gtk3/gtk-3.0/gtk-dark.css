@@ -1736,7 +1736,7 @@ stacksidebar row > label { padding-left: 6px; padding-right: 6px; }
 
 stacksidebar row.needs-attention > label { background-size: 6px 6px, 0 0; }
 
-separator.sidebar { background-color: #494949; margin: 0 4px; }
+separator.sidebar { background-color: #494949; }
 
 separator.sidebar:backdrop { background-color: #424242; }
 
