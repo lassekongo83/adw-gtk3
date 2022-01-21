@@ -1,12 +1,17 @@
-// Nautilus
-.nautilus-window {
-  // Border radius on .nautilus-window since version 40
-  &, decoration {
-    &:not(.tiled):not(.tiled-top):not(.tiled-right):not(.tiled-left):not(.tiled-bottom):not(.maximized):not(.fullscreen) {
+// Attempt to fix roundness on unified window decoration
+// https://gitlab.gnome.org/GNOME/libhandy/-/issues/339
+window.csd.unified:not(.solid-csd):not(.fullscreen) {
+  &:not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) {
+    &,
+    > decoration,
+    > decoration-overlay {
       border-radius: $window_radius;
     }
   }
+}
 
+// Nautilus
+.nautilus-window {
   // Without this nautilus iconview grabs the bg_color
   notebook,
   notebook > stack:not(:only-child) searchbar { @extend %view; }
@@ -113,43 +118,9 @@
 }
 
 // Gnome system monitor
-window#gnome-system-monitor.background.csd {
-  &, decoration {
-    &:not(.tiled):not(.tiled-top):not(.tiled-right):not(.tiled-left):not(.tiled-bottom):not(.maximized):not(.fullscreen) {
-      border-radius: $window_radius;
-    }
-  }
-
+window#gnome-system-monitor.background.csd,
+.background.csd.unified.preferences {// system monitor preferences
   // The stack buttons
-  .titlebar .horizontal.radio {
-    margin: 0;
-    border-radius: 0;
-    border: none;
-    max-height: $_headerbar_height;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    &:backdrop {
-      background-color: $bg_color;
-    }
-    &:active, &:checked {
-      background: $button_color;
-      &:backdrop {
-        background: $button_backdrop_color;
-      }
-    }
-    label {
-      padding-right: 20px;
-    }
-  }
-}
-
-.background.csd.unified.preferences { // system monitor preferences
-  &, decoration {
-    &:not(.tiled):not(.tiled-top):not(.tiled-right):not(.tiled-left):not(.tiled-bottom):not(.maximized):not(.fullscreen) {
-      border-radius: $window_radius;
-    }
-  }
-
   .titlebar .horizontal.radio {
     margin: 0;
     border-radius: 0;
