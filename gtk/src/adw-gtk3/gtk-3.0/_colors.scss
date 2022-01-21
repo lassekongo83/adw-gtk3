@@ -26,10 +26,10 @@ $scrollbar_slider_color: gtkalpha(currentColor, .2);
 $scrollbar_slider_hover_color: gtkalpha(currentColor, .4);
 $scrollbar_slider_active_color: gtkalpha(currentColor, .6);
 
-$warning_color: #f57900;
-$error_color: #cc0000;
-$success_color: if($variant == 'light', #33d17a, darken(#33d17a, 10%));
-$destructive_color: if($variant == 'light', #e01b24, darken(#e01b24, 10%));
+$warning_color: if($variant == 'dark', #cd9309, $yellow_5);
+$error_color: if($variant == 'dark', $red_4, $red_3);
+$success_color: if($variant == 'dark', $green_5, $green_4);
+$destructive_color: if($variant == 'dark', $red_4, $red_3);
 
 $osd_fg_color: #eeeeec;
 $osd_text_color: white;

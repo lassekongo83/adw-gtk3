@@ -1015,24 +1015,24 @@ toolbar.inline-toolbar toolbutton {
 }
 
 %linked_left {
-    border-top-left-radius: $button_radius;
-    border-bottom-left-radius: $button_radius;
-    -gtk-outline-top-left-radius: $button_radius;
-    -gtk-outline-bottom-left-radius: $button_radius;
+  border-top-left-radius: $button_radius;
+  border-bottom-left-radius: $button_radius;
+  -gtk-outline-top-left-radius: $button_radius;
+  -gtk-outline-bottom-left-radius: $button_radius;
 }
 
 %linked_right {
-    border-right-style: solid;
-    border-top-right-radius: $button_radius;
-    border-bottom-right-radius: $button_radius;
-    -gtk-outline-top-right-radius: $button_radius;
-    -gtk-outline-bottom-right-radius: $button_radius;
+  border-right-style: solid;
+  border-top-right-radius: $button_radius;
+  border-bottom-right-radius: $button_radius;
+  -gtk-outline-top-right-radius: $button_radius;
+  -gtk-outline-bottom-right-radius: $button_radius;
 }
 
 %linked_only_child {
-    border-style: solid;
-    border-radius: $button_radius;
-    -gtk-outline-radius: $button_radius;
+  border-style: solid;
+  border-radius: $button_radius;
+  -gtk-outline-radius: $button_radius;
 }
 
 // .linked assumes Box, which reverses nodes in RTL, so 1st child is always left
@@ -4091,9 +4091,8 @@ messagedialog { // Message Dialog styling
 
   &.csd { // rounded bottom border styling for csd version
     &.background {
-      // bigger radius for better antialiasing
-      border-bottom-left-radius: $window_radius+1;
-      border-bottom-right-radius: $window_radius+1;
+      border-bottom-left-radius: $window_radius;
+      border-bottom-right-radius: $window_radius;
     }
 
     .dialog-action-area button {
@@ -4102,16 +4101,31 @@ messagedialog { // Message Dialog styling
       border-bottom-style: none;
       border-radius: 0;
       -gtk-outline-radius: 0;
+      background-color: $bg_color;
+      border-top: 1px solid $borders_color;
+      border-left: 1px solid $borders_color;
+      &:hover {
+        background-color: $button_hover_color;
+      }
+      &:active {
+        background-color: $button_active_color;
+      }
+      &.suggested-action {
+        background-color: $suggested_bg_color;
+      }
+      &.destructive-action {
+        background-color: $destructive_color;
+      }
 
       &:first-child {
         border-left-style: none;
-        border-bottom-left-radius: $button_radius + 2;
-        -gtk-outline-bottom-left-radius: $button_radius + 2;
+        border-bottom-left-radius: $window_radius;
+        -gtk-outline-bottom-left-radius: $window_radius;
       }
 
       &:last-child {
-        border-bottom-right-radius: $button_radius + 2;
-        -gtk-outline-bottom-right-radius: $button_radius + 2;
+        border-bottom-right-radius: $window_radius;
+        -gtk-outline-bottom-right-radius: $window_radius;
       }
     }
   }
