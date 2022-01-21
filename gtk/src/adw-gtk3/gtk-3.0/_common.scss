@@ -3940,7 +3940,10 @@ row {
 
   &:hover { transition: none; }
 
-  &:backdrop { transition: $backdrop_transition; }
+  &:backdrop {
+    transition: $backdrop_transition;
+    color: $backdrop_fg_color;
+  }
 
   &.activatable {
     &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
@@ -3961,13 +3964,27 @@ row {
         color: $fg_color;
       }
 
-      &:backdrop { background-color: $selected_bg_color; }
+      &:backdrop {
+        background-color: $view_hover_color;
+        color: $backdrop_fg_color;
+      }
     }
   }
 
   &:selected { background-color: $view_selected_color; }
 }
 
+// Custom styles for list rows
+scrolledwindow list row {
+  margin: 0 6px;
+  border-radius: $button_radius;
+  //&:selected { // FIXME: See if a focus-ring can be implemented instead
+  //  box-shadow: inset 0 0 0 2px $selected_bg_color;
+  //  &:backdrop {
+  //    box-shadow: inset 0 0 0 2px $borders_color;
+  //  }
+  //}
+}
 
 /*********************
  * App Notifications *

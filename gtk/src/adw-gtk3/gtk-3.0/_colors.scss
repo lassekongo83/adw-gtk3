@@ -7,7 +7,7 @@ $bg_color: if($variant == 'light', #fafafa, #242424);
 $fg_color: if($variant == 'light', transparentize(black, .2), white);
 
 $selected_fg_color: #ffffff;
-$selected_bg_color: if($variant == 'light', $blue_4, #78aeed);
+$selected_bg_color: if($variant == 'light', $blue_4, $blue_4); //#78aeed);
 $selected_borders_color: if($variant== 'light', darken($selected_bg_color, 15%), darken($selected_bg_color, 30%));
 $borders_color: if($variant == 'light', #cfcfcf, #494949);
 $alt_borders_color: if($variant == 'light', darken($bg_color, 24%), darken($bg_color, 18%));
@@ -38,7 +38,7 @@ $osd_insensitive_bg_color: transparentize(mix($osd_fg_color, opacify($osd_bg_col
 $osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 50%);
 $osd_borders_color: transparentize(black, 0.3);
 
-$sidebar_bg_color: mix($bg_color, $base_color, 50%);
+$sidebar_bg_color: $bg_color; //mix($bg_color, $base_color, 50%);
 $base_hover_color: transparentize($fg_color, 0.95);
 
 $tooltip_borders_color: transparentize(white, 0.9);
