@@ -2198,6 +2198,8 @@ window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:active, w
 
 window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:active:backdrop, window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:checked:backdrop { background: alpha(currentColor,0.09); }
 
+window#gnome-system-monitor.background.csd .titlebar .horizontal.radio label { padding-right: 20px; }
+
 .background.csd.unified.preferences:not(.tiled):not(.tiled-top):not(.tiled-right):not(.tiled-left):not(.tiled-bottom):not(.maximized):not(.fullscreen), .background.csd.unified.preferences decoration:not(.tiled):not(.tiled-top):not(.tiled-right):not(.tiled-left):not(.tiled-bottom):not(.maximized):not(.fullscreen) { border-radius: 12px; }
 
 .background.csd.unified.preferences .titlebar .horizontal.radio { margin: 0; border-radius: 0; border: none; max-height: 46px; padding-top: 0px; padding-bottom: 0px; }
@@ -2207,3 +2209,5 @@ window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:active:ba
 .background.csd.unified.preferences .titlebar .horizontal.radio:active, .background.csd.unified.preferences .titlebar .horizontal.radio:checked { background: alpha(currentColor,0.1); }
 
 .background.csd.unified.preferences .titlebar .horizontal.radio:active:backdrop, .background.csd.unified.preferences .titlebar .horizontal.radio:checked:backdrop { background: alpha(currentColor,0.09); }
+
+.background.csd.unified.preferences .titlebar .horizontal.radio label { padding-right: 20px; }

@@ -137,6 +137,9 @@ window#gnome-system-monitor.background.csd {
         background: $button_backdrop_color;
       }
     }
+    label {
+      padding-right: 20px;
+    }
   }
 }
 
@@ -162,6 +165,9 @@ window#gnome-system-monitor.background.csd {
       &:backdrop {
         background: $button_backdrop_color;
       }
+    }
+    label {
+      padding-right: 20px;
     }
   }
 }
