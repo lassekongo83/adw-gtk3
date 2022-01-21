@@ -117,9 +117,8 @@ window.csd.unified:not(.solid-csd):not(.fullscreen) {
   border-radius: $button_radius;
 }
 
-// Gnome system monitor
-window#gnome-system-monitor.background.csd,
-.background.csd.unified.preferences {// system monitor preferences
+// Gnome system monitor, clocks, weather
+.background.csd.unified {
   // The stack buttons
   .titlebar .horizontal.radio {
     margin: 0;

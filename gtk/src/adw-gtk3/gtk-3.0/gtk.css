@@ -2206,12 +2206,12 @@ window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):
 
 .gedit-search-slider { background-color: #ffffff; border-radius: 6px; }
 
-window#gnome-system-monitor.background.csd .titlebar .horizontal.radio, .background.csd.unified.preferences .titlebar .horizontal.radio { margin: 0; border-radius: 0; border: none; max-height: 46px; padding-top: 0px; padding-bottom: 0px; }
+.background.csd.unified .titlebar .horizontal.radio { margin: 0; border-radius: 0; border: none; max-height: 46px; padding-top: 0px; padding-bottom: 0px; }
 
-window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:backdrop, .background.csd.unified.preferences .titlebar .horizontal.radio:backdrop { background-color: #fafafa; }
+.background.csd.unified .titlebar .horizontal.radio:backdrop { background-color: #fafafa; }
 
-window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:active, window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:checked, .background.csd.unified.preferences .titlebar .horizontal.radio:active, .background.csd.unified.preferences .titlebar .horizontal.radio:checked { background: alpha(currentColor,0.1); }
+.background.csd.unified .titlebar .horizontal.radio:active, .background.csd.unified .titlebar .horizontal.radio:checked { background: alpha(currentColor,0.1); }
 
-window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:active:backdrop, window#gnome-system-monitor.background.csd .titlebar .horizontal.radio:checked:backdrop, .background.csd.unified.preferences .titlebar .horizontal.radio:active:backdrop, .background.csd.unified.preferences .titlebar .horizontal.radio:checked:backdrop { background: alpha(currentColor,0.09); }
+.background.csd.unified .titlebar .horizontal.radio:active:backdrop, .background.csd.unified .titlebar .horizontal.radio:checked:backdrop { background: alpha(currentColor,0.09); }
 
-window#gnome-system-monitor.background.csd .titlebar .horizontal.radio label, .background.csd.unified.preferences .titlebar .horizontal.radio label { padding-right: 20px; }
+.background.csd.unified .titlebar .horizontal.radio label { padding-right: 20px; }
