@@ -10,6 +10,26 @@ window.csd.unified:not(.solid-csd):not(.fullscreen) {
   }
 }
 
+// Lists (or "cards")
+// Making lists more like libadwaita
+// May be a bit buggy
+.frame list.content {
+  background-color: $base_color;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border: 1px solid $borders_color;
+  border-radius: $card_radius;
+  box-shadow: 0 0 0 1px transparentize(black, 0.97),
+              0 1px 3px 1px transparentize(black, .93),
+              0 2px 6px 2px transparentize(black, .97);
+}
+// Reset it for things we don't want a custom list for
+.sidebar list.content {
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+}
+
 // Nautilus
 .nautilus-window {
   // Without this nautilus iconview grabs the bg_color
@@ -141,3 +161,4 @@ window.csd.unified:not(.solid-csd):not(.fullscreen) {
     }
   }
 }
+

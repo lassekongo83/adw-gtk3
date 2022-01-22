@@ -3919,22 +3919,6 @@ list {
   row { padding: 2px; }
 }
 
-// Making lists more like libadwaita
-// May be a bit buggy
-/*.frame list {
-  border: 1px solid $borders_color;
-  border-radius: $card_radius;
-  box-shadow: 0 0 0 1px transparentize(black, 0.97),
-              0 1px 3px 1px transparentize(black, .93),
-              0 2px 6px 2px transparentize(black, .97);
-}
-// Reset it for things we don't want a custom list for
-.sidebar.frame list {
-  box-shadow: none;
-  border: none;
-  border-radius: 0;
-}*/
-
 row {
   transition: all 150ms $ease-out-quad;
 
