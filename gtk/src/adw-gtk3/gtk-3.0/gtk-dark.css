@@ -2161,6 +2161,18 @@ window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):
 
 .sidebar list.content { box-shadow: none; border: none; border-radius: 0; }
 
+button.destructive-action { background-color: #c01c28; }
+
+button.destructive-action:hover { background-color: #a51822; }
+
+button.destructive-action:checked, button.destructive-action:checked:hover, button.destructive-action:active, button.destructive-action:active:hover { background-color: #8f151e; }
+
+button.suggested-action { background-color: #1c71d8; }
+
+button.suggested-action:hover { background-color: #1863bd; }
+
+button.suggested-action:checked, button.suggested-action:checked:hover, button.suggested-action:active, button.suggested-action:active:hover { background-color: #1657a6; }
+
 .nautilus-window .path-bar-box { border-radius: 6px; border: none; background-color: alpha(currentColor,0.1); padding-right: 6px; }
 
 .nautilus-window .nautilus-path-bar button { margin: 0px; }
