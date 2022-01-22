@@ -1009,12 +1009,15 @@ toolbar.inline-toolbar toolbutton {
 }
 
 %linked_middle {
+  border-left-color: $borders_color;
+  border-right-color: $borders_color;
   border-right-style: none;
   border-radius: 0;
   -gtk-outline-radius: 0;
 }
 
 %linked_left {
+  border-left-color: transparent;
   border-top-left-radius: $button_radius;
   border-bottom-left-radius: $button_radius;
   -gtk-outline-top-left-radius: $button_radius;
@@ -1022,6 +1025,7 @@ toolbar.inline-toolbar toolbutton {
 }
 
 %linked_right {
+  border-right-color: transparent;
   border-right-style: solid;
   border-top-right-radius: $button_radius;
   border-bottom-right-radius: $button_radius;
@@ -1037,6 +1041,8 @@ toolbar.inline-toolbar toolbutton {
 
 // .linked assumes Box, which reverses nodes in RTL, so 1st child is always left
 %linked {
+  border-left-color: $borders_color;
+  border-right-color: $borders_color;
   @extend %linked_middle;
 
   &:first-child { @extend %linked_left; }
@@ -1063,12 +1069,15 @@ toolbar.inline-toolbar toolbutton {
 }
 
 %linked_vertical_middle {
+  border-top-color: $borders_color;
+  border-bottom-color: $borders_color;
   border-style: solid solid none solid;
   border-radius: 0;
   -gtk-outline-radius: 0;
 }
 
 %linked_vertical_top {
+  border-top-color: transparent;
   border-top-left-radius: $button_radius;
   border-top-right-radius: $button_radius;
   -gtk-outline-top-left-radius: $button_radius;
@@ -1076,6 +1085,7 @@ toolbar.inline-toolbar toolbutton {
 }
 
 %linked_vertical_bottom {
+  border-bottom-color: transparent;
   border-bottom-style: solid;
   border-bottom-left-radius: $button_radius;
   border-bottom-right-radius: $button_radius;
@@ -1090,6 +1100,9 @@ toolbar.inline-toolbar toolbutton {
 }
 
 %linked_vertical {
+  border-top-color: $borders_color;
+  border-bottom-color: $borders_color;
+
   @extend %linked_vertical_middle;
 
   &:first-child { @extend %linked_vertical_top; }
@@ -1580,6 +1593,7 @@ headerbar {
   // Custom button styling
   button:not(.titlebutton) {
     background-color: transparent;
+    border-color: transparent;
     &:backdrop {
       border-color: transparent;
       background-color: transparent;
