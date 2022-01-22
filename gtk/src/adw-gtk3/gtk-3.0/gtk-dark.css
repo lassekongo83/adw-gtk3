@@ -2225,4 +2225,4 @@ button.suggested-action:checked, button.suggested-action:checked:hover, button.s
 
 .background.csd.unified .titlebar .horizontal.radio:active:backdrop, .background.csd.unified .titlebar .horizontal.radio:checked:backdrop { background: alpha(currentColor,0.09); }
 
-.background.csd.unified .titlebar .horizontal.radio label { padding-right: 20px; }
+.background.csd.unified .titlebar .horizontal.radio .wide { padding-right: 20px; }
