@@ -2227,12 +2227,12 @@ button.suggested-action:checked, button.suggested-action:checked:hover, button.s
 
 .gedit-search-slider { background-color: #ffffff; border-radius: 6px; }
 
-.background.csd.unified .titlebar .horizontal.radio { margin: 0; border-radius: 0; border: none; max-height: 46px; padding-top: 0px; padding-bottom: 0px; }
+.background.csd.unified .titlebar .radio { margin: 0; border-radius: 0; border: none; max-height: 46px; padding-top: 0px; padding-bottom: 0px; }
 
-.background.csd.unified .titlebar .horizontal.radio:backdrop { background-color: #fafafa; }
+.background.csd.unified .titlebar .radio:backdrop { background-color: #fafafa; }
 
-.background.csd.unified .titlebar .horizontal.radio:active, .background.csd.unified .titlebar .horizontal.radio:checked { background: alpha(currentColor,0.1); }
+.background.csd.unified .titlebar .radio:active, .background.csd.unified .titlebar .radio:checked { background: alpha(currentColor,0.1); }
 
-.background.csd.unified .titlebar .horizontal.radio:active:backdrop, .background.csd.unified .titlebar .horizontal.radio:checked:backdrop { background: alpha(currentColor,0.09); }
+.background.csd.unified .titlebar .radio:active:backdrop, .background.csd.unified .titlebar .radio:checked:backdrop { background: alpha(currentColor,0.09); }
 
-.background.csd.unified .titlebar .horizontal.radio .wide { padding-right: 20px; }
+.background.csd.unified .titlebar .radio .wide { padding-right: 20px; }
