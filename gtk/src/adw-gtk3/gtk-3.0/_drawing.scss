@@ -59,7 +59,7 @@
   @if $t==insensitive {
     color: $insensitive_fg_color;
     border-color: transparent;
-    background-color: $insensitive_bg_color;
+    background-color: $button_disabled_color;
     //box-shadow: $_entry_edge;
   }
   @if $t==backdrop {
@@ -308,7 +308,7 @@
     $_bc: if($variant == 'light', $_bg, _border_color($c));
 
     color: if($c != $bg_color, mix($tc, $_bg, 35%), $backdrop_insensitive_color);
-    border-color: if($c != $bg_color, $_bc, $backdrop_borders_color);
+    border-color: transparent;
     background-image: image($_bg);
     @include _shadows(inset 0 1px transparentize(white, 1), $_blank_edge);
   }

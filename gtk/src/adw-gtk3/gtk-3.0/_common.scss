@@ -2461,7 +2461,6 @@ notebook {
 
     > tabs > tab:checked {
       background-color: $base_color;
-      border-color: transparent;
     }
 
     &.top {
@@ -2920,7 +2919,7 @@ switch {
   &:disabled {
     color: $insensitive_fg_color;
     border-color: $borders_color;
-    background-color: $insensitive_bg_color;
+    background-color: $button_disabled_color;
     text-shadow: none;
   }
 
@@ -2933,15 +2932,15 @@ switch {
 
     &:checked {
       @if $variant == 'light' { color: $backdrop_bg_color; }
-      border-color: if($variant == 'light', $checkradio_borders_color,
-                                            $selected_borders_color);
-      background-color: $checkradio_bg_color;
+      //border-color: if($variant == 'light', $checkradio_borders_color,
+      //                                      $selected_borders_color);
+      background-color: transparentize($checkradio_bg_color, 0.2);
     }
 
     &:disabled {
       color: $backdrop_insensitive_color;
       border-color: $backdrop_borders_color;
-      background-color: $insensitive_bg_color;
+      background-color: $button_disabled_color;
     }
   }
 
@@ -2965,13 +2964,17 @@ switch {
 
   //&:checked > slider { border: 1px solid $checkradio_borders_color; }
 
-  &:disabled slider { @include button(insensitive); }
+  &:disabled slider {
+    //@include button(insensitive);
+    background-color: transparentize($base_color, 0.2);
+  }
 
   &:backdrop {
     slider {
       transition: $backdrop_transition;
 
-      @include button(backdrop);
+      //@include button(backdrop);
+      background-color: transparentize($base_color, 0.2);
     }
 
     &:checked > slider { border-color: $checkradio_borders_color; }
