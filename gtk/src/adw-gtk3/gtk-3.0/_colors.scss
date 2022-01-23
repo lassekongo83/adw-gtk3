@@ -109,3 +109,6 @@ $headerbar_border_color: if($variant == 'light', transparentize(black, .2), whit
 
 $card_bg_color: if($variant == 'light', #ffffff, transparentize(white, .92));
 $card_fg_color: if($variant == 'light', transparentize(black, .2), white);
+
+$shade_color: if($variant == 'light', transparentize(black, .93), transparentize(black, .64));
+$headerbar_shade_color: if($variant == 'light', transparentize(black, .93), transparentize(black, .64));
