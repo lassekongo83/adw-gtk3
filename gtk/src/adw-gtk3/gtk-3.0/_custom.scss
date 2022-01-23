@@ -14,10 +14,11 @@ window.csd.unified:not(.solid-csd):not(.fullscreen) {
 // Making lists more like libadwaita
 // May be a bit buggy
 .frame list.content {
-  background-color: $base_color;
+  background-color: $card_bg_color;
+  color: $card_fg_color;
   padding-top: 6px;
   padding-bottom: 6px;
-  border: 1px solid $borders_color;
+  @if $variant == 'light' { border: 1px solid $borders_color; }
   border-radius: $card_radius;
   box-shadow: 0 0 0 1px transparentize(black, 0.97),
               0 1px 3px 1px transparentize(black, .93),
