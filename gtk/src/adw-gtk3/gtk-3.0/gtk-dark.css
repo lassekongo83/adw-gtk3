@@ -1350,7 +1350,9 @@ scale slider:active { border-color: #0a2a51; }
 
 scale slider:disabled { color: white; outline-color: rgba(255, 255, 255, 0.3); border-color: transparent; background-color: alpha(currentColor,0.1); box-shadow: none; }
 
-scale slider:backdrop { transition: 200ms ease-out; }
+scale slider:backdrop { transition: 200ms ease-out; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); }
+
+scale slider:backdrop:disabled { box-shadow: none; }
 
 row:selected scale slider:disabled, row:selected scale slider { border-color: #0a2a51; }
 

@@ -1366,7 +1366,9 @@ scale slider:active { border-color: #134e94; }
 
 scale slider:disabled { color: rgba(0, 0, 0, 0.8); outline-color: rgba(0, 0, 0, 0.1); border-color: transparent; background-color: alpha(currentColor,0.1); box-shadow: none; }
 
-scale slider:backdrop { transition: 200ms ease-out; }
+scale slider:backdrop { transition: 200ms ease-out; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); }
+
+scale slider:backdrop:disabled { box-shadow: none; }
 
 row:selected scale slider:disabled, row:selected scale slider { border-color: #134e94; }
 

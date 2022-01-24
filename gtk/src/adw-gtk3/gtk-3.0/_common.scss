@@ -3402,10 +3402,14 @@ scale {
 
     &:backdrop {
       transition: $backdrop_transition;
+      box-shadow: 0 2px 4px transparentize(black, .92);
 
       //@include button(backdrop);
 
-      //&:disabled { @include button(backdrop-insensitive); }
+      &:disabled {
+        //@include button(backdrop-insensitive);
+        box-shadow: none;
+      }
     }
 
     // ...on selected list rows
