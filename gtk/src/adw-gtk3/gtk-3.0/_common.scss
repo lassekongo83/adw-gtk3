@@ -3403,9 +3403,9 @@ scale {
     &:backdrop {
       transition: $backdrop_transition;
 
-      @include button(backdrop);
+      //@include button(backdrop);
 
-      &:disabled { @include button(backdrop-insensitive); }
+      //&:disabled { @include button(backdrop-insensitive); }
     }
 
     // ...on selected list rows
@@ -4805,7 +4805,7 @@ decoration {
                 inset 0 0 0 4px $headerbar_color,
                 inset 0 0 0 1px $borders_color;
 
-    &:backdrop { box-shadow: inset 0 0 0 3px $backdrop_bg_color, inset 0 1px $top_hilight; }
+    &:backdrop { box-shadow: inset 0 0 0 3px $backdrop_bg_color; }
   }
 }
 
