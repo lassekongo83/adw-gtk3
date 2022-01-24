@@ -4731,14 +4731,11 @@ decoration {
 
   // this needs to be transparent
   // see bug #722563
-  $_wm_border: if($variant=='light', transparentize(black, 0.77), transparentize(white, 0.85));
-  $_wm_border_backdrop: if($variant=='light', transparentize(black, 0.82), transparentize(white, 0.9));
+  $_wm_border: if($variant=='light', transparentize(black, 0.95), transparentize(white, 0.9));
+  $_wm_border_backdrop: if($variant=='light', transparentize(black, 0.98), transparentize(white, 0.93));
 
-  box-shadow: 0 1px 3px 3px transparent,
-              0 2px 8px 2px transparentize(black, 0.87),
-              0 3px 20px 10px transparentize(black, 0.91),
-              0 6px 32px 16px transparentize(black, 0.96),
-              0 0 0 1px $_wm_border;
+  box-shadow: 0 3px 9px 1px transparentize(black, 0.5),
+              0 0 0 1px $_wm_border; //doing borders with box-shadow
 
   // FIXME rationalize shadows
 
@@ -4750,11 +4747,9 @@ decoration {
     // change when we go to backdrop, to prevent jumping windows.
     // The biggest shadow should be in the same order then in the active state
     // or the jumping will happen during the transition.
-    box-shadow: 0 1px 3px 3px transparentize(black, 0.91),
-                  0 2px 14px 5px transparentize(black, 0.95),
-                  0 4px 28px 12px transparentize(black, 0.97),
-                  0 6px 32px 16px transparent,
-                  0 0 0 1px $_wm_border_backdrop;
+    box-shadow: 0 3px 9px 1px transparent,
+                0 2px 6px 2px transparentize(black, 0.8),
+                0 0 0 1px $_wm_border_backdrop;
 
     transition: $backdrop_transition;
   }
