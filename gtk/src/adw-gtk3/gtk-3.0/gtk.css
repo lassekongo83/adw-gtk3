@@ -966,8 +966,6 @@ notebook > header.top > tabs > tab:not(.reorderable-page):hover { box-shadow: in
 
 notebook > header.top > tabs > tab:not(.reorderable-page):checked { box-shadow: inset -1px 0 #cfcfcf, inset 0 -4px #1c71d8; }
 
-notebook > header.top > tabs > tab:backdrop { box-shadow: none; }
-
 notebook > header.bottom { border-top-style: solid; }
 
 notebook > header.bottom > tabs { margin-top: 0px; }
@@ -977,8 +975,6 @@ notebook > header.bottom > tabs > tab { box-shadow: inset -1px 0 #cfcfcf; }
 notebook > header.bottom > tabs > tab:not(.reorderable-page):hover { box-shadow: inset -1px 0 #cfcfcf, inset 0 4px #cfcfcf; }
 
 notebook > header.bottom > tabs > tab:not(.reorderable-page):checked { box-shadow: inset -1px 0 #cfcfcf, inset 0 4px #1c71d8; }
-
-notebook > header.bottom > tabs > tab:backdrop { box-shadow: none; }
 
 notebook > header.left { border-right-style: solid; }
 
@@ -990,8 +986,6 @@ notebook > header.left > tabs > tab:not(.reorderable-page):hover { box-shadow: i
 
 notebook > header.left > tabs > tab:not(.reorderable-page):checked { box-shadow: inset 0 -1px #cfcfcf, inset -4px 0 #1c71d8; }
 
-notebook > header.left > tabs > tab:backdrop { box-shadow: none; }
-
 notebook > header.right { border-left-style: solid; }
 
 notebook > header.right > tabs { margin-left: 0px; }
@@ -1001,8 +995,6 @@ notebook > header.right > tabs > tab { box-shadow: inset 0 -1px #cfcfcf; }
 notebook > header.right > tabs > tab:not(.reorderable-page):hover { box-shadow: inset 0 -1px #cfcfcf, inset 4px 0 #cfcfcf; }
 
 notebook > header.right > tabs > tab:not(.reorderable-page):checked { box-shadow: inset 0 -1px #cfcfcf, inset 4px 0 #1c71d8; }
-
-notebook > header.right > tabs > tab:backdrop { box-shadow: none; }
 
 notebook > header.top > tabs > arrow { border-top-style: none; }
 

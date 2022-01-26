@@ -2465,7 +2465,7 @@ notebook {
     tabs { margin: 0px; }
 
     > tabs > tab:checked {
-      background-color: transparent;
+      background-color: if($variant == 'light', transparent, $base_color);
     }
 
     &.top {
@@ -2484,7 +2484,7 @@ notebook {
                         inset 0 -4px $selected_bg_color;
           }
 
-          &:backdrop { box-shadow: none; }
+          //&:backdrop { box-shadow: none; }
         }
       }
     }
@@ -2505,7 +2505,7 @@ notebook {
                         inset 0 4px $selected_bg_color;
           }
 
-          &:backdrop { box-shadow: none; }
+          //&:backdrop { box-shadow: none; }
         }
       }
     }
@@ -2526,7 +2526,7 @@ notebook {
                         inset -4px 0 $selected_bg_color;
           }
 
-          &:backdrop { box-shadow: none; }
+          //&:backdrop { box-shadow: none; }
         }
       }
     }
@@ -2547,7 +2547,7 @@ notebook {
                         inset 4px 0 $selected_bg_color;
           }
 
-          &:backdrop { box-shadow: none; }
+          //&:backdrop { box-shadow: none; }
         }
       }
     }
