@@ -528,14 +528,14 @@
 
   @if $t==normal  {
     background-clip: if($checked, border-box, padding-box);
-    background-image: linear-gradient(to bottom, lighten($c, 5%) 20%, $c 90%);
+    background-image: linear-gradient(to bottom, $c, $c);
     border-color: $_border_color;
     box-shadow: 0 1px transparentize(black, 0.95);
     color: $tc;
   }
 
   @if $t==hover {
-    background-image: if($c == white, image(darken($c, 5%)), linear-gradient(to bottom, lighten($c, 9%) 10%, lighten($c, 4%) 90%));
+    background-image: if($c == white, image(darken($c, 5%)), linear-gradient(to bottom, lighten($c, 9%), lighten($c, 9%)));
   }
 
   @if $t==active {
