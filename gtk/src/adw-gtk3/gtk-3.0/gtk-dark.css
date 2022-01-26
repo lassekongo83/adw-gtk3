@@ -476,7 +476,7 @@ stacksidebar row.needs-attention > label:dir(rtl), .stack-switcher > button.need
 /* menu buttons */
 modelbutton.flat, .menuitem.button.flat { min-height: 26px; padding-left: 5px; padding-right: 5px; border-radius: 6px; outline-offset: -2px; }
 
-modelbutton.flat:hover, .menuitem.button.flat:hover { background-color: #313131; }
+modelbutton.flat:hover, .menuitem.button.flat:hover { background-color: alpha(currentColor,0.13); }
 
 modelbutton.flat arrow { background: none; }
 
@@ -870,7 +870,7 @@ menubar .csd.popup decoration, .menubar .csd.popup decoration { border-radius: 0
 
 .background.popup { background-color: transparent; }
 
-menu, .menu, .context-menu { margin: 4px; padding: 4px 0px; background-color: #1f1f1f; border: 1px solid #494949; }
+menu, .menu, .context-menu { margin: 4px; padding: 4px 0px; background-color: #313131; border: 1px solid #494949; }
 
 .csd menu, .csd .menu, .csd .context-menu { border: none; border-radius: 6px; }
 
@@ -878,7 +878,7 @@ menu:backdrop, .menu:backdrop, .context-menu:backdrop { background-color: #21212
 
 menu menuitem, .menu menuitem, .context-menu menuitem { min-height: 16px; min-width: 40px; padding: 4px 6px; text-shadow: none; }
 
-menu menuitem:hover, .menu menuitem:hover, .context-menu menuitem:hover { color: #ffffff; background-color: #1c71d8; }
+menu menuitem:hover, .menu menuitem:hover, .context-menu menuitem:hover { background-color: alpha(currentColor,0.13); }
 
 menu menuitem:disabled, .menu menuitem:disabled, .context-menu menuitem:disabled { color: #929292; }
 
@@ -894,7 +894,7 @@ menu menuitem arrow:dir(rtl), .menu menuitem arrow:dir(rtl), .context-menu menui
 
 menu menuitem label:dir(rtl), menu menuitem label:dir(ltr), .menu menuitem label:dir(rtl), .menu menuitem label:dir(ltr), .context-menu menuitem label:dir(rtl), .context-menu menuitem label:dir(ltr) { color: inherit; }
 
-menu > arrow, .menu > arrow, .context-menu > arrow { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; min-height: 16px; min-width: 16px; padding: 4px; background-color: #1f1f1f; border-radius: 0; }
+menu > arrow, .menu > arrow, .context-menu > arrow { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; min-height: 16px; min-width: 16px; padding: 4px; background-color: #313131; border-radius: 0; }
 
 menu > arrow.top, .menu > arrow.top, .context-menu > arrow.top { margin-top: -4px; border-bottom: 1px solid #353535; border-top-right-radius: 6px; border-top-left-radius: 6px; -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
 
@@ -915,7 +915,7 @@ menuitem check:dir(ltr), menuitem radio:dir(ltr) { margin-right: 7px; }
 menuitem check:dir(rtl), menuitem radio:dir(rtl) { margin-left: 7px; }
 
 /*************** Popovers   * */
-popover.background { padding: 2px; background-color: #242424; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
+popover.background { padding: 2px; background-color: #313131; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
 
 .csd popover.background, popover.background { border: 1px solid #494949; border-radius: 12px; }
 
@@ -2087,7 +2087,7 @@ popover.emoji-completion arrow { border: none; background: none; }
 
 popover.emoji-completion contents row box { padding: 2px 10px; }
 
-popover.emoji-completion .emoji:hover { background: #313131; }
+popover.emoji-completion .emoji:hover { background: alpha(currentColor,0.13); }
 
 /* GTK NAMED COLORS ---------------- use responsibly! */
 /*

@@ -2302,8 +2302,8 @@ menu,
     text-shadow: none;
 
     &:hover {
-      color: $selected_fg_color;
-      background-color: $selected_bg_color;
+      //color: $selected_fg_color;
+      background-color: $view_selected_hover_color;
     }
 
     &:disabled {
