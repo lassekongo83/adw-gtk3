@@ -948,6 +948,8 @@ notebook > header tabs { margin: 0px; }
 
 notebook > header > tabs > tab:checked { background-color: #1e1e1e; }
 
+notebook > header > tabs > tab:not(:checked) { color: rgba(255, 255, 255, 0.6); }
+
 notebook > header.top { border-bottom-style: solid; }
 
 notebook > header.top > tabs { margin-bottom: 0px; }

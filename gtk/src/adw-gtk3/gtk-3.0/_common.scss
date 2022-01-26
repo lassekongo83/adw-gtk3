@@ -2464,8 +2464,13 @@ notebook {
 
     tabs { margin: 0px; }
 
-    > tabs > tab:checked {
-      background-color: if($variant == 'light', transparent, $base_color);
+    > tabs > tab {
+      &:checked {
+        background-color: if($variant == 'light', transparent, $base_color);
+      }
+      &:not(:checked) {
+        color: transparentize($fg_color, 0.4);
+      }
     }
 
     &.top {
