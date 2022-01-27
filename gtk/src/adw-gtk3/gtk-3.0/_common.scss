@@ -1833,7 +1833,7 @@ headerbar {
       min-height: 24px;
       min-width: 24px;
       margin: 0;
-      padding: 0;
+      padding: 0 4px;
       > image {
           background-color: $button_color;
           border-radius: 100%;
@@ -1912,14 +1912,14 @@ headerbar {
 headerbar { // headerbar border rounding
 
   window separator:first-child + &,
-  window &:first-child { &:backdrop, & { border-top-left-radius: 7px; }}
-  window &:last-child { &:backdrop, & { border-top-right-radius: 7px; }}
+  window &:first-child { &:backdrop, & { border-top-left-radius: $window_radius; }}
+  window &:last-child { &:backdrop, & { border-top-right-radius: $window_radius; }}
 
   window stack & { // tackles the stacked headerbars case
     &:first-child, &:last-child {
       &:backdrop, & {
-        border-top-left-radius: 7px;
-        border-top-right-radius: 7px;
+        border-top-left-radius: $window_radius;
+        border-top-right-radius: $window_radius;
       }
     }
   }
@@ -4827,7 +4827,7 @@ button.titlebutton {
   //@include _button_text_shadow;
 
   border-spacing: 3px;
-  padding: 5px;
+  padding: 2px;
   margin: 0;
   box-shadow: none;
   border: none;
@@ -4848,7 +4848,7 @@ button.titlebutton {
 
   &:not(.appmenu) {
     border-radius: 9999px;
-    padding: $_hb_btn_pad;
+    padding: 2px; //$_hb_btn_pad;
     margin: 0 2px;
     min-width: 0;
     min-height: 0;
