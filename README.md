@@ -3,6 +3,8 @@ The default theme from libadwaita ported to GTK-3
 
 Note that this is not a 100% accurate port.
 
+![adw-gtk3](screenshot.png?raw=true)
+
 ### Requirements
 
 - GTK 3.24.13+
@@ -29,7 +31,7 @@ The theme(s) will be installed in: `/usr/share/themes/`
 
 ### Local installation
 
-Install the theme(s) locally if you for some reason can't run as a sudo user.
+Install the theme(s) locally if you for some reason can't run as a sudo user. Fedora Silverblue users should use this install option.
 
 ```bash
 git clone https://github.com/lassekongo83/adw-gtk3.git
@@ -59,7 +61,7 @@ mv ~/.themes/usr/share/themes/* ~/.themes
 rm -r ~/.themes/usr
 ```
 
-#### Changing themes
+## Changing themes
 
 Use `gnome-tweaks` to change themes.
 
