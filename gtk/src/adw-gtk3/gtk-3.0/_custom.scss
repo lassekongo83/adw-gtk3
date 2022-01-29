@@ -313,3 +313,10 @@ $disk_space_free: #eeeeec;
   }
 }
 
+// gnome-tweaks
+list.tweak-categories separator {
+  background: transparent;
+  &.horizontal {
+    margin: 2px;
+  }
+}

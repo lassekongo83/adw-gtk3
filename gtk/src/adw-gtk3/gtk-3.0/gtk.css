@@ -2290,3 +2290,7 @@ button.suggested-action:checked, button.suggested-action:checked:hover, button.s
 .background.csd.unified .titlebar .radio:active:backdrop, .background.csd.unified .titlebar .radio:checked:backdrop { background: alpha(currentColor,0.09); }
 
 .background.csd.unified .titlebar .radio .wide { padding-right: 20px; }
+
+list.tweak-categories separator { background: transparent; }
+
+list.tweak-categories separator.horizontal { margin: 2px; }
