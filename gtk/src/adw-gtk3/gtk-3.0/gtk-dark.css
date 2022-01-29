@@ -2275,6 +2275,4 @@ button.suggested-action:checked, button.suggested-action:checked:hover, button.s
 
 .background.csd.unified .titlebar .radio .wide { padding-right: 20px; }
 
-list.tweak-categories separator { background: transparent; }
-
-list.tweak-categories separator.horizontal { margin: 2px; }
+list.tweak-categories separator.horizontal { background: transparent; margin: 2px 0; }
