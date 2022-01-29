@@ -631,7 +631,7 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 .inline-toolbar:backdrop, searchbar > revealer > box:backdrop, .location-bar:backdrop { border-color: #424242; background-color: #2f2f2f; box-shadow: none; transition: 200ms ease-out; }
 
 /*************** Header bars * */
-.titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 46px; border-width: 0 0 1px; border-style: solid; border-color: #494949; border-radius: 0; background: #303030; /* Darken switchbuttons for headerbars. issue #1588 */ /* hide the close button separator */ }
+.titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 47px; border-width: 0 0 1px; border-style: solid; border-color: #494949; border-radius: 0; background: #303030; /* Darken switchbuttons for headerbars. issue #1588 */ /* hide the close button separator */ }
 
 .titlebar:not(headerbar) button:not(.titlebutton), headerbar button:not(.titlebutton) { background-color: transparent; border-color: transparent; }
 
@@ -653,7 +653,7 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 
 .titlebar:not(headerbar) .linked > button, headerbar .linked > button { border-radius: 6px; }
 
-.titlebar:not(headerbar) > .stack-switcher .text-button, headerbar > .stack-switcher .text-button { margin: 0; border-radius: 0; border: none; min-height: 46px; padding-top: 1px; padding-bottom: 1px; }
+.titlebar:not(headerbar) > .stack-switcher .text-button, headerbar > .stack-switcher .text-button { margin: 0; border-radius: 0; border: none; min-height: 47px; padding-top: 1px; padding-bottom: 1px; }
 
 .titlebar:not(headerbar) > .stack-switcher .text-button:backdrop, headerbar > .stack-switcher .text-button:backdrop { background-color: #242424; }
 
@@ -737,7 +737,7 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 
 .solid-csd .titlebar:dir(rtl):not(headerbar), .solid-csd .titlebar:dir(ltr):not(headerbar), .solid-csd headerbar:backdrop:dir(rtl), .solid-csd headerbar:backdrop:dir(ltr), .solid-csd headerbar:dir(rtl), .solid-csd headerbar:dir(ltr) { margin-left: -1px; margin-right: -1px; margin-top: -1px; border-radius: 0; box-shadow: none; }
 
-headerbar entry, headerbar spinbutton, headerbar separator:not(.sidebar), headerbar button { margin-top: 6px; margin-bottom: 6px; }
+headerbar entry, headerbar spinbutton, headerbar separator:not(.sidebar), headerbar button { margin-top: 5px; margin-bottom: 5px; }
 
 headerbar switch { margin-top: 10px; margin-bottom: 10px; }
 
@@ -2227,7 +2227,7 @@ button.suggested-action:checked, button.suggested-action:checked:hover, button.s
 
 .gedit-search-slider { background-color: #1e1e1e; border-radius: 6px; }
 
-.background.csd.unified .titlebar .radio { margin: 0; border-radius: 0; border: none; max-height: 46px; padding-top: 0px; padding-bottom: 0px; }
+.background.csd.unified .titlebar .radio { margin: 0; border-radius: 0; border: none; max-height: 47px; padding-top: 0px; padding-bottom: 0px; }
 
 .background.csd.unified .titlebar .radio:backdrop { background-color: #242424; }
 
