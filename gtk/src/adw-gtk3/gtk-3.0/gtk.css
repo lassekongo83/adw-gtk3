@@ -1678,7 +1678,11 @@ row.activatable:selected:backdrop { background-color: alpha(currentColor,0.07); 
 
 row:selected { background-color: alpha(currentColor,0.1); }
 
+scrolledwindow list:not(.content) { margin: 6px 0; }
+
 scrolledwindow list row { margin: 0 6px; border-radius: 6px; }
+
+scrolledwindow list separator.horizontal { margin: 6px; }
 
 /********************* App Notifications * */
 .app-notification, .app-notification.frame { padding: 10px; border-radius: 0 0 5px 5px; background-color: rgba(53, 53, 53, 0.9); background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent 2px); background-clip: padding-box; }
@@ -2187,9 +2191,43 @@ read if you used those and something break with a version upgrade you're on your
 @define-color text_view_bg #ffffff;
 window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized), window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) > decoration, window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) > decoration-overlay { border-radius: 12px; }
 
-.frame list.content { background-color: #ffffff; color: rgba(0, 0, 0, 0.8); padding-top: 6px; padding-bottom: 6px; border: 1px solid #cfcfcf; border-radius: 12px; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 1px 3px 1px rgba(0, 0, 0, 0.07), 0 2px 6px 2px rgba(0, 0, 0, 0.03); }
+list.content { background-color: #ffffff; color: rgba(0, 0, 0, 0.8); padding-top: 6px; padding-bottom: 6px; border: 1px solid #cfcfcf; border-radius: 12px; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 1px 3px 1px rgba(0, 0, 0, 0.07), 0 2px 6px 2px rgba(0, 0, 0, 0.03); }
 
 .sidebar list.content { box-shadow: none; border: none; border-radius: 0; }
+
+popover.combo { padding: 0px; }
+
+popover.combo list { border-style: none; background-color: transparent; min-width: 200px; margin-top: 6px; margin-bottom: 6px; }
+
+popover.combo list > row { padding: 0px 8px 0px 8px; min-height: 50px; }
+
+popover.combo list > row:not(:last-child) { border-bottom: 1px solid alpha(#cfcfcf, 0.5); }
+
+popover.combo list > row:first-child { border-top-left-radius: 8px; -gtk-outline-top-left-radius: 7px; border-top-right-radius: 8px; -gtk-outline-top-right-radius: 7px; }
+
+popover.combo list > row:last-child { border-bottom-left-radius: 8px; -gtk-outline-bottom-left-radius: 7px; border-bottom-right-radius: 8px; -gtk-outline-bottom-right-radius: 7px; }
+
+popover.combo overshoot.top { border-top-left-radius: 8px; -gtk-outline-top-left-radius: 7px; border-top-right-radius: 8px; -gtk-outline-top-right-radius: 7px; }
+
+popover.combo overshoot.bottom { border-bottom-left-radius: 8px; -gtk-outline-bottom-left-radius: 7px; border-bottom-right-radius: 8px; -gtk-outline-bottom-right-radius: 7px; }
+
+popover.combo scrollbar.vertical { padding-top: 2px; padding-bottom: 2px; }
+
+popover.combo scrollbar.vertical:dir(ltr) { border-top-right-radius: 8px; -gtk-outline-top-right-radius: 7px; border-bottom-right-radius: 8px; -gtk-outline-bottom-right-radius: 7px; }
+
+popover.combo scrollbar.vertical:dir(rtl) { border-top-left-radius: 8px; -gtk-outline-top-left-radius: 7px; border-bottom-left-radius: 8px; -gtk-outline-bottom-left-radius: 7px; }
+
+row.expander { padding: 0px; }
+
+row.expander image.expander-row-arrow:dir(ltr) { margin-left: 6px; }
+
+row.expander image.expander-row-arrow:dir(rtl) { margin-right: 6px; }
+
+keypad .digit { font-size: 200%; font-weight: bold; }
+
+keypad .letters { font-size: 70%; }
+
+keypad .symbol { font-size: 160%; }
 
 button.destructive-action { background-color: #e01b24; }
 
@@ -2217,29 +2255,29 @@ button.suggested-action:checked, button.suggested-action:checked:hover, button.s
 
 .nautilus-window .search + .toggle:active, .nautilus-window .search + .toggle:checked { background-color: alpha(currentColor,0.3); }
 
-.nautilus-window .floating-bar { padding: 3px; background-color: #ffffff; border-width: 1px; border-style: solid solid none; border-color: #cfcfcf; border-radius: 8px 0 0 0; }
+.floating-bar { padding: 3px; background-color: #ffffff; border-width: 1px; border-style: solid solid none; border-color: #cfcfcf; border-radius: 8px 0 0 0; }
 
-.nautilus-window .floating-bar.bottom.left { border-left-style: none; border-top-left-radius: 0; }
+.floating-bar.bottom.left { border-left-style: none; border-top-left-radius: 0; }
 
-.nautilus-window .floating-bar.bottom.right { border-right-style: none; border-top-right-radius: 0; }
+.floating-bar.bottom.right { border-right-style: none; border-top-right-radius: 0; }
 
-.nautilus-window .floating-bar:backdrop { background-color: #ffffff; border-color: #d8d8d8; }
+.floating-bar:backdrop { background-color: #ffffff; border-color: #d8d8d8; }
 
-.nautilus-window .floating-bar button { padding: 0px; }
+.floating-bar button { padding: 0px; }
 
-.nautilus-window .disk-space-display { border-style: solid; border-width: 2px; }
+.disk-space-display { border-style: solid; border-width: 2px; }
 
-.nautilus-window .disk-space-display.unknown { background-color: #888a85; border-color: shade(#888a85, 0.7); color: #888a85; }
+.disk-space-display.unknown { background-color: #888a85; border-color: shade(#888a85, 0.7); color: #888a85; }
 
-.nautilus-window .disk-space-display.unknown.border { color: shade(#888a85, 0.7); }
+.disk-space-display.unknown.border { color: shade(#888a85, 0.7); }
 
-.nautilus-window .disk-space-display.used { background-color: #729fcf; border-color: shade(#729fcf, 0.7); color: #729fcf; }
+.disk-space-display.used { background-color: #729fcf; border-color: shade(#729fcf, 0.7); color: #729fcf; }
 
-.nautilus-window .disk-space-display.used.border { color: shade(#729fcf, 0.7); }
+.disk-space-display.used.border { color: shade(#729fcf, 0.7); }
 
-.nautilus-window .disk-space-display.free { background-color: #eeeeec; border-color: shade(#eeeeec, 0.7); color: #eeeeec; }
+.disk-space-display.free { background-color: #eeeeec; border-color: shade(#eeeeec, 0.7); color: #eeeeec; }
 
-.nautilus-window .disk-space-display.free.border { color: shade(#eeeeec, 0.7); }
+.disk-space-display.free.border { color: shade(#eeeeec, 0.7); }
 
 .gedit-search-slider { background-color: #ffffff; border-radius: 6px; }
 

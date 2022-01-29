@@ -4026,15 +4026,17 @@ row {
 }
 
 // Custom styles for list rows
-scrolledwindow list row {
-  margin: 0 6px;
-  border-radius: $button_radius;
-  //&:selected { // FIXME: See if a focus-ring can be implemented instead
-  //  box-shadow: inset 0 0 0 2px $selected_bg_color;
-  //  &:backdrop {
-  //    box-shadow: inset 0 0 0 2px $borders_color;
-  //  }
-  //}
+scrolledwindow list {
+  &:not(.content) {
+    margin: 6px 0;
+  }
+  row {
+    margin: 0 6px;
+    border-radius: $button_radius;
+  }
+  separator.horizontal {
+    margin: 6px;
+  }
 }
 
 /*********************
