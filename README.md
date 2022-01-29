@@ -1,5 +1,5 @@
 # adw-gtk3
-The default theme from libadwaita ported to GTK-3
+The default theme from [libadwaita](https://gnome.pages.gitlab.gnome.org/libadwaita/) ported to GTK-3
 
 Note that this is not a 100% accurate port.
 

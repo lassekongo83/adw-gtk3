@@ -1,4 +1,4 @@
-// Functions and mixins for Hdy
+// Functions and mixins for Hdy (Taken from Yaru)
 @function hdyalpha($c, $a) {
   @return unquote("alpha(#{$c}, #{$a})");
 }
