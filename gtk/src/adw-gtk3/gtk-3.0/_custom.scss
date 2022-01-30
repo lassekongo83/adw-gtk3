@@ -83,7 +83,7 @@ window.csd.unified:not(.solid-csd):not(.fullscreen) {
     margin: 0 4px 0 4px;
     padding: 0;
     &:hover { background-color: $button_hover_color; }
-    &:hover:active { background-color: $button_active_color; }
+    &:hover:active, &:active { background-color: $button_active_color; }
   }
 }
 
