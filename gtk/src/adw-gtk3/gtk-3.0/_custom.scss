@@ -71,6 +71,22 @@ window.csd.unified:not(.solid-csd):not(.fullscreen) {
   }
 }
 
+// Legacy application titlebuttons
+.ssd .titlebar {
+  border-width: 0;
+  padding: 2px 4px;
+
+  &.default-decoration button.titlebutton {
+    background-color: $button_color;
+    min-height: 24px;
+    min-width: 24px;
+    margin: 0 4px 0 4px;
+    padding: 0;
+    &:hover { background-color: $button_hover_color; }
+    &:hover:active { background-color: $button_active_color; }
+  }
+}
+
 // Lists (or "cards")
 // Making lists more like libadwaita
 list.content {
