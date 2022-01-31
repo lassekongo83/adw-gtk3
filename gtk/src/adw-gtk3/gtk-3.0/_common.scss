@@ -4028,7 +4028,7 @@ row {
 // Custom styles for list rows
 scrolledwindow list {
   &:not(.content) {
-    margin: 6px 0;
+    padding: 6px 0;
   }
   row {
     margin: 0 6px;

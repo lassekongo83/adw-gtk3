@@ -1678,7 +1678,7 @@ row.activatable:selected:backdrop { background-color: alpha(currentColor,0.07); 
 
 row:selected { background-color: alpha(currentColor,0.1); }
 
-scrolledwindow list:not(.content) { margin: 6px 0; }
+scrolledwindow list:not(.content) { padding: 6px 0; }
 
 scrolledwindow list row { margin: 0 6px; border-radius: 6px; }
 
