@@ -639,7 +639,7 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 .inline-toolbar:backdrop, searchbar > revealer > box:backdrop, .location-bar:backdrop { border-color: #d8d8d8; background-color: #eeeeee; box-shadow: none; transition: 200ms ease-out; }
 
 /*************** Header bars * */
-.titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 47px; border-width: 0 0 1px; border-style: solid; border-color: #cfcfcf; border-radius: 0; background: #ebebeb; /* Darken switchbuttons for headerbars. issue #1588 */ /* hide the close button separator */ }
+.titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 46px; border-width: 0 0 1px; border-style: solid; border-color: #cfcfcf; border-radius: 0; background: #ebebeb; /* Darken switchbuttons for headerbars. issue #1588 */ /* hide the close button separator */ }
 
 .titlebar:not(headerbar) button:not(.titlebutton), headerbar button:not(.titlebutton) { background-color: transparent; border-color: transparent; }
 
@@ -661,7 +661,7 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 
 .titlebar:not(headerbar) .linked > button, headerbar .linked > button { border-radius: 6px; }
 
-.titlebar:not(headerbar) > .stack-switcher .text-button, headerbar > .stack-switcher .text-button { margin: 0; border-radius: 0; border: none; min-height: 47px; padding-top: 1px; padding-bottom: 1px; }
+.titlebar:not(headerbar) > .stack-switcher .text-button, headerbar > .stack-switcher .text-button { margin: 0; border-radius: 0; border: none; min-height: 46px; padding-top: 1px; padding-bottom: 1px; }
 
 .titlebar:not(headerbar) > .stack-switcher .text-button:backdrop, headerbar > .stack-switcher .text-button:backdrop { background-color: #fafafa; }
 
@@ -2289,7 +2289,7 @@ button.suggested-action:checked, button.suggested-action:checked:hover, button.s
 
 .gedit-search-slider { background-color: #ffffff; border-radius: 6px; }
 
-.background.csd.unified .titlebar .radio { margin: 0; border-radius: 0; border: none; max-height: 47px; padding-top: 0px; padding-bottom: 0px; }
+.background.csd.unified .titlebar .radio { margin: 0; border-radius: 0; border: none; max-height: 46px; padding-top: 0px; padding-bottom: 0px; }
 
 .background.csd.unified .titlebar .radio:backdrop { background-color: #fafafa; }
 
