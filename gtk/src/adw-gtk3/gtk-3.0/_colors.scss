@@ -16,15 +16,15 @@ $link_color: if($variant == 'light', darken($selected_bg_color, 10%), lighten($s
 $link_visited_color: if($variant == 'light', darken($selected_bg_color, 20%), lighten($selected_bg_color, 10%));
 $top_hilight: $borders_edge;
 $dark_fill: mix($borders_color, $bg_color, 50%);
-$headerbar_color: if($variant == 'light', #ebebeb, #303030);
+$headerbar_color: if($variant == 'light', darken($bg_color, 6%), lighten($bg_color, 4.7%)); //if($variant == 'light', #ebebeb, #303030);
 $menu_color: if($variant == 'light', $base_color, lighten($bg_color, 5%));
 $popover_bg_color: $menu_color;
-$popover_hover_color: gtkalpha(currentColor, .13);
+$popover_hover_color: if($variant == 'light', darken($menu_color, 13%), lighten($menu_color, 13%)); //gtkalpha(currentColor, .13);
 
 $scrollbar_bg_color: $base_color;
-$scrollbar_slider_color: gtkalpha(currentColor, .2);
-$scrollbar_slider_hover_color: gtkalpha(currentColor, .4);
-$scrollbar_slider_active_color: gtkalpha(currentColor, .6);
+$scrollbar_slider_color: if($variant == 'light', darken($scrollbar_bg_color, 20%), lighten($scrollbar_bg_color, 20%)); //gtkalpha(currentColor, .2);
+$scrollbar_slider_hover_color: if($variant == 'light', darken($scrollbar_bg_color, 40%), lighten($scrollbar_bg_color, 40%)); //gtkalpha(currentColor, .4);
+$scrollbar_slider_active_color: if($variant == 'light', darken($scrollbar_bg_color, 60%), lighten($scrollbar_bg_color, 60%)); //gtkalpha(currentColor, .6);
 
 $warning_color: if($variant == 'dark', #cd9309, $yellow_5);
 $error_color: if($variant == 'dark', $red_4, $red_3);
@@ -76,28 +76,46 @@ $checkradio_bg_color: if($variant == 'light', $selected_bg_color, lighten($selec
 $checkradio_fg_color: $selected_fg_color;
 $checkradio_borders_color: if($variant == 'light', darken($checkradio_bg_color,20%), darken($checkradio_bg_color,40%));
 
-// Button colors from libadwaita
-// FIXME Backdrop and disabled buttons are not yet 100% accurate
-$button_color: gtkalpha(currentColor, .1);
-$button_hover_color: gtkalpha(currentColor, .15);
-$button_active_color: gtkalpha(currentColor, .3);
-$button_checked_color: gtkalpha(currentColor, .3);
-$button_checked_hover_color: gtkalpha(currentColor, .35);
-$button_checked_active_color: gtkalpha(currentColor, .4);
-$button_backdrop_color: gtkalpha(currentColor, .09);
-$button_disabled_color: gtkalpha(currentColor, .09);
-$button_disabled_checked_color: gtkalpha(currentColor, .28);
+// Button colors from libadwaita (Maybe not 100% accurate)
+// FIXME Backdrop and disabled buttons are not yet accurate
+$button_color: if($variant == 'light', darken($bg_color, 10%), lighten($bg_color, 10%)); //gtkalpha(currentColor, .1);
+$button_hover_color: if($variant == 'light', darken($bg_color, 15%), lighten($bg_color, 15%)); //gtkalpha(currentColor, .15);
+$button_active_color: if($variant == 'light', darken($bg_color, 30%), lighten($bg_color, 30%)); //gtkalpha(currentColor, .3);
+$button_checked_color: $button_active_color; //gtkalpha(currentColor, .3);
+$button_checked_hover_color: if($variant == 'light', darken($bg_color, 35%), lighten($bg_color, 35%)); //gtkalpha(currentColor, .35);
+$button_checked_active_color: if($variant == 'light', darken($bg_color, 40%), lighten($bg_color, 40%)); //gtkalpha(currentColor, .4);
+$button_backdrop_color: if($variant == 'light', darken($bg_color, 5%), lighten($bg_color, 5%)); //gtkalpha(currentColor, .09);
+$button_disabled_color: $button_backdrop_color; //gtkalpha(currentColor, .09);
+$button_disabled_checked_color: if($variant == 'light', darken($bg_color, 24%), lighten($bg_color, 24%)); //gtkalpha(currentColor, .28);
+
+// headerbar buttons
+$hb_button_color: if($variant == 'light', darken($headerbar_color, 7%), lighten($headerbar_color, 8%));
+$hb_button_hover_color: if($variant == 'light', darken($headerbar_color, 5%),  lighten($headerbar_color, 5.7%));
+$hb_button_active_color: if($variant == 'light', darken($headerbar_color, 11.3%),  lighten($headerbar_color, 12.7%));
+$hb_button_checked_color: $hb_button_active_color;
+$hb_button_checked_hover_color: $hb_button_active_color;
+$hb_button_checked_active_color: $hb_button_active_color;
+$hb_button_backdrop_color: if($variant == 'light', darken($bg_color, 4%),  lighten($bg_color, 4.3%));
+$hb_button_disabled_color: $hb_button_backdrop_color;
+$hb_button_disabled_checked_color: $button_disabled_checked_color; // FIXME
+
+// titlebuttons
+$titlebutton_normal: if($variant == 'light', darken($headerbar_color, 7%),  lighten($headerbar_color, 8%));
+$titlebutton_normal_hover: if($variant == 'light', darken($headerbar_color, 11%),  lighten($headerbar_color, 12%));
+$titlebutton_normal_active: if($variant == 'light', darken($headerbar_color, 22%),  lighten($headerbar_color, 24.3%));
+$titlebutton_backdrop: if($variant == 'light', darken($bg_color, 4%),  lighten($bg_color, 4.3%));
+$titlebutton_backdrop_hover: if($variant == 'light', darken($bg_color, 5.7%), lighten($bg_color, 6.3%));
 
 // Other colors from libadwaita
-$view_hover_color: gtkalpha(currentColor, .07);
-$view_active_color: gtkalpha(currentColor, .16);
-$view_selected_color: gtkalpha(currentColor, .1);
-$view_selected_hover_color: gtkalpha(currentColor, .13);
-$view_selected_active_color: gtkalpha(currentColor, .19);
+$view_hover_color: if($variant == 'light', darken($base_color, 7%), lighten($base_color, 7%)); //gtkalpha(currentColor, .07);
+$view_active_color: if($variant == 'light', darken($base_color, 16%), lighten($base_color, 16%)); //gtkalpha(currentColor, .16);
+$view_selected_color: if($variant == 'light', darken($base_color, 10%), lighten($base_color, 10%)); //gtkalpha(currentColor, .1);
+$view_selected_hover_color: if($variant == 'light', darken($base_color, 13%), lighten($base_color, 13%)); //gtkalpha(currentColor, .13);
+$view_selected_active_color: if($variant == 'light', darken($base_color, 19%), lighten($base_color, 19%)); //gtkalpha(currentColor, .19);
 
-$trough_color: gtkalpha(currentColor, .15);
-$trough_hover_color: gtkalpha(currentColor, .2);
-$trough_active_color: gtkalpha(currentColor, .25);
+$trough_color: if($variant == 'light', darken($bg_color, 15%), lighten($bg_color, 15%)); //gtkalpha(currentColor, .15);
+$trough_hover_color: if($variant == 'light', darken($bg_color, 20%), lighten($bg_color, 20%)); //gtkalpha(currentColor, .2);
+$trough_active_color: if($variant == 'light', darken($bg_color, 25%), lighten($bg_color, 25%)); //gtkalpha(currentColor, .25);
 
 $fill_color: $selected_bg_color;
 $fill_text_color: $selected_fg_color;
@@ -105,10 +123,12 @@ $fill_text_color: $selected_fg_color;
 $slider_color: gtkmix(white, $base_color, 80%);
 $slider_hover_color: white;
 
-$headerbar_border_color: if($variant == 'light', transparentize(black, .2), white);
+// "Cards" or content list views
+$card_bg_color: if($variant == 'light', #ffffff, #353535);
+$card_fg_color: if($variant == 'light', $fg_color, white);
 
-$card_bg_color: if($variant == 'light', #ffffff, transparentize(white, .92));
-$card_fg_color: if($variant == 'light', transparentize(black, .2), white);
-
-$shade_color: if($variant == 'light', transparentize(black, .93), transparentize(black, .64));
-$headerbar_shade_color: if($variant == 'light', transparentize(black, .93), transparentize(black, .64));
+// Notebook and tabs
+// FIXME: Use sass shades
+$notebook_color: if($variant == 'light', $base_color, #303030);
+$shade_color: if($variant == 'light', #e1e1e1, #262626);
+$active_tab_color: if($variant == 'light', #ebebeb, #303030);

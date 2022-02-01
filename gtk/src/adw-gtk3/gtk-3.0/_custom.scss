@@ -75,15 +75,18 @@ window.csd.unified:not(.solid-csd):not(.fullscreen) {
 .ssd .titlebar {
   border-width: 0;
   padding: 2px 4px;
+  @include headerbar_fill;
 
   &.default-decoration button.titlebutton {
-    background-color: $button_color;
+    background-color: $titlebutton_normal;
     min-height: 24px;
     min-width: 24px;
     margin: 0 4px 0 4px;
     padding: 0;
-    &:hover { background-color: $button_hover_color; }
-    &:hover:active, &:active { background-color: $button_active_color; }
+    &:hover { background-color: $titlebutton_normal_hover; }
+    &:hover:active, &:active { background-color: $titlebutton_normal_active; }
+    &:backdrop { background: $titlebutton_backdrop; }
+    &:backdrop:hover { background: $titlebutton_backdrop_hover; }
   }
 }
 
@@ -212,7 +215,7 @@ button {
   .path-bar-box {
     border-radius: $button_radius;
     border: none;
-    background-color: $button_color;
+    background-color: $hb_button_color;
     padding-right: 6px;
   }
 
@@ -231,10 +234,10 @@ button {
   }
 
   .search + .toggle {
-    background-color: $button_color;
+    background-color: $hb_button_color;
     border-radius: 0 $button_radius $button_radius 0;
-    &:hover { background-color: $button_hover_color; }
-    &:active, &:checked { background-color: $button_checked_color; }
+    &:hover { background-color: $hb_button_hover_color; }
+    &:active, &:checked { background-color: $hb_button_checked_color; }
   }
 }
 
@@ -311,16 +314,17 @@ $disk_space_free: #eeeeec;
     margin: 0;
     border-radius: 0;
     border: none;
-    max-height: $_headerbar_height;
+    min-height: $_headerbar_height;
     padding-top: 0px;
     padding-bottom: 0px;
     &:backdrop {
       background-color: $bg_color;
     }
+    &:hover { background-color: $hb_button_hover_color; }
     &:active, &:checked {
-      background: $button_color;
+      background: $hb_button_color;
       &:backdrop {
-        background: $button_backdrop_color;
+        background: $hb_button_backdrop_color;
       }
     }
     .wide {

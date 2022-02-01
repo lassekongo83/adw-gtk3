@@ -1599,24 +1599,24 @@ headerbar {
       background-color: transparent;
     }
     &:hover {
-      background-color: $button_hover_color;
+      background-color: $hb_button_hover_color;
     }
     &:active, &:checked {
-      background-color: $button_active_color;
+      background-color: $hb_button_active_color;
       &.suggested-action {
         background-color: $selected_bg_color;
         color: $selected_fg_color;
       }
     }
     &:active:hover, &:checked:hover {
-      background-color: $button_checked_hover_color;
+      background-color: $hb_button_checked_hover_color;
       &.suggested-action {
         background-color: $selected_bg_color;
         color: $selected_fg_color;
       }
     }
     &.default:not(:backdrop) {
-      background-color: $button_color;
+      background-color: $hb_button_color;
       color: $fg_color;
     }
     &.suggested-action:not(:backdrop) {
@@ -1638,12 +1638,18 @@ headerbar {
     &:backdrop {
       background-color: $bg_color;
     }
+    &:hover { background-color: $hb_button_hover_color; }
     &:active, &:checked {
-      background: $button_color;
+      background-color: $hb_button_color;
       &:backdrop {
-        background: $button_backdrop_color;
+        background-color: $hb_button_backdrop_color;
       }
     }
+  }
+
+  // Custom headerbar entries
+  entry {
+    background-color: $hb_button_color;
   }
 
   &:backdrop {
@@ -1830,21 +1836,19 @@ headerbar {
     padding: 0 6px 0 6px;
 
     button.titlebutton {
+      border-radius: 100%;
+      background-color: $titlebutton_normal;
       min-height: 24px;
       min-width: 24px;
-      margin: 0;
-      padding: 0 4px;
-      > image {
-          background-color: $button_color;
-          border-radius: 100%;
-          padding: 0;
-          min-height: 24px;
-          min-width: 24px;
-      }
-      &:hover > image { background-color: $button_hover_color; }
-      &:hover:active > image { background-color: $button_active_color; }
+      margin: 0 4px 0 4px;
+      padding: 0;
+      &:hover { background-color: $titlebutton_normal_hover; }
+      &:hover:active, &:active { background-color: $titlebutton_normal_active; }
+      &:backdrop { background: $titlebutton_backdrop; }
+      &:backdrop:hover { background: $titlebutton_backdrop_hover; }
     }
-    &:active, &:checked, &:checked:hover, &:active:hover { background: none; }
+    // Disabled because of https://github.com/lassekongo83/adw-gtk3/issues/17
+    //&:active, &:checked, &:checked:hover, &:active:hover { background: none; }
   }
   
 
@@ -2466,7 +2470,7 @@ notebook {
 
     > tabs > tab {
       &:checked {
-        background-color: if($variant == 'light', transparent, $base_color);
+        background-color: $active_tab_color;
       }
       &:not(:checked) {
         color: transparentize($fg_color, 0.4);
@@ -2628,7 +2632,7 @@ notebook {
       min-width: 30px;
       padding: 3px 12px;
       transition: background 150ms ease-in-out;
-      background-color: gtkalpha($headerbar_shade_color, .6);
+      //background-color: transparent; //gtkalpha($headerbar_shade_color, .6);
 
       outline-offset: -5px;
 
@@ -2640,11 +2644,11 @@ notebook {
 
       &:hover {
         color: $fg_color;
-        background-image: image(gtkalpha(currentColor, .03));
+        background-color: darken($shade_color, 3%);
 
         &.reorderable-page {
           border-color: transparentize($borders_color, 0.7);
-          background-image: image(gtkalpha(currentColor, .03));
+          background-color: darken($shade_color, 3%);
         }
       }
 
@@ -2657,14 +2661,12 @@ notebook {
         }
       }
 
-      &:checked {
+      &:checked, &:checked:hover {
         color: $fg_color;
         &.reorderable-page {
           border-width: 0;
           border-color: $borders_color;
-          background-color: transparent;
-
-          //&:hover { background-color: transparentize($bg_color, 0.3); }
+          background-color: $active_tab_color;
         }
       }
 
@@ -2753,7 +2755,7 @@ notebook {
   }
 
   > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
-    background-color: $base_color;
+    background-color: $notebook_color;
 
     &:backdrop { background-color: $backdrop_base_color; }
   }
@@ -4828,7 +4830,6 @@ button.titlebutton {
 
   //@include _button_text_shadow;
 
-  border-spacing: 3px;
   padding: 2px;
   margin: 0;
   box-shadow: none;
@@ -4838,15 +4839,22 @@ button.titlebutton {
   &:active, &:checked, &:checked:hover, &:active:hover { background: none; }
 
   > image {
-      background-color: $button_color;
+      background-color: $titlebutton_normal;
       border-radius: 100%;
       padding: 0;
       min-height: 24px;
       min-width: 24px;
   }
 
-  &:hover > image { background-color: $button_hover_color; }
-  &:hover:active > image { background-color: $button_active_color; }
+  &:backdrop > image {
+    background-color: $titlebutton_backdrop;
+  }
+  &:backdrop:hover > image {
+    background-color: $titlebutton_backdrop_hover;
+  }
+
+  &:hover > image { background-color: $titlebutton_normal_hover; }
+  &:hover:active > image { background-color: $titlebutton_normal_active; }
 
   &:not(.appmenu) {
     border-radius: 9999px;
