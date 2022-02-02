@@ -1,0 +1,109 @@
+// 3rd party application styles
+
+// Nautilus
+.nautilus-window {
+  // Without this nautilus iconview grabs the bg_color
+  notebook,
+  notebook > stack:not(:only-child) searchbar { @extend %view; }
+
+  // Path-bar
+  .path-bar-box {
+    border-radius: $button_radius;
+    border: none;
+    background-color: $hb_button_color;
+    padding-right: 6px;
+  }
+
+  .nautilus-path-bar button {
+    margin: 0px;
+  }
+
+  .nautilus-path-bar button:first-child {
+    border-width: 0px 1px 0px 0px;
+    border-radius: $button_radius 0px 0px $button_radius;
+  }
+
+  .nautilus-path-bar button:not(:first-child) {
+    border-width: 0px 1px 0px 1px;
+    border-radius: 0px 0px 0px 0px;
+  }
+
+  .search + .toggle {
+    background-color: $hb_button_color;
+    border-radius: 0 $button_radius $button_radius 0;
+    &:hover { background-color: $hb_button_hover_color; }
+    &:active, &:checked { background-color: $hb_button_checked_color; }
+  }
+}
+
+// Floating status bar
+.floating-bar {
+  padding: 3px;
+  background-color: $base_color;
+  border-width: 1px;
+  border-style: solid solid none;
+  border-color: $borders_color;
+  border-radius: 8px 0 0 0;
+}
+.floating-bar.bottom.left {
+  border-left-style: none;
+  border-top-left-radius: 0;
+}
+.floating-bar.bottom.right {
+  border-right-style: none;
+  border-top-right-radius: 0;
+}
+.floating-bar:backdrop {
+  background-color: $base_color;
+  border-color: $backdrop_borders_color;
+}
+.floating-bar button {
+  padding: 0px;
+}
+
+// Disk space pie
+$disk_space_unknown: #888a85;
+$disk_space_used: #729fcf;
+$disk_space_free: #eeeeec;
+
+.disk-space-display {
+  border-style: solid;
+  border-width: 2px;
+}
+.disk-space-display.unknown {
+  background-color: $disk_space_unknown;
+  border-color: shade($disk_space_unknown, 0.7);
+  color: $disk_space_unknown;
+}
+.disk-space-display.unknown.border {
+  color: shade($disk_space_unknown, 0.7);
+}
+
+.disk-space-display.used {
+  background-color: $disk_space_used;
+  border-color: shade($disk_space_used, 0.7);
+  color: $disk_space_used;
+}
+.disk-space-display.used.border {
+  color: shade($disk_space_used, 0.7);
+}
+.disk-space-display.free {
+  background-color: $disk_space_free;
+  border-color: shade($disk_space_free, 0.7);
+  color: $disk_space_free;
+}
+.disk-space-display.free.border {
+  color: shade($disk_space_free, 0.7);
+}
+
+// Gedit
+.gedit-search-slider {
+  background-color: $base_color;
+  border-radius: $button_radius;
+}
+
+// gnome-tweaks
+list.tweak-categories separator.horizontal {
+  background: transparent;
+  margin: 2px 0;
+}
