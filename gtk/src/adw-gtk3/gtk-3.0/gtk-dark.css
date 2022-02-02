@@ -2233,6 +2233,74 @@ keypad .letters { font-size: 70%; }
 
 keypad .symbol { font-size: 160%; }
 
+tabbar .box { min-height: 38px; background: #262626; border-bottom: 1px solid #494949; }
+
+tabbar .box:backdrop { background-color: #2f2f2f; border-color: #424242; }
+
+tabbar scrolledwindow.pinned undershoot { border: 0 solid black; }
+
+tabbar scrolledwindow.pinned:dir(rtl) undershoot.left { border-left-width: 1px; }
+
+tabbar scrolledwindow.pinned:dir(ltr) undershoot.right { border-right-width: 1px; }
+
+tabbar scrolledwindow.pinned:backdrop undershoot { border-color: #424242; }
+
+tabbar scrolledwindow.pinned tabbox:dir(ltr) { padding-right: 1px; box-shadow: inset -1px 0 black; }
+
+tabbar scrolledwindow.pinned tabbox:dir(ltr):backdrop { box-shadow: inset -1px 0 #424242; }
+
+tabbar scrolledwindow.pinned tabbox:dir(rtl) { padding-left: 1px; box-shadow: inset 1px 0 black; }
+
+tabbar scrolledwindow.pinned tabbox:dir(rtl):backdrop { box-shadow: inset 1px 0 #424242; }
+
+tabbar undershoot { transition: none; }
+
+tabbar undershoot.left { background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0) 20px); }
+
+tabbar undershoot.right { background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0) 20px); }
+
+tabbar .needs-attention-left undershoot.left { background: linear-gradient(to right, rgba(28, 113, 216, 0.7), rgba(28, 113, 216, 0.5) 1px, rgba(28, 113, 216, 0) 20px); }
+
+tabbar .needs-attention-right undershoot.right { background: linear-gradient(to left, rgba(28, 113, 216, 0.7), rgba(28, 113, 216, 0.5) 1px, rgba(28, 113, 216, 0) 20px); }
+
+tabbar tab { border-style: solid; border-color: #494949; border-width: 0 1px 0 1px; transition: background 150ms ease-in-out; background-color: #262626; }
+
+tabbar tab:checked { background-color: #303030; }
+
+tabbar tab:checked:hover { background-color: #303030; }
+
+tabbar tab:hover { background-color: #1e1e1e; }
+
+tabbar tab:backdrop { border-color: #424242; background-color: #2f2f2f; }
+
+tabbar tab:backdrop:checked { background-color: #242424; }
+
+tabbar .start-action, tabbar .end-action { background: #262626; border-color: black; border-style: solid; transition: background 150ms ease-in-out; }
+
+tabbar .start-action:backdrop, tabbar .end-action:backdrop { border-color: #424242; background-color: #2f2f2f; }
+
+tabbar .start-action button, tabbar .end-action button { border: none; border-radius: 0; }
+
+tabbar .start-action:dir(ltr), tabbar .end-action:dir(rtl) { border-right-width: 1px; }
+
+tabbar .start-action:dir(ltr) > *, tabbar .end-action:dir(rtl) > * { margin-right: 1px; }
+
+tabbar .start-action:dir(rtl), tabbar .end-action:dir(ltr) { border-left-width: 1px; }
+
+tabbar .start-action:dir(rtl) > *, tabbar .end-action:dir(ltr) > * { margin-left: 1px; }
+
+.tab-drag-icon tab { min-height: 26px; background-color: #303030; box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(73, 73, 73, 0.9), inset 0 1px rgba(255, 255, 255, 0.07); margin: 25px; }
+
+tabbar tab, .tab-drag-icon tab { padding: 6px; }
+
+tabbar tab.needs-attention, .tab-drag-icon tab.needs-attention { background-image: radial-gradient(ellipse at bottom, rgba(255, 255, 255, 0.8), rgba(28, 113, 216, 0.2) 15%, rgba(28, 113, 216, 0) 15%); }
+
+tabbar tab .tab-close-button, tabbar tab .tab-indicator, .tab-drag-icon tab .tab-close-button, .tab-drag-icon tab .tab-indicator { padding: 0; margin: 0; min-width: 24px; min-height: 24px; border-radius: 99px; border: none; box-shadow: none; -gtk-icon-shadow: none; text-shadow: none; background: none; }
+
+tabbar tab .tab-close-button:hover, tabbar tab .tab-indicator.clickable:hover, .tab-drag-icon tab .tab-close-button:hover, .tab-drag-icon tab .tab-indicator.clickable:hover { background: alpha(white, 0.15); }
+
+tabbar tab .tab-close-button:active, tabbar tab .tab-indicator.clickable:active, .tab-drag-icon tab .tab-close-button:active, .tab-drag-icon tab .tab-indicator.clickable:active { background: alpha(black, 0.2); }
+
 button.destructive-action { background-color: #c01c28; }
 
 button.destructive-action:hover { background-color: #a51822; }
