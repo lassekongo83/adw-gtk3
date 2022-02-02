@@ -221,7 +221,8 @@ viewswitcher {
     }
 
     &:not(:checked):hover:not(:backdrop) {
-      background-image: image(lighter($bg_color));
+      background-color: $hb_button_hover_color;
+      background-image: none;
     }
 
     &:not(only-child):first-child:not(:checked):hover,
@@ -235,7 +236,8 @@ viewswitcher {
     }
 
     &:not(:checked):hover:backdrop {
-      background-image: image($bg_color);
+      background-color: $hb_button_backdrop_hover_color;
+      background-image: none;
     }
 
     // View switcher in a header bar
@@ -256,7 +258,19 @@ viewswitcher {
       }
 
       &:hover:backdrop {
-        background-image: image($bg_color);
+        background-color: $hb_button_backdrop_hover_color;
+        background-image: none;
+      }
+    }
+    &:checked, &:active {
+      background-color: $hb_button_color;
+      background-image: none;
+      &:backdrop {
+        background-image: none;
+        background-color: $hb_button_backdrop_color;
+        &:hover {
+          background-color: $hb_button_backdrop_hover_color;
+        }
       }
     }
 
@@ -628,36 +642,6 @@ tabbar,
         background: hdyalpha(black, .2);
       }
     }
-  }
-}
-
-// Gnome system monitor, clocks, weather, etc
-.background.csd.unified {
-  // The stack buttons
-  .titlebar .radio {
-    margin: 0;
-    border-radius: 0;
-    border: none;
-    min-height: $_headerbar_height;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    &:backdrop {
-      background-color: $bg_color;
-    }
-    &:hover { background-color: $hb_button_hover_color; }
-    &:active, &:checked {
-      background: $hb_button_color;
-      &:backdrop {
-        background: $hb_button_backdrop_color;
-      }
-    }
-    .wide {
-      padding-right: 20px;
-    }
-  }
-  // https://github.com/lassekongo83/adw-gtk3/issues/14#issuecomment-1027303621
-  &:not(.nautilus-window) .titlebar .text-button:not(.suggested-action):not(.destructive-action):not(:hover):not(:active):not(:checked) {
-    background-color: $headerbar_color;
   }
 }
 

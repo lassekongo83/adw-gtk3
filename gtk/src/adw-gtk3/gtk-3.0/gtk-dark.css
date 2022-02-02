@@ -639,6 +639,8 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 
 .titlebar:not(headerbar) button:not(.titlebutton):hover, headerbar button:not(.titlebutton):hover { background-color: #3f3f3f; }
 
+.titlebar:not(headerbar) button:not(.titlebutton):backdrop:hover, headerbar button:not(.titlebutton):backdrop:hover { background-color: #2b2b2b; }
+
 .titlebar:not(headerbar) button:not(.titlebutton):active, .titlebar:not(headerbar) button:not(.titlebutton):checked, headerbar button:not(.titlebutton):active, headerbar button:not(.titlebutton):checked { background-color: #505050; }
 
 .titlebar:not(headerbar) button:not(.titlebutton):active.suggested-action, .titlebar:not(headerbar) button:not(.titlebutton):checked.suggested-action, headerbar button:not(.titlebutton):active.suggested-action, headerbar button:not(.titlebutton):checked.suggested-action { background-color: #1c71d8; color: #ffffff; }
@@ -2271,13 +2273,13 @@ viewswitcher button:not(only-child):first-child:not(:checked):not(:hover), views
 
 viewswitcher button:not(only-child):last-child:not(:checked):not(:hover) { border-right-color: transparent; }
 
-viewswitcher button:not(:checked):hover:not(:backdrop) { background-image: image(lighter(#242424)); }
+viewswitcher button:not(:checked):hover:not(:backdrop) { background-color: #3f3f3f; background-image: none; }
 
 viewswitcher button:not(only-child):first-child:not(:checked):hover, viewswitcher button:not(:checked):hover + button:not(:checked):not(:hover), viewswitcher button:not(:checked):not(:hover) + button:not(:checked):hover { border-left-color: shade(#494949, 1.15); }
 
 viewswitcher button:not(only-child):last-child:not(:checked):hover { border-right-color: shade(#494949, 1.15); }
 
-viewswitcher button:not(:checked):hover:backdrop { background-image: image(#242424); }
+viewswitcher button:not(:checked):hover:backdrop { background-color: #2b2b2b; background-image: none; }
 
 headerbar viewswitcher button:not(:checked):hover:not(:backdrop) { background-color: #3f3f3f; background-image: none; }
 
@@ -2285,7 +2287,13 @@ headerbar viewswitcher button:not(:checked):not(only-child):first-child:hover, h
 
 headerbar viewswitcher button:not(:checked):not(only-child):last-child:hover { border-right-color: #494949; }
 
-headerbar viewswitcher button:not(:checked):hover:backdrop { background-image: image(#242424); }
+headerbar viewswitcher button:not(:checked):hover:backdrop { background-color: #2b2b2b; background-image: none; }
+
+viewswitcher button:checked, viewswitcher button:active { background-color: #444444; background-image: none; }
+
+viewswitcher button:checked:backdrop, viewswitcher button:active:backdrop { background-image: none; background-color: #2f2f2f; }
+
+viewswitcher button:checked:backdrop:hover, viewswitcher button:active:backdrop:hover { background-color: #2b2b2b; }
 
 viewswitcher button > stack > box.narrow { font-size: 0.75rem; padding-top: 7px; padding-bottom: 5px; }
 
@@ -2407,20 +2415,6 @@ tabbar tab .tab-close-button:hover, tabbar tab .tab-indicator.clickable:hover, .
 
 tabbar tab .tab-close-button:active, tabbar tab .tab-indicator.clickable:active, .tab-drag-icon tab .tab-close-button:active, .tab-drag-icon tab .tab-indicator.clickable:active { background: alpha(black, 0.2); }
 
-.background.csd.unified .titlebar .radio { margin: 0; border-radius: 0; border: none; min-height: 46px; padding-top: 0px; padding-bottom: 0px; }
-
-.background.csd.unified .titlebar .radio:backdrop { background-color: #242424; }
-
-.background.csd.unified .titlebar .radio:hover { background-color: #3f3f3f; }
-
-.background.csd.unified .titlebar .radio:active, .background.csd.unified .titlebar .radio:checked { background: #444444; }
-
-.background.csd.unified .titlebar .radio:active:backdrop, .background.csd.unified .titlebar .radio:checked:backdrop { background: #2f2f2f; }
-
-.background.csd.unified .titlebar .radio .wide { padding-right: 20px; }
-
-.background.csd.unified:not(.nautilus-window) .titlebar .text-button:not(.suggested-action):not(.destructive-action):not(:hover):not(:active):not(:checked) { background-color: #303030; }
-
 flap > dimming, deck > dimming, leaflet > dimming { background: rgba(0, 0, 0, 0.24); }
 
 flap > border, deck > border, leaflet > border { min-width: 1px; min-height: 1px; background: rgba(0, 0, 0, 0.2); }
@@ -2485,6 +2479,8 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 
 .nautilus-window .path-bar-box { border-radius: 6px; border: none; background-color: #444444; padding-right: 6px; }
 
+.nautilus-window .path-bar-box:backdrop { background-color: #2f2f2f; }
+
 .nautilus-window .nautilus-path-bar button { margin: 0px; }
 
 .nautilus-window .nautilus-path-bar button:first-child { border-width: 0px 1px 0px 0px; border-radius: 6px 0px 0px 6px; }
@@ -2524,3 +2520,5 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 .gedit-search-slider { background-color: #1e1e1e; border-radius: 6px; }
 
 list.tweak-categories separator.horizontal { background: transparent; margin: 2px 0; }
+
+.background.csd.unified:not(.nautilus-window) .titlebar .text-button:not(.suggested-action):not(.destructive-action):not(:hover):not(:active):not(:checked) { background-color: #303030; }

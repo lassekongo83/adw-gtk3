@@ -1601,6 +1601,9 @@ headerbar {
     &:hover {
       background-color: $hb_button_hover_color;
     }
+    &:backdrop:hover {
+      background-color: $hb_button_backdrop_hover_color;
+    }
     &:active, &:checked {
       background-color: $hb_button_active_color;
       &.suggested-action {
