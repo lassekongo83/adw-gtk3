@@ -2297,4 +2297,6 @@ button.suggested-action:checked, button.suggested-action:checked:hover, button.s
 
 .background.csd.unified .titlebar .radio .wide { padding-right: 20px; }
 
+.background.csd.unified .titlebar .text-button:not(.suggested-action):not(.destructive-action):not(:hover):not(:active):not(:checked) { background-color: #303030; }
+
 list.tweak-categories separator.horizontal { background: transparent; margin: 2px 0; }

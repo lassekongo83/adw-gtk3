@@ -331,6 +331,10 @@ $disk_space_free: #eeeeec;
       padding-right: 20px;
     }
   }
+  // https://github.com/lassekongo83/adw-gtk3/issues/14#issuecomment-1027303621
+  .titlebar .text-button:not(.suggested-action):not(.destructive-action):not(:hover):not(:active):not(:checked) {
+    background-color: $headerbar_color;
+  }
 }
 
 // gnome-tweaks
