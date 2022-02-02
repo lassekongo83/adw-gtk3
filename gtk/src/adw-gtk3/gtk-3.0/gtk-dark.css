@@ -2279,7 +2279,7 @@ viewswitcher button:not(only-child):last-child:not(:checked):hover { border-righ
 
 viewswitcher button:not(:checked):hover:backdrop { background-image: image(#242424); }
 
-headerbar viewswitcher button:not(:checked):hover:not(:backdrop) { background-image: linear-gradient(to top, alpha(#242424, 0.7), alpha(#242424, 0.7)); }
+headerbar viewswitcher button:not(:checked):hover:not(:backdrop) { background-color: #3f3f3f; background-image: none; }
 
 headerbar viewswitcher button:not(:checked):not(only-child):first-child:hover, headerbar viewswitcher button:not(:checked):hover + button:not(:checked):not(:hover), headerbar viewswitcher button:not(:checked):not(:hover) + button:not(:checked):hover { border-left-color: #494949; }
 

@@ -241,12 +241,8 @@ viewswitcher {
     // View switcher in a header bar
     headerbar &:not(:checked) {
       &:hover:not(:backdrop) {
-        // Reimplementation of $button_fill from Adwaita. The colors are made
-        // only 70% visible to avoid the highlight to be too strong.
-        $c: hdyalpha($bg_color, 0.7);
-        $button_fill: if($variant == 'light', linear-gradient(to top, $c, $c),
-                                              linear-gradient(to top, $c, $c));
-        background-image: $button_fill;
+        background-color: $hb_button_hover_color;
+        background-image: none;
       }
 
       &:not(only-child):first-child:hover,
