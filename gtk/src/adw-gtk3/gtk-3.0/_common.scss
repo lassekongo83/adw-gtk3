@@ -686,7 +686,7 @@ button {
     @at-root %button_selected_flat, &.flat {
       row:selected & {
         &:not(:active):not(:checked):not(:hover):not(disabled) {
-          color: $fg_color;
+          color: $fg_color; // This should be selected_fg_color if the background is the accent color
           border-color: transparent;
 
           &:backdrop { color: $backdrop_fg_color; }
@@ -1589,71 +1589,6 @@ headerbar {
   border-radius: 0;
 
   @include headerbar_fill;
-
-  // Custom button styling
-  button:not(.titlebutton) {
-    background-color: transparent;
-    border-color: transparent;
-    &:backdrop {
-      border-color: transparent;
-      background-color: transparent;
-    }
-    &:hover {
-      background-color: $hb_button_hover_color;
-    }
-    &:backdrop:hover {
-      background-color: $hb_button_backdrop_hover_color;
-    }
-    &:active, &:checked {
-      background-color: $hb_button_active_color;
-      &.suggested-action {
-        background-color: $selected_bg_color;
-        color: $selected_fg_color;
-      }
-    }
-    &:active:hover, &:checked:hover {
-      background-color: $hb_button_checked_hover_color;
-      &.suggested-action {
-        background-color: $selected_bg_color;
-        color: $selected_fg_color;
-      }
-    }
-    &.default:not(:backdrop) {
-      background-color: $hb_button_color;
-      color: $fg_color;
-    }
-    &.suggested-action:not(:backdrop) {
-      background-color: $selected_bg_color;
-      color: $selected_fg_color;
-    }
-  }
-  .linked > button {
-    border-radius: $button_radius;
-  }
-  // Spanning stack-switcher buttons to the edges of the headerbar
-  & > .stack-switcher .text-button {
-    margin: 0;
-    border-radius: 0;
-    border: none;
-    min-height: $_headerbar_height;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    &:backdrop {
-      background-color: $bg_color;
-    }
-    &:hover { background-color: $hb_button_hover_color; }
-    &:active, &:checked {
-      background-color: $hb_button_color;
-      &:backdrop {
-        background-color: $hb_button_backdrop_color;
-      }
-    }
-  }
-
-  // Custom headerbar entries
-  entry {
-    background-color: $hb_button_color;
-  }
 
   &:backdrop {
     border-color: $backdrop_borders_color;
@@ -3892,19 +3827,6 @@ frame > border,
   &:backdrop { border-color: $backdrop_borders_color; }
 }
 
-// Custom frames (probably a little bit buggy)
-/*frame > border, frame > list {
-  border-radius: $card_radius;
-}
-frame > border {
-  border-bottom: 3px solid $borders_color;
-}
-frame > list {
-  box-shadow: 0 0 0 1px transparentize(black, 0.97),
-              0 1px 3px 1px transparentize(black, .93),
-              0 2px 6px 2px transparentize(black, .97);
-}*/
-
 actionbar > revealer >  box {
   padding: 6px;
   border-top: 1px solid $borders_color;
@@ -4024,20 +3946,6 @@ row {
   }
 
   &:selected { background-color: $view_selected_color; }
-}
-
-// Custom styles for list rows
-scrolledwindow list {
-  &:not(.content) {
-    padding: 6px 0;
-  }
-  row {
-    margin: 0 6px;
-    border-radius: $button_radius;
-  }
-  separator.horizontal {
-    margin: 6px;
-  }
 }
 
 /*********************

@@ -633,40 +633,6 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 /*************** Header bars * */
 .titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 46px; border-width: 0 0 1px; border-style: solid; border-color: #494949; border-radius: 0; background: #303030 linear-gradient(to top, #303030, #303030); /* Darken switchbuttons for headerbars. issue #1588 */ }
 
-.titlebar:not(headerbar) button:not(.titlebutton), headerbar button:not(.titlebutton) { background-color: transparent; border-color: transparent; }
-
-.titlebar:not(headerbar) button:not(.titlebutton):backdrop, headerbar button:not(.titlebutton):backdrop { border-color: transparent; background-color: transparent; }
-
-.titlebar:not(headerbar) button:not(.titlebutton):hover, headerbar button:not(.titlebutton):hover { background-color: #3f3f3f; }
-
-.titlebar:not(headerbar) button:not(.titlebutton):backdrop:hover, headerbar button:not(.titlebutton):backdrop:hover { background-color: #2b2b2b; }
-
-.titlebar:not(headerbar) button:not(.titlebutton):active, .titlebar:not(headerbar) button:not(.titlebutton):checked, headerbar button:not(.titlebutton):active, headerbar button:not(.titlebutton):checked { background-color: #505050; }
-
-.titlebar:not(headerbar) button:not(.titlebutton):active.suggested-action, .titlebar:not(headerbar) button:not(.titlebutton):checked.suggested-action, headerbar button:not(.titlebutton):active.suggested-action, headerbar button:not(.titlebutton):checked.suggested-action { background-color: #1c71d8; color: #ffffff; }
-
-.titlebar:not(headerbar) button:not(.titlebutton):active:hover, .titlebar:not(headerbar) button:not(.titlebutton):checked:hover, headerbar button:not(.titlebutton):active:hover, headerbar button:not(.titlebutton):checked:hover { background-color: #505050; }
-
-.titlebar:not(headerbar) button:not(.titlebutton):active:hover.suggested-action, .titlebar:not(headerbar) button:not(.titlebutton):checked:hover.suggested-action, headerbar button:not(.titlebutton):active:hover.suggested-action, headerbar button:not(.titlebutton):checked:hover.suggested-action { background-color: #1c71d8; color: #ffffff; }
-
-.titlebar:not(headerbar) button:not(.titlebutton).default:not(:backdrop), headerbar button:not(.titlebutton).default:not(:backdrop) { background-color: #444444; color: white; }
-
-.titlebar:not(headerbar) button:not(.titlebutton).suggested-action:not(:backdrop), headerbar button:not(.titlebutton).suggested-action:not(:backdrop) { background-color: #1c71d8; color: #ffffff; }
-
-.titlebar:not(headerbar) .linked > button, headerbar .linked > button { border-radius: 6px; }
-
-.titlebar:not(headerbar) > .stack-switcher .text-button, headerbar > .stack-switcher .text-button { margin: 0; border-radius: 0; border: none; min-height: 46px; padding-top: 1px; padding-bottom: 1px; }
-
-.titlebar:not(headerbar) > .stack-switcher .text-button:backdrop, headerbar > .stack-switcher .text-button:backdrop { background-color: #242424; }
-
-.titlebar:not(headerbar) > .stack-switcher .text-button:hover, headerbar > .stack-switcher .text-button:hover { background-color: #3f3f3f; }
-
-.titlebar:not(headerbar) > .stack-switcher .text-button:active, .titlebar:not(headerbar) > .stack-switcher .text-button:checked, headerbar > .stack-switcher .text-button:active, headerbar > .stack-switcher .text-button:checked { background-color: #444444; }
-
-.titlebar:not(headerbar) > .stack-switcher .text-button:active:backdrop, .titlebar:not(headerbar) > .stack-switcher .text-button:checked:backdrop, headerbar > .stack-switcher .text-button:active:backdrop, headerbar > .stack-switcher .text-button:checked:backdrop { background-color: #2f2f2f; }
-
-.titlebar:not(headerbar) entry, headerbar entry { background-color: #444444; }
-
 .titlebar:backdrop:not(headerbar), headerbar:backdrop { border-color: #424242; background-color: #242424; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0.07); transition: 200ms ease-out; }
 
 .titlebar:not(headerbar) .title, headerbar .title { padding-left: 12px; padding-right: 12px; font-weight: bold; }
@@ -1608,7 +1574,6 @@ frame > border.flat, .frame.flat { border-style: none; }
 
 frame > border:backdrop, .frame:backdrop { border-color: #424242; }
 
-/*frame > border, frame > list { border-radius: $card_radius; } frame > border { border-bottom: 3px solid $borders_color; } frame > list { box-shadow: 0 0 0 1px transparentize(black, 0.97), 0 1px 3px 1px transparentize(black, .93), 0 2px 6px 2px transparentize(black, .97); }*/
 actionbar > revealer > box { padding: 6px; border-top: 1px solid #494949; }
 
 actionbar > revealer > box:backdrop { border-color: #424242; }
@@ -1667,12 +1632,6 @@ row.activatable:selected.has-open-popup, row.activatable:selected:hover { backgr
 row.activatable:selected:backdrop { background-color: #303030; color: #929292; }
 
 row:selected { background-color: #383838; }
-
-scrolledwindow list:not(.content) { padding: 6px 0; }
-
-scrolledwindow list row { margin: 0 6px; border-radius: 6px; }
-
-scrolledwindow list separator.horizontal { margin: 6px; }
 
 /********************* App Notifications * */
 .app-notification, .app-notification.frame { padding: 10px; border-radius: 0 0 5px 5px; background-color: rgba(38, 38, 38, 0.9); background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent 2px); background-clip: padding-box; }
@@ -2183,6 +2142,46 @@ read if you used those and something break with a version upgrade you're on your
 @define-color content_view_bg #1e1e1e;
 /* Very contrasty background for text views (@theme_text_color foreground) */
 @define-color text_view_bg #0f0f0f;
+headerbar button:not(.titlebutton), .titlebar button:not(.titlebutton) { background-color: transparent; border-color: transparent; }
+
+headerbar button:not(.titlebutton):backdrop, .titlebar button:not(.titlebutton):backdrop { border-color: transparent; background-color: transparent; }
+
+headerbar button:not(.titlebutton):hover, .titlebar button:not(.titlebutton):hover { background-color: #3f3f3f; }
+
+headerbar button:not(.titlebutton):backdrop:hover, .titlebar button:not(.titlebutton):backdrop:hover { background-color: #2b2b2b; }
+
+headerbar button:not(.titlebutton):active, headerbar button:not(.titlebutton):checked, .titlebar button:not(.titlebutton):active, .titlebar button:not(.titlebutton):checked { background-color: #505050; }
+
+headerbar button:not(.titlebutton):active.suggested-action, headerbar button:not(.titlebutton):checked.suggested-action, .titlebar button:not(.titlebutton):active.suggested-action, .titlebar button:not(.titlebutton):checked.suggested-action { background-color: #1c71d8; color: #ffffff; }
+
+headerbar button:not(.titlebutton):active:hover, headerbar button:not(.titlebutton):checked:hover, .titlebar button:not(.titlebutton):active:hover, .titlebar button:not(.titlebutton):checked:hover { background-color: #505050; }
+
+headerbar button:not(.titlebutton):active:hover.suggested-action, headerbar button:not(.titlebutton):checked:hover.suggested-action, .titlebar button:not(.titlebutton):active:hover.suggested-action, .titlebar button:not(.titlebutton):checked:hover.suggested-action { background-color: #1c71d8; color: #ffffff; }
+
+headerbar button:not(.titlebutton).default:not(:backdrop), .titlebar button:not(.titlebutton).default:not(:backdrop) { background-color: #444444; color: white; }
+
+headerbar button:not(.titlebutton).suggested-action:not(:backdrop), .titlebar button:not(.titlebutton).suggested-action:not(:backdrop) { background-color: #1c71d8; color: #ffffff; }
+
+headerbar .linked > button, .titlebar .linked > button { border-radius: 6px; }
+
+headerbar > .stack-switcher .text-button, .titlebar > .stack-switcher .text-button { margin: 0; border-radius: 0; border: none; min-height: 46px; padding-top: 1px; padding-bottom: 1px; }
+
+headerbar > .stack-switcher .text-button:backdrop, .titlebar > .stack-switcher .text-button:backdrop { background-color: #242424; }
+
+headerbar > .stack-switcher .text-button:hover, .titlebar > .stack-switcher .text-button:hover { background-color: #3f3f3f; }
+
+headerbar > .stack-switcher .text-button:active, headerbar > .stack-switcher .text-button:checked, .titlebar > .stack-switcher .text-button:active, .titlebar > .stack-switcher .text-button:checked { background-color: #444444; }
+
+headerbar > .stack-switcher .text-button:active:backdrop, headerbar > .stack-switcher .text-button:checked:backdrop, .titlebar > .stack-switcher .text-button:active:backdrop, .titlebar > .stack-switcher .text-button:checked:backdrop { background-color: #2f2f2f; }
+
+headerbar entry, .titlebar entry { background-color: #444444; }
+
+scrolledwindow list:not(.content) { padding: 6px 0; }
+
+scrolledwindow list row { margin: 0 6px; border-radius: 6px; }
+
+scrolledwindow list separator.horizontal { margin: 6px; }
+
 .ssd .titlebar { border-width: 0; padding: 2px 4px; }
 
 .ssd .titlebar.default-decoration button.titlebutton { background-color: #444444; min-height: 24px; min-width: 24px; margin: 0 4px 0 4px; padding: 0; }
