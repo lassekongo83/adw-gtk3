@@ -101,8 +101,51 @@ $disk_space_free: #eeeeec;
 
 // Gedit
 .gedit-search-slider {
-  background-color: $base_color;
-  border-radius: $button_radius;
+  // gives gedit search entry some padding and a border
+  // otherwise it's right under the headerbar
+  background: $bg_color;
+  border: 1px solid $borders_color;
+  border-top-style: none;
+  padding: 4px 8px;
+  border-radius: 0 0 $button_radius $button_radius;
+
+  &:backdrop {
+    background-color: $backdrop_bg_color;
+    border-color: $backdrop_borders_color;
+  }
+}
+
+.gedit-document-panel {
+  // 'documents' pane
+
+  background-color: $bg_color;
+
+  row.activatable {
+    padding: 6px;
+  }
+
+  row button {
+    // 'close' button
+    min-width: 22px;
+    min-height: 22px;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+
+  row:hover button {
+    &:hover {
+      background-color: rgba($fg_color, 0.15);
+    }
+
+    &:active {
+      background-color: rgba($fg_color, 0.25);
+    }
+  }
+
+  row:hover:selected button:hover {
+    color: $fg_color;
+  }
 }
 
 // gnome-tweaks
@@ -116,5 +159,103 @@ list.tweak-categories separator.horizontal {
 .background.csd.unified {
   &:not(.nautilus-window) .titlebar .text-button:not(.suggested-action):not(.destructive-action):not(:hover):not(:active):not(:checked) {
     background-color: $headerbar_color;
+  }
+}
+
+// Geary
+.geary-expanded headerbar {
+  border: none;
+}
+
+// GNOME software
+.counter-label {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-width: 0px;
+  padding-left: 2px;
+  padding-right: 2px;
+  box-shadow: inset 0 0 10px 10px $success_color;
+}
+
+// GNOME Todo
+.org-gnome-Todo {
+  taskrow.activatable.new-task-row button.popup.toggle {
+    border-radius: 0px;
+    border: none;
+    border-left: 1px solid $borders-color;
+    padding-left: 10px;
+    padding-right: 10px;
+    -gtk-outline-radius: 0px;
+  }
+
+  viewport.view,
+  listbox.transparent {
+    background-color: darken($base_color, 5%);
+
+    &:backdrop {
+      background-color: $backdrop_base_color
+    }
+  }
+}
+
+// Guake
+// Fix bugged transparent headerbar background
+window#guake-terminal notebook header {
+  background: $headerbar_color;
+}
+
+// XFCE4
+$panel_bg_color: #1e1e1e;
+$panel_fg_color: #ffffff;
+.xfce4-panel.background {
+  border: none; 
+  background-color: $panel_bg_color;
+  color: $panel_fg_color;
+
+  button {
+    padding: 0;
+    min-height: 12px;
+    min-width: 12px;
+    border-radius: 0;
+    color: $panel_fg_color;
+    @include button(undecorated);
+
+    &:disabled {
+      background-color: transparent;
+      color: transparentize($panel_fg_color, 0.8);
+    }
+    
+    &:hover:not(:active):not(:checked) {
+      color: $panel_fg_color;
+      background-color: lighten($panel_bg_color, 20%);
+      background-image: none;
+      box-shadow: none;
+    }
+
+    &:checked {
+      background-color: lighten($panel_bg_color, 30%);
+      color: $panel_fg_color;
+      box-shadow: inset 0 -2px $selected_bg_color;
+
+      &:disabled {
+        @include button(undecorated);
+        color: transparentize($panel_fg_color, 0.8);
+      }
+    }
+    entry { caret-color: $text_color; }
+    menu {
+      -gtk-icon-effect: none;
+
+      text-shadow: none;
+      // Theme pulseaudio-plugin's mpris buttons
+      .linked button {
+        @extend %linked;
+        @include button(normal, $menu_color, $text_color);
+        &:disabled {
+          @include button(insensitive);
+          border-color: transparentize($borders_color, 0.5);
+        }
+      }
+    }
   }
 }

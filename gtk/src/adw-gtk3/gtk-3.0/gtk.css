@@ -297,9 +297,9 @@ combobox:drop(active) button.combo, notebook > header > tabs > arrow:drop(active
 
 row:selected button { border-color: #134e94; }
 
-row:selected button.sidebar-button:not(:active):not(:checked):not(:hover):not(disabled), row:selected button.flat:not(:active):not(:checked):not(:hover):not(disabled) { color: #ffffff; border-color: transparent; }
+row:selected button.sidebar-button:not(:active):not(:checked):not(:hover):not(disabled), row:selected button.flat:not(:active):not(:checked):not(:hover):not(disabled) { color: rgba(0, 0, 0, 0.8); border-color: transparent; }
 
-row:selected button.sidebar-button:not(:active):not(:checked):not(:hover):not(disabled):backdrop, row:selected button.flat:not(:active):not(:checked):not(:hover):not(disabled):backdrop { color: #fcfcfc; }
+row:selected button.sidebar-button:not(:active):not(:checked):not(:hover):not(disabled):backdrop, row:selected button.flat:not(:active):not(:checked):not(:hover):not(disabled):backdrop { color: rgba(150, 150, 150, 0.9); }
 
 button.osd { min-width: 26px; min-height: 32px; color: #eeeeec; border-radius: 5px; color: #eeeeec; border-color: rgba(0, 0, 0, 0.7); background-color: transparent; background-image: image(rgba(53, 53, 53, 0.9)); background-clip: padding-box; box-shadow: inset 0 1px rgba(255, 255, 255, 0.1); text-shadow: 0 1px black; -gtk-icon-shadow: 0 1px black; outline-color: rgba(238, 238, 236, 0.3); border: none; box-shadow: none; }
 
@@ -453,15 +453,15 @@ stacksidebar row.needs-attention > label:dir(rtl), .stack-switcher > button.need
 
 .inline-toolbar toolbutton > button:backdrop:disabled:active, .inline-toolbar toolbutton > button:backdrop:disabled:checked { color: #d4d4d4; border-color: transparent; background-color: #bdbdbd; }
 
-.linked:not(.vertical) > combobox > box > button.combo, filechooser .path-bar.linked > button, .linked:not(.vertical) > spinbutton:not(.vertical), .linked:not(.vertical) > entry, .inline-toolbar button, .linked > button, toolbar.inline-toolbar toolbutton > button.flat { border-left-color: #cfcfcf; border-right-color: #cfcfcf; border-right-style: none; border-radius: 0; -gtk-outline-radius: 0; }
+.linked:not(.vertical) > combobox > box > button.combo, filechooser .path-bar.linked > button, .xfce4-panel.background button menu .linked button, .linked:not(.vertical) > spinbutton:not(.vertical), .linked:not(.vertical) > entry, .inline-toolbar button, .linked > button, toolbar.inline-toolbar toolbutton > button.flat { border-left-color: #cfcfcf; border-right-color: #cfcfcf; border-right-style: none; border-radius: 0; -gtk-outline-radius: 0; }
 
-.linked:not(.vertical) > combobox:first-child > box > button.combo, combobox.linked button:nth-child(2):dir(rtl), filechooser .path-bar.linked > button:dir(rtl):last-child, filechooser .path-bar.linked > button:dir(ltr):first-child, .linked:not(.vertical) > spinbutton:first-child:not(.vertical), .linked:not(.vertical) > entry:first-child, .inline-toolbar button:first-child, .linked > button:first-child, toolbar.inline-toolbar toolbutton:first-child > button.flat { border-left-color: transparent; border-top-left-radius: 6px; border-bottom-left-radius: 6px; -gtk-outline-top-left-radius: 6px; -gtk-outline-bottom-left-radius: 6px; }
+.linked:not(.vertical) > combobox:first-child > box > button.combo, combobox.linked button:nth-child(2):dir(rtl), filechooser .path-bar.linked > button:dir(rtl):last-child, filechooser .path-bar.linked > button:dir(ltr):first-child, .xfce4-panel.background button menu .linked button:first-child, .linked:not(.vertical) > spinbutton:first-child:not(.vertical), .linked:not(.vertical) > entry:first-child, .inline-toolbar button:first-child, .linked > button:first-child, toolbar.inline-toolbar toolbutton:first-child > button.flat { border-left-color: transparent; border-top-left-radius: 6px; border-bottom-left-radius: 6px; -gtk-outline-top-left-radius: 6px; -gtk-outline-bottom-left-radius: 6px; }
 
-.linked:not(.vertical) > combobox:last-child > box > button.combo, combobox.linked button:nth-child(2):dir(ltr), filechooser .path-bar.linked > button:dir(rtl):first-child, filechooser .path-bar.linked > button:dir(ltr):last-child, .linked:not(.vertical) > spinbutton:last-child:not(.vertical), .linked:not(.vertical) > entry:last-child, .inline-toolbar button:last-child, .linked > button:last-child, toolbar.inline-toolbar toolbutton:last-child > button.flat { border-right-color: transparent; border-right-style: solid; border-top-right-radius: 6px; border-bottom-right-radius: 6px; -gtk-outline-top-right-radius: 6px; -gtk-outline-bottom-right-radius: 6px; }
+.linked:not(.vertical) > combobox:last-child > box > button.combo, combobox.linked button:nth-child(2):dir(ltr), filechooser .path-bar.linked > button:dir(rtl):first-child, filechooser .path-bar.linked > button:dir(ltr):last-child, .xfce4-panel.background button menu .linked button:last-child, .linked:not(.vertical) > spinbutton:last-child:not(.vertical), .linked:not(.vertical) > entry:last-child, .inline-toolbar button:last-child, .linked > button:last-child, toolbar.inline-toolbar toolbutton:last-child > button.flat { border-right-color: transparent; border-right-style: solid; border-top-right-radius: 6px; border-bottom-right-radius: 6px; -gtk-outline-top-right-radius: 6px; -gtk-outline-bottom-right-radius: 6px; }
 
-.linked:not(.vertical) > combobox:only-child > box > button.combo, filechooser .path-bar.linked > button:only-child, .linked:not(.vertical) > spinbutton:only-child:not(.vertical), .linked:not(.vertical) > entry:only-child, .inline-toolbar button:only-child, .linked > button:only-child, toolbar.inline-toolbar toolbutton:only-child > button.flat { border-style: solid; border-radius: 6px; -gtk-outline-radius: 6px; }
+.linked:not(.vertical) > combobox:only-child > box > button.combo, filechooser .path-bar.linked > button:only-child, .xfce4-panel.background button menu .linked button:only-child, .linked:not(.vertical) > spinbutton:only-child:not(.vertical), .linked:not(.vertical) > entry:only-child, .inline-toolbar button:only-child, .linked > button:only-child, toolbar.inline-toolbar toolbutton:only-child > button.flat { border-style: solid; border-radius: 6px; -gtk-outline-radius: 6px; }
 
-.linked:not(.vertical) > spinbutton:not(.vertical), .linked:not(.vertical) > entry, .inline-toolbar button, .linked > button { border-left-color: #cfcfcf; border-right-color: #cfcfcf; }
+.xfce4-panel.background button menu .linked button, .linked:not(.vertical) > spinbutton:not(.vertical), .linked:not(.vertical) > entry, .inline-toolbar button, .linked > button { border-left-color: #cfcfcf; border-right-color: #cfcfcf; }
 
 .linked.vertical > combobox > box > button.combo, .linked.vertical > spinbutton:not(.vertical), .linked.vertical > entry, .linked.vertical > button { border-top-color: #cfcfcf; border-bottom-color: #cfcfcf; border-style: solid solid none solid; border-radius: 0; -gtk-outline-radius: 0; }
 
@@ -2533,8 +2533,54 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 
 .disk-space-display.free.border { color: shade(#eeeeec, 0.7); }
 
-.gedit-search-slider { background-color: #ffffff; border-radius: 6px; }
+.gedit-search-slider { background: #fafafa; border: 1px solid #cfcfcf; border-top-style: none; padding: 4px 8px; border-radius: 0 0 6px 6px; }
+
+.gedit-search-slider:backdrop { background-color: #fafafa; border-color: #d8d8d8; }
+
+.gedit-document-panel { background-color: #fafafa; }
+
+.gedit-document-panel row.activatable { padding: 6px; }
+
+.gedit-document-panel row button { min-width: 22px; min-height: 22px; padding: 0; margin: 0; border: none; }
+
+.gedit-document-panel row:hover button:hover { background-color: rgba(0, 0, 0, 0.15); }
+
+.gedit-document-panel row:hover button:active { background-color: rgba(0, 0, 0, 0.25); }
+
+.gedit-document-panel row:hover:selected button:hover { color: rgba(0, 0, 0, 0.8); }
 
 list.tweak-categories separator.horizontal { background: transparent; margin: 2px 0; }
 
 .background.csd.unified:not(.nautilus-window) .titlebar .text-button:not(.suggested-action):not(.destructive-action):not(:hover):not(:active):not(:checked) { background-color: #ebebeb; }
+
+.geary-expanded headerbar { border: none; }
+
+.counter-label { margin-top: 2px; margin-bottom: 2px; border-width: 0px; padding-left: 2px; padding-right: 2px; box-shadow: inset 0 0 10px 10px #2ec27e; }
+
+.org-gnome-Todo taskrow.activatable.new-task-row button.popup.toggle { border-radius: 0px; border: none; border-left: 1px solid #cfcfcf; padding-left: 10px; padding-right: 10px; -gtk-outline-radius: 0px; }
+
+.org-gnome-Todo viewport.view, .org-gnome-Todo listbox.transparent { background-color: #f2f2f2; }
+
+.org-gnome-Todo viewport.view:backdrop, .org-gnome-Todo listbox.transparent:backdrop { background-color: #fcfcfc; }
+
+window#guake-terminal notebook header { background: #ebebeb; }
+
+.xfce4-panel.background { border: none; background-color: #1e1e1e; color: #ffffff; }
+
+.xfce4-panel.background button { padding: 0; min-height: 12px; min-width: 12px; border-radius: 0; color: #ffffff; border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; }
+
+.xfce4-panel.background button:disabled { background-color: transparent; color: rgba(255, 255, 255, 0.2); }
+
+.xfce4-panel.background button:hover:not(:active):not(:checked) { color: #ffffff; background-color: #515151; background-image: none; box-shadow: none; }
+
+.xfce4-panel.background button:checked { background-color: #6b6b6b; color: #ffffff; box-shadow: inset 0 -2px #1c71d8; }
+
+.xfce4-panel.background button:checked:disabled { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; color: rgba(255, 255, 255, 0.2); }
+
+.xfce4-panel.background button entry { caret-color: black; }
+
+.xfce4-panel.background button menu { -gtk-icon-effect: none; text-shadow: none; }
+
+.xfce4-panel.background button menu .linked button { color: black; outline-color: rgba(0, 0, 0, 0.3); border-color: transparent; background-color: #e1e1e1; box-shadow: none; }
+
+.xfce4-panel.background button menu .linked button:disabled { color: rgba(150, 150, 150, 0.9); border-color: transparent; background-color: #ededed; text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; border-color: rgba(207, 207, 207, 0.5); }

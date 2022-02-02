@@ -686,10 +686,10 @@ button {
     @at-root %button_selected_flat, &.flat {
       row:selected & {
         &:not(:active):not(:checked):not(:hover):not(disabled) {
-          color: $selected_fg_color;
+          color: $fg_color;
           border-color: transparent;
 
-          &:backdrop { color: if($variant=='light', $backdrop_base_color, $backdrop_fg_color); }
+          &:backdrop { color: $backdrop_fg_color; }
         }
       }
     }
