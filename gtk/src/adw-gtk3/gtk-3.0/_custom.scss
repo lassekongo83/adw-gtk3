@@ -75,7 +75,6 @@ window.csd.unified:not(.solid-csd):not(.fullscreen) {
 .ssd .titlebar {
   border-width: 0;
   padding: 2px 4px;
-  @include headerbar_fill;
 
   &.default-decoration button.titlebutton {
     background-color: $titlebutton_normal;

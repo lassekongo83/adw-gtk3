@@ -631,7 +631,7 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 .inline-toolbar:backdrop, searchbar > revealer > box:backdrop, .location-bar:backdrop { border-color: #424242; background-color: #2f2f2f; box-shadow: none; transition: 200ms ease-out; }
 
 /*************** Header bars * */
-.titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 46px; border-width: 0 0 1px; border-style: solid; border-color: #494949; border-radius: 0; background: #303030 linear-gradient(to top, #303030, #303030); /* Darken switchbuttons for headerbars. issue #1588 */ /* hide the close button separator */ }
+.titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 46px; border-width: 0 0 1px; border-style: solid; border-color: #494949; border-radius: 0; background: #303030 linear-gradient(to top, #303030, #303030); /* Darken switchbuttons for headerbars. issue #1588 */ }
 
 .titlebar:not(headerbar) button:not(.titlebutton), headerbar button:not(.titlebutton) { background-color: transparent; border-color: transparent; }
 
@@ -2183,7 +2183,7 @@ read if you used those and something break with a version upgrade you're on your
 @define-color text_view_bg #0f0f0f;
 window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized), window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) > decoration, window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) > decoration-overlay { border-radius: 12px; }
 
-.ssd .titlebar { border-width: 0; padding: 2px 4px; background: #303030 linear-gradient(to top, #303030, #303030); }
+.ssd .titlebar { border-width: 0; padding: 2px 4px; }
 
 .ssd .titlebar.default-decoration button.titlebutton { background-color: #444444; min-height: 24px; min-width: 24px; margin: 0 4px 0 4px; padding: 0; }
 

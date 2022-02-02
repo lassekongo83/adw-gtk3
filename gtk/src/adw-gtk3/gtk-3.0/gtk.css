@@ -639,7 +639,7 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 .inline-toolbar:backdrop, searchbar > revealer > box:backdrop, .location-bar:backdrop { border-color: #d8d8d8; background-color: #eeeeee; box-shadow: none; transition: 200ms ease-out; }
 
 /*************** Header bars * */
-.titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 46px; border-width: 0 0 1px; border-style: solid; border-color: #cfcfcf; border-radius: 0; background: #ebebeb linear-gradient(to top, #ebebeb, #ebebeb); /* Darken switchbuttons for headerbars. issue #1588 */ /* hide the close button separator */ }
+.titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 46px; border-width: 0 0 1px; border-style: solid; border-color: #cfcfcf; border-radius: 0; background: #ebebeb linear-gradient(to top, #ebebeb, #ebebeb); /* Darken switchbuttons for headerbars. issue #1588 */ }
 
 .titlebar:not(headerbar) button:not(.titlebutton), headerbar button:not(.titlebutton) { background-color: transparent; border-color: transparent; }
 
@@ -1996,9 +1996,9 @@ decoration:backdrop { box-shadow: 0 3px 9px 1px transparent, 0 2px 6px 2px rgba(
 
 .popup decoration { box-shadow: none; }
 
-.ssd decoration { box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05); }
+.ssd decoration { box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5); }
 
-.ssd decoration:backdrop { box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02); }
+.ssd decoration:backdrop { box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3); }
 
 .csd.popup decoration { border-radius: 6px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0); }
 
@@ -2199,7 +2199,7 @@ read if you used those and something break with a version upgrade you're on your
 @define-color text_view_bg #ffffff;
 window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized), window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) > decoration, window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) > decoration-overlay { border-radius: 12px; }
 
-.ssd .titlebar { border-width: 0; padding: 2px 4px; background: #ebebeb linear-gradient(to top, #ebebeb, #ebebeb); }
+.ssd .titlebar { border-width: 0; padding: 2px 4px; }
 
 .ssd .titlebar.default-decoration button.titlebutton { background-color: #d9d9d9; min-height: 24px; min-width: 24px; margin: 0 4px 0 4px; padding: 0; }
 

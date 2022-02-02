@@ -1847,13 +1847,9 @@ headerbar {
       &:backdrop { background: $titlebutton_backdrop; }
       &:backdrop:hover { background: $titlebutton_backdrop_hover; }
     }
-    // Disabled because of https://github.com/lassekongo83/adw-gtk3/issues/17
-    //&:active, &:checked, &:checked:hover, &:active:hover { background: none; }
   }
-  
 
-  
-  separator.titlebutton { opacity: 0; } /* hide the close button separator */
+  separator.titlebutton { opacity: 0; } // hide the close button separator
 
   .solid-csd & {
     &:backdrop, & {
@@ -4788,8 +4784,10 @@ decoration {
 
   // server-side decorations as used by mutter
   // just doing borders, wm draws actual shadows
-  .ssd & { box-shadow: 0 0 0 1px $_wm_border; }
-  .ssd &:backdrop { box-shadow: 0 0 0 1px $_wm_border_backdrop; }
+  $_ssd_wm_border: if($variant=='light', transparentize(black, 0.5), transparentize(white, 0.9));
+  $_ssd_wm_border_backdrop: if($variant=='light', transparentize(black, 0.7), transparentize(white, 0.93));
+  .ssd & { box-shadow: 0 0 0 1px $_ssd_wm_border; }
+  .ssd &:backdrop { box-shadow: 0 0 0 1px $_ssd_wm_border_backdrop; }
 
   .csd.popup & {
     border-radius: $menu_radius;
