@@ -4695,8 +4695,8 @@ decoration {
 
   // server-side decorations as used by mutter
   // just doing borders, wm draws actual shadows
-  $_ssd_wm_border: if($variant=='light', transparentize(black, 0.5), transparentize(white, 0.9));
-  $_ssd_wm_border_backdrop: if($variant=='light', transparentize(black, 0.7), transparentize(white, 0.93));
+  $_ssd_wm_border: if($variant=='light', transparentize(black, 0.7), transparentize(white, 0.9));
+  $_ssd_wm_border_backdrop: if($variant=='light', transparentize(black, 0.8), transparentize(white, 0.93));
   .ssd & { box-shadow: 0 0 0 1px $_ssd_wm_border; }
   .ssd &:backdrop { box-shadow: 0 0 0 1px $_ssd_wm_border_backdrop; }
 
