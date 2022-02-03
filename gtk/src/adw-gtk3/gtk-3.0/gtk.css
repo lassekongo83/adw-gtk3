@@ -1945,9 +1945,9 @@ colorchooser .popover.osd { border-radius: 5px; }
 .scale-popup button:hover { background-color: rgba(0, 0, 0, 0); border-radius: 5px; }
 
 /********************** Window Decorations * */
-decoration { border-radius: 12px 12px 0 0; border-width: 0px; box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.05); margin: 10px; }
+decoration { border-radius: 12px 12px 0 0; border-width: 0px; box-shadow: 0 3px 12px 1px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.05); margin: 10px; }
 
-decoration:backdrop { box-shadow: 0 3px 9px 1px transparent, 0 2px 6px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.02); transition: 200ms ease-out; }
+decoration:backdrop { box-shadow: 0 3px 12px 1px transparent, 0 2px 6px 2px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.02); transition: 200ms ease-out; }
 
 .maximized decoration, .fullscreen decoration { border-radius: 0; box-shadow: none; }
 
