@@ -191,7 +191,7 @@ spinbutton:not(.vertical) image:active, entry image:active { color: #1c71d8; }
 
 spinbutton:not(.vertical) image:backdrop, entry image:backdrop { color: #7b7b7b; }
 
-spinbutton:drop(active):not(.vertical), entry:drop(active):focus, entry:drop(active) { border-color: #4e9a06; box-shadow: inset 0 0 0 1px #4e9a06; }
+spinbutton:drop(active):not(.vertical), entry:drop(active):focus, entry:drop(active) { border-color: #1c71d8; box-shadow: inset 0 0 0 1px #1c71d8; }
 
 .osd spinbutton:not(.vertical), .osd entry { color: white; border-color: rgba(0, 0, 0, 0.9); background-color: rgba(0, 0, 0, 0.5); background-clip: padding-box; box-shadow: none; text-shadow: 0 1px black; -gtk-icon-shadow: 0 1px black; }
 
@@ -209,7 +209,7 @@ spinbutton:not(.vertical) progress:backdrop, entry progress:backdrop { backgroun
 
 .linked:not(.vertical) > spinbutton:focus.error:not(.vertical) + spinbutton:not(.vertical), .linked:not(.vertical) > spinbutton:focus.error:not(.vertical) + button, .linked:not(.vertical) > spinbutton:focus.error:not(.vertical) + combobox > box > button.combo, .linked:not(.vertical) > spinbutton:focus.error:not(.vertical) + entry, .linked:not(.vertical) > entry:focus.error + button, .linked:not(.vertical) > entry:focus.error + combobox > box > button.combo, .linked:not(.vertical) > entry:focus.error + spinbutton:not(.vertical), .linked:not(.vertical) > entry:focus.error + entry { border-left-color: #240508; }
 
-.linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + spinbutton:not(.vertical), .linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + button, .linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + combobox > box > button.combo, .linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + entry, .linked:not(.vertical) > entry:drop(active) + button, .linked:not(.vertical) > entry:drop(active) + combobox > box > button.combo, .linked:not(.vertical) > entry:drop(active) + spinbutton:not(.vertical), .linked:not(.vertical) > entry:drop(active) + entry { border-left-color: #4e9a06; }
+.linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + spinbutton:not(.vertical), .linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + button, .linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + combobox > box > button.combo, .linked:not(.vertical) > spinbutton:drop(active):not(.vertical) + entry, .linked:not(.vertical) > entry:drop(active) + button, .linked:not(.vertical) > entry:drop(active) + combobox > box > button.combo, .linked:not(.vertical) > entry:drop(active) + spinbutton:not(.vertical), .linked:not(.vertical) > entry:drop(active) + entry { border-left-color: #1c71d8; }
 
 .linked.vertical > spinbutton:not(:disabled):not(.vertical) + entry:not(:disabled), .linked.vertical > spinbutton:not(:disabled):not(.vertical) + spinbutton:not(:disabled):not(.vertical), .linked.vertical > entry:not(:disabled) + entry:not(:disabled), .linked.vertical > entry:not(:disabled) + spinbutton:not(:disabled):not(.vertical) { border-top-color: #2b2b2b; }
 
@@ -221,13 +221,13 @@ spinbutton:not(.vertical) progress:backdrop, entry progress:backdrop { backgroun
 
 .linked.vertical > spinbutton:not(.vertical) + spinbutton:focus.error:not(:only-child):not(.vertical), .linked.vertical > spinbutton:not(.vertical) + entry:focus.error:not(:only-child), .linked.vertical > entry + spinbutton:focus.error:not(:only-child):not(.vertical), .linked.vertical > entry + entry:focus.error:not(:only-child) { border-top-color: #240508; }
 
-.linked.vertical > spinbutton:not(.vertical) + spinbutton:drop(active):not(:only-child):not(.vertical), .linked.vertical > spinbutton:not(.vertical) + entry:drop(active):not(:only-child), .linked.vertical > entry + spinbutton:drop(active):not(:only-child):not(.vertical), .linked.vertical > entry + entry:drop(active):not(:only-child) { border-top-color: #4e9a06; }
+.linked.vertical > spinbutton:not(.vertical) + spinbutton:drop(active):not(:only-child):not(.vertical), .linked.vertical > spinbutton:not(.vertical) + entry:drop(active):not(:only-child), .linked.vertical > entry + spinbutton:drop(active):not(:only-child):not(.vertical), .linked.vertical > entry + entry:drop(active):not(:only-child) { border-top-color: #1c71d8; }
 
 .linked.vertical > spinbutton:focus:not(:only-child):not(.vertical) + spinbutton:not(.vertical), .linked.vertical > spinbutton:focus:not(:only-child):not(.vertical) + entry, .linked.vertical > spinbutton:focus:not(:only-child):not(.vertical) + button, .linked.vertical > spinbutton:focus:not(:only-child):not(.vertical) + combobox > box > button.combo, .linked.vertical > entry:focus:not(:only-child) + spinbutton:not(.vertical), .linked.vertical > entry:focus:not(:only-child) + entry, .linked.vertical > entry:focus:not(:only-child) + button, .linked.vertical > entry:focus:not(:only-child) + combobox > box > button.combo { border-top-color: #0a2a51; }
 
 .linked.vertical > spinbutton:focus.error:not(:only-child):not(.vertical) + spinbutton:not(.vertical), .linked.vertical > spinbutton:focus.error:not(:only-child):not(.vertical) + entry, .linked.vertical > spinbutton:focus.error:not(:only-child):not(.vertical) + button, .linked.vertical > spinbutton:focus.error:not(:only-child):not(.vertical) + combobox > box > button.combo, .linked.vertical > entry:focus.error:not(:only-child) + spinbutton:not(.vertical), .linked.vertical > entry:focus.error:not(:only-child) + entry, .linked.vertical > entry:focus.error:not(:only-child) + button, .linked.vertical > entry:focus.error:not(:only-child) + combobox > box > button.combo { border-top-color: #240508; }
 
-.linked.vertical > spinbutton:drop(active):not(:only-child):not(.vertical) + spinbutton:not(.vertical), .linked.vertical > spinbutton:drop(active):not(:only-child):not(.vertical) + entry, .linked.vertical > spinbutton:drop(active):not(:only-child):not(.vertical) + button, .linked.vertical > spinbutton:drop(active):not(:only-child):not(.vertical) + combobox > box > button.combo, .linked.vertical > entry:drop(active):not(:only-child) + spinbutton:not(.vertical), .linked.vertical > entry:drop(active):not(:only-child) + entry, .linked.vertical > entry:drop(active):not(:only-child) + button, .linked.vertical > entry:drop(active):not(:only-child) + combobox > box > button.combo { border-top-color: #4e9a06; }
+.linked.vertical > spinbutton:drop(active):not(:only-child):not(.vertical) + spinbutton:not(.vertical), .linked.vertical > spinbutton:drop(active):not(:only-child):not(.vertical) + entry, .linked.vertical > spinbutton:drop(active):not(:only-child):not(.vertical) + button, .linked.vertical > spinbutton:drop(active):not(:only-child):not(.vertical) + combobox > box > button.combo, .linked.vertical > entry:drop(active):not(:only-child) + spinbutton:not(.vertical), .linked.vertical > entry:drop(active):not(:only-child) + entry, .linked.vertical > entry:drop(active):not(:only-child) + button, .linked.vertical > entry:drop(active):not(:only-child) + combobox > box > button.combo { border-top-color: #1c71d8; }
 
 spinbutton.error:not(.vertical), entry.error { color: #c01c28; }
 
@@ -293,7 +293,7 @@ notebook > header > tabs > arrow.text-button.image-button, button.text-button.im
 
 notebook > header > tabs > arrow.text-button.image-button label, button.text-button.image-button label { padding-left: 8px; padding-right: 8px; }
 
-combobox:drop(active) button.combo, notebook > header > tabs > arrow:drop(active), button:drop(active) { color: #4e9a06; border-color: #4e9a06; box-shadow: inset 0 0 0 1px #4e9a06; }
+combobox:drop(active) button.combo, notebook > header > tabs > arrow:drop(active), button:drop(active) { color: #1c71d8; border-color: #1c71d8; box-shadow: inset 0 0 0 1px #1c71d8; }
 
 row:selected button.sidebar-button:not(:active):not(:checked):not(:hover):not(disabled), row:selected button.flat:not(:active):not(:checked):not(:hover):not(disabled) { color: white; border-color: transparent; }
 
@@ -1767,13 +1767,13 @@ button.sidebar-button:not(:hover):not(:active) > image, button.sidebar-button:ba
 
 placessidebar row:selected:active { box-shadow: none; }
 
-placessidebar row.sidebar-placeholder-row { padding: 0 8px; min-height: 2px; background-image: image(#4e9a06); background-clip: content-box; }
+placessidebar row.sidebar-placeholder-row { padding: 0 8px; min-height: 2px; background-image: image(#1c71d8); background-clip: content-box; }
 
 placessidebar row.sidebar-new-bookmark-row { color: #1c71d8; }
 
-placessidebar row:drop(active):not(:disabled) { color: #4e9a06; box-shadow: inset 0 1px #4e9a06, inset 0 -1px #4e9a06; }
+placessidebar row:drop(active):not(:disabled) { color: #1c71d8; box-shadow: inset 0 1px #1c71d8, inset 0 -1px #1c71d8; }
 
-placessidebar row:drop(active):not(:disabled):selected { color: #ffffff; background-color: #4e9a06; }
+placessidebar row:drop(active):not(:disabled):selected { color: #ffffff; background-color: #1c71d8; }
 
 placesview .server-list-button > image { transition: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); -gtk-icon-transform: rotate(0turn); }
 
@@ -1885,9 +1885,9 @@ colorswatch.light overlay:backdrop { color: rgba(0, 0, 0, 0.5); }
 
 colorswatch:drop(active) { box-shadow: none; }
 
-colorswatch:drop(active).light overlay { border-color: #4e9a06; box-shadow: inset 0 0 0 2px #494949, inset 0 0 0 1px #4e9a06; }
+colorswatch:drop(active).light overlay { border-color: #1c71d8; box-shadow: inset 0 0 0 2px #494949, inset 0 0 0 1px #1c71d8; }
 
-colorswatch:drop(active).dark overlay { border-color: #4e9a06; box-shadow: inset 0 0 0 2px #494949, inset 0 0 0 1px #4e9a06; }
+colorswatch:drop(active).dark overlay { border-color: #1c71d8; box-shadow: inset 0 0 0 2px #494949, inset 0 0 0 1px #1c71d8; }
 
 colorswatch overlay { border: 1px solid #494949; }
 
@@ -2016,7 +2016,7 @@ cursor-handle.insertion-cursor:active:dir(ltr), cursor-handle.insertion-cursor:a
 
 .keycap:backdrop { background-color: #212121; color: #929292; transition: 200ms ease-out; }
 
-:not(decoration):not(window):drop(active):focus, :not(decoration):not(window):drop(active) { border-color: #4e9a06; box-shadow: inset 0 0 0 1px #4e9a06; caret-color: #4e9a06; }
+:not(decoration):not(window):drop(active):focus, :not(decoration):not(window):drop(active) { border-color: #1c71d8; box-shadow: inset 0 0 0 1px #1c71d8; caret-color: #1c71d8; }
 
 stackswitcher button.text-button { min-width: 100px; }
 
