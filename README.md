@@ -5,6 +5,14 @@ Note that this is not a 100% accurate port.
 
 ![adw-gtk3](screenshot.png?raw=true)
 
+## Installation
+
+Go to the [releases section](https://github.com/lassekongo83/adw-gtk3/releases) and follow the instructions.
+
+## Installation from source
+
+Use this option if you want to contribute, or use the latest version from the main branch.
+
 ### Requirements
 
 - GTK 3.24.13+
@@ -18,8 +26,6 @@ Some of these packages may already be installed by default on some distros.
 
 Other distros may have named the above packages differently.
 
-## Installation
-
 When the above requirements are installed, simply run these commands:
 ```bash
 git clone https://github.com/lassekongo83/adw-gtk3.git
@@ -31,7 +37,7 @@ The theme(s) will be installed in: `/usr/share/themes/`
 
 ### Local installation
 
-Install the theme(s) locally if you for some reason can't run as a sudo user. Fedora Silverblue users should use this install option.
+Install the theme(s) locally if you for some reason can't run as a sudo user. Fedora Silverblue users can use this install option.
 
 ```bash
 git clone https://github.com/lassekongo83/adw-gtk3.git
