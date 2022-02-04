@@ -17,6 +17,8 @@ gtk3_scss_dependencies = [
   '_colors.scss',
   '_common.scss',
   '_drawing.scss',
+  '_libhandy.scss',
+  '_apps.scss',
 ]
 
 # Generate .css files and install

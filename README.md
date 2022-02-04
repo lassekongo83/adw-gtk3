@@ -5,10 +5,6 @@ Note that this is not a 100% accurate port.
 
 ![adw-gtk3](screenshot.png?raw=true)
 
-## Installation
-
-Go to the [releases section](https://github.com/lassekongo83/adw-gtk3/releases) and follow the instructions.
-
 ## Installation from source
 
 Use this option if you want to contribute, or use the latest version from the main branch.
