@@ -13,6 +13,8 @@ Go to the [releases section](https://github.com/lassekongo83/adw-gtk3/releases) 
 
 Use this option if you want to contribute, or use the latest version from the main branch.
 
+ArchLinux AUR: https://aur.archlinux.org/packages/adw-gtk3-git/ (Maintained by 3rd party)
+
 ### Requirements
 
 - GTK 3.24.13+
