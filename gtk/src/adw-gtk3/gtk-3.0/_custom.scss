@@ -121,3 +121,8 @@ button {
     }
   }
 }
+
+// Tree views
+treeview.view:not(:backdrop):not(:selected):hover {
+  background-color: $view_hover_color;
+}

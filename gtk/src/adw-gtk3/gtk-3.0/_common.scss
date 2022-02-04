@@ -2107,6 +2107,7 @@ treeview.view {
       color: $_column_header_color;
       background-color: $base_color;
       font-weight: bold;
+      font-size: small;
       text-shadow: none;
       box-shadow: none;
 
@@ -4114,7 +4115,7 @@ filechooserbutton:drop(active) {
  ***********/
 .sidebar {
   border-style: none;
-  background-color: mix($bg_color, $base_color, 50%);
+  background-color: $sidebar_bg_color;
 
   &:not(separator) {
     @at-root %sidebar_left,
