@@ -2210,17 +2210,17 @@ scrolledwindow list separator.horizontal { margin: 6px; }
 
 .ssd .titlebar.default-decoration button.titlebutton:backdrop:hover { background: #ebebeb; }
 
-button.destructive-action { background-color: #e01b24; }
+button.destructive-action, .titlebar button.destructive-action, headerbar button.destructive-action { background-color: #e01b24; }
 
-button.destructive-action:hover { background-color: #c51820; }
+button.destructive-action:hover, .titlebar button.destructive-action:hover, headerbar button.destructive-action:hover { background-color: #c51820; }
 
-button.destructive-action:checked, button.destructive-action:checked:hover, button.destructive-action:active, button.destructive-action:active:hover { background-color: #ae151c; }
+button.destructive-action:checked, button.destructive-action:checked:hover, button.destructive-action:active, button.destructive-action:active:hover, .titlebar button.destructive-action:checked, .titlebar button.destructive-action:checked:hover, .titlebar button.destructive-action:active, .titlebar button.destructive-action:active:hover, headerbar button.destructive-action:checked, headerbar button.destructive-action:checked:hover, headerbar button.destructive-action:active, headerbar button.destructive-action:active:hover { background-color: #ae151c; }
 
-button.suggested-action { background-color: #3584e4; }
+button.suggested-action, .titlebar button.suggested-action, headerbar button.suggested-action { background-color: #3584e4; }
 
-button.suggested-action:hover { background-color: #1e74dd; }
+button.suggested-action:hover, .titlebar button.suggested-action:hover, headerbar button.suggested-action:hover { background-color: #1e74dd; }
 
-button.suggested-action:checked, button.suggested-action:checked:hover, button.suggested-action:active, button.suggested-action:active:hover { background-color: #1b68c6; }
+button.suggested-action:checked, button.suggested-action:checked:hover, button.suggested-action:active, button.suggested-action:active:hover, .titlebar button.suggested-action:checked, .titlebar button.suggested-action:checked:hover, .titlebar button.suggested-action:active, .titlebar button.suggested-action:active:hover, headerbar button.suggested-action:checked, headerbar button.suggested-action:checked:hover, headerbar button.suggested-action:active, headerbar button.suggested-action:active:hover { background-color: #1b68c6; }
 
 treeview.view:not(:backdrop):not(:selected):hover { background-color: #ededed; }
 

@@ -7,7 +7,7 @@ $bg_color: if($variant == 'light', #fafafa, #242424);
 $fg_color: if($variant == 'light', #2e2e2e, white);
 
 $selected_fg_color: #ffffff;
-$selected_bg_color: if($variant == 'light', $blue_3, $blue_4); //#78aeed);
+$selected_bg_color: if($variant == 'light', $blue_3, $blue_4);
 $selected_borders_color: if($variant== 'light', darken($selected_bg_color, 15%), darken($selected_bg_color, 30%));
 $borders_color: if($variant == 'light', darken($bg_color, 17%), lighten($bg_color, 14.7%)); //#cfcfcf, #494949
 $alt_borders_color: if($variant == 'light', darken($bg_color, 24%), darken($bg_color, 18%));

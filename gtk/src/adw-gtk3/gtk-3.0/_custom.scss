@@ -101,7 +101,7 @@ scrolledwindow list {
 
 // I'm confused why the default styles for this doesn't work
 // https://github.com/lassekongo83/adw-gtk3/issues/4#issuecomment-1018729772
-button {
+button, .titlebar button, headerbar button {
   &.destructive-action {
     background-color: $destructive_color;
     &:hover { // Color values here are just a guess
