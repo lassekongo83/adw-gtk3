@@ -1,5 +1,8 @@
 gtk3_dir = join_paths(theme_dir, 'gtk-3.0')
 
+# Install asset files to themes/ThemeName/gtk-3.0/assets
+install_subdir('assets', install_dir : gtk3_dir, strip_directory : false)
+
 # theme sources .scss files
 
 # The files that need to be compiled
@@ -35,6 +38,3 @@ foreach f : gtk3_scss_sources
         install_dir: gtk3_dir,
     )
 endforeach
-
-# Install asset files to themes/ThemeName/gtk-3.0/assets
-install_subdir('assets', install_dir : gtk3_dir, strip_directory : false)
