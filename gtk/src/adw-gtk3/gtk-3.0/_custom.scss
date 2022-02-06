@@ -40,6 +40,7 @@ headerbar, .titlebar {
   }
   .linked > button {
     border-radius: $button_radius;
+    -gtk-outline-radius: $button_radius;
   }
   // Spanning stack-switcher buttons to the edges of the headerbar
   & > .stack-switcher .text-button {
@@ -105,7 +106,7 @@ button, .titlebar button, headerbar button {
   &.destructive-action {
     background-color: $destructive_color;
     &:hover { // Color values here are just a guess
-      background-color: darken($destructive_color, 6%);
+      background-color: lighten($destructive_color, 6%);
     }
     &:checked, &:active {
       &, &:hover { background-color: darken($destructive_color, 11%); }
@@ -114,7 +115,7 @@ button, .titlebar button, headerbar button {
   &.suggested-action {
     background-color: $suggested_bg_color;
     &:hover {
-      background-color: darken($suggested_bg_color, 6%);
+      background-color: lighten($suggested_bg_color, 6%);
     }
     &:checked, &:active {
       &, &:hover { background-color: darken($suggested_bg_color, 11%); }
