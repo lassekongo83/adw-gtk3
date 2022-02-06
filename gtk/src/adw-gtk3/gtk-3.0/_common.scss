@@ -2602,6 +2602,7 @@ notebook {
           border-width: 0;
           border-color: $borders_color;
           background-color: $active_tab_color;
+          box-shadow: inset -1px -1px $borders_color;
         }
       }
 

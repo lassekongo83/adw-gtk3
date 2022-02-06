@@ -1008,7 +1008,7 @@ notebook > header tab:backdrop.reorderable-page { border-color: transparent; bac
 
 notebook > header tab:checked, notebook > header tab:checked:hover { color: #2e2e2e; }
 
-notebook > header tab:checked.reorderable-page, notebook > header tab:checked:hover.reorderable-page { border-width: 0; border-color: #cfcfcf; background-color: #ebebeb; }
+notebook > header tab:checked.reorderable-page, notebook > header tab:checked:hover.reorderable-page { border-width: 0; border-color: #cfcfcf; background-color: #ebebeb; box-shadow: inset -1px -1px #cfcfcf; }
 
 notebook > header tab:backdrop:checked { color: #949494; }
 
