@@ -252,6 +252,21 @@ window#guake-terminal notebook header {
 }
 
 // XFCE4
+XfdesktopIconView.view {
+  background: transparent;
+  color: $osd_fg_color;
+  border-radius: $button_radius;
+  &:active {
+    background: rgba(darken($selected_bg_color, 15%), 0.5);
+    text-shadow: 0 1px 1px black;
+  }
+  .label { text-shadow: 1px 1px 2px black; }
+  .rubberband {
+    @extend rubberband;
+    border-radius: 0;
+  }
+}
+
 $panel_bg_color: #1e1e1e;
 $panel_fg_color: #ffffff;
 .xfce4-panel.background {
@@ -305,4 +320,130 @@ $panel_fg_color: #ffffff;
       }
     }
   }
+}
+
+// Nemo
+.nemo-desktop.nemo-canvas-item {
+  color: $selected_fg_color;
+  text-shadow: 1px 1px 2px transparentize(black, 0.2);
+}
+
+.nemo-properties-dialog {
+  .dialog-action-box .dialog-action-area {
+    // add margin to preferences buttons
+    margin: 2px 6px 4px;
+  }
+
+  toolbar stackswitcher.linked button {
+    margin-right: 0;
+
+    &:backdrop {
+      color: $backdrop_fg_color;
+      background-color: $backdrop_bg_color;
+    }
+  }
+}
+
+.nemo-window {
+  .sidebar {
+    scrolledwindow.frame.nemo-places-sidebar {
+      // get rid of double border in sidebar
+      border: none;
+    }
+
+    viewport.frame box.vertical treeview.view.places-treeview {
+      // use sidebar bg color
+      background-image: image($sidebar_bg_color);
+      border-radius: 0; // get rid of weird radius on selected rows
+
+      &:backdrop {
+        background-image: image($backdrop_sidebar_bg_color);
+      }
+
+      &:selected {
+        background: $selected_bg_color;
+      }
+
+      &:not(:selected) {
+        &:not(:backdrop):hover {
+          background-image: image($base_hover_color);
+        }
+      }
+    }
+  }
+
+  .nemo-inactive-pane .view,
+  .nemo-inactive-pane iconview {
+    // Shades the background of the inactive pane
+    background-color: $backdrop_bg_color;
+  }
+
+  .nemo-window-pane {
+    widget.entry {
+      // Add border around rename text entry
+      border: 1px solid;
+      border-radius: 3px;
+      color: $fg_color;
+      border-color: $selected_bg_color;
+      background-color: $bg_color;
+    }
+
+    widget.entry:selected {
+      // Add highlighting to selected text in rename text entry
+      border: 1px solid;
+      border-radius: 3px;
+      color: $selected_fg_color;
+      border-color: $selected_bg_color;
+      background-color: $selected_bg_color;
+    }
+  }
+
+  toolbar.horizontal.primary-toolbar {
+    // add border under toolbar
+    border-bottom: 1px solid $borders_color;
+
+    widget.linked.raised button {
+      // use proper icons for next and left in stackswitcher-like pathbar
+      &:first-child widget {
+        -gtk-icon-source: -gtk-icontheme('go-previous-symbolic');
+      }
+      &:last-child widget {
+        -gtk-icon-source: -gtk-icontheme('go-next-symbolic');
+      }
+    }
+
+    toolitem box widget * {
+      // reset toolbar button dimensions
+      min-height: 0;
+      min-width: 0;
+    }
+
+    .linked button {
+      // link linked buttons
+      margin-right: 0;
+    }
+
+    button {
+      // return non-flat buttons
+      @each $state,
+      $t in ("", "normal"),
+      (":hover", "hover"),
+      (":active, &:checked", "active"),
+      (":disabled", "insensitive"),
+      (":disabled:active, &:disabled:checked", "insensitive-active"),
+      (":backdrop", "backdrop"),
+      (":backdrop:active, &:backdrop:checked", 'backdrop-active'),
+      (":backdrop:disabled", 'backdrop-insensitive'),
+      (":backdrop:disabled:active, &:backdrop:disabled:checked", 'backdrop-insensitive-active') {
+        &#{$state} {
+          @include button($t);
+        }
+      }
+    }
+  }
+}
+
+// USB Creator GTK
+#dialog-action_area3 {
+  margin: 5px;
 }
