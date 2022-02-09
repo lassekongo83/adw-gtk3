@@ -354,24 +354,51 @@ viewswitchertitle viewswitcher {
   margin-right: 12px;
 }
 
-// Lists (or "cards")
-// Making lists more like libadwaita
+// Lists
 list.content {
   background-color: $card_bg_color;
   color: $card_fg_color;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  @if $variant == 'light' { border: 1px solid $borders_color; }
+  //padding-top: 6px;
+  //padding-bottom: 6px;
+  //@if $variant == 'light' { border: 1px solid $borders_color; }
   border-radius: $card_radius;
   box-shadow: 0 0 0 1px transparentize(black, 0.97),
               0 1px 3px 1px transparentize(black, .93),
               0 2px 6px 2px transparentize(black, .97);
 
   > row {
+    margin: 0;
+    padding: 2px;
+    transition: 200ms $ease-out-quad;
     // Add space around expanded rows
     &.expander:checked:not(:first-child),
     &.expander:checked + row {
       margin-top: 6px;
+    }
+    &:not(:last-child) {
+      border-bottom: 1px solid if($variant == 'light', lighten($borders_color, 7%), transparentize($borders_color, 0.5));
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+    &:first-child {
+      border-top-left-radius: $card_radius;
+      border-top-right-radius: $card_radius;
+    }
+    &:last-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: $card_radius;
+      border-bottom-right-radius: $card_radius;
+    }
+    &:only-child {
+      border-bottom: none;
+      border-radius: $card_radius;
+    }
+    &:not(:selected):hover {
+      background-color: if($variant == 'light', darken($card_bg_color, 2.3%), lighten($card_bg_color, 2.3%));
     }
   }
 }
