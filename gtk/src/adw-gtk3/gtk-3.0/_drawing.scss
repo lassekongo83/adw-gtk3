@@ -55,6 +55,7 @@
   @if $t==focus {
     @include _shadows(entry_focus_shadow($fc), $_entry_edge);
     border-color: entry_focus_border($fc);
+    transition: border 300ms ease-in-out;
   }
   @if $t==insensitive {
     color: $insensitive_fg_color;
@@ -558,4 +559,3 @@
     color: transparentize($tc, 0.3);
   }
 }
-

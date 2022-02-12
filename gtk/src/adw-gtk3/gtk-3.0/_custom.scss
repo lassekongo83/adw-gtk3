@@ -127,3 +127,9 @@ button, .titlebar button, headerbar button {
 treeview.view:not(:backdrop):not(:selected):hover {
   background-color: $view_hover_color;
 }
+
+// Preferences window
+// In nautilus preferences there is no padding below the last list
+.preferences scrolledwindow > .frame > clamp {
+  padding-bottom: 30px;
+}
