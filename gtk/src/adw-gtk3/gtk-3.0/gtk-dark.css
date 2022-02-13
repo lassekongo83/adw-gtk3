@@ -699,7 +699,7 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 
 .default-decoration.titlebar:not(headerbar), headerbar.default-decoration { min-height: 36px; padding: 0 6px 0 6px; }
 
-.default-decoration.titlebar:not(headerbar) button.titlebutton, headerbar.default-decoration button.titlebutton { border-radius: 100%; background-color: #444444; min-height: 24px; min-width: 24px; margin: 0 4px 0 4px; padding: 0; }
+.default-decoration.titlebar:not(headerbar) button.titlebutton, headerbar.default-decoration button.titlebutton { border-radius: 100%; background-color: #444444; min-height: 24px; min-width: 24px; margin: 0 4px 0 4px; padding: 0; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
 .default-decoration.titlebar:not(headerbar) button.titlebutton:hover, headerbar.default-decoration button.titlebutton:hover { background-color: #4f4f4f; }
 
@@ -1969,7 +1969,7 @@ button.titlebutton { padding: 2px; margin: 0; box-shadow: none; border: none; ba
 
 button.titlebutton:active, button.titlebutton:checked, button.titlebutton:checked:hover, button.titlebutton:active:hover { background: none; }
 
-button.titlebutton > image { background-color: #444444; border-radius: 100%; padding: 0; min-height: 24px; min-width: 24px; }
+button.titlebutton > image { background-color: #444444; border-radius: 100%; padding: 0; min-height: 24px; min-width: 24px; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
 button.titlebutton:backdrop > image { background-color: #2f2f2f; }
 
@@ -2218,7 +2218,7 @@ button.suggested-action:checked, button.suggested-action:checked:hover, button.s
 
 treeview.view:not(:backdrop):not(:selected):hover { background-color: #303030; }
 
-.preferences scrolledwindow > .frame > clamp { padding-bottom: 30px; }
+.preferences scrolledwindow > .frame > clamp.large, .preferences scrolledwindow > .frame > clamp.medium, .preferences scrolledwindow > .frame > clamp.small { padding-bottom: 30px; }
 
 window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized), window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) > decoration, window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) > decoration-overlay { border-radius: 12px; }
 
