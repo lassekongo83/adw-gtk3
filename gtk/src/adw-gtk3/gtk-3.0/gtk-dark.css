@@ -2178,17 +2178,17 @@ headerbar button:not(.titlebutton).destructive-action:not(:backdrop), .titlebar 
 
 headerbar button:not(.titlebutton).destructive-action:not(:backdrop):hover, .titlebar button:not(.titlebutton).destructive-action:not(:backdrop):hover { background-color: #db202e; }
 
-headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action), .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action) { background-color: #444444; }
+headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled), .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled) { background-color: #444444; }
 
-headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):backdrop, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):backdrop { background-color: #2f2f2f; }
+headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):backdrop, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):backdrop { background-color: #2f2f2f; }
 
-headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):hover, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):hover { background-color: #4a4a4a; }
+headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):hover, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):hover { background-color: #4a4a4a; }
 
-headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):hover:backdrop, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):hover:backdrop { background-color: #2a2a2a; }
+headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):hover:backdrop, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):hover:backdrop { background-color: #2a2a2a; }
 
-headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):active, headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):checked, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):active, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):checked { background-color: #505050; }
+headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):active, headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):checked, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):active, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):checked { background-color: #505050; }
 
-headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):active:backdrop, headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):checked:backdrop, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):active:backdrop, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):checked:backdrop { background-color: #444444; }
+headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):active:backdrop, headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):checked:backdrop, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):active:backdrop, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):checked:backdrop { background-color: #444444; }
 
 headerbar > :not(.stack-switcher) .linked > button, .titlebar > :not(.stack-switcher) .linked > button { margin-right: 2px; border-radius: 6px; -gtk-outline-radius: 6px; }
 

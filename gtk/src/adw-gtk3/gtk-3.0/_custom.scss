@@ -44,7 +44,7 @@ headerbar, .titlebar {
       &:hover { background-color: lighten($destructive_color, 6%); }
     }
     // Text buttons
-    &.text-button:not(.suggested-action):not(.destructive-action) {
+    &.text-button:not(.suggested-action):not(.destructive-action):not(:disabled) {
       background-color: $hb_button_color;
       &:backdrop {
         background-color: $hb_button_backdrop_color;
