@@ -34,30 +34,45 @@ headerbar, .titlebar {
       color: $fg_color;
     }
     &.suggested-action:not(:backdrop) {
-      background-color: $selected_bg_color;
+      background-color: $suggested_bg_color;
       color: $selected_fg_color;
+      &:hover { background-color: lighten($suggested_bg_color, 6%); }
     }
-  }
-  .linked > button {
-    border-radius: $button_radius;
-    -gtk-outline-radius: $button_radius;
-  }
-  // Spanning stack-switcher buttons to the edges of the headerbar
-  & > .stack-switcher .text-button {
-    margin: 0;
-    border-radius: 0;
-    border: none;
-    min-height: $_headerbar_height;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    &:backdrop {
-      background-color: $bg_color;
+    &.destructive-action:not(:backdrop) {
+      background-color: $destructive_color;
+      color: $selected_fg_color;
+      &:hover { background-color: lighten($destructive_color, 6%); }
     }
-    &:hover { background-color: $hb_button_hover_color; }
-    &:active, &:checked {
+    // Text buttons
+    &.text-button:not(.suggested-action):not(.destructive-action) {
       background-color: $hb_button_color;
       &:backdrop {
         background-color: $hb_button_backdrop_color;
+      }
+      &:hover {
+        background-color: $button_hover_color;
+        &:backdrop {
+          background-color: darken($hb_button_backdrop_color, 2%);
+        }
+      }
+      &:active, &:checked {
+        background-color: $hb_button_active_color;
+        &:backdrop {
+          background-color: $hb_button_color;
+        }
+      }
+    }
+  }
+  & > :not(.stack-switcher) .linked > button {
+    margin-right: 2px;
+    border-radius: $button_radius;
+    -gtk-outline-radius: $button_radius;
+  }
+  & > .stack-switcher.linked > button {
+    &:not(:last-child):not(:only-child) {
+      border-right: 1px solid if($variant == 'light', $alt_borders_color, lighten($borders_color, 4%));
+      &:backdrop {
+        border-right: 1px solid $backdrop_borders_color;
       }
     }
   }
@@ -65,7 +80,13 @@ headerbar, .titlebar {
   // Custom headerbar entries
   entry {
     background-color: $hb_button_color;
+    &:backdrop { background-color: $hb_button_backdrop_color; }
   }
+}
+
+// Font fixes when button text is bold
+.toggle.popup:not(.title), .flat.popup:not(.title) {
+  font-weight: normal;
 }
 
 // scrolled window list rows

@@ -588,6 +588,7 @@ button {
     border: 1px solid;
     border-radius: $button_radius;
     transition: $button_transition;
+    font-weight: bold;
 
     @include button(normal);
 
@@ -2720,10 +2721,10 @@ scrollbar {
   transition: $_scrollbar_transition;
 
   // scrollbar border
-  &.top    { box-shadow: inset 0 -1px $borders_color; padding-bottom: 1px; }
-  &.bottom { box-shadow: inset 0  1px $borders_color; padding-top:    1px; }
-  &.left   { box-shadow: inset -1px 0 $borders_color; padding-right:  1px; }
-  &.right  { box-shadow: inset  1px 0 $borders_color; padding-left:   1px; }
+  &.top { border-bottom: 1px solid $borders_color; }
+  &.bottom { border-top: 1px solid $borders_color; }
+  &.left { border-right: 1px solid $borders_color; }
+  &.right { border-left: 1px solid $borders_color; }
 
   &:backdrop {
     background-color: $backdrop_scrollbar_bg_color;
@@ -4690,7 +4691,7 @@ decoration {
   .tiled-bottom &,
   .tiled-left & {
     border-radius: 0;
-    box-shadow: 0 0 0 1px $_wm_border_backdrop,
+    box-shadow: 0 0 0 1px $_wm_border,
                 0 0 0 20px transparent; //transparent control workaround -- #3670
 
     &:backdrop { box-shadow: 0 0 0 1px $_wm_border_backdrop,

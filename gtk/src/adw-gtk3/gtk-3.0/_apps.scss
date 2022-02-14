@@ -31,11 +31,17 @@
     border-radius: 0px 0px 0px 0px;
   }
 
-  .search + .toggle {
+  .search + button.toggle {
     background-color: $hb_button_color;
     border-radius: 0 $button_radius $button_radius 0;
-    &:hover { background-color: $hb_button_hover_color; }
+    border-left: none;
+    &:hover { background-color: $button_hover_color; }
     &:active, &:checked { background-color: $hb_button_checked_color; }
+    &:backdrop { background-color: $hb_button_backdrop_color; }
+  }
+  .search:focus {
+    border-right: 1px solid entry_focus_border();
+    transition: border 300ms ease-in-out;
   }
 }
 
