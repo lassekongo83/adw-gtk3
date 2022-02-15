@@ -45,7 +45,7 @@ headerbar, .titlebar {
     }
     // Text buttons
     &.text-button:not(.suggested-action):not(.destructive-action):not(:disabled) {
-      background-color: $hb_button_color; // FIXME: Does not work in gnome-calculator and maybe some other hdy apps
+      background-color: $hb_button_color;
       &:backdrop {
         background-color: $hb_button_backdrop_color;
       }
@@ -98,8 +98,13 @@ button.toggle:not(.image-button) {
 }
 
 // Font fixes when button text is bold
-.toggle.popup:not(.title), .flat.popup:not(.title) {
+.flat.popup:not(.title) {
   font-weight: normal;
+}
+
+// Smaller text in statusbars
+statusbar {
+  font-size: small;
 }
 
 // scrolled window list rows

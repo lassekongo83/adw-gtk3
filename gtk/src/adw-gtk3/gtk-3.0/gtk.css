@@ -2224,7 +2224,9 @@ headerbar viewswitcher button.radio, .titlebar viewswitcher button.radio { margi
 
 button.toggle:not(.image-button) { padding-left: 8px; padding-right: 8px; }
 
-.toggle.popup:not(.title), .flat.popup:not(.title) { font-weight: normal; }
+.flat.popup:not(.title) { font-weight: normal; }
+
+statusbar { font-size: small; }
 
 scrolledwindow list:not(.content) { padding: 6px 0; }
 
