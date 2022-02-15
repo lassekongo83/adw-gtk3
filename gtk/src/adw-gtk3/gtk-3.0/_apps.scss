@@ -160,14 +160,6 @@ list.tweak-categories separator.horizontal {
   margin: 2px 0;
 }
 
-// gnome-tour
-// https://github.com/lassekongo83/adw-gtk3/issues/14#issuecomment-1027303621
-.background.csd.unified {
-  &:not(.nautilus-window) .titlebar .text-button:not(.suggested-action):not(.destructive-action):not(:hover):not(:active):not(:checked) {
-    background-color: $headerbar_color;
-  }
-}
-
 // Geary
 .geary-expanded headerbar {
   border: none;

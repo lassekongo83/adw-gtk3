@@ -45,7 +45,7 @@ headerbar, .titlebar {
     }
     // Text buttons
     &.text-button:not(.suggested-action):not(.destructive-action):not(:disabled) {
-      background-color: $hb_button_color;
+      background-color: $hb_button_color; // FIXME: Does not work in gnome-calculator and maybe some other hdy apps
       &:backdrop {
         background-color: $hb_button_backdrop_color;
       }
@@ -79,9 +79,22 @@ headerbar, .titlebar {
 
   // Custom headerbar entries
   entry {
+    margin: 6px 0;
     background-color: $hb_button_color;
     &:backdrop { background-color: $hb_button_backdrop_color; }
+    &:disabled { background-color: $hb_button_disabled_color; }
   }
+
+  // We want to match libadwaita's thinner buttons...
+  button:not(.titlebutton) { margin: 6px 0; }
+  // ...but not on hdy viewswitcher buttons
+  viewswitcher button.radio { margin: 0; }
+}
+
+// Even out toggle button padding to make them more square
+button.toggle:not(.image-button) {
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 // Font fixes when button text is bold

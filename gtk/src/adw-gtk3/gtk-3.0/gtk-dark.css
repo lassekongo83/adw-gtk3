@@ -72,7 +72,7 @@
 
 .view:disabled, iconview:disabled, .nautilus-window notebook:disabled, .nautilus-window notebook > stack:not(:only-child) searchbar:disabled, .view text:disabled, iconview text:disabled, textview text:disabled { color: #929292; background-color: #222222; }
 
-.view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, .nautilus-window notebook:selected:focus, .view text:selected:focus, iconview text:selected:focus, textview text:selected:focus, .nautilus-window notebook:selected, .nautilus-window notebook > stack:not(:only-child) searchbar:selected, .view text:selected, iconview text:selected, textview text:selected { border-radius: 3px; }
+.view:selected:focus, iconview:selected:focus, .view:selected, iconview:selected, .nautilus-window notebook:selected:focus, .view text:selected:focus, iconview text:selected:focus, textview text:selected:focus, .nautilus-window notebook:selected, .nautilus-window notebook > stack:not(:only-child) searchbar:selected, .view text:selected, iconview text:selected, textview text:selected { border-radius: 6px; }
 
 textview border { background-color: #212121; }
 
@@ -257,7 +257,7 @@ treeview entry.flat:focus, treeview entry:focus { border-color: #1c71d8; }
 @keyframes needs_attention { from { background-image: -gtk-gradient(radial, center center, 0, center center, 0.01, to(#5799e9), to(transparent)); }
   to { background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(#1c71d8), to(transparent)); } }
 
-notebook > header > tabs > arrow, button { min-height: 24px; min-width: 16px; padding: 5px 10px; border: 1px solid; border-radius: 6px; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); font-weight: bold; color: white; outline-color: rgba(255, 255, 255, 0.3); border-color: transparent; background-color: #3e3e3e; box-shadow: none; }
+notebook > header > tabs > arrow, button { min-height: 24px; min-width: 16px; padding: 4px 10px; border: 1px solid; border-radius: 6px; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); font-weight: bold; color: white; outline-color: rgba(255, 255, 255, 0.3); border-color: transparent; background-color: #3e3e3e; box-shadow: none; }
 
 button.sidebar-button, notebook > header > tabs > arrow, notebook > header > tabs > arrow.flat, button.flat { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; transition: none; }
 
@@ -285,7 +285,7 @@ notebook > header > tabs > arrow:disabled, button:disabled { color: #929292; bor
 
 notebook > header > tabs > arrow:disabled:active, notebook > header > tabs > arrow:disabled:checked, button:disabled:active, button:disabled:checked { color: #929292; border-color: transparent; background-color: #616161; box-shadow: none; }
 
-notebook > header > tabs > arrow.image-button, button.image-button { min-width: 24px; padding-left: 5px; padding-right: 5px; }
+notebook > header > tabs > arrow.image-button, button.image-button { min-width: 24px; padding-left: 4px; padding-right: 4px; }
 
 notebook > header > tabs > arrow.text-button, button.text-button { padding-left: 16px; padding-right: 16px; }
 
@@ -713,9 +713,9 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 
 .solid-csd .titlebar:dir(rtl):not(headerbar), .solid-csd .titlebar:dir(ltr):not(headerbar), .solid-csd headerbar:backdrop:dir(rtl), .solid-csd headerbar:backdrop:dir(ltr), .solid-csd headerbar:dir(rtl), .solid-csd headerbar:dir(ltr) { margin-left: -1px; margin-right: -1px; margin-top: -1px; border-radius: 0; box-shadow: none; }
 
-headerbar entry, headerbar spinbutton, headerbar separator:not(.sidebar), headerbar button { margin-top: 5px; margin-bottom: 5px; }
+headerbar entry, headerbar spinbutton, headerbar separator:not(.sidebar), headerbar button { margin-top: 4px; margin-bottom: 4px; }
 
-headerbar switch { margin-top: 10px; margin-bottom: 10px; }
+headerbar switch { margin-top: 9px; margin-bottom: 9px; }
 
 headerbar.titlebar headerbar:not(.titlebar) { background: none; box-shadow: none; }
 
@@ -2196,9 +2196,17 @@ headerbar > .stack-switcher.linked > button:not(:last-child):not(:only-child), .
 
 headerbar > .stack-switcher.linked > button:not(:last-child):not(:only-child):backdrop, .titlebar > .stack-switcher.linked > button:not(:last-child):not(:only-child):backdrop { border-right: 1px solid #424242; }
 
-headerbar entry, .titlebar entry { background-color: #444444; }
+headerbar entry, .titlebar entry { margin: 6px 0; background-color: #444444; }
 
 headerbar entry:backdrop, .titlebar entry:backdrop { background-color: #2f2f2f; }
+
+headerbar entry:disabled, .titlebar entry:disabled { background-color: #2f2f2f; }
+
+headerbar button:not(.titlebutton), .titlebar button:not(.titlebutton) { margin: 6px 0; }
+
+headerbar viewswitcher button.radio, .titlebar viewswitcher button.radio { margin: 0; }
+
+button.toggle:not(.image-button) { padding-left: 8px; padding-right: 8px; }
 
 .toggle.popup:not(.title), .flat.popup:not(.title) { font-weight: normal; }
 
@@ -2581,8 +2589,6 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 .gedit-document-panel row:hover:selected button:hover { color: white; }
 
 list.tweak-categories separator.horizontal { background: transparent; margin: 2px 0; }
-
-.background.csd.unified:not(.nautilus-window) .titlebar .text-button:not(.suggested-action):not(.destructive-action):not(:hover):not(:active):not(:checked) { background-color: #303030; }
 
 .geary-expanded headerbar { border: none; }
 

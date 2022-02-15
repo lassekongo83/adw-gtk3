@@ -4,7 +4,7 @@
 $base_color: if($variant == 'light', #ffffff, #1e1e1e);
 $text_color: if($variant == 'light', black, white);
 $bg_color: if($variant == 'light', #fafafa, #242424);
-$fg_color: if($variant == 'light', #2e2e2e, white);
+$fg_color: if($variant == 'light', transparentize(black, .2), white);
 
 $selected_fg_color: #ffffff;
 $selected_bg_color: if($variant == 'light', $blue_3, $blue_4);
