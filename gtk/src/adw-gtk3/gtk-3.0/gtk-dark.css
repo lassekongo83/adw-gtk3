@@ -1130,17 +1130,21 @@ switch:backdrop:checked { background-color: #418ce6; }
 
 switch:backdrop:disabled { color: #4a4a4a; border-color: #424242; background-color: #313131; }
 
-switch slider { min-width: 20px; min-height: 20px; background-color: white; border: 1px solid transparent; border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); -gtk-outline-radius: 20px; }
+switch slider { min-width: 20px; min-height: 20px; background-color: mix(white,#1e1e1e,0.2); border: 1px solid transparent; border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); -gtk-outline-radius: 20px; }
 
 switch image { color: transparent; }
 
 switch:hover slider { background-color: white; }
 
-switch:disabled slider { background-color: white; box-shadow: none; }
+switch:checked > slider { background-color: white; }
 
-switch:backdrop slider { transition: 200ms ease-out; background-color: white; }
+switch:disabled slider { background-color: mix(white,#1e1e1e,0.2); box-shadow: none; }
 
-switch:backdrop:disabled slider { background-color: white; }
+switch:backdrop slider { transition: 200ms ease-out; background-color: mix(white,#1e1e1e,0.2); }
+
+switch:backdrop:checked > slider { background-color: white; }
+
+switch:backdrop:disabled slider { background-color: mix(white,#1e1e1e,0.2); }
 
 /************************* Check and Radio items * */
 .view.content-view.check:not(list), iconview.content-view.check:not(list), .content-view:not(list) check { margin: 4px; min-width: 32px; min-height: 32px; color: transparent; background-color: #418ce6; border-radius: 5px; background-image: none; transition: 200ms; box-shadow: none; border-width: 0; -gtk-icon-source: none; -gtk-icon-shadow: none; }
@@ -1308,7 +1312,7 @@ scale fill:disabled:backdrop, scale fill:disabled { border-color: transparent; b
 
 .osd scale fill:disabled:backdrop, .osd scale fill:disabled { border-color: transparent; background-color: transparent; }
 
-scale slider { background-color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); outline: 1px solid rgba(0, 0, 0, 0.1); border: 1px solid transparent; border-radius: 100%; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); transition-property: background, border, box-shadow; }
+scale slider { background-color: mix(white,#1e1e1e,0.2); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); outline: 1px solid rgba(0, 0, 0, 0.1); border: 1px solid transparent; border-radius: 100%; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); transition-property: background, border, box-shadow; }
 
 scale slider:hover { background-color: white; }
 

@@ -2953,11 +2953,11 @@ switch {
     background-color: $slider_hover_color;
   }
 
-  //&:checked > slider { border: 1px solid $checkradio_borders_color; }
+  &:checked > slider { background-color: $slider_checked_color; }
 
   &:disabled slider {
     //@include button(insensitive);
-    background-color: white;
+    background-color: $slider_color;
     box-shadow: none;
   }
 
@@ -2969,7 +2969,7 @@ switch {
       background-color: $slider_color;
     }
 
-    //&:checked > slider { border-color: $checkradio_borders_color; }
+    &:checked > slider { background-color: $slider_checked_color; }
 
     &:disabled slider { background-color: $slider_color; }
   }
