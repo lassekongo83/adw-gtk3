@@ -899,11 +899,11 @@ menuitem check:dir(ltr), menuitem radio:dir(ltr) { margin-right: 7px; }
 menuitem check:dir(rtl), menuitem radio:dir(rtl) { margin-left: 7px; }
 
 /*************** Popovers   * */
-popover.background { padding: 2px; background-color: #ffffff; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
+popover.background { padding: 2px; background-color: #ffffff; box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.09), 0 2px 8px 3px rgba(0, 0, 0, 0.05); }
 
 .csd popover.background, popover.background { border: 1px solid #cfcfcf; border-radius: 12px; }
 
-.csd popover.background { background-clip: padding-box; border-color: rgba(0, 0, 0, 0.23); }
+.csd popover.background { background-clip: padding-box; border-color: rgba(0, 0, 0, 0.14); }
 
 popover.background:backdrop { background-color: #fafafa; box-shadow: none; }
 
