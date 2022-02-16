@@ -1134,7 +1134,7 @@ switch:disabled { color: rgba(150, 150, 150, 0.9); border-color: transparent; ba
 
 switch:backdrop { color: rgba(150, 150, 150, 0.9); border-color: #d7d7d7; background-color: #eeeeee; text-shadow: none; transition: 200ms ease-out; }
 
-switch:backdrop:checked { color: #fafafa; background-color: #3584e4; }
+switch:backdrop:checked { color: #fafafa; background-color: rgba(53, 132, 228, 0.5); }
 
 switch:backdrop:disabled { color: #d4d4d4; border-color: #d7d7d7; background-color: #ededed; }
 
@@ -1635,7 +1635,7 @@ row { transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
 row:hover { transition: none; }
 
-row:backdrop { transition: 200ms ease-out; color: rgba(150, 150, 150, 0.9); }
+row:backdrop { transition: 200ms ease-out; }
 
 row.activatable.has-open-popup, row.activatable:hover { background-color: #ededed; }
 
@@ -1649,7 +1649,7 @@ row.activatable:selected:active { background-color: #cfcfcf; }
 
 row.activatable:selected.has-open-popup, row.activatable:selected:hover { background-color: #dedede; color: rgba(0, 0, 0, 0.8); }
 
-row.activatable:selected:backdrop { background-color: #ededed; color: rgba(150, 150, 150, 0.9); }
+row.activatable:selected:backdrop { background-color: #ededed; }
 
 row:selected { background-color: #e6e6e6; }
 
@@ -2218,6 +2218,8 @@ headerbar viewswitcher button.radio, .titlebar viewswitcher button.radio { margi
 
 headerbar switch:disabled, .titlebar switch:disabled { background-color: #e4e4e4; }
 
+headerbar switch:disabled:backdrop, .titlebar switch:disabled:backdrop { background-color: #eeeeee; }
+
 button.toggle:not(.image-button) { padding-left: 8px; padding-right: 8px; }
 
 .flat.popup:not(.title) { font-weight: normal; }
@@ -2229,6 +2231,10 @@ scrolledwindow list:not(.content) { padding: 6px 0; }
 scrolledwindow list row { margin: 0 6px; border-radius: 6px; }
 
 scrolledwindow list separator.horizontal { margin: 6px; }
+
+list.content > row:backdrop switch:not(:disabled) { background-color: #d4d4d4; }
+
+list.content > row:backdrop switch:not(:disabled):checked { background-color: #3584e4; }
 
 .ssd .titlebar { border-width: 0; padding: 2px 4px; }
 

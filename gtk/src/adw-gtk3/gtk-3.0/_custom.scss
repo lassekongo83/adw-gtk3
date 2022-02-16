@@ -93,6 +93,7 @@ headerbar, .titlebar {
   // disabled switches
   switch:disabled {
     background-color: darken($backdrop_dark_fill, 4%);
+    &:backdrop { background-color: $backdrop_dark_fill; }
   }
 }
 
@@ -123,6 +124,14 @@ scrolledwindow list {
   }
   separator.horizontal {
     margin: 6px;
+  }
+}
+
+// libadwaita rows don't have backdrop effect on switches in a row
+list.content {
+  > row:backdrop {
+    switch:not(:disabled) { background-color: $trough_color; }
+    switch:not(:disabled):checked { background-color: $checkradio_bg_color; }
   }
 }
 

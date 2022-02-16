@@ -2925,7 +2925,7 @@ switch {
       @if $variant == 'light' { color: $backdrop_bg_color; }
       //border-color: if($variant == 'light', $checkradio_borders_color,
       //                                      $selected_borders_color);
-      background-color: $checkradio_bg_color;
+      background-color: transparentize($checkradio_bg_color, 0.5);
     }
 
     &:disabled {
@@ -3926,10 +3926,7 @@ row {
 
   &:hover { transition: none; }
 
-  &:backdrop {
-    transition: $backdrop_transition;
-    color: $backdrop_fg_color;
-  }
+  &:backdrop { transition: $backdrop_transition; }
 
   &.activatable {
     &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
@@ -3952,7 +3949,7 @@ row {
 
       &:backdrop {
         background-color: $view_hover_color;
-        color: $backdrop_fg_color;
+        //color: $backdrop_fg_color;
       }
     }
   }
