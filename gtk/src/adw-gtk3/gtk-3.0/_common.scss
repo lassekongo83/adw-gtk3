@@ -3196,14 +3196,14 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
   border-radius: 99px;
   background-color: $trough_color;
 
-  &:disabled { background-color: $insensitive_bg_color; }
+  &:disabled { background-color: $backdrop_dark_fill; }
 
   &:backdrop {
     background-color: $backdrop_dark_fill;
     border-color: $backdrop_borders_color;
     transition: $backdrop_transition;
 
-    &:disabled { background-color: $insensitive_bg_color; }
+    &:disabled { background-color: $backdrop_dark_fill; }
   }
 
   // ...on selected list rows
@@ -3224,7 +3224,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
   color: $fill_text_color;
 
   &:disabled {
-    background-color: transparent;
+    background-color: $trough_color;
     border-color: transparent;
   }
 
@@ -3348,7 +3348,10 @@ scale {
 
     &:active { border-color: $progress_border_color; }
 
-    &:disabled { @include button(normal); }
+    &:disabled {
+      background-color: $trough_color;
+      box-shadow: none;
+    }
 
     &:backdrop {
       transition: $backdrop_transition;

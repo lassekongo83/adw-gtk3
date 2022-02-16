@@ -1260,11 +1260,11 @@ treeview.view check:selected:focus, treeview.view check:selected, treeview.view 
 /************ GtkScale * */
 progressbar trough, scale fill, scale trough { border-radius: 99px; background-color: #4a4a4a; }
 
-progressbar trough:disabled, scale fill:disabled, scale trough:disabled { background-color: #222222; }
+progressbar trough:disabled, scale fill:disabled, scale trough:disabled { background-color: #2f2f2f; }
 
 progressbar trough:backdrop, scale fill:backdrop, scale trough:backdrop { background-color: #2f2f2f; border-color: #424242; transition: 200ms ease-out; }
 
-progressbar trough:backdrop:disabled, scale fill:backdrop:disabled, scale trough:backdrop:disabled { background-color: #222222; }
+progressbar trough:backdrop:disabled, scale fill:backdrop:disabled, scale trough:backdrop:disabled { background-color: #2f2f2f; }
 
 row:selected progressbar trough, progressbar row:selected trough, row:selected scale fill, scale row:selected fill, row:selected scale trough, scale row:selected trough { border-color: #0a2a51; }
 
@@ -1274,7 +1274,7 @@ row:selected progressbar trough, progressbar row:selected trough, row:selected s
 
 progressbar progress, scale highlight { border-radius: 99px; background-color: #1c71d8; color: #ffffff; }
 
-progressbar progress:disabled, scale highlight:disabled { background-color: transparent; border-color: transparent; }
+progressbar progress:disabled, scale highlight:disabled { background-color: #4a4a4a; border-color: transparent; }
 
 progressbar progress:backdrop, scale highlight:backdrop { border-color: #0a2a51; }
 
@@ -1316,7 +1316,7 @@ scale slider:hover { background-color: white; }
 
 scale slider:active { border-color: #0a2a51; }
 
-scale slider:disabled { color: white; outline-color: rgba(255, 255, 255, 0.3); border-color: transparent; background-color: #3e3e3e; box-shadow: none; }
+scale slider:disabled { background-color: #4a4a4a; box-shadow: none; }
 
 scale slider:backdrop { transition: 200ms ease-out; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); }
 
