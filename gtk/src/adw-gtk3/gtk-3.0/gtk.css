@@ -2220,6 +2220,16 @@ headerbar switch:disabled, .titlebar switch:disabled { background-color: #e4e4e4
 
 headerbar switch:disabled:backdrop, .titlebar switch:disabled:backdrop { background-color: #eeeeee; }
 
+headerbar .linked .search ~ button, .titlebar .linked .search ~ button { background-color: #d9d9d9; border-radius: 0 6px 6px 0; border-left: 1px solid transparent; }
+
+headerbar .linked .search ~ button:hover, .titlebar .linked .search ~ button:hover { background-color: #d4d4d4; }
+
+headerbar .linked .search ~ button:active, headerbar .linked .search ~ button:checked, .titlebar .linked .search ~ button:active, .titlebar .linked .search ~ button:checked { background-color: #cecece; }
+
+headerbar .linked .search ~ button:backdrop, .titlebar .linked .search ~ button:backdrop { background-color: #f0f0f0; }
+
+headerbar .linked .search:focus ~ button, .titlebar .linked .search:focus ~ button { border-left: 1px solid rgba(53, 132, 228, 0.5); transition: border 300ms ease-in-out; }
+
 button.toggle:not(.image-button) { padding-left: 8px; padding-right: 8px; }
 
 .flat.popup:not(.title) { font-weight: normal; }
@@ -2557,16 +2567,6 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 .nautilus-window .nautilus-path-bar button:first-child { border-width: 0px 1px 0px 0px; border-radius: 6px 0px 0px 6px; }
 
 .nautilus-window .nautilus-path-bar button:not(:first-child) { border-width: 0px 1px 0px 1px; border-radius: 0px 0px 0px 0px; }
-
-.nautilus-window .search + button.toggle { background-color: #d9d9d9; border-radius: 0 6px 6px 0; border-left: none; }
-
-.nautilus-window .search + button.toggle:hover { background-color: #d4d4d4; }
-
-.nautilus-window .search + button.toggle:active, .nautilus-window .search + button.toggle:checked { background-color: #cecece; }
-
-.nautilus-window .search + button.toggle:backdrop { background-color: #f0f0f0; }
-
-.nautilus-window .search:focus { border-right: 1px solid rgba(53, 132, 228, 0.5); transition: border 300ms ease-in-out; }
 
 .floating-bar { padding: 3px; background-color: #ffffff; border-width: 1px; border-style: solid solid none; border-color: #cfcfcf; border-radius: 8px 0 0 0; }
 

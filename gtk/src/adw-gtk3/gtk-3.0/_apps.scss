@@ -30,19 +30,6 @@
     border-width: 0px 1px 0px 1px;
     border-radius: 0px 0px 0px 0px;
   }
-
-  .search + button.toggle {
-    background-color: $hb_button_color;
-    border-radius: 0 $button_radius $button_radius 0;
-    border-left: none;
-    &:hover { background-color: $button_hover_color; }
-    &:active, &:checked { background-color: $hb_button_checked_color; }
-    &:backdrop { background-color: $hb_button_backdrop_color; }
-  }
-  .search:focus {
-    border-right: 1px solid entry_focus_border();
-    transition: border 300ms ease-in-out;
-  }
 }
 
 // Floating status bar

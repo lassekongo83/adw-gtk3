@@ -2204,6 +2204,16 @@ headerbar switch:disabled, .titlebar switch:disabled { background-color: #252525
 
 headerbar switch:disabled:backdrop, .titlebar switch:disabled:backdrop { background-color: #2f2f2f; }
 
+headerbar .linked .search ~ button, .titlebar .linked .search ~ button { background-color: #444444; border-radius: 0 6px 6px 0; border-left: 1px solid transparent; }
+
+headerbar .linked .search ~ button:hover, .titlebar .linked .search ~ button:hover { background-color: #4a4a4a; }
+
+headerbar .linked .search ~ button:active, headerbar .linked .search ~ button:checked, .titlebar .linked .search ~ button:active, .titlebar .linked .search ~ button:checked { background-color: #505050; }
+
+headerbar .linked .search ~ button:backdrop, .titlebar .linked .search ~ button:backdrop { background-color: #2f2f2f; }
+
+headerbar .linked .search:focus ~ button, .titlebar .linked .search:focus ~ button { border-left: 1px solid rgba(8, 30, 58, 0.5); transition: border 300ms ease-in-out; }
+
 button.toggle:not(.image-button) { padding-left: 8px; padding-right: 8px; }
 
 .flat.popup:not(.title) { font-weight: normal; }
@@ -2541,16 +2551,6 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 .nautilus-window .nautilus-path-bar button:first-child { border-width: 0px 1px 0px 0px; border-radius: 6px 0px 0px 6px; }
 
 .nautilus-window .nautilus-path-bar button:not(:first-child) { border-width: 0px 1px 0px 1px; border-radius: 0px 0px 0px 0px; }
-
-.nautilus-window .search + button.toggle { background-color: #444444; border-radius: 0 6px 6px 0; border-left: none; }
-
-.nautilus-window .search + button.toggle:hover { background-color: #4a4a4a; }
-
-.nautilus-window .search + button.toggle:active, .nautilus-window .search + button.toggle:checked { background-color: #505050; }
-
-.nautilus-window .search + button.toggle:backdrop { background-color: #2f2f2f; }
-
-.nautilus-window .search:focus { border-right: 1px solid rgba(8, 30, 58, 0.5); transition: border 300ms ease-in-out; }
 
 .floating-bar { padding: 3px; background-color: #1e1e1e; border-width: 1px; border-style: solid solid none; border-color: #494949; border-radius: 8px 0 0 0; }
 
