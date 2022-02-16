@@ -1130,27 +1130,25 @@ switch { outline-offset: -4px; padding: 2px; border-radius: 14px; color: rgba(0,
 
 switch:checked { color: #ffffff; background-color: #3584e4; }
 
-switch:disabled { color: rgba(150, 150, 150, 0.9); border-color: #cfcfcf; background-color: #ededed; text-shadow: none; }
+switch:disabled { color: rgba(150, 150, 150, 0.9); border-color: transparent; background-color: #eeeeee; text-shadow: none; }
 
 switch:backdrop { color: rgba(150, 150, 150, 0.9); border-color: #d7d7d7; background-color: #eeeeee; text-shadow: none; transition: 200ms ease-out; }
 
-switch:backdrop:checked { color: #fafafa; background-color: rgba(53, 132, 228, 0.8); }
+switch:backdrop:checked { color: #fafafa; background-color: #3584e4; }
 
 switch:backdrop:disabled { color: #d4d4d4; border-color: #d7d7d7; background-color: #ededed; }
 
-switch slider { min-width: 22px; min-height: 22px; background-color: mix(white,#ffffff,0.2); border: 1px solid transparent; border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); -gtk-outline-radius: 20px; }
+switch slider { min-width: 20px; min-height: 20px; background-color: white; border: 1px solid transparent; border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); -gtk-outline-radius: 20px; }
 
 switch image { color: transparent; }
 
 switch:hover slider { background-color: white; }
 
-switch:disabled slider { background-color: rgba(255, 255, 255, 0.8); }
+switch:disabled slider { background-color: white; box-shadow: none; }
 
-switch:backdrop slider { transition: 200ms ease-out; background-color: rgba(255, 255, 255, 0.8); }
+switch:backdrop slider { transition: 200ms ease-out; background-color: white; }
 
-switch:backdrop:checked > slider { border-color: #15539e; }
-
-switch:backdrop:disabled slider { color: #d4d4d4; border-color: transparent; background-color: #ededed; text-shadow: none; -gtk-icon-shadow: none; }
+switch:backdrop:disabled slider { background-color: white; }
 
 row:selected switch { box-shadow: none; border-color: #15539e; }
 
@@ -1326,7 +1324,7 @@ scale fill:disabled:backdrop, scale fill:disabled { border-color: transparent; b
 
 .osd scale fill:disabled:backdrop, .osd scale fill:disabled { border-color: transparent; background-color: transparent; }
 
-scale slider { background-color: mix(white,#ffffff,0.2); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); outline: 1px solid rgba(0, 0, 0, 0.1); border: 1px solid transparent; border-radius: 100%; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); transition-property: background, border, box-shadow; }
+scale slider { background-color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); outline: 1px solid rgba(0, 0, 0, 0.1); border: 1px solid transparent; border-radius: 100%; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); transition-property: background, border, box-shadow; }
 
 scale slider:hover { background-color: white; }
 
@@ -2213,6 +2211,8 @@ headerbar entry:disabled, .titlebar entry:disabled { background-color: #f0f0f0; 
 headerbar button:not(.titlebutton), .titlebar button:not(.titlebutton) { margin: 6px 0; }
 
 headerbar viewswitcher button.radio, .titlebar viewswitcher button.radio { margin: 0; }
+
+headerbar switch:disabled, .titlebar switch:disabled { background-color: #e4e4e4; }
 
 button.toggle:not(.image-button) { padding-left: 8px; padding-right: 8px; }
 

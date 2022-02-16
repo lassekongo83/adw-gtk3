@@ -1122,27 +1122,25 @@ switch { outline-offset: -4px; padding: 2px; border-radius: 14px; color: white; 
 
 switch:checked { color: #ffffff; background-color: #418ce6; }
 
-switch:disabled { color: #929292; border-color: #494949; background-color: #313131; text-shadow: none; }
+switch:disabled { color: #929292; border-color: transparent; background-color: #2f2f2f; text-shadow: none; }
 
 switch:backdrop { color: #929292; border-color: #424242; background-color: #2f2f2f; text-shadow: none; transition: 200ms ease-out; }
 
-switch:backdrop:checked { background-color: rgba(65, 140, 230, 0.8); }
+switch:backdrop:checked { background-color: #418ce6; }
 
 switch:backdrop:disabled { color: #4a4a4a; border-color: #424242; background-color: #313131; }
 
-switch slider { min-width: 22px; min-height: 22px; background-color: mix(white,#1e1e1e,0.2); border: 1px solid transparent; border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); -gtk-outline-radius: 20px; }
+switch slider { min-width: 20px; min-height: 20px; background-color: mix(white,#1e1e1e,0.2); border: 1px solid transparent; border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); -gtk-outline-radius: 20px; }
 
 switch image { color: transparent; }
 
 switch:hover slider { background-color: white; }
 
-switch:disabled slider { background-color: rgba(30, 30, 30, 0.8); }
+switch:disabled slider { background-color: white; box-shadow: none; }
 
-switch:backdrop slider { transition: 200ms ease-out; background-color: rgba(30, 30, 30, 0.8); }
+switch:backdrop slider { transition: 200ms ease-out; background-color: mix(white,#1e1e1e,0.2); }
 
-switch:backdrop:checked > slider { border-color: #0a2a51; }
-
-switch:backdrop:disabled slider { color: #4a4a4a; border-color: transparent; background-color: #313131; text-shadow: none; -gtk-icon-shadow: none; }
+switch:backdrop:disabled slider { background-color: mix(white,#1e1e1e,0.2); }
 
 /************************* Check and Radio items * */
 .view.content-view.check:not(list), iconview.content-view.check:not(list), .content-view:not(list) check { margin: 4px; min-width: 32px; min-height: 32px; color: transparent; background-color: #418ce6; border-radius: 5px; background-image: none; transition: 200ms; box-shadow: none; border-width: 0; -gtk-icon-source: none; -gtk-icon-shadow: none; }
@@ -2198,6 +2196,8 @@ headerbar button:not(.titlebutton), .titlebar button:not(.titlebutton) { margin:
 
 headerbar viewswitcher button.radio, .titlebar viewswitcher button.radio { margin: 0; }
 
+headerbar switch:disabled, .titlebar switch:disabled { background-color: #252525; }
+
 button.toggle:not(.image-button) { padding-left: 8px; padding-right: 8px; }
 
 .flat.popup:not(.title) { font-weight: normal; }
@@ -2360,7 +2360,7 @@ list.content > row { margin: 0; padding: 2px; transition: 200ms cubic-bezier(0.2
 
 list.content > row.expander:checked:not(:first-child), list.content > row.expander:checked + row { margin-top: 6px; }
 
-list.content > row:not(:last-child) { border-bottom: 1px solid rgba(73, 73, 73, 0.5); border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+list.content > row:not(:last-child) { border-bottom: 1px solid #535353; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
 
 list.content > row:not(:first-child):not(:last-child) { border-radius: 0; -gtk-outline-radius: 0; }
 

@@ -376,7 +376,7 @@ list.content {
       margin-top: 6px;
     }
     &:not(:last-child) {
-      border-bottom: 1px solid if($variant == 'light', lighten($borders_color, 7%), transparentize($borders_color, 0.5));
+      border-bottom: 1px solid if($variant == 'light', lighten($borders_color, 7%), lighten($borders_color, 3.7%));
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }

@@ -2909,8 +2909,8 @@ switch {
 
   &:disabled {
     color: $insensitive_fg_color;
-    border-color: $borders_color;
-    background-color: $button_disabled_color;
+    border-color: transparent;
+    background-color: $backdrop_dark_fill;
     text-shadow: none;
   }
 
@@ -2925,7 +2925,7 @@ switch {
       @if $variant == 'light' { color: $backdrop_bg_color; }
       //border-color: if($variant == 'light', $checkradio_borders_color,
       //                                      $selected_borders_color);
-      background-color: transparentize($checkradio_bg_color, 0.2);
+      background-color: $checkradio_bg_color;
     }
 
     &:disabled {
@@ -2937,8 +2937,8 @@ switch {
 
   slider {
     //margin: -1px;
-    min-width: 22px;
-    min-height: 22px;
+    min-width: 20px;
+    min-height: 20px;
     background-color: $slider_color;
     border: 1px solid transparent;
     border-radius: 50%;
@@ -2957,7 +2957,8 @@ switch {
 
   &:disabled slider {
     //@include button(insensitive);
-    background-color: transparentize($base_color, 0.2);
+    background-color: white;
+    box-shadow: none;
   }
 
   &:backdrop {
@@ -2965,12 +2966,12 @@ switch {
       transition: $backdrop_transition;
 
       //@include button(backdrop);
-      background-color: transparentize($base_color, 0.2);
+      background-color: $slider_color;
     }
 
-    &:checked > slider { border-color: $checkradio_borders_color; }
+    //&:checked > slider { border-color: $checkradio_borders_color; }
 
-    &:disabled slider { @include button(backdrop-insensitive); }
+    &:disabled slider { background-color: $slider_color; }
   }
 
   row:selected & {
@@ -2983,7 +2984,6 @@ switch {
       > slider { &:checked, & { border-color: $checkradio_borders_color; } }
     }
   }
-
 }
 
 

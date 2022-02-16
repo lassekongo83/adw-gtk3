@@ -89,6 +89,11 @@ headerbar, .titlebar {
   button:not(.titlebutton) { margin: 6px 0; }
   // ...but not on hdy viewswitcher buttons
   viewswitcher button.radio { margin: 0; }
+
+  // disabled switches
+  switch:disabled {
+    background-color: darken($backdrop_dark_fill, 4%);
+  }
 }
 
 // Even out toggle button padding to make them more square
