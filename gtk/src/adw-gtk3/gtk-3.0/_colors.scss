@@ -121,7 +121,7 @@ $trough_active_color: if($variant == 'light', darken($bg_color, 25%), lighten($b
 $fill_color: $selected_bg_color;
 $fill_text_color: $selected_fg_color;
 
-$slider_color: if($variant == 'light', white, gtkmix(white, $base_color, 80%));
+$slider_color: white;
 $slider_hover_color: white;
 
 // "Cards" or content list views
