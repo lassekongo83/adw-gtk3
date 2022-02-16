@@ -2624,7 +2624,7 @@ XfdesktopIconView.view .rubberband { border-radius: 0; }
 
 .xfce4-panel.background { border: none; background-color: #1e1e1e; color: #ffffff; }
 
-.xfce4-panel.background button { padding: 0; min-height: 12px; min-width: 12px; border-radius: 0; color: #ffffff; border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; }
+.xfce4-panel.background button { font-weight: normal; padding: 0; min-height: 12px; min-width: 12px; border-radius: 0; color: #ffffff; border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; }
 
 .xfce4-panel.background button:disabled { background-color: transparent; color: rgba(255, 255, 255, 0.2); }
 
