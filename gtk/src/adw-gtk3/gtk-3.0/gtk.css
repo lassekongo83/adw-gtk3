@@ -1065,14 +1065,6 @@ scrollbar { background-color: #ffffff; transition: all 200ms linear; }
 
 * { -GtkScrollbar-has-backward-stepper: false; -GtkScrollbar-has-forward-stepper: false; }
 
-scrollbar.top { border-bottom: 1px solid #cfcfcf; }
-
-scrollbar.bottom { border-top: 1px solid #cfcfcf; }
-
-scrollbar.left { border-right: 1px solid #cfcfcf; }
-
-scrollbar.right { border-left: 1px solid #cfcfcf; }
-
 scrollbar:backdrop { background-color: #f2f2f2; border-color: #d7d7d7; transition: 200ms ease-out; }
 
 scrollbar slider { min-width: 8px; min-height: 8px; margin: -1px; border: 4px solid transparent; border-radius: 10px; background-clip: padding-box; background-color: #cccccc; transition: all 200ms linear; }
@@ -1091,7 +1083,7 @@ scrollbar.fine-tune.horizontal slider { border-width: 5px 4px; }
 
 scrollbar.fine-tune.vertical slider { border-width: 4px 5px; }
 
-scrollbar.overlay-indicator:not(.dragging):not(.hovering) { border-color: transparent; opacity: 0.4; background-color: transparent; }
+scrollbar.overlay-indicator:not(.dragging):not(.hovering) { border-color: transparent; opacity: 0.4; background-color: transparent; transition-property: background-color, min-height, min-width; }
 
 scrollbar.overlay-indicator:not(.dragging):not(.hovering) slider { margin: 0; min-width: 3px; min-height: 3px; background-color: rgba(0, 0, 0, 0.8); border: 1px solid white; }
 

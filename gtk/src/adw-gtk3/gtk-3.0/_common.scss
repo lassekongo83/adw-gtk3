@@ -2717,14 +2717,14 @@ scrollbar {
     -GtkScrollbar-has-forward-stepper: false;
   }
 
-  background-color: $scrollbar_bg_color;
+  background-color: $scrollbar_bg_color; // Want this to be transparent to match libadwaita, but it may cause breakage
   transition: $_scrollbar_transition;
 
   // scrollbar border
-  &.top { border-bottom: 1px solid $borders_color; }
-  &.bottom { border-top: 1px solid $borders_color; }
-  &.left { border-right: 1px solid $borders_color; }
-  &.right { border-left: 1px solid $borders_color; }
+  //&.top { border-bottom: 1px solid $borders_color; }
+  //&.bottom { border-top: 1px solid $borders_color; }
+  //&.left { border-right: 1px solid $borders_color; }
+  //&.right { border-left: 1px solid $borders_color; }
 
   &:backdrop {
     background-color: $backdrop_scrollbar_bg_color;
@@ -2768,6 +2768,7 @@ scrollbar {
       border-color: transparent;
       opacity: 0.4;
       background-color: transparent;
+      transition-property: background-color, min-height, min-width;
 
       slider {
         margin: 0;
