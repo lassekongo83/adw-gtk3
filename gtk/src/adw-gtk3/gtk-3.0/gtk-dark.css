@@ -912,7 +912,7 @@ popover.background list separator { margin: 0px; }
 /************* Notebooks * */
 notebook > header { padding: 0px; border-color: #494949; border-width: 0px; background-color: #262626; }
 
-notebook > header:backdrop { border-color: #454545; background-color: #3b3b3b; }
+notebook > header:backdrop { border-color: #454545; }
 
 notebook > header.top { box-shadow: inset 0 -1px #494949; }
 
@@ -925,8 +925,6 @@ notebook > header.right { box-shadow: inset 1px 0 #494949; }
 notebook > header tabs { margin: 0px; }
 
 notebook > header > tabs > tab:checked { background-color: #303030; }
-
-notebook > header > tabs > tab:checked:backdrop { background-color: #242424; }
 
 notebook > header > tabs > tab:not(:checked) { color: rgba(255, 255, 255, 0.6); }
 
