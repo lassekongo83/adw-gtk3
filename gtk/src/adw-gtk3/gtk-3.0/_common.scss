@@ -3952,7 +3952,7 @@ row {
 
       &:backdrop {
         background-color: $view_hover_color;
-        //color: $backdrop_fg_color;
+        color: $fg_color;
       }
     }
   }
@@ -4157,9 +4157,10 @@ filechooserbutton:drop(active) {
 
   row {
     border-radius: $button_radius;
+    &:backdrop { color: $fg_color; }
   }
   row, separator {
-    margin: 2px 4px;
+    margin: 0 4px;
   }
 }
 

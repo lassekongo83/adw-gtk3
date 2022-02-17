@@ -1633,7 +1633,7 @@ row.activatable:selected:active { background-color: #4e4e4e; }
 
 row.activatable:selected.has-open-popup, row.activatable:selected:hover { background-color: #3f3f3f; color: white; }
 
-row.activatable:selected:backdrop { background-color: #303030; }
+row.activatable:selected:backdrop { background-color: #303030; color: white; }
 
 row:selected { background-color: #383838; }
 
@@ -1724,7 +1724,9 @@ paned .sidebar.left, paned .sidebar.right, paned .sidebar.left:dir(rtl), paned .
 
 .sidebar row { border-radius: 6px; }
 
-.sidebar row, .sidebar separator { margin: 2px 4px; }
+.sidebar row:backdrop { color: white; }
+
+.sidebar row, .sidebar separator { margin: 0 4px; }
 
 stacksidebar row { padding: 10px 4px; }
 
@@ -2221,6 +2223,8 @@ button.toggle:not(.image-button) { padding-left: 8px; padding-right: 8px; }
 statusbar { font-size: small; }
 
 scrolledwindow list:not(.content) { padding: 6px 0; }
+
+scrolledwindow list:not(.content) row { padding: 0; }
 
 scrolledwindow list row { margin: 0 6px; border-radius: 6px; }
 
