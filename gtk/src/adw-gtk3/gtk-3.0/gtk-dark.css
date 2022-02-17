@@ -1012,7 +1012,7 @@ notebook > header tab:backdrop:checked { color: #929292; }
 
 notebook > header tab:backdrop:checked.reorderable-page { border-color: #424242; background-color: #242424; }
 
-notebook > header tab button.flat { padding: 0; margin-top: 4px; margin-bottom: 4px; min-width: 20px; min-height: 20px; }
+notebook > header tab button.flat { padding: 0; margin-top: 4px; margin-bottom: 4px; min-width: 22px; min-height: 22px; border-radius: 100%; }
 
 notebook > header tab button.flat:hover { color: currentColor; }
 

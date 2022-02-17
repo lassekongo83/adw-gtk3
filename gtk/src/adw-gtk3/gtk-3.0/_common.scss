@@ -2633,8 +2633,9 @@ notebook {
         margin-top: 4px;
         margin-bottom: 4px;
         // FIXME: generalize .small-button?
-        min-width: 20px;
-        min-height: 20px;
+        min-width: 22px;
+        min-height: 22px;
+        border-radius: 100%;
 
         &:last-child {
           margin-left: 4px;
