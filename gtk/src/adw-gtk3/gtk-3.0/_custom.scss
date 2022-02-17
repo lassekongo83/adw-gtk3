@@ -155,7 +155,10 @@ list.content {
 // Legacy application titlebuttons
 .ssd .titlebar {
   border-width: 0;
-  padding: 2px 4px;
+  padding: 0px 4px;
+  min-height: 36px;
+  border-bottom: 1px solid $borders_color;
+  &:backdrop { border-bottom: 1px solid $backdrop_borders_color; }
 
   &.default-decoration button.titlebutton {
     background-color: $titlebutton_normal;

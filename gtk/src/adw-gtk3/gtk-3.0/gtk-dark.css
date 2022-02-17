@@ -2282,7 +2282,9 @@ list.content > row:backdrop switch:not(:disabled) { background-color: #4a4a4a; }
 
 list.content > row:backdrop switch:not(:disabled):checked { background-color: #418ce6; }
 
-.ssd .titlebar { border-width: 0; padding: 2px 4px; }
+.ssd .titlebar { border-width: 0; padding: 0px 4px; min-height: 36px; border-bottom: 1px solid #494949; }
+
+.ssd .titlebar:backdrop { border-bottom: 1px solid #454545; }
 
 .ssd .titlebar.default-decoration button.titlebutton { background-color: #444444; min-height: 24px; min-width: 24px; margin: 0 4px 0 4px; padding: 0; }
 
