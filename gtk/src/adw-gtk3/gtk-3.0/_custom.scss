@@ -1,6 +1,6 @@
 // Custom added styles
 
-// headerbar buttons
+// headerbar stuff
 headerbar, .titlebar {
   button:not(.titlebutton) {
     background-color: transparent;
@@ -109,6 +109,9 @@ headerbar, .titlebar {
     border-left: 1px solid entry_focus_border();
     transition: border 300ms ease-in-out;
   }
+
+  // better animation when switching from backdrop
+  &:not(:backdrop) { transition: 200ms ease-in; }
 }
 
 // Even out toggle button padding to make them more square

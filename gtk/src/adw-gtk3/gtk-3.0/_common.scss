@@ -2413,6 +2413,7 @@ notebook {
     > tabs > tab {
       &:checked {
         background-color: $active_tab_color;
+        &:backdrop { background-color: $backdrop_base_color; }
       }
       &:not(:checked) {
         color: transparentize($fg_color, 0.4);
