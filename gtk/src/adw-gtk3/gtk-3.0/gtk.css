@@ -2292,6 +2292,8 @@ statusbar { font-size: small; }
 
 scrolledwindow list:not(.content) { padding: 6px 0; }
 
+scrolledwindow list:not(.content) row { padding: 0 4px; min-height: 36px; }
+
 scrolledwindow list row { margin: 0 6px; border-radius: 6px; }
 
 scrolledwindow list separator.horizontal { margin: 6px; }
