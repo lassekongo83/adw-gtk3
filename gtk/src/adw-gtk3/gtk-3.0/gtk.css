@@ -1837,15 +1837,17 @@ infobar.info > revealer > box { background-color: mix(#3584e4,#fafafa,0.7); colo
 
 infobar.info > revealer > box:backdrop { color: rgba(150, 150, 150, 0.9); }
 
-infobar.info button { background-color: mix(#3584e4,#fafafa,0.4); }
+infobar.info button { background-color: mix(#3584e4,#fafafa,0.5); }
 
-infobar.info button:hover { background-color: mix(#3584e4,#fafafa,0.3); }
+infobar.info button:hover { background-color: mix(#3584e4,#fafafa,0.35); }
 
 infobar.info button:checked, infobar.info button:active { background-color: mix(#3584e4,#fafafa,0.2); }
 
-infobar.info button:backdrop label, infobar.info button:backdrop, infobar.info button label, infobar.info button { color: rgba(0, 0, 0, 0.8); }
+infobar.info button:backdrop:not(:disabled) label, infobar.info button:backdrop:not(:disabled), infobar.info button:not(:disabled) label, infobar.info button:not(:disabled) { color: rgba(0, 0, 0, 0.8); }
 
 infobar.info button:disabled { background-color: mix(#3584e4,#fafafa,0.6); }
+
+infobar.info button:disabled label, infobar.info button:disabled { color: rgba(21, 52, 89, 0.46); }
 
 infobar.action.info:hover > revealer > box { background-color: mix(#3584e4,#fafafa,0.6); box-shadow: inset 0 -1px mix(#3584e4,#fafafa,0.3); }
 
@@ -1853,15 +1855,17 @@ infobar.question > revealer > box { background-color: mix(#3584e4,#fafafa,0.7); 
 
 infobar.question > revealer > box:backdrop { color: rgba(150, 150, 150, 0.9); }
 
-infobar.question button { background-color: mix(#3584e4,#fafafa,0.4); }
+infobar.question button { background-color: mix(#3584e4,#fafafa,0.5); }
 
-infobar.question button:hover { background-color: mix(#3584e4,#fafafa,0.3); }
+infobar.question button:hover { background-color: mix(#3584e4,#fafafa,0.35); }
 
 infobar.question button:checked, infobar.question button:active { background-color: mix(#3584e4,#fafafa,0.2); }
 
-infobar.question button:backdrop label, infobar.question button:backdrop, infobar.question button label, infobar.question button { color: rgba(0, 0, 0, 0.8); }
+infobar.question button:backdrop:not(:disabled) label, infobar.question button:backdrop:not(:disabled), infobar.question button:not(:disabled) label, infobar.question button:not(:disabled) { color: rgba(0, 0, 0, 0.8); }
 
 infobar.question button:disabled { background-color: mix(#3584e4,#fafafa,0.6); }
+
+infobar.question button:disabled label, infobar.question button:disabled { color: rgba(21, 52, 89, 0.46); }
 
 infobar.action.question:hover > revealer > box { background-color: mix(#3584e4,#fafafa,0.6); box-shadow: inset 0 -1px mix(#3584e4,#fafafa,0.3); }
 
@@ -1869,15 +1873,17 @@ infobar.warning > revealer > box { background-color: mix(#e5a50a,#fafafa,0.7); c
 
 infobar.warning > revealer > box:backdrop { color: rgba(150, 150, 150, 0.9); }
 
-infobar.warning button { background-color: mix(#e5a50a,#fafafa,0.4); }
+infobar.warning button { background-color: mix(#e5a50a,#fafafa,0.5); }
 
-infobar.warning button:hover { background-color: mix(#e5a50a,#fafafa,0.3); }
+infobar.warning button:hover { background-color: mix(#e5a50a,#fafafa,0.35); }
 
 infobar.warning button:checked, infobar.warning button:active { background-color: mix(#e5a50a,#fafafa,0.2); }
 
-infobar.warning button:backdrop label, infobar.warning button:backdrop, infobar.warning button label, infobar.warning button { color: rgba(0, 0, 0, 0.8); }
+infobar.warning button:backdrop:not(:disabled) label, infobar.warning button:backdrop:not(:disabled), infobar.warning button:not(:disabled) label, infobar.warning button:not(:disabled) { color: rgba(0, 0, 0, 0.8); }
 
 infobar.warning button:disabled { background-color: mix(#e5a50a,#fafafa,0.6); }
+
+infobar.warning button:disabled label, infobar.warning button:disabled { color: rgba(90, 65, 4, 0.46); }
 
 infobar.action.warning:hover > revealer > box { background-color: mix(#e5a50a,#fafafa,0.6); box-shadow: inset 0 -1px mix(#e5a50a,#fafafa,0.3); }
 
@@ -1885,17 +1891,21 @@ infobar.error > revealer > box { background-color: mix(#e01b24,#fafafa,0.7); col
 
 infobar.error > revealer > box:backdrop { color: rgba(150, 150, 150, 0.9); }
 
-infobar.error button { background-color: mix(#e01b24,#fafafa,0.4); }
+infobar.error button { background-color: mix(#e01b24,#fafafa,0.5); }
 
-infobar.error button:hover { background-color: mix(#e01b24,#fafafa,0.3); }
+infobar.error button:hover { background-color: mix(#e01b24,#fafafa,0.35); }
 
 infobar.error button:checked, infobar.error button:active { background-color: mix(#e01b24,#fafafa,0.2); }
 
-infobar.error button:backdrop label, infobar.error button:backdrop, infobar.error button label, infobar.error button { color: rgba(0, 0, 0, 0.8); }
+infobar.error button:backdrop:not(:disabled) label, infobar.error button:backdrop:not(:disabled), infobar.error button:not(:disabled) label, infobar.error button:not(:disabled) { color: rgba(0, 0, 0, 0.8); }
 
 infobar.error button:disabled { background-color: mix(#e01b24,#fafafa,0.6); }
 
+infobar.error button:disabled label, infobar.error button:disabled { color: rgba(88, 11, 14, 0.46); }
+
 infobar.action.error:hover > revealer > box { background-color: mix(#e01b24,#fafafa,0.6); box-shadow: inset 0 -1px mix(#e01b24,#fafafa,0.3); }
+
+infobar .close { min-width: 18px; min-height: 18px; padding: 4px; border-radius: 50%; }
 
 infobar selection { background-color: #e1e1e1; }
 
