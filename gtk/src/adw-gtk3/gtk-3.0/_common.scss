@@ -4759,33 +4759,41 @@ button.titlebutton {
   border: none;
   background: none;
   text-shadow: none;
-  &:active, &:checked, &:checked:hover, &:active:hover { background: none; }
+  //&:active, &:checked, &:checked:hover, &:active:hover { background: none; }
 
-  > image {
-      background-color: $titlebutton_normal;
-      border-radius: 100%;
-      padding: 0;
-      min-height: 24px;
-      min-width: 24px;
-      transition: $button_transition;
-  }
+  //> image {
+  //    background-color: $titlebutton_normal;
+  //    border-radius: 100%;
+  //    padding: 0;
+  //    min-height: 24px;
+  //    min-width: 24px;
+  //    transition: $button_transition;
+  //}
 
-  &:backdrop > image {
-    background-color: $titlebutton_backdrop;
-  }
-  &:backdrop:hover > image {
-    background-color: $titlebutton_backdrop_hover;
-  }
+  //&:backdrop > image {
+  //  background-color: $titlebutton_backdrop;
+  //}
+  //&:backdrop:hover > image {
+  //  background-color: $titlebutton_backdrop_hover;
+  //}
 
-  &:hover > image { background-color: $titlebutton_normal_hover; }
-  &:hover:active > image { background-color: $titlebutton_normal_active; }
+  //&:hover > image { background-color: $titlebutton_normal_hover; }
+  //&:hover:active > image { background-color: $titlebutton_normal_active; }
 
   &:not(.appmenu) {
     border-radius: 9999px;
-    padding: 2px; //$_hb_btn_pad;
-    margin: 0 2px;
-    min-width: 0;
-    min-height: 0;
+    padding: 0px; //$_hb_btn_pad;
+    margin: 0 4px;
+    min-width: 24px;
+    min-height: 24px;
+    transition: $button_transition;
+    background-color: $titlebutton_normal;
+
+    &:hover { background-color: $titlebutton_normal_hover; }
+    &:hover:active { background-color: $titlebutton_normal_active; }
+
+    &:backdrop { background-color: $titlebutton_backdrop; }
+    &:backdrop:hover { background-color: $titlebutton_backdrop_hover; }
   }
 
   .selection-mode & {

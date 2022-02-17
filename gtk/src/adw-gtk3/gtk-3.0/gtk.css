@@ -1981,19 +1981,15 @@ messagedialog.csd decoration { border-radius: 12px; box-shadow: 0 1px 2px rgba(0
 
 button.titlebutton { padding: 2px; margin: 0; box-shadow: none; border: none; background: none; text-shadow: none; }
 
-button.titlebutton:active, button.titlebutton:checked, button.titlebutton:checked:hover, button.titlebutton:active:hover { background: none; }
+button.titlebutton:not(.appmenu) { border-radius: 9999px; padding: 0px; margin: 0 4px; min-width: 24px; min-height: 24px; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); background-color: #d9d9d9; }
 
-button.titlebutton > image { background-color: #d9d9d9; border-radius: 100%; padding: 0; min-height: 24px; min-width: 24px; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+button.titlebutton:not(.appmenu):hover { background-color: #cfcfcf; }
 
-button.titlebutton:backdrop > image { background-color: #f0f0f0; }
+button.titlebutton:not(.appmenu):hover:active { background-color: #b3b3b3; }
 
-button.titlebutton:backdrop:hover > image { background-color: #ebebeb; }
+button.titlebutton:not(.appmenu):backdrop { background-color: #f0f0f0; }
 
-button.titlebutton:hover > image { background-color: #cfcfcf; }
-
-button.titlebutton:hover:active > image { background-color: #b3b3b3; }
-
-button.titlebutton:not(.appmenu) { border-radius: 9999px; padding: 2px; margin: 0 2px; min-width: 0; min-height: 0; }
+button.titlebutton:not(.appmenu):backdrop:hover { background-color: #ebebeb; }
 
 button.titlebutton:backdrop { -gtk-icon-shadow: none; }
 
