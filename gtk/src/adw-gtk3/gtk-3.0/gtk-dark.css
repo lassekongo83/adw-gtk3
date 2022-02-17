@@ -1817,35 +1817,73 @@ paned.vertical > separator.wide { margin: 0; padding: 0; background-repeat: repe
 /************** GtkInfoBar * */
 infobar { border-style: none; }
 
-infobar.action:hover > revealer > box { background-color: #1c1a18; border-bottom: 1px solid #565656; }
+infobar.info > revealer > box { background-color: mix(#1c71d8,#242424,0.7); color: white; text-shadow: none; }
 
-infobar.info, infobar.question, infobar.warning, infobar.error { text-shadow: none; }
+infobar.info > revealer > box:backdrop { color: #929292; }
 
-infobar.info:backdrop > revealer > box, infobar.info > revealer > box, infobar.question:backdrop > revealer > box, infobar.question > revealer > box, infobar.warning:backdrop > revealer > box, infobar.warning > revealer > box, infobar.error:backdrop > revealer > box, infobar.error > revealer > box { background-color: #211f1d; border-bottom: 1px solid #565656; }
+infobar.info button { background-color: mix(#1c71d8,#242424,0.4); }
 
-infobar.info:backdrop > revealer > box label, infobar.info:backdrop > revealer > box, infobar.info > revealer > box label, infobar.info > revealer > box, infobar.question:backdrop > revealer > box label, infobar.question:backdrop > revealer > box, infobar.question > revealer > box label, infobar.question > revealer > box, infobar.warning:backdrop > revealer > box label, infobar.warning:backdrop > revealer > box, infobar.warning > revealer > box label, infobar.warning > revealer > box, infobar.error:backdrop > revealer > box label, infobar.error:backdrop > revealer > box, infobar.error > revealer > box label, infobar.error > revealer > box { color: white; }
+infobar.info button:hover { background-color: mix(#1c71d8,#242424,0.3); }
 
-infobar.info:backdrop, infobar.question:backdrop, infobar.warning:backdrop, infobar.error:backdrop { text-shadow: none; }
+infobar.info button:checked, infobar.info button:active { background-color: mix(#1c71d8,#242424,0.2); }
 
-infobar.info button, infobar.question button, infobar.warning button, infobar.error button { color: white; outline-color: rgba(255, 255, 255, 0.3); border-color: transparent; background-color: #3e3e3e; box-shadow: none; }
+infobar.info button:backdrop label, infobar.info button:backdrop, infobar.info button label, infobar.info button { color: white; }
 
-infobar.info button:hover, infobar.question button:hover, infobar.warning button:hover, infobar.error button:hover { color: white; outline-color: rgba(255, 255, 255, 0.3); border-color: transparent; background-color: #4a4a4a; box-shadow: none; }
+infobar.info button:disabled { background-color: mix(#1c71d8,#242424,0.65); color: #929292; }
 
-infobar.info button:active, infobar.info button:checked, infobar.question button:active, infobar.question button:checked, infobar.warning button:active, infobar.warning button:checked, infobar.error button:active, infobar.error button:checked { color: white; outline-color: rgba(255, 255, 255, 0.3); border-color: transparent; background-color: #717171; box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+infobar.action.info:hover > revealer > box { background-color: mix(#1c71d8,#242424,0.6); box-shadow: inset 0 -1px mix(#1c71d8,#242424,0.3); }
 
-infobar.info button:active:hover, infobar.info button:checked:hover, infobar.question button:active:hover, infobar.question button:checked:hover, infobar.warning button:active:hover, infobar.warning button:checked:hover, infobar.error button:active:hover, infobar.error button:checked:hover { background-color: #7d7d7d; }
+infobar.question > revealer > box { background-color: mix(#26a269,#242424,0.7); color: white; text-shadow: none; }
 
-infobar.info button:disabled, infobar.question button:disabled, infobar.warning button:disabled, infobar.error button:disabled { color: #929292; border-color: transparent; background-color: #313131; text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
+infobar.question > revealer > box:backdrop { color: #929292; }
 
-infobar.info button:backdrop, infobar.question button:backdrop, infobar.warning button:backdrop, infobar.error button:backdrop { color: #929292; border-color: transparent; background-color: #313131; text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; border-color: #0b0b0b; }
+infobar.question button { background-color: mix(#26a269,#242424,0.4); }
 
-infobar.info button:backdrop:disabled, infobar.question button:backdrop:disabled, infobar.warning button:backdrop:disabled, infobar.error button:backdrop:disabled { color: #4a4a4a; border-color: transparent; background-color: #313131; text-shadow: none; -gtk-icon-shadow: none; border-color: #0b0b0b; }
+infobar.question button:hover { background-color: mix(#26a269,#242424,0.3); }
 
-infobar.info button:backdrop label, infobar.info button:backdrop, infobar.info button label, infobar.info button, infobar.question button:backdrop label, infobar.question button:backdrop, infobar.question button label, infobar.question button, infobar.warning button:backdrop label, infobar.warning button:backdrop, infobar.warning button label, infobar.warning button, infobar.error button:backdrop label, infobar.error button:backdrop, infobar.error button label, infobar.error button { color: white; }
+infobar.question button:checked, infobar.question button:active { background-color: mix(#26a269,#242424,0.2); }
 
-infobar.info selection, infobar.question selection, infobar.warning selection, infobar.error selection { background-color: #0b0b0b; }
+infobar.question button:backdrop label, infobar.question button:backdrop, infobar.question button label, infobar.question button { color: white; }
 
-infobar.info *:link, infobar.question *:link, infobar.warning *:link, infobar.error *:link { color: #6ea7ec; }
+infobar.question button:disabled { background-color: mix(#26a269,#242424,0.65); color: #929292; }
+
+infobar.action.question:hover > revealer > box { background-color: mix(#26a269,#242424,0.6); box-shadow: inset 0 -1px mix(#26a269,#242424,0.3); }
+
+infobar.warning > revealer > box { background-color: mix(#cd9309,#242424,0.7); color: white; text-shadow: none; }
+
+infobar.warning > revealer > box:backdrop { color: #929292; }
+
+infobar.warning button { background-color: mix(#cd9309,#242424,0.4); }
+
+infobar.warning button:hover { background-color: mix(#cd9309,#242424,0.3); }
+
+infobar.warning button:checked, infobar.warning button:active { background-color: mix(#cd9309,#242424,0.2); }
+
+infobar.warning button:backdrop label, infobar.warning button:backdrop, infobar.warning button label, infobar.warning button { color: white; }
+
+infobar.warning button:disabled { background-color: mix(#cd9309,#242424,0.65); color: #929292; }
+
+infobar.action.warning:hover > revealer > box { background-color: mix(#cd9309,#242424,0.6); box-shadow: inset 0 -1px mix(#cd9309,#242424,0.3); }
+
+infobar.error > revealer > box { background-color: mix(#c01c28,#242424,0.7); color: white; text-shadow: none; }
+
+infobar.error > revealer > box:backdrop { color: #929292; }
+
+infobar.error button { background-color: mix(#c01c28,#242424,0.4); }
+
+infobar.error button:hover { background-color: mix(#c01c28,#242424,0.3); }
+
+infobar.error button:checked, infobar.error button:active { background-color: mix(#c01c28,#242424,0.2); }
+
+infobar.error button:backdrop label, infobar.error button:backdrop, infobar.error button label, infobar.error button { color: white; }
+
+infobar.error button:disabled { background-color: mix(#c01c28,#242424,0.65); color: #929292; }
+
+infobar.action.error:hover > revealer > box { background-color: mix(#c01c28,#242424,0.6); box-shadow: inset 0 -1px mix(#c01c28,#242424,0.3); }
+
+infobar selection { background-color: #0b0b0b; }
+
+infobar *:link { color: #6ea7ec; }
 
 /************ Tooltips * */
 tooltip { padding: 4px; /* not working */ border-radius: 5px; box-shadow: none; text-shadow: 0 1px black; }
