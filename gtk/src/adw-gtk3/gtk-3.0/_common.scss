@@ -4391,7 +4391,7 @@ infobar {
   border-style: none;
 
   @each $i_type, $i_color in (info, $selected_bg_color),
-                             (question, $success_color),
+                             (question, $selected_bg_color),
                              (warning, $warning_color),
                              (error, $error_color) {
     &.#{$i_type} > revealer > box {
@@ -4409,8 +4409,7 @@ infobar {
         label, & { color: $fg_color; }
       }
       &:disabled {
-        background-color: gtkmix($i_color, $bg_color, 35%);
-        color: $insensitive_fg_color;
+        background-color: gtkmix($i_color, $bg_color, 40%);
       }
     }
 
