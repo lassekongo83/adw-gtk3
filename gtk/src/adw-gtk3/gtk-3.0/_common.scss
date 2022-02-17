@@ -1897,7 +1897,10 @@ headerbar { // headerbar border rounding
     box-shadow: none;
   }
 
-  separator { background-color: $borders_color; }  // FIXME: use darker border?
+  separator {
+    background-color: $borders_color;
+    &:backdrop { background-color: $backdrop_borders_color; }
+  }
 
   @extend %titlebar;
 }
@@ -3903,9 +3906,10 @@ scrolledwindow {
 
 //vbox and hbox separators
 separator {
-  background: if($variant == 'light', transparentize(black, 0.9), transparentize(white, 0.9));
+  background: $borders_color; //if($variant == 'light', transparentize(black, 0.9), transparentize(white, 0.9));
   min-width: 1px;
   min-height: 1px;
+  &:backdrop { background: $backdrop_borders_color; }
 }
 
 
