@@ -1296,7 +1296,7 @@ row:selected progressbar trough, progressbar row:selected trough, row:selected s
 
 progressbar progress, scale highlight { border-radius: 99px; background-color: #3584e4; color: #ffffff; }
 
-progressbar progress:disabled, scale highlight:disabled { background-color: #d4d4d4; border-color: transparent; }
+progressbar progress:disabled, scale highlight:disabled { background-color: transparent; border-color: transparent; }
 
 progressbar progress:backdrop, scale highlight:backdrop { border-color: #3584e4; }
 
@@ -1332,17 +1332,15 @@ scale fill:disabled:backdrop, scale fill:disabled { border-color: transparent; b
 
 .osd scale fill:disabled:backdrop, .osd scale fill:disabled { border-color: transparent; background-color: transparent; }
 
-scale slider { background-color: mix(white,#ffffff,0.2); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); outline: 1px solid rgba(0, 0, 0, 0.1); border: 1px solid transparent; border-radius: 100%; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); transition-property: background, border, box-shadow; }
+scale slider { background-color: mix(white,#ffffff,0.2); box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.25); border: 1px solid transparent; border-radius: 100%; transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); transition-property: background, border, box-shadow; }
 
 scale slider:hover { background-color: white; }
 
-scale slider:active { border-color: #185fb4; }
+scale slider:disabled { color: rgba(150, 150, 150, 0.9); border-color: transparent; background-color: #ededed; text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2); }
 
-scale slider:disabled { background-color: #d4d4d4; box-shadow: none; }
+scale slider:backdrop { transition: 200ms ease-out; box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2); }
 
-scale slider:backdrop { transition: 200ms ease-out; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); }
-
-scale slider:backdrop:disabled { box-shadow: none; }
+scale slider:backdrop:disabled { box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2); }
 
 row:selected scale slider:disabled, row:selected scale slider { border-color: #185fb4; }
 

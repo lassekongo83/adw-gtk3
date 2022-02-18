@@ -3232,7 +3232,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
   color: $fill_text_color;
 
   &:disabled {
-    background-color: $trough_color;
+    background-color: transparent;
     border-color: transparent;
   }
 
@@ -3344,32 +3344,34 @@ scale {
     //@include button(normal-alt, $edge: $shadow_color);
 
     background-color: $slider_color;
-    box-shadow: 0 2px 4px transparentize(black, .8);
-    outline: 1px solid transparentize(black, .9);
+    
+    // Trying to get this as close to libadwaita as possible. Only one outer box-shadow is allowed. Outlines are not supported.
+    box-shadow: 0 1px 2px 1px transparentize(black, .75);
+    border: 1px solid transparent; //darken($alt_borders_color, 3%);
 
-    border: 1px solid transparent; //1px solid darken($alt_borders_color, 3%);
     border-radius: 100%;
     transition: $button_transition;
     transition-property: background, border, box-shadow;
 
     &:hover { background-color: $slider_hover_color; }
 
-    &:active { border-color: $progress_border_color; }
+    //&:active { border-color: $progress_border_color; }
 
     &:disabled {
-      background-color: $trough_color;
-      box-shadow: none;
+      //background-color: $trough_color;
+      @include button(insensitive);
+      box-shadow: 0 0 0 1px transparentize(black, .8);
     }
 
     &:backdrop {
       transition: $backdrop_transition;
-      box-shadow: 0 2px 4px transparentize(black, .92);
+      box-shadow: 0 1px 2px 1px transparentize(black, .8);
 
       //@include button(backdrop);
 
       &:disabled {
         //@include button(backdrop-insensitive);
-        box-shadow: none;
+        box-shadow: 0 0 0 1px transparentize(black, .8);
       }
     }
 
