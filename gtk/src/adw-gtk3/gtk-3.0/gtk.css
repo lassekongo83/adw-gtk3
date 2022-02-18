@@ -2292,8 +2292,6 @@ statusbar { font-size: small; }
 
 scrolledwindow list:not(.content) { padding: 6px 0; }
 
-scrolledwindow list:not(.content) row { padding: 0 4px; min-height: 36px; }
-
 scrolledwindow list row { margin: 0 6px; border-radius: 6px; }
 
 scrolledwindow list separator.horizontal { margin: 6px; }
@@ -2304,7 +2302,7 @@ list.content > row:backdrop switch:not(:disabled):checked { background-color: #3
 
 .ssd .titlebar { border-width: 0; padding: 0px 4px; min-height: 36px; border-bottom: 1px solid #cfcfcf; }
 
-.ssd .titlebar:backdrop { border-bottom: 1px solid #dddddd; }
+.ssd .titlebar:backdrop { border-color: #dddddd; }
 
 .ssd .titlebar.default-decoration button.titlebutton { background-color: #d9d9d9; min-height: 24px; min-width: 24px; margin: 0 4px 0 4px; padding: 0; }
 
