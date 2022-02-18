@@ -69,8 +69,12 @@ headerbar, .titlebar {
     -gtk-outline-radius: $button_radius;
   }
   & > .stack-switcher.linked > button {
+    border: none;
     &:not(:last-child):not(:only-child) {
-      border-right: 1px solid if($variant == 'light', $alt_borders_color, lighten($borders_color, 4%));
+      border-right: 1px solid if($variant == 'light', darken($borders_color, 2.7%), lighten($borders_color, 5%));
+      &:active, &:checked {
+        border-right: 1px solid if($variant == 'light', darken($borders_color, 16.3%), lighten($borders_color, 20%));
+      }
       &:backdrop {
         border-right: 1px solid $backdrop_borders_color;
       }

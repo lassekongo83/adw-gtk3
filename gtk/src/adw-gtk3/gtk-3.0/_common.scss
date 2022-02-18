@@ -3266,8 +3266,8 @@ scale {
   padding: 12px;
 
   // those are inside the trough node, I need them to show their own border over the trough one, so negative margin
-  fill,
-  highlight { margin: -1px; }
+  //fill,
+  //highlight { margin: -1px; }
 
   // the slider is inside the trough, so to have make it bigger there's a negative margin
 
@@ -3309,6 +3309,10 @@ scale {
     outline-offset: 2px;
     -gtk-outline-radius: 5px;
   }
+
+  // Match trough size to libadwaita
+  &.horizontal trough { min-height: 4px; }
+  &.vertical trough { min-width: 4px; }
 
   // the colored part of the backing bit
   highlight { @extend %scale_highlight; }

@@ -91,7 +91,7 @@ $button_disabled_checked_color: if($variant == 'light', darken($bg_color, 24%), 
 // headerbar buttons
 $hb_button_color: if($variant == 'light', darken($headerbar_color, 7%), lighten($headerbar_color, 8%));
 $hb_button_hover_color: if($variant == 'light', darken($headerbar_color, 5%), lighten($headerbar_color, 5.7%));
-$hb_button_active_color: if($variant == 'light', darken($headerbar_color, 11.3%), lighten($headerbar_color, 12.7%));
+$hb_button_active_color: if($variant == 'light', darken($headerbar_color, 21.7%), lighten($headerbar_color, 24.3%));
 $hb_button_checked_color: $hb_button_active_color;
 $hb_button_checked_hover_color: $hb_button_active_color;
 $hb_button_checked_active_color: $hb_button_active_color;

@@ -1292,8 +1292,6 @@ row:selected progressbar progress, progressbar row:selected progress, row:select
 
 scale { min-height: 10px; min-width: 10px; padding: 12px; }
 
-scale fill, scale highlight { margin: -1px; }
-
 scale slider { min-height: 18px; min-width: 18px; margin: -9px; }
 
 scale.fine-tune.horizontal { padding-top: 9px; padding-bottom: 9px; min-height: 16px; }
@@ -1305,6 +1303,10 @@ scale.fine-tune slider { margin: -6px; }
 scale.fine-tune fill, scale.fine-tune highlight, scale.fine-tune trough { border-radius: 5px; -gtk-outline-radius: 7px; }
 
 scale trough { outline-offset: 2px; -gtk-outline-radius: 5px; }
+
+scale.horizontal trough { min-height: 4px; }
+
+scale.vertical trough { min-width: 4px; }
 
 scale fill:backdrop, scale fill { background-color: #494949; }
 
@@ -2206,11 +2208,11 @@ headerbar button:not(.titlebutton):hover, .titlebar button:not(.titlebutton):hov
 
 headerbar button:not(.titlebutton):backdrop:hover, .titlebar button:not(.titlebutton):backdrop:hover { background-color: #2b2b2b; }
 
-headerbar button:not(.titlebutton):active, headerbar button:not(.titlebutton):checked, .titlebar button:not(.titlebutton):active, .titlebar button:not(.titlebutton):checked { background-color: #505050; }
+headerbar button:not(.titlebutton):active, headerbar button:not(.titlebutton):checked, .titlebar button:not(.titlebutton):active, .titlebar button:not(.titlebutton):checked { background-color: #6e6e6e; }
 
 headerbar button:not(.titlebutton):active.suggested-action, headerbar button:not(.titlebutton):checked.suggested-action, .titlebar button:not(.titlebutton):active.suggested-action, .titlebar button:not(.titlebutton):checked.suggested-action { background-color: #1c71d8; color: #ffffff; }
 
-headerbar button:not(.titlebutton):active:hover, headerbar button:not(.titlebutton):checked:hover, .titlebar button:not(.titlebutton):active:hover, .titlebar button:not(.titlebutton):checked:hover { background-color: #505050; }
+headerbar button:not(.titlebutton):active:hover, headerbar button:not(.titlebutton):checked:hover, .titlebar button:not(.titlebutton):active:hover, .titlebar button:not(.titlebutton):checked:hover { background-color: #6e6e6e; }
 
 headerbar button:not(.titlebutton):active:hover.suggested-action, headerbar button:not(.titlebutton):checked:hover.suggested-action, .titlebar button:not(.titlebutton):active:hover.suggested-action, .titlebar button:not(.titlebutton):checked:hover.suggested-action { background-color: #1c71d8; color: #ffffff; }
 
@@ -2232,13 +2234,17 @@ headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destr
 
 headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):hover:backdrop, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):hover:backdrop { background-color: #2a2a2a; }
 
-headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):active, headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):checked, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):active, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):checked { background-color: #505050; }
+headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):active, headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):checked, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):active, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):checked { background-color: #6e6e6e; }
 
 headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):active:backdrop, headerbar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):checked:backdrop, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):active:backdrop, .titlebar button:not(.titlebutton).text-button:not(.suggested-action):not(.destructive-action):not(:disabled):checked:backdrop { background-color: #444444; }
 
 headerbar > :not(.stack-switcher) .linked > button, .titlebar > :not(.stack-switcher) .linked > button { margin-right: 2px; border-radius: 6px; -gtk-outline-radius: 6px; }
 
-headerbar > .stack-switcher.linked > button:not(:last-child):not(:only-child), .titlebar > .stack-switcher.linked > button:not(:last-child):not(:only-child) { border-right: 1px solid #545454; }
+headerbar > .stack-switcher.linked > button, .titlebar > .stack-switcher.linked > button { border: none; }
+
+headerbar > .stack-switcher.linked > button:not(:last-child):not(:only-child), .titlebar > .stack-switcher.linked > button:not(:last-child):not(:only-child) { border-right: 1px solid #565656; }
+
+headerbar > .stack-switcher.linked > button:not(:last-child):not(:only-child):active, headerbar > .stack-switcher.linked > button:not(:last-child):not(:only-child):checked, .titlebar > .stack-switcher.linked > button:not(:last-child):not(:only-child):active, .titlebar > .stack-switcher.linked > button:not(:last-child):not(:only-child):checked { border-right: 1px solid #7c7c7c; }
 
 headerbar > .stack-switcher.linked > button:not(:last-child):not(:only-child):backdrop, .titlebar > .stack-switcher.linked > button:not(:last-child):not(:only-child):backdrop { border-right: 1px solid #454545; }
 
@@ -2260,7 +2266,7 @@ headerbar .linked .search ~ button, .titlebar .linked .search ~ button { backgro
 
 headerbar .linked .search ~ button:hover, .titlebar .linked .search ~ button:hover { background-color: #4a4a4a; }
 
-headerbar .linked .search ~ button:active, headerbar .linked .search ~ button:checked, .titlebar .linked .search ~ button:active, .titlebar .linked .search ~ button:checked { background-color: #505050; }
+headerbar .linked .search ~ button:active, headerbar .linked .search ~ button:checked, .titlebar .linked .search ~ button:active, .titlebar .linked .search ~ button:checked { background-color: #6e6e6e; }
 
 headerbar .linked .search ~ button:backdrop, .titlebar .linked .search ~ button:backdrop { background-color: #2f2f2f; }
 
