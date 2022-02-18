@@ -1503,9 +1503,9 @@ scale.color.fine-tune.vertical:dir(rtl) slider { margin-right: -15px; margin-lef
 /***************** Progress bars * */
 progressbar { font-size: smaller; color: rgba(255, 255, 255, 0.4); font-feature-settings: "tnum"; }
 
-progressbar.horizontal trough, progressbar.horizontal progress { min-height: 2px; }
+progressbar.horizontal trough, progressbar.horizontal progress { min-height: 8px; }
 
-progressbar.vertical trough, progressbar.vertical progress { min-width: 2px; }
+progressbar.vertical trough, progressbar.vertical progress { min-width: 8px; }
 
 progressbar.horizontal progress { margin: 0 -1px; }
 
@@ -1513,15 +1513,15 @@ progressbar.vertical progress { margin: -1px 0; }
 
 progressbar:backdrop { box-shadow: none; transition: 200ms ease-out; }
 
-progressbar progress { border-radius: 1.5px; }
+progressbar progress { border-radius: 8px; }
 
-progressbar progress.left { border-top-left-radius: 2px; border-bottom-left-radius: 2px; }
+progressbar progress.left { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
 
-progressbar progress.right { border-top-right-radius: 2px; border-bottom-right-radius: 2px; }
+progressbar progress.right { border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
 
-progressbar progress.top { border-top-right-radius: 2px; border-top-left-radius: 2px; }
+progressbar progress.top { border-top-right-radius: 8px; border-top-left-radius: 8px; }
 
-progressbar progress.bottom { border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; }
+progressbar progress.bottom { border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; }
 
 progressbar.osd { min-width: 3px; min-height: 3px; background-color: transparent; }
 
@@ -1532,21 +1532,25 @@ progressbar.osd progress { border-style: none; border-radius: 0; }
 progressbar trough.empty progress { all: unset; }
 
 /************* Level Bar * */
-levelbar.horizontal block { min-height: 1px; }
+levelbar.horizontal block { min-height: 8px; }
 
 levelbar.horizontal.discrete block { margin: 0 1px; min-width: 32px; }
 
-levelbar.vertical block { min-width: 1px; }
+levelbar.vertical block { min-width: 8px; }
 
 levelbar.vertical.discrete block { margin: 1px 0; min-height: 32px; }
 
 levelbar:backdrop { transition: 200ms ease-out; }
 
-levelbar trough { border: 1px solid; padding: 2px; border-radius: 3px; color: white; border-color: transparent; background-color: #3e3e3e; box-shadow: inset 0 0 0 1px rgba(28, 113, 216, 0); }
+levelbar trough { border: 0px solid; padding: 0; border-radius: 8px; background-color: #4a4a4a; }
 
-levelbar trough:backdrop { color: lightgray; border-color: transparent; background-color: #313131; }
+levelbar trough:backdrop { background-color: #3b3b3b; }
 
-levelbar block { border: 1px solid; border-radius: 1px; }
+levelbar block { border: 0px solid; border-radius: 0; }
+
+levelbar block:first-child { border-radius: 8px 0 0 8px; }
+
+levelbar block:last-child { border-radius: 0 8px 8px 0; }
 
 levelbar block.low { border-color: #cd9309; background-color: #cd9309; }
 

@@ -3668,12 +3668,12 @@ progressbar {
   // sizing
   &.horizontal {
     trough,
-    progress { min-height: 2px; }
+    progress { min-height: 8px; }
   }
 
   &.vertical {
     trough,
-    progress { min-width: 2px; }
+    progress { min-width: 8px; }
   }
 
   &.horizontal progress { margin: 0 -1px; } // the progress node is positioned after the trough border
@@ -3695,26 +3695,26 @@ progressbar {
   progress {
     @extend %scale_highlight;
 
-    border-radius: 1.5px;
+    border-radius: 8px;
 
     &.left {
-      border-top-left-radius: 2px;
-      border-bottom-left-radius: 2px;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
     }
 
     &.right {
-      border-top-right-radius: 2px;
-      border-bottom-right-radius: 2px;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
     }
 
     &.top {
-      border-top-right-radius: 2px;
-      border-top-left-radius: 2px;
+      border-top-right-radius: 8px;
+      border-top-left-radius: 8px;
     }
 
     &.bottom {
-      border-bottom-right-radius: 2px;
-      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
     }
   }
 
@@ -3746,7 +3746,7 @@ progressbar {
 levelbar {
   &.horizontal {
     block {
-      min-height: 1px;
+      min-height: 8px;
     }
 
     &.discrete block {
@@ -3757,7 +3757,7 @@ levelbar {
 
   &.vertical {
     block {
-      min-width: 1px;
+      min-width: 8px;
     }
 
     &.discrete block {
@@ -3769,17 +3769,20 @@ levelbar {
   &:backdrop { transition: $backdrop_transition; }
 
   trough {
-    border: 1px solid;
-    padding: 2px;
-    border-radius: 3px;
-    @include entry(normal);
+    border: 0px solid;
+    padding: 0; //2px;
+    border-radius: 8px;
+    //@include entry(normal);
+    background-color: $trough_color;
 
-    &:backdrop { @include entry(backdrop); }
+    &:backdrop { background-color: $backdrop_dark_fill; }
   }
 
   block {
-    border: 1px solid;
-    border-radius: 1px;
+    border: 0px solid;
+    border-radius: 0;
+    &:first-child { border-radius: 8px 0 0 8px; }
+    &:last-child { border-radius: 0 8px 8px 0; }
 
     &.low {
       border-color: if($variant == 'light', darken($warning_color, 20%), $warning_color);
