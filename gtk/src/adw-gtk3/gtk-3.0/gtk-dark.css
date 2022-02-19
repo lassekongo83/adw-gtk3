@@ -2250,6 +2250,10 @@ headerbar > .stack-switcher.linked > button:not(:first-child):not(:only-child):b
 
 headerbar > .stack-switcher.linked > button:first-child:not(:only-child):active, headerbar > .stack-switcher.linked > button:first-child:not(:only-child):checked, headerbar > .stack-switcher.linked > button:not(:first-child):not(:only-child):not(:last-child):active, headerbar > .stack-switcher.linked > button:not(:first-child):not(:only-child):not(:last-child):checked, .titlebar > .stack-switcher.linked > button:first-child:not(:only-child):active, .titlebar > .stack-switcher.linked > button:first-child:not(:only-child):checked, .titlebar > .stack-switcher.linked > button:not(:first-child):not(:only-child):not(:last-child):active, .titlebar > .stack-switcher.linked > button:not(:first-child):not(:only-child):not(:last-child):checked { box-shadow: inset -1px 0 #7c7c7c; }
 
+headerbar viewswitcher button.radio:checked, .titlebar viewswitcher button.radio:checked { background-color: #4a4a4a; }
+
+headerbar viewswitcher button.radio:checked:backdrop, .titlebar viewswitcher button.radio:checked:backdrop { background-color: #2f2f2f; }
+
 headerbar entry, .titlebar entry { margin: 6px 0; background-color: #444444; }
 
 headerbar entry:backdrop, .titlebar entry:backdrop { background-color: #2f2f2f; }

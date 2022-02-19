@@ -63,6 +63,8 @@ headerbar, .titlebar {
       }
     }
   }
+
+  // Stack buttons
   & > :not(.stack-switcher) .linked > button {
     margin-right: 2px;
     border-radius: $button_radius;
@@ -84,6 +86,13 @@ headerbar, .titlebar {
         box-shadow: inset -1px 0 if($variant == 'light', darken($borders_color, 16.3%), lighten($borders_color, 20%));
       }
     }
+  }
+
+  // hdy viewswitcher buttons (weather, system monitor, etc.)
+  // Viewswitcher buttons
+  viewswitcher button.radio:checked {
+    background-color: $button_hover_color;
+    &:backdrop { background-color: $hb_button_backdrop_color; }
   }
 
   // Custom headerbar entries
