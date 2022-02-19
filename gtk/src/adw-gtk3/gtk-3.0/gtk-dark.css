@@ -2276,18 +2276,6 @@ headerbar .linked .search:focus ~ button, .titlebar .linked .search:focus ~ butt
 
 headerbar:not(:backdrop), .titlebar:not(:backdrop) { transition: 200ms ease-in; }
 
-.view button, iconview button, popover.background button, list button { background-color: #494949; }
-
-.view button:hover, iconview button:hover, popover.background button:hover, list button:hover { background-color: #5c5c5c; }
-
-.view button:active, iconview button:active, .view button:checked, iconview button:checked, popover.background button:active, popover.background button:checked, list button:active, list button:checked { background-color: #717171; }
-
-.view button:checked:hover, iconview button:checked:hover, popover.background button:checked:hover, list button:checked:hover { background-color: #7b7b7b; }
-
-.view button:disabled, iconview button:disabled, .view button:backdrop, iconview button:backdrop, popover.background button:disabled, popover.background button:backdrop, list button:disabled, list button:backdrop { background-color: #2c2c2c; }
-
-.view entry:not(:backdrop):not(:disabled), iconview entry:not(:backdrop):not(:disabled), popover.background entry:not(:backdrop):not(:disabled), list entry:not(:backdrop):not(:disabled) { background-color: #494949; }
-
 button.toggle:not(.image-button) { padding-left: 8px; padding-right: 8px; }
 
 .flat.popup:not(.title) { font-weight: normal; }
