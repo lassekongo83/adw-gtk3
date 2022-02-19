@@ -70,13 +70,18 @@ headerbar, .titlebar {
   }
   & > .stack-switcher.linked > button {
     border: none;
-    &:not(:last-child):not(:only-child) {
-      border-right: 1px solid if($variant == 'light', darken($borders_color, 2.7%), lighten($borders_color, 5%));
+    &:not(:first-child):not(:only-child) {
+      border-left: 1px solid if($variant == 'light', darken($borders_color, 2.7%), lighten($borders_color, 5%));
       &:active, &:checked {
-        border-right: 1px solid if($variant == 'light', darken($borders_color, 16.3%), lighten($borders_color, 20%));
+        border-left: 1px solid if($variant == 'light', darken($borders_color, 16.3%), lighten($borders_color, 20%));
       }
       &:backdrop {
-        border-right: 1px solid $backdrop_borders_color;
+        border-left: 1px solid $backdrop_borders_color;
+      }
+    }
+    &:first-child:not(:only-child), &:not(:first-child):not(:only-child):not(:last-child) {
+      &:active, &:checked {
+        box-shadow: inset -1px 0 if($variant == 'light', darken($borders_color, 16.3%), lighten($borders_color, 20%));
       }
     }
   }
@@ -118,6 +123,31 @@ headerbar, .titlebar {
   &:not(:backdrop) { transition: 200ms ease-in; }
 }
 
+// Buttons on $base_color backgrounds should be a little bit brighter (or darker in case of dark theme)
+// This could be avoided with libadwaita colors, but GTK3 is CPU heavy and can't handle all the alpha
+.view,
+popover.background,
+list {
+  button {
+    background-color: if($variant == 'light', lighten($button_color, 4%), lighten($button_color, 4.7%));
+    &:hover {
+      background-color: if($variant == 'light', $button_color, lighten($button_hover_color, 7%));
+    }
+    &:active, &:checked {
+      background-color: if($variant == 'light', lighten($button_checked_color, 8%), $button_checked_color);
+    }
+    &:checked:hover {
+      background-color: if($variant == 'light', lighten($button_checked_color, 4%), lighten($button_checked_color, 4%));
+    }
+    &:disabled, &:backdrop {
+      background-color: if($variant == 'light', lighten($button_color, 7%), darken($button_color, 7%));
+    }
+  }
+  entry:not(:backdrop):not(:disabled) {
+    background-color: if($variant == 'light', lighten($button_color, 4%), lighten($button_color, 4.7%));
+  }
+}
+
 // Even out toggle button padding to make them more square
 button.toggle:not(.image-button) {
   padding-left: 8px;
@@ -148,7 +178,7 @@ scrolledwindow list {
   }
 }
 
-// libadwaita rows don't have backdrop effect on switches in a row
+// libadwaita switches don't have a backdrop effect on .content lists
 list.content {
   > row:backdrop {
     switch:not(:disabled) { background-color: $trough_color; }
