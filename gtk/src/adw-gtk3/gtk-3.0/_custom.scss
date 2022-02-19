@@ -190,10 +190,21 @@ scrolledwindow list {
 }
 
 // libadwaita switches don't have a backdrop effect on .content lists
-list.content {
+list.content, list.view.frame {
   > row:backdrop {
     switch:not(:disabled) { background-color: $trough_color; }
     switch:not(:disabled):checked { background-color: $checkradio_bg_color; }
+  }
+}
+
+// Non "content" lists
+// Applying the same style as list.content may cause breakage, so we use a simpler style
+list.view.frame {
+  border-radius: $card_radius;
+  &:backdrop { background-color: $card_bg_color; }
+  > row:not(:selected):hover button:not(:backdrop) {
+    background-color: $button_hover_color;
+    transition: none;
   }
 }
 

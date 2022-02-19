@@ -2292,9 +2292,15 @@ scrolledwindow list row { margin: 0 6px; border-radius: 6px; }
 
 scrolledwindow list separator.horizontal { margin: 6px; }
 
-list.content > row:backdrop switch:not(:disabled) { background-color: #4a4a4a; }
+list.content > row:backdrop switch:not(:disabled), list.view.frame > row:backdrop switch:not(:disabled) { background-color: #4a4a4a; }
 
-list.content > row:backdrop switch:not(:disabled):checked { background-color: #418ce6; }
+list.content > row:backdrop switch:not(:disabled):checked, list.view.frame > row:backdrop switch:not(:disabled):checked { background-color: #418ce6; }
+
+list.view.frame { border-radius: 12px; }
+
+list.view.frame:backdrop { background-color: #353535; }
+
+list.view.frame > row:not(:selected):hover button:not(:backdrop) { background-color: #4a4a4a; transition: none; }
 
 .ssd .titlebar { border-width: 0; padding: 0px 4px; min-height: 36px; border-bottom: 1px solid #494949; }
 
