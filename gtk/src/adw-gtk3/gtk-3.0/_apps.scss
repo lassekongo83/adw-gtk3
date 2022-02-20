@@ -25,13 +25,21 @@
   }
 
   .nautilus-path-bar button:first-child {
+    @extend %button;
     border-width: 0px 1px 0px 0px;
     border-radius: $button_radius 0px 0px $button_radius;
   }
 
   .nautilus-path-bar button:not(:first-child) {
+    @extend %button;
     border-width: 0px 1px 0px 1px;
     border-radius: 0px 0px 0px 0px;
+  }
+
+  .titlebar {
+    :not(.raised) .linked > button {
+      @extend %linked;
+    }
   }
 }
 
