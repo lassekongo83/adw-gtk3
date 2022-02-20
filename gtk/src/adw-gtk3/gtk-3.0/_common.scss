@@ -2231,6 +2231,7 @@ menubar,
 
 menu,
 .menu,
+%menu,
 .context-menu {
   margin: 4px; // see https://bugzilla.gnome.org/show_bug.cgi?id=591258
   padding: 4px 0px;
@@ -2244,7 +2245,8 @@ menu,
 
   &:backdrop { background-color: $backdrop_menu_color; }
 
-  menuitem {
+  menuitem,
+  %menuitem {
     min-height: 16px;
     min-width: 40px;
     padding: 4px 6px;
