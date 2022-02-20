@@ -500,10 +500,18 @@ $panel_fg_color: #ffffff;
 }
 
 // GNOME Builder
-.dzlmenubutton {
-  @extend %menu;
-  .dzlmenubuttonitem {
-    @extend %menuitem;
-    min-height: 32px;
-  }
+.org-gnome-Builder {
+    .dzlmenubutton {
+       @extend %menu;
+       .dzlmenubuttonitem {
+         @extend %menuitem;
+         min-height: 32px;
+       }
+    }
+    headerbar {
+        & > :not(.stack-switcher) .linked > button {
+          @extend %linked;
+          @extend %button;
+        }
+    }
 }
