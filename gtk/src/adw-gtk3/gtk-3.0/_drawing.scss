@@ -23,8 +23,9 @@
 
 // entries
 @function entry_focus_border($fc:transparentize($selected_bg_color, 0.5)) {
-  @if $variant == 'light' { @return $fc; }
-  @else { @return if($fc==$selected_bg_color, $selected_borders_color, darken($fc, 35%)); }
+  //@if $variant == 'light' { @return $fc; }
+  //@else { @return if($fc==$selected_bg_color, $selected_borders_color, darken($fc, 35%)); }
+  @return $fc;
 }
 
 @function entry_focus_shadow($fc:transparentize($selected_bg_color, 0.5)) { @return inset 0 0 0 1px $fc; }
@@ -55,7 +56,8 @@
   @if $t==focus {
     @include _shadows(entry_focus_shadow($fc), $_entry_edge);
     border-color: entry_focus_border($fc);
-    transition: border 300ms ease-in-out;
+    transition: 300ms ease-in-out;
+    transition-property: border, box-shadow;
   }
   @if $t==insensitive {
     color: $insensitive_fg_color;

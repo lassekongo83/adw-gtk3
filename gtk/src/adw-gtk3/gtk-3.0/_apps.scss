@@ -4,6 +4,7 @@
 .nautilus-window {
   // Without this nautilus iconview grabs the bg_color
   notebook,
+  notebook > stack:not(:only-child),
   notebook > stack:not(:only-child) searchbar { @extend %view; }
 
   // Path-bar
@@ -434,4 +435,66 @@ $panel_fg_color: #ffffff;
 // USB Creator GTK
 #dialog-action_area3 {
   margin: 5px;
+}
+
+// Inkscape
+#ToolboxCommon {
+  > #AuxToolbox {
+    #StyleSwatch { font-size: smaller; }
+
+    #Kludge { padding: 0; }
+
+    spinbutton,
+    entry { min-height: 32px; }
+
+    button:not(.up):not(.down) {
+      min-height: 24px;
+      min-width: 16px;
+      padding: 4px 8px;
+      border-radius: $button_radius;
+    }
+
+    spinbutton button { border-width: 4px; }
+  }
+
+  > toolbar.vertical {
+    margin-top: -4px;
+
+    button {
+      min-height: 24px;
+      min-width: 24px;
+      padding: 4px;
+      border-radius: $button_radius;
+    }
+  }
+}
+
+#CanvasTable {
+  button {
+    min-height: 16px;
+    min-width: 16px;
+    padding: 0;
+  }
+}
+
+#Canvas_and_Dock {
+  frame > border { border: none; }
+
+  // each canvases' titlebar
+  widget > widget {
+    > button.flat {
+      min-height: 16px;
+      min-width: 16px;
+      padding: 4px;
+    }
+
+    > box.horizontal image { padding: 4px; }
+  }
+
+  // vertical dock buttons
+  box.horizontal > box.vertical > button.flat {
+    min-height: 16px;
+    min-width: 24px;
+    padding: 8px 4px;
+  }
 }

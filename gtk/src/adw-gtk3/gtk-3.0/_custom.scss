@@ -1,5 +1,24 @@
 // Custom added styles
 
+%colored_hbuttons {
+  background-color: $hb_button_color;
+  &:backdrop {
+    background-color: $hb_button_backdrop_color;
+  }
+  &:hover {
+    background-color: $button_hover_color;
+    &:backdrop {
+      background-color: darken($hb_button_backdrop_color, 2%);
+    }
+  }
+  &:active, &:checked {
+    background-color: $hb_button_active_color;
+    &:backdrop {
+      background-color: $hb_button_color;
+    }
+  }
+}
+
 // headerbar stuff
 headerbar, .titlebar {
   button:not(.titlebutton) {
@@ -45,31 +64,26 @@ headerbar, .titlebar {
     }
     // Text buttons
     &.text-button:not(.suggested-action):not(.destructive-action):not(:disabled) {
-      background-color: $hb_button_color;
-      &:backdrop {
-        background-color: $hb_button_backdrop_color;
-      }
-      &:hover {
-        background-color: $button_hover_color;
-        &:backdrop {
-          background-color: darken($hb_button_backdrop_color, 2%);
-        }
-      }
-      &:active, &:checked {
-        background-color: $hb_button_active_color;
-        &:backdrop {
-          background-color: $hb_button_color;
-        }
-      }
+      @extend %colored_hbuttons;
     }
   }
 
-  // Stack buttons
+  // Linked image buttons (back and forward, plus and minus, etc)
+  .linked button.image-button {
+    //&:not(:disabled) { @extend %colored_hbuttons; }
+    //&:disabled { background-color: $hb_button_disabled_color; }
+    //&:backdrop:disabled { background-color: $hb_button_backdrop_color; }
+    border-radius: $button_radius;
+  }
+
+  // some linked buttons needs to be alone
   & > :not(.stack-switcher) .linked > button {
     margin-right: 2px;
     border-radius: $button_radius;
     -gtk-outline-radius: $button_radius;
   }
+
+  // Stack buttons
   & > .stack-switcher.linked > button {
     border: none;
     &:not(:first-child):not(:only-child) {
@@ -84,23 +98,38 @@ headerbar, .titlebar {
     &:first-child:not(:only-child), &:not(:first-child):not(:only-child):not(:last-child) {
       &:active, &:checked {
         box-shadow: inset -1px 0 if($variant == 'light', darken($borders_color, 16.3%), lighten($borders_color, 20%));
+        &:backdrop {
+          box-shadow: inset -1px 0 $backdrop_borders_color;
+        }
       }
     }
   }
 
   // hdy viewswitcher buttons (weather, system monitor, etc.)
-  // Viewswitcher buttons
   viewswitcher button.radio:checked {
     background-color: $button_hover_color;
     &:backdrop { background-color: $hb_button_backdrop_color; }
   }
 
-  // Custom headerbar entries
+  // Entries
   entry {
     margin: 6px 0;
     background-color: $hb_button_color;
     &:backdrop { background-color: $hb_button_backdrop_color; }
     &:disabled { background-color: $hb_button_disabled_color; }
+    &:backdrop:disabled { background-color: $hb_button_backdrop_color; }
+  }
+  // unlink linked entries
+  .linked entry:not(.search) {
+    border-color: transparent;
+    border-radius: $button_radius;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-right-style: solid;
+    &:focus { border-color: entry_focus_border(); }
+    ~ button {
+      border-left-color: transparent;
+    }
   }
 
   // We want to match libadwaita's thinner buttons...
@@ -118,15 +147,16 @@ headerbar, .titlebar {
   .linked .search ~ button {
     background-color: $hb_button_color;
     border-radius: 0 $button_radius $button_radius 0;
-    border-left: 1px solid transparent;
+    //border-left: 1px solid transparent;
     &:hover { background-color: $button_hover_color; }
     &:active, &:checked { background-color: $hb_button_checked_color; }
     &:backdrop { background-color: $hb_button_backdrop_color; }
   }
-  .linked .search:focus ~ button {
-    border-left: 1px solid entry_focus_border();
-    transition: border 300ms ease-in-out;
-  }
+  //.linked .search:focus ~ button {
+    //border-left: 1px solid entry_focus_border();
+    //box-shadow: 1px 0 entry_focus_border();
+    //transition: border 300ms ease-in-out;
+  //}
 
   // better animation when switching from backdrop
   &:not(:backdrop) { transition: 200ms ease-in; }

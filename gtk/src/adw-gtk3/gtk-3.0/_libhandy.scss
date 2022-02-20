@@ -486,12 +486,12 @@ row {
 
 tabbar {
   .box {
-    min-height: 38px;
+    min-height: 30px;
     background: $shade_color;
     border-bottom: 1px solid $borders_color;
 
     &:backdrop {
-      background-color: $backdrop_dark_fill;
+      background-color: if($variant == 'light', $backdrop_dark_fill, $shade_color);
       border-color: $backdrop_borders_color;
     }
   }
@@ -575,10 +575,11 @@ tabbar {
 
     &:backdrop {
       border-color: $backdrop_borders_color;
-      background-color: $backdrop_dark_fill;
+      background-color: if($variant == 'light', $backdrop_dark_fill, $shade_color);
+      color: mix($backdrop_fg_color, $backdrop_bg_color, 60%);
 
       &:checked {
-        background-color: $backdrop_bg_color;
+        background-color: if($variant == 'light', $backdrop_base_color, $active_tab_color);
       }
     }
   }

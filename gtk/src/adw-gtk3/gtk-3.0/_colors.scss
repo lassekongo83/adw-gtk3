@@ -97,7 +97,7 @@ $hb_button_checked_hover_color: $hb_button_active_color;
 $hb_button_checked_active_color: $hb_button_active_color;
 $hb_button_backdrop_color: if($variant == 'light', darken($bg_color, 4%), lighten($bg_color, 4.3%));
 $hb_button_backdrop_hover_color: if($variant == 'light', darken($bg_color, 2.7%), lighten($bg_color, 2.7%));
-$hb_button_disabled_color: $hb_button_backdrop_color;
+$hb_button_disabled_color: if($variant == 'light', darken($headerbar_color, 3%), lighten($headerbar_color, 4%));
 $hb_button_disabled_checked_color: $button_disabled_checked_color; // FIXME
 
 // titlebuttons

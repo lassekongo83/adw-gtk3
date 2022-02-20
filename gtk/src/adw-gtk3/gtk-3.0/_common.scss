@@ -2580,7 +2580,6 @@ notebook {
       min-height: 30px;
       min-width: 30px;
       padding: 3px 12px;
-      transition: background 150ms ease-in-out;
       //background-color: transparent; //gtkalpha($headerbar_shade_color, .6);
 
       outline-offset: -5px;
@@ -2591,13 +2590,17 @@ notebook {
       border-width: 0px;         // for reorderable tabs
       border-color: transparent; //
 
+      box-shadow: inset -1px -1px $borders_color;
+
       &:hover {
         color: $fg_color;
         background-color: darken($shade_color, 3%);
+        transition: background 150ms ease-in-out;
 
         &.reorderable-page {
           border-color: transparentize($borders_color, 0.7);
           background-color: darken($shade_color, 3%);
+          box-shadow: inset -1px -1px $borders_color;
         }
       }
 
@@ -2606,7 +2609,8 @@ notebook {
 
         &.reorderable-page {
           border-color: transparent;
-          background-color: transparent;
+          background-color: if($variant == 'light', $backdrop_dark_fill, $shade_color);
+          box-shadow: inset -1px -1px $borders_color;
         }
       }
 
@@ -2625,7 +2629,7 @@ notebook {
 
         &.reorderable-page {
           border-color: $backdrop_borders_color;
-          background-color: $backdrop_bg_color;
+          background-color: if($variant == 'light', $backdrop_base_color, $active_tab_color);
         }
       }
 
