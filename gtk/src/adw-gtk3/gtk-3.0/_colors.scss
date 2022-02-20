@@ -31,7 +31,7 @@ $error_color: if($variant == 'dark', $red_4, $red_3);
 $success_color: if($variant == 'dark', $green_5, $green_4);
 $destructive_color: if($variant == 'dark', $red_4, $red_3);
 
-$osd_fg_color: transparentize(white, .1);
+$osd_fg_color: #eeeeee;
 $osd_text_color: white;
 $osd_bg_color: transparentize(black, 0.3);
 $osd_insensitive_bg_color: transparentize(black, 0.35);
