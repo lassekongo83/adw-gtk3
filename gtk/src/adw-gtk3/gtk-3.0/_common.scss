@@ -3993,11 +3993,12 @@ row {
   @extend %osd;
 
   padding: 10px;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 $button_radius $button_radius;
   background-color: $osd_bg_color;
   background-image: linear-gradient(to bottom, transparentize(black, 0.8),
                                                transparent 2px);
   background-clip: padding-box;
+  border: none;
 
   &:backdrop {
     background-image: none;
