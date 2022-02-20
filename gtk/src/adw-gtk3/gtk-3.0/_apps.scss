@@ -498,3 +498,12 @@ $panel_fg_color: #ffffff;
     padding: 8px 4px;
   }
 }
+
+// GNOME Builder menus
+.dzlmenubutton {
+  @extend %menu;
+  .dzlmenubuttonitem {
+    @extend %menuitem;
+    min-height: 32px;
+  }
+}
