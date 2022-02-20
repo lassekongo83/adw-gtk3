@@ -637,7 +637,7 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 /*************** Header bars * */
 .titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 46px; border-width: 0 0 1px; border-style: solid; border-color: #494949; border-radius: 0; background: #303030 linear-gradient(to top, #303030, #303030); /* Darken switchbuttons for headerbars. issue #1588 */ }
 
-.titlebar:backdrop:not(headerbar), headerbar:backdrop { border-color: #454545; background-color: #242424; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0.07); transition: 200ms ease-out; }
+.titlebar:backdrop:not(headerbar), headerbar:backdrop { border-color: #454545; background-color: #242424; background-image: none; transition: 200ms ease-out; }
 
 .titlebar:not(headerbar) .title, headerbar .title { padding-left: 12px; padding-right: 12px; font-weight: bold; }
 
@@ -848,41 +848,41 @@ menubar .csd.popup decoration, .menubar .csd.popup decoration { border-radius: 0
 
 .background.popup { background-color: transparent; }
 
-menu, .menu, .context-menu { margin: 4px; padding: 4px 0px; background-color: #313131; border: 1px solid #494949; }
+menu, .menu, .dzlmenubutton, .context-menu { margin: 4px; padding: 4px 0px; background-color: #313131; border: 1px solid #494949; }
 
-.csd menu, .csd .menu, .csd .context-menu { border: none; border-radius: 6px; }
+.csd menu, .csd .menu, .csd .dzlmenubutton, .csd .context-menu { border: none; border-radius: 6px; }
 
-menu:backdrop, .menu:backdrop, .context-menu:backdrop { background-color: #242424; }
+menu:backdrop, .menu:backdrop, .dzlmenubutton:backdrop, .context-menu:backdrop { background-color: #242424; }
 
-menu menuitem, .menu menuitem, .context-menu menuitem { min-height: 16px; min-width: 40px; padding: 4px 6px; text-shadow: none; font-weight: normal; }
+menu menuitem, .menu menuitem, .dzlmenubutton menuitem, .dzlmenubutton .dzlmenubuttonitem, .context-menu menuitem { min-height: 16px; min-width: 40px; padding: 4px 6px; text-shadow: none; font-weight: normal; }
 
-menu menuitem:hover, .menu menuitem:hover, .context-menu menuitem:hover { background-color: #3f3f3f; }
+menu menuitem:hover, .menu menuitem:hover, .dzlmenubutton menuitem:hover, .dzlmenubutton .dzlmenubuttonitem:hover, .context-menu menuitem:hover { background-color: #3f3f3f; }
 
-menu menuitem:disabled, .menu menuitem:disabled, .context-menu menuitem:disabled { color: #929292; }
+menu menuitem:disabled, .menu menuitem:disabled, .dzlmenubutton menuitem:disabled, .dzlmenubutton .dzlmenubuttonitem:disabled, .context-menu menuitem:disabled { color: #929292; }
 
-menu menuitem:disabled:backdrop, .menu menuitem:disabled:backdrop, .context-menu menuitem:disabled:backdrop { color: #4a4a4a; }
+menu menuitem:disabled:backdrop, .menu menuitem:disabled:backdrop, .dzlmenubutton menuitem:disabled:backdrop, .dzlmenubutton .dzlmenubuttonitem:disabled:backdrop, .context-menu menuitem:disabled:backdrop { color: #4a4a4a; }
 
-menu menuitem:backdrop, menu menuitem:backdrop:hover, .menu menuitem:backdrop, .menu menuitem:backdrop:hover, .context-menu menuitem:backdrop, .context-menu menuitem:backdrop:hover { color: #929292; background-color: transparent; }
+menu menuitem:backdrop, .menu menuitem:backdrop, .dzlmenubutton menuitem:backdrop, .dzlmenubutton .dzlmenubuttonitem:backdrop, .context-menu menuitem:backdrop { color: #929292; background-color: transparent; }
 
-menu menuitem arrow, .menu menuitem arrow, .context-menu menuitem arrow { min-height: 16px; min-width: 16px; }
+menu menuitem arrow, .menu menuitem arrow, .dzlmenubutton menuitem arrow, .dzlmenubutton .dzlmenubuttonitem arrow, .context-menu menuitem arrow { min-height: 16px; min-width: 16px; }
 
-menu menuitem arrow:dir(ltr), .menu menuitem arrow:dir(ltr), .context-menu menuitem arrow:dir(ltr) { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); margin-left: 10px; }
+menu menuitem arrow:dir(ltr), .menu menuitem arrow:dir(ltr), .dzlmenubutton menuitem arrow:dir(ltr), .dzlmenubutton .dzlmenubuttonitem arrow:dir(ltr), .context-menu menuitem arrow:dir(ltr) { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); margin-left: 10px; }
 
-menu menuitem arrow:dir(rtl), .menu menuitem arrow:dir(rtl), .context-menu menuitem arrow:dir(rtl) { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl"); margin-right: 10px; }
+menu menuitem arrow:dir(rtl), .menu menuitem arrow:dir(rtl), .dzlmenubutton menuitem arrow:dir(rtl), .dzlmenubutton .dzlmenubuttonitem arrow:dir(rtl), .context-menu menuitem arrow:dir(rtl) { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl"); margin-right: 10px; }
 
-menu menuitem label:dir(rtl), menu menuitem label:dir(ltr), .menu menuitem label:dir(rtl), .menu menuitem label:dir(ltr), .context-menu menuitem label:dir(rtl), .context-menu menuitem label:dir(ltr) { color: inherit; }
+menu menuitem label:dir(rtl), menu menuitem label:dir(ltr), .menu menuitem label:dir(rtl), .menu menuitem label:dir(ltr), .dzlmenubutton menuitem label:dir(rtl), .dzlmenubutton menuitem label:dir(ltr), .dzlmenubutton .dzlmenubuttonitem label:dir(rtl), .dzlmenubutton .dzlmenubuttonitem label:dir(ltr), .context-menu menuitem label:dir(rtl), .context-menu menuitem label:dir(ltr) { color: inherit; }
 
-menu > arrow, .menu > arrow, .context-menu > arrow { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; min-height: 16px; min-width: 16px; padding: 4px; background-color: #313131; border-radius: 0; }
+menu > arrow, .menu > arrow, .dzlmenubutton > arrow, .context-menu > arrow { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; min-height: 16px; min-width: 16px; padding: 4px; background-color: #313131; border-radius: 0; }
 
-menu > arrow.top, .menu > arrow.top, .context-menu > arrow.top { margin-top: -4px; border-bottom: 1px solid #353535; border-top-right-radius: 6px; border-top-left-radius: 6px; -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
+menu > arrow.top, .menu > arrow.top, .dzlmenubutton > arrow.top, .context-menu > arrow.top { margin-top: -4px; border-bottom: 1px solid #353535; border-top-right-radius: 6px; border-top-left-radius: 6px; -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
 
-menu > arrow.bottom, .menu > arrow.bottom, .context-menu > arrow.bottom { margin-top: 8px; margin-bottom: -12px; border-top: 1px solid #353535; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px; -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
+menu > arrow.bottom, .menu > arrow.bottom, .dzlmenubutton > arrow.bottom, .context-menu > arrow.bottom { margin-top: 8px; margin-bottom: -12px; border-top: 1px solid #353535; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px; -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
 
-menu > arrow:hover, .menu > arrow:hover, .context-menu > arrow:hover { background-color: #353535; }
+menu > arrow:hover, .menu > arrow:hover, .dzlmenubutton > arrow:hover, .context-menu > arrow:hover { background-color: #353535; }
 
-menu > arrow:backdrop, .menu > arrow:backdrop, .context-menu > arrow:backdrop { background-color: #242424; }
+menu > arrow:backdrop, .menu > arrow:backdrop, .dzlmenubutton > arrow:backdrop, .context-menu > arrow:backdrop { background-color: #242424; }
 
-menu > arrow:disabled, .menu > arrow:disabled, .context-menu > arrow:disabled { color: transparent; background-color: transparent; border-color: transparent; }
+menu > arrow:disabled, .menu > arrow:disabled, .dzlmenubutton > arrow:disabled, .context-menu > arrow:disabled { color: transparent; background-color: transparent; border-color: transparent; }
 
 menuitem accelerator { color: alpha(currentColor,0.55); }
 
@@ -1991,15 +1991,15 @@ colorchooser .popover.osd { border-radius: 5px; }
 .scale-popup button:hover { background-color: rgba(255, 255, 255, 0.1); border-radius: 5px; }
 
 /********************** Window Decorations * */
-decoration { border-radius: 12px 12px 0 0; border-width: 0px; box-shadow: 0 3px 12px 1px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1); margin: 10px; }
+decoration { border-radius: 12px 12px 0 0; border-width: 0px; box-shadow: 0 3px 12px 1px rgba(0, 0, 0, 0.3), 0 0 0 1px #454545; margin: 10px; }
 
-decoration:backdrop { box-shadow: 0 3px 12px 1px transparent, 0 2px 6px 2px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(255, 255, 255, 0.07); transition: 200ms ease-out; }
+decoration:backdrop { box-shadow: 0 3px 12px 1px transparent, 0 2px 6px 2px rgba(0, 0, 0, 0.14), 0 0 0 1px #454545; transition: 200ms ease-out; }
 
 .maximized decoration, .fullscreen decoration { border-radius: 0; box-shadow: none; }
 
-.tiled decoration, .tiled-top decoration, .tiled-right decoration, .tiled-bottom decoration, .tiled-left decoration { border-radius: 0; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 0 20px transparent; }
+.tiled decoration, .tiled-top decoration, .tiled-right decoration, .tiled-bottom decoration, .tiled-left decoration { border-radius: 0; box-shadow: 0 0 0 1px #454545, 0 0 0 20px transparent; }
 
-.tiled decoration:backdrop, .tiled-top decoration:backdrop, .tiled-right decoration:backdrop, .tiled-bottom decoration:backdrop, .tiled-left decoration:backdrop { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.07), 0 0 0 20px transparent; }
+.tiled decoration:backdrop, .tiled-top decoration:backdrop, .tiled-right decoration:backdrop, .tiled-bottom decoration:backdrop, .tiled-left decoration:backdrop { box-shadow: 0 0 0 1px #454545, 0 0 0 20px transparent; }
 
 .popup decoration { box-shadow: none; }
 
@@ -2007,11 +2007,11 @@ decoration:backdrop { box-shadow: 0 3px 12px 1px transparent, 0 2px 6px 2px rgba
 
 .ssd decoration:backdrop { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.07); }
 
-.csd.popup decoration { border-radius: 6px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0); }
+.csd.popup decoration { border-radius: 6px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(69, 69, 69, 0.9); }
 
 tooltip.csd decoration { border-radius: 5px; box-shadow: none; }
 
-messagedialog.csd decoration { border-radius: 12px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0); }
+messagedialog.csd decoration { border-radius: 12px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(69, 69, 69, 0.9); }
 
 .solid-csd decoration { margin: 0; padding: 4px; background-color: #494949; border: solid 1px #494949; border-radius: 0; box-shadow: inset 0 0 0 5px #494949, inset 0 0 0 4px #303030, inset 0 0 0 1px #494949; }
 
@@ -2815,3 +2815,5 @@ XfdesktopIconView.view .rubberband { border-radius: 0; }
 #Canvas_and_Dock widget > widget > box.horizontal image { padding: 4px; }
 
 #Canvas_and_Dock box.horizontal > box.vertical > button.flat { min-height: 16px; min-width: 24px; padding: 8px 4px; }
+
+.dzlmenubutton .dzlmenubuttonitem { min-height: 32px; }
