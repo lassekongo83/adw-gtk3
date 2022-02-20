@@ -2969,7 +2969,7 @@ switch {
     background-color: $slider_hover_color;
   }
 
-  &:checked > slider { background-color: $slider_checked_color; }
+  &:checked > slider { background-color: $slider_hover_color; }
 
   &:disabled slider {
     //@include button(insensitive);
@@ -2985,7 +2985,7 @@ switch {
       background-color: $slider_color;
     }
 
-    &:checked > slider { background-color: $slider_checked_color; }
+    &:checked > slider { background-color: $slider_hover_color; }
 
     &:disabled slider { background-color: $slider_color; }
   }

@@ -246,6 +246,11 @@ list.view.frame {
   border-bottom: 1px solid $borders_color;
   &:backdrop { border-color: $backdrop_borders_color; }
 
+  // Just to be safe, but it still doesn't fix the inkscape icon
+  -gtk-icon-shadow: none;
+  text-shadow: none;
+  color: $fg_color;
+
   &.default-decoration button.titlebutton {
     background-color: $titlebutton_normal;
     min-height: 24px;

@@ -854,7 +854,7 @@ menu, .menu, .context-menu { margin: 4px; padding: 4px 0px; background-color: #3
 
 menu:backdrop, .menu:backdrop, .context-menu:backdrop { background-color: #242424; }
 
-menu menuitem, .menu menuitem, .context-menu menuitem { min-height: 16px; min-width: 40px; padding: 4px 6px; text-shadow: none; }
+menu menuitem, .menu menuitem, .context-menu menuitem { min-height: 16px; min-width: 40px; padding: 4px 6px; text-shadow: none; font-weight: normal; }
 
 menu menuitem:hover, .menu menuitem:hover, .context-menu menuitem:hover { background-color: #3f3f3f; }
 
@@ -2312,7 +2312,7 @@ list.view.frame:backdrop { background-color: #353535; }
 
 list.view.frame > row:not(:selected):hover button:not(:backdrop) { background-color: #4a4a4a; transition: none; }
 
-.ssd .titlebar { border-width: 0; padding: 0px 4px; min-height: 36px; border-bottom: 1px solid #494949; }
+.ssd .titlebar { border-width: 0; padding: 0px 4px; min-height: 36px; border-bottom: 1px solid #494949; -gtk-icon-shadow: none; text-shadow: none; color: white; }
 
 .ssd .titlebar:backdrop { border-color: #454545; }
 

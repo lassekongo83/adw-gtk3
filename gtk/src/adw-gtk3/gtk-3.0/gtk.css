@@ -862,7 +862,7 @@ menu, .menu, .context-menu { margin: 4px; padding: 4px 0px; background-color: #f
 
 menu:backdrop, .menu:backdrop, .context-menu:backdrop { background-color: #fafafa; }
 
-menu menuitem, .menu menuitem, .context-menu menuitem { min-height: 16px; min-width: 40px; padding: 4px 6px; text-shadow: none; }
+menu menuitem, .menu menuitem, .context-menu menuitem { min-height: 16px; min-width: 40px; padding: 4px 6px; text-shadow: none; font-weight: normal; }
 
 menu menuitem:hover, .menu menuitem:hover, .context-menu menuitem:hover { background-color: #dedede; }
 
@@ -2342,7 +2342,7 @@ list.view.frame:backdrop { background-color: #ffffff; }
 
 list.view.frame > row:not(:selected):hover button:not(:backdrop) { background-color: #d4d4d4; transition: none; }
 
-.ssd .titlebar { border-width: 0; padding: 0px 4px; min-height: 36px; border-bottom: 1px solid #cfcfcf; }
+.ssd .titlebar { border-width: 0; padding: 0px 4px; min-height: 36px; border-bottom: 1px solid #cfcfcf; -gtk-icon-shadow: none; text-shadow: none; color: rgba(0, 0, 0, 0.8); }
 
 .ssd .titlebar:backdrop { border-color: #dddddd; }
 
