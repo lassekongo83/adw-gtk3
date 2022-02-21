@@ -3479,11 +3479,10 @@ scale {
     @each $marks_infix, $marks_class in ('scale-has-marks-above', 'marks-before:not(.marks-after)'),
                                         ('scale-has-marks-below', 'marks-after:not(.marks-before)') {
       @each $state, $state_infix in ('', ''),
-                                    (':hover', '-hover'),
-                                    (':active', '-active'),
+                                    (':hover', ''),
                                     (':disabled', '-insensitive'),
-                                    (':backdrop', '-backdrop'),
-                                    (':backdrop:disabled', '-backdrop-insensitive') {
+                                    (':backdrop', '-insensitive'),
+                                    (':backdrop:disabled', '-insensitive') {
         &.#{$dir_class}.#{$marks_class} {
 
           slider {
@@ -3497,12 +3496,17 @@ scale {
 
               background-color: transparent;
               background-image: -gtk-scaled(url('#{$_scale_asset}.png'), url('#{$_scale_asset}@2.png'));
+              @if $variant == 'dark' {
+                &:hover, &:active {
+                  background-image: -gtk-scaled(url('assets/slider-#{$dir_infix}-#{$marks_infix}.png'), url('assets/slider-#{$dir_infix}-#{$marks_infix}@2.png'));
+                }
+              }
 
               $_scale_slider_bg_pos: bottom;
 
               @if $dir_class == 'horizontal' {
-                min-height: 26px;
-                min-width: 22px;
+                min-height: 28px;
+                min-width: 23px;
 
                 @if $marks_infix == 'scale-has-marks-above' {
                   margin-top: -14px;
@@ -3514,8 +3518,8 @@ scale {
               }
 
               @else {
-                min-height: 22px;
-                min-width: 26px;
+                min-height: 23px;
+                min-width: 28px;
 
                 @if $marks_infix == 'scale-has-marks-above' {
                   margin-left: -14px;

@@ -1366,99 +1366,123 @@ scale.vertical indicator { min-height: 1px; min-width: 6px; }
 
 scale.vertical.fine-tune indicator { min-width: 3px; }
 
-scale.horizontal.marks-before:not(.marks-after) slider { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above-dark.png"), url("assets/slider-horz-scale-has-marks-above-dark@2.png")); min-height: 26px; min-width: 22px; margin-top: -14px; background-position: top; background-repeat: no-repeat; box-shadow: none; }
+scale.horizontal.marks-before:not(.marks-after) slider { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above-dark.png"), url("assets/slider-horz-scale-has-marks-above-dark@2.png")); min-height: 28px; min-width: 23px; margin-top: -14px; background-position: top; background-repeat: no-repeat; box-shadow: none; }
+
+scale.horizontal.marks-before:not(.marks-after) slider:hover, scale.horizontal.marks-before:not(.marks-after) slider:active { background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above.png"), url("assets/slider-horz-scale-has-marks-above@2.png")); }
 
 scale.horizontal.marks-before:not(.marks-after).fine-tune slider { margin: -7px; margin-top: -11px; }
 
-scale.horizontal.marks-before:not(.marks-after) slider:hover { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above-hover-dark.png"), url("assets/slider-horz-scale-has-marks-above-hover-dark@2.png")); min-height: 26px; min-width: 22px; margin-top: -14px; background-position: top; background-repeat: no-repeat; box-shadow: none; }
+scale.horizontal.marks-before:not(.marks-after) slider:hover { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above-dark.png"), url("assets/slider-horz-scale-has-marks-above-dark@2.png")); min-height: 28px; min-width: 23px; margin-top: -14px; background-position: top; background-repeat: no-repeat; box-shadow: none; }
+
+scale.horizontal.marks-before:not(.marks-after) slider:hover:hover, scale.horizontal.marks-before:not(.marks-after) slider:hover:active { background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above.png"), url("assets/slider-horz-scale-has-marks-above@2.png")); }
 
 scale.horizontal.marks-before:not(.marks-after).fine-tune slider { margin: -7px; margin-top: -11px; }
 
-scale.horizontal.marks-before:not(.marks-after) slider:active { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above-active-dark.png"), url("assets/slider-horz-scale-has-marks-above-active-dark@2.png")); min-height: 26px; min-width: 22px; margin-top: -14px; background-position: top; background-repeat: no-repeat; box-shadow: none; }
+scale.horizontal.marks-before:not(.marks-after) slider:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above-insensitive-dark.png"), url("assets/slider-horz-scale-has-marks-above-insensitive-dark@2.png")); min-height: 28px; min-width: 23px; margin-top: -14px; background-position: top; background-repeat: no-repeat; box-shadow: none; }
+
+scale.horizontal.marks-before:not(.marks-after) slider:disabled:hover, scale.horizontal.marks-before:not(.marks-after) slider:disabled:active { background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above.png"), url("assets/slider-horz-scale-has-marks-above@2.png")); }
 
 scale.horizontal.marks-before:not(.marks-after).fine-tune slider { margin: -7px; margin-top: -11px; }
 
-scale.horizontal.marks-before:not(.marks-after) slider:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above-insensitive-dark.png"), url("assets/slider-horz-scale-has-marks-above-insensitive-dark@2.png")); min-height: 26px; min-width: 22px; margin-top: -14px; background-position: top; background-repeat: no-repeat; box-shadow: none; }
+scale.horizontal.marks-before:not(.marks-after) slider:backdrop { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above-insensitive-dark.png"), url("assets/slider-horz-scale-has-marks-above-insensitive-dark@2.png")); min-height: 28px; min-width: 23px; margin-top: -14px; background-position: top; background-repeat: no-repeat; box-shadow: none; }
+
+scale.horizontal.marks-before:not(.marks-after) slider:backdrop:hover, scale.horizontal.marks-before:not(.marks-after) slider:backdrop:active { background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above.png"), url("assets/slider-horz-scale-has-marks-above@2.png")); }
 
 scale.horizontal.marks-before:not(.marks-after).fine-tune slider { margin: -7px; margin-top: -11px; }
 
-scale.horizontal.marks-before:not(.marks-after) slider:backdrop { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above-backdrop-dark.png"), url("assets/slider-horz-scale-has-marks-above-backdrop-dark@2.png")); min-height: 26px; min-width: 22px; margin-top: -14px; background-position: top; background-repeat: no-repeat; box-shadow: none; }
+scale.horizontal.marks-before:not(.marks-after) slider:backdrop:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above-insensitive-dark.png"), url("assets/slider-horz-scale-has-marks-above-insensitive-dark@2.png")); min-height: 28px; min-width: 23px; margin-top: -14px; background-position: top; background-repeat: no-repeat; box-shadow: none; }
+
+scale.horizontal.marks-before:not(.marks-after) slider:backdrop:disabled:hover, scale.horizontal.marks-before:not(.marks-after) slider:backdrop:disabled:active { background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above.png"), url("assets/slider-horz-scale-has-marks-above@2.png")); }
 
 scale.horizontal.marks-before:not(.marks-after).fine-tune slider { margin: -7px; margin-top: -11px; }
 
-scale.horizontal.marks-before:not(.marks-after) slider:backdrop:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above-backdrop-insensitive-dark.png"), url("assets/slider-horz-scale-has-marks-above-backdrop-insensitive-dark@2.png")); min-height: 26px; min-width: 22px; margin-top: -14px; background-position: top; background-repeat: no-repeat; box-shadow: none; }
+scale.horizontal.marks-after:not(.marks-before) slider { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below-dark.png"), url("assets/slider-horz-scale-has-marks-below-dark@2.png")); min-height: 28px; min-width: 23px; margin-bottom: -14px; background-position: bottom; background-repeat: no-repeat; box-shadow: none; }
 
-scale.horizontal.marks-before:not(.marks-after).fine-tune slider { margin: -7px; margin-top: -11px; }
-
-scale.horizontal.marks-after:not(.marks-before) slider { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below-dark.png"), url("assets/slider-horz-scale-has-marks-below-dark@2.png")); min-height: 26px; min-width: 22px; margin-bottom: -14px; background-position: bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.horizontal.marks-after:not(.marks-before) slider:hover, scale.horizontal.marks-after:not(.marks-before) slider:active { background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below.png"), url("assets/slider-horz-scale-has-marks-below@2.png")); }
 
 scale.horizontal.marks-after:not(.marks-before).fine-tune slider { margin: -7px; margin-bottom: -11px; }
 
-scale.horizontal.marks-after:not(.marks-before) slider:hover { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below-hover-dark.png"), url("assets/slider-horz-scale-has-marks-below-hover-dark@2.png")); min-height: 26px; min-width: 22px; margin-bottom: -14px; background-position: bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.horizontal.marks-after:not(.marks-before) slider:hover { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below-dark.png"), url("assets/slider-horz-scale-has-marks-below-dark@2.png")); min-height: 28px; min-width: 23px; margin-bottom: -14px; background-position: bottom; background-repeat: no-repeat; box-shadow: none; }
+
+scale.horizontal.marks-after:not(.marks-before) slider:hover:hover, scale.horizontal.marks-after:not(.marks-before) slider:hover:active { background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below.png"), url("assets/slider-horz-scale-has-marks-below@2.png")); }
 
 scale.horizontal.marks-after:not(.marks-before).fine-tune slider { margin: -7px; margin-bottom: -11px; }
 
-scale.horizontal.marks-after:not(.marks-before) slider:active { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below-active-dark.png"), url("assets/slider-horz-scale-has-marks-below-active-dark@2.png")); min-height: 26px; min-width: 22px; margin-bottom: -14px; background-position: bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.horizontal.marks-after:not(.marks-before) slider:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below-insensitive-dark.png"), url("assets/slider-horz-scale-has-marks-below-insensitive-dark@2.png")); min-height: 28px; min-width: 23px; margin-bottom: -14px; background-position: bottom; background-repeat: no-repeat; box-shadow: none; }
+
+scale.horizontal.marks-after:not(.marks-before) slider:disabled:hover, scale.horizontal.marks-after:not(.marks-before) slider:disabled:active { background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below.png"), url("assets/slider-horz-scale-has-marks-below@2.png")); }
 
 scale.horizontal.marks-after:not(.marks-before).fine-tune slider { margin: -7px; margin-bottom: -11px; }
 
-scale.horizontal.marks-after:not(.marks-before) slider:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below-insensitive-dark.png"), url("assets/slider-horz-scale-has-marks-below-insensitive-dark@2.png")); min-height: 26px; min-width: 22px; margin-bottom: -14px; background-position: bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.horizontal.marks-after:not(.marks-before) slider:backdrop { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below-insensitive-dark.png"), url("assets/slider-horz-scale-has-marks-below-insensitive-dark@2.png")); min-height: 28px; min-width: 23px; margin-bottom: -14px; background-position: bottom; background-repeat: no-repeat; box-shadow: none; }
+
+scale.horizontal.marks-after:not(.marks-before) slider:backdrop:hover, scale.horizontal.marks-after:not(.marks-before) slider:backdrop:active { background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below.png"), url("assets/slider-horz-scale-has-marks-below@2.png")); }
 
 scale.horizontal.marks-after:not(.marks-before).fine-tune slider { margin: -7px; margin-bottom: -11px; }
 
-scale.horizontal.marks-after:not(.marks-before) slider:backdrop { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below-backdrop-dark.png"), url("assets/slider-horz-scale-has-marks-below-backdrop-dark@2.png")); min-height: 26px; min-width: 22px; margin-bottom: -14px; background-position: bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.horizontal.marks-after:not(.marks-before) slider:backdrop:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below-insensitive-dark.png"), url("assets/slider-horz-scale-has-marks-below-insensitive-dark@2.png")); min-height: 28px; min-width: 23px; margin-bottom: -14px; background-position: bottom; background-repeat: no-repeat; box-shadow: none; }
+
+scale.horizontal.marks-after:not(.marks-before) slider:backdrop:disabled:hover, scale.horizontal.marks-after:not(.marks-before) slider:backdrop:disabled:active { background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below.png"), url("assets/slider-horz-scale-has-marks-below@2.png")); }
 
 scale.horizontal.marks-after:not(.marks-before).fine-tune slider { margin: -7px; margin-bottom: -11px; }
 
-scale.horizontal.marks-after:not(.marks-before) slider:backdrop:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-horz-scale-has-marks-below-backdrop-insensitive-dark.png"), url("assets/slider-horz-scale-has-marks-below-backdrop-insensitive-dark@2.png")); min-height: 26px; min-width: 22px; margin-bottom: -14px; background-position: bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.vertical.marks-before:not(.marks-after) slider { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above-dark.png"), url("assets/slider-vert-scale-has-marks-above-dark@2.png")); min-height: 23px; min-width: 28px; margin-left: -14px; background-position: left bottom; background-repeat: no-repeat; box-shadow: none; }
 
-scale.horizontal.marks-after:not(.marks-before).fine-tune slider { margin: -7px; margin-bottom: -11px; }
-
-scale.vertical.marks-before:not(.marks-after) slider { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above-dark.png"), url("assets/slider-vert-scale-has-marks-above-dark@2.png")); min-height: 22px; min-width: 26px; margin-left: -14px; background-position: left bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.vertical.marks-before:not(.marks-after) slider:hover, scale.vertical.marks-before:not(.marks-after) slider:active { background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above.png"), url("assets/slider-vert-scale-has-marks-above@2.png")); }
 
 scale.vertical.marks-before:not(.marks-after).fine-tune slider { margin: -7px; margin-left: -11px; }
 
-scale.vertical.marks-before:not(.marks-after) slider:hover { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above-hover-dark.png"), url("assets/slider-vert-scale-has-marks-above-hover-dark@2.png")); min-height: 22px; min-width: 26px; margin-left: -14px; background-position: left bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.vertical.marks-before:not(.marks-after) slider:hover { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above-dark.png"), url("assets/slider-vert-scale-has-marks-above-dark@2.png")); min-height: 23px; min-width: 28px; margin-left: -14px; background-position: left bottom; background-repeat: no-repeat; box-shadow: none; }
+
+scale.vertical.marks-before:not(.marks-after) slider:hover:hover, scale.vertical.marks-before:not(.marks-after) slider:hover:active { background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above.png"), url("assets/slider-vert-scale-has-marks-above@2.png")); }
 
 scale.vertical.marks-before:not(.marks-after).fine-tune slider { margin: -7px; margin-left: -11px; }
 
-scale.vertical.marks-before:not(.marks-after) slider:active { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above-active-dark.png"), url("assets/slider-vert-scale-has-marks-above-active-dark@2.png")); min-height: 22px; min-width: 26px; margin-left: -14px; background-position: left bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.vertical.marks-before:not(.marks-after) slider:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above-insensitive-dark.png"), url("assets/slider-vert-scale-has-marks-above-insensitive-dark@2.png")); min-height: 23px; min-width: 28px; margin-left: -14px; background-position: left bottom; background-repeat: no-repeat; box-shadow: none; }
+
+scale.vertical.marks-before:not(.marks-after) slider:disabled:hover, scale.vertical.marks-before:not(.marks-after) slider:disabled:active { background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above.png"), url("assets/slider-vert-scale-has-marks-above@2.png")); }
 
 scale.vertical.marks-before:not(.marks-after).fine-tune slider { margin: -7px; margin-left: -11px; }
 
-scale.vertical.marks-before:not(.marks-after) slider:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above-insensitive-dark.png"), url("assets/slider-vert-scale-has-marks-above-insensitive-dark@2.png")); min-height: 22px; min-width: 26px; margin-left: -14px; background-position: left bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.vertical.marks-before:not(.marks-after) slider:backdrop { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above-insensitive-dark.png"), url("assets/slider-vert-scale-has-marks-above-insensitive-dark@2.png")); min-height: 23px; min-width: 28px; margin-left: -14px; background-position: left bottom; background-repeat: no-repeat; box-shadow: none; }
+
+scale.vertical.marks-before:not(.marks-after) slider:backdrop:hover, scale.vertical.marks-before:not(.marks-after) slider:backdrop:active { background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above.png"), url("assets/slider-vert-scale-has-marks-above@2.png")); }
 
 scale.vertical.marks-before:not(.marks-after).fine-tune slider { margin: -7px; margin-left: -11px; }
 
-scale.vertical.marks-before:not(.marks-after) slider:backdrop { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above-backdrop-dark.png"), url("assets/slider-vert-scale-has-marks-above-backdrop-dark@2.png")); min-height: 22px; min-width: 26px; margin-left: -14px; background-position: left bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.vertical.marks-before:not(.marks-after) slider:backdrop:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above-insensitive-dark.png"), url("assets/slider-vert-scale-has-marks-above-insensitive-dark@2.png")); min-height: 23px; min-width: 28px; margin-left: -14px; background-position: left bottom; background-repeat: no-repeat; box-shadow: none; }
+
+scale.vertical.marks-before:not(.marks-after) slider:backdrop:disabled:hover, scale.vertical.marks-before:not(.marks-after) slider:backdrop:disabled:active { background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above.png"), url("assets/slider-vert-scale-has-marks-above@2.png")); }
 
 scale.vertical.marks-before:not(.marks-after).fine-tune slider { margin: -7px; margin-left: -11px; }
 
-scale.vertical.marks-before:not(.marks-after) slider:backdrop:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-above-backdrop-insensitive-dark.png"), url("assets/slider-vert-scale-has-marks-above-backdrop-insensitive-dark@2.png")); min-height: 22px; min-width: 26px; margin-left: -14px; background-position: left bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.vertical.marks-after:not(.marks-before) slider { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below-dark.png"), url("assets/slider-vert-scale-has-marks-below-dark@2.png")); min-height: 23px; min-width: 28px; margin-right: -14px; background-position: right bottom; background-repeat: no-repeat; box-shadow: none; }
 
-scale.vertical.marks-before:not(.marks-after).fine-tune slider { margin: -7px; margin-left: -11px; }
-
-scale.vertical.marks-after:not(.marks-before) slider { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below-dark.png"), url("assets/slider-vert-scale-has-marks-below-dark@2.png")); min-height: 22px; min-width: 26px; margin-right: -14px; background-position: right bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.vertical.marks-after:not(.marks-before) slider:hover, scale.vertical.marks-after:not(.marks-before) slider:active { background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below.png"), url("assets/slider-vert-scale-has-marks-below@2.png")); }
 
 scale.vertical.marks-after:not(.marks-before).fine-tune slider { margin: -7px; margin-right: -11px; }
 
-scale.vertical.marks-after:not(.marks-before) slider:hover { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below-hover-dark.png"), url("assets/slider-vert-scale-has-marks-below-hover-dark@2.png")); min-height: 22px; min-width: 26px; margin-right: -14px; background-position: right bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.vertical.marks-after:not(.marks-before) slider:hover { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below-dark.png"), url("assets/slider-vert-scale-has-marks-below-dark@2.png")); min-height: 23px; min-width: 28px; margin-right: -14px; background-position: right bottom; background-repeat: no-repeat; box-shadow: none; }
+
+scale.vertical.marks-after:not(.marks-before) slider:hover:hover, scale.vertical.marks-after:not(.marks-before) slider:hover:active { background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below.png"), url("assets/slider-vert-scale-has-marks-below@2.png")); }
 
 scale.vertical.marks-after:not(.marks-before).fine-tune slider { margin: -7px; margin-right: -11px; }
 
-scale.vertical.marks-after:not(.marks-before) slider:active { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below-active-dark.png"), url("assets/slider-vert-scale-has-marks-below-active-dark@2.png")); min-height: 22px; min-width: 26px; margin-right: -14px; background-position: right bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.vertical.marks-after:not(.marks-before) slider:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below-insensitive-dark.png"), url("assets/slider-vert-scale-has-marks-below-insensitive-dark@2.png")); min-height: 23px; min-width: 28px; margin-right: -14px; background-position: right bottom; background-repeat: no-repeat; box-shadow: none; }
+
+scale.vertical.marks-after:not(.marks-before) slider:disabled:hover, scale.vertical.marks-after:not(.marks-before) slider:disabled:active { background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below.png"), url("assets/slider-vert-scale-has-marks-below@2.png")); }
 
 scale.vertical.marks-after:not(.marks-before).fine-tune slider { margin: -7px; margin-right: -11px; }
 
-scale.vertical.marks-after:not(.marks-before) slider:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below-insensitive-dark.png"), url("assets/slider-vert-scale-has-marks-below-insensitive-dark@2.png")); min-height: 22px; min-width: 26px; margin-right: -14px; background-position: right bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.vertical.marks-after:not(.marks-before) slider:backdrop { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below-insensitive-dark.png"), url("assets/slider-vert-scale-has-marks-below-insensitive-dark@2.png")); min-height: 23px; min-width: 28px; margin-right: -14px; background-position: right bottom; background-repeat: no-repeat; box-shadow: none; }
+
+scale.vertical.marks-after:not(.marks-before) slider:backdrop:hover, scale.vertical.marks-after:not(.marks-before) slider:backdrop:active { background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below.png"), url("assets/slider-vert-scale-has-marks-below@2.png")); }
 
 scale.vertical.marks-after:not(.marks-before).fine-tune slider { margin: -7px; margin-right: -11px; }
 
-scale.vertical.marks-after:not(.marks-before) slider:backdrop { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below-backdrop-dark.png"), url("assets/slider-vert-scale-has-marks-below-backdrop-dark@2.png")); min-height: 22px; min-width: 26px; margin-right: -14px; background-position: right bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.vertical.marks-after:not(.marks-before) slider:backdrop:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below-insensitive-dark.png"), url("assets/slider-vert-scale-has-marks-below-insensitive-dark@2.png")); min-height: 23px; min-width: 28px; margin-right: -14px; background-position: right bottom; background-repeat: no-repeat; box-shadow: none; }
 
-scale.vertical.marks-after:not(.marks-before).fine-tune slider { margin: -7px; margin-right: -11px; }
-
-scale.vertical.marks-after:not(.marks-before) slider:backdrop:disabled { margin: -10px; border-style: none; border-radius: 0; background-color: transparent; background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below-backdrop-insensitive-dark.png"), url("assets/slider-vert-scale-has-marks-below-backdrop-insensitive-dark@2.png")); min-height: 22px; min-width: 26px; margin-right: -14px; background-position: right bottom; background-repeat: no-repeat; box-shadow: none; }
+scale.vertical.marks-after:not(.marks-before) slider:backdrop:disabled:hover, scale.vertical.marks-after:not(.marks-before) slider:backdrop:disabled:active { background-image: -gtk-scaled(url("assets/slider-vert-scale-has-marks-below.png"), url("assets/slider-vert-scale-has-marks-below@2.png")); }
 
 scale.vertical.marks-after:not(.marks-before).fine-tune slider { margin: -7px; margin-right: -11px; }
 
