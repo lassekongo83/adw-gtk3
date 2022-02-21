@@ -84,24 +84,7 @@ headerbar, .titlebar {
 
   // Stack buttons
   & > .stack-switcher.linked > button {
-    border: none;
-    &:not(:first-child):not(:only-child) {
-      border-left: 1px solid if($variant == 'light', darken($borders_color, 2.7%), lighten($borders_color, 5%));
-      &:active, &:checked {
-        border-left: 1px solid if($variant == 'light', darken($borders_color, 16.3%), lighten($borders_color, 20%));
-      }
-      &:backdrop {
-        border-left: 1px solid $backdrop_borders_color;
-      }
-    }
-    &:first-child:not(:only-child), &:not(:first-child):not(:only-child):not(:last-child) {
-      &:active, &:checked {
-        box-shadow: inset -1px 0 if($variant == 'light', darken($borders_color, 16.3%), lighten($borders_color, 20%));
-        &:backdrop {
-          box-shadow: inset -1px 0 $backdrop_borders_color;
-        }
-      }
-    }
+    @extend %linked;
   }
 
   // hdy viewswitcher buttons (weather, system monitor, etc.)
