@@ -155,7 +155,7 @@ headerbar, .titlebar {
   .view,
   popover.background,
   list {
-    button {
+    button:not(.suggested-action):not(.destructive-action) {
       background-color: if($variant == 'light', lighten($button_color, 4%), lighten($button_color, 4.7%));
       &:hover {
         background-color: if($variant == 'light', $button_color, lighten($button_hover_color, 7%));

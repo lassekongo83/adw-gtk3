@@ -2284,15 +2284,15 @@ headerbar .linked .search ~ button:backdrop, .titlebar .linked .search ~ button:
 
 headerbar:not(:backdrop), .titlebar:not(:backdrop) { transition: 200ms ease-in; }
 
-.view button, iconview button, popover.background button, list button { background-color: #ebebeb; }
+.view button:not(.suggested-action):not(.destructive-action), iconview button:not(.suggested-action):not(.destructive-action), popover.background button:not(.suggested-action):not(.destructive-action), list button:not(.suggested-action):not(.destructive-action) { background-color: #ebebeb; }
 
-.view button:hover, iconview button:hover, popover.background button:hover, list button:hover { background-color: #e1e1e1; }
+.view button:not(.suggested-action):not(.destructive-action):hover, iconview button:not(.suggested-action):not(.destructive-action):hover, popover.background button:not(.suggested-action):not(.destructive-action):hover, list button:not(.suggested-action):not(.destructive-action):hover { background-color: #e1e1e1; }
 
-.view button:active, iconview button:active, .view button:checked, iconview button:checked, popover.background button:active, popover.background button:checked, list button:active, list button:checked { background-color: #c2c2c2; }
+.view button:not(.suggested-action):not(.destructive-action):active, iconview button:not(.suggested-action):not(.destructive-action):active, .view button:not(.suggested-action):not(.destructive-action):checked, iconview button:not(.suggested-action):not(.destructive-action):checked, popover.background button:not(.suggested-action):not(.destructive-action):active, popover.background button:not(.suggested-action):not(.destructive-action):checked, list button:not(.suggested-action):not(.destructive-action):active, list button:not(.suggested-action):not(.destructive-action):checked { background-color: #c2c2c2; }
 
-.view button:checked:hover, iconview button:checked:hover, popover.background button:checked:hover, list button:checked:hover { background-color: #b8b8b8; }
+.view button:not(.suggested-action):not(.destructive-action):checked:hover, iconview button:not(.suggested-action):not(.destructive-action):checked:hover, popover.background button:not(.suggested-action):not(.destructive-action):checked:hover, list button:not(.suggested-action):not(.destructive-action):checked:hover { background-color: #b8b8b8; }
 
-.view button:disabled, iconview button:disabled, .view button:backdrop, iconview button:backdrop, popover.background button:disabled, popover.background button:backdrop, list button:disabled, list button:backdrop { background-color: #f2f2f2; }
+.view button:not(.suggested-action):not(.destructive-action):disabled, iconview button:not(.suggested-action):not(.destructive-action):disabled, .view button:not(.suggested-action):not(.destructive-action):backdrop, iconview button:not(.suggested-action):not(.destructive-action):backdrop, popover.background button:not(.suggested-action):not(.destructive-action):disabled, popover.background button:not(.suggested-action):not(.destructive-action):backdrop, list button:not(.suggested-action):not(.destructive-action):disabled, list button:not(.suggested-action):not(.destructive-action):backdrop { background-color: #f2f2f2; }
 
 .view entry:not(:backdrop):not(:disabled), iconview entry:not(:backdrop):not(:disabled), popover.background entry:not(:backdrop):not(:disabled), list entry:not(:backdrop):not(:disabled) { background-color: #ebebeb; }
 
