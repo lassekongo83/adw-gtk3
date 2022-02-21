@@ -26,7 +26,7 @@
 }
 
 // headerbar stuff
-headerbar, .titlebar {
+headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
   button:not(.titlebutton) {
     background-color: transparent;
     border-color: transparent;
@@ -114,6 +114,29 @@ headerbar, .titlebar {
 
   // better animation when switching from backdrop
   &:not(:backdrop) { transition: 200ms ease-in; }
+}
+
+// selection mode
+.titlebar {
+  &.selection-mode button {
+    margin: 6px 0;
+    background-color: transparent;
+    &.text-button:not(:hover):not(:checked):not(:active):not(:disabled) {
+      background-color: lighten($suggested_bg_color, 10%);
+    }
+    &.image-button:not(:disabled) { color: $selected_fg_color; }
+    &.image-button:disabled, &.image-button:backdrop { color: transparentize($selected_fg_color, 0.4); }
+
+    // there has to be a better way for this
+    &.image-button, &.text-button, &.toggle.image-button, &.toggle.text-button {
+      &:hover { background-color: lighten($suggested_bg_color, 16%); }
+      &:active, &:checked { background-color: lighten($suggested_bg_color, 22%); }
+      &:disabled, &:backdrop {
+        background-color: transparent;
+        border-color: transparent;
+      }
+    }
+  }
 }
 
 // Buttons on $base_color backgrounds should be a little bit brighter. Only needed for the light theme.

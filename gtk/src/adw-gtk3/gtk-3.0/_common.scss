@@ -1730,7 +1730,6 @@ headerbar {
 
         &:backdrop {
           @include button(backdrop);
-
           border-color: $suggested_border_color;
         }
 
