@@ -42,6 +42,15 @@
       margin-right: 0;
     }
   }
+  .linked.raised button.image-button:not(:only-child) {
+    &, &:backdrop {
+      background-color: transparent;
+      border-left: none;
+    }
+  }
+  .linked .image-button:not(:hover):not(:checked):not(:active) {
+    &, &:backdrop { background-color: transparent; }
+  }
 }
 
 // Floating status bar
@@ -509,11 +518,19 @@ $panel_fg_color: #ffffff;
 }
 
 // GNOME Builder
-.dzlmenubutton {
-  @extend %menu;
-  .dzlmenubuttonitem {
-    @extend %menuitem;
-    min-height: 32px;
+.org-gnome-Builder {
+  .dzlmenubutton {
+    @extend %menu;
+    .dzlmenubuttonitem {
+      @extend %menuitem;
+      min-height: 32px;
+    }
+  }
+  headerbar {
+    & > :not(.stack-switcher) .linked > button {
+      @extend %linked;
+      @extend %button;
+    }
   }
 }
 
