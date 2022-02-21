@@ -18,6 +18,15 @@
     }
   }
 
+  .nautilus-path-bar {
+    @include button(normal);
+    border-radius: $button_radius;
+  }
+
+  .nautilus-path-bar:backdrop {
+    @include button(backdrop);
+  }
+
   .nautilus-path-bar button {
     margin: 0px;
     padding-left: 8px;
@@ -25,15 +34,36 @@
   }
 
   .nautilus-path-bar button:first-child {
-    //@extend %button;
+    @include button(normal);
     border-width: 0px 1px 0px 0px;
-    border-radius: $button_radius 0px 0px $button_radius;
+    border-radius: $button_radius;
   }
 
   .nautilus-path-bar button:not(:first-child) {
-    //@extend %button;
+    @include button(normal);
     border-width: 0px 1px 0px 1px;
-    border-radius: 0px 0px 0px 0px;
+    border-radius: $button_radius;
+  }
+
+  .nautilus-path-bar button:backdrop {
+     background-color: transparent;
+  }
+
+  .nautilus-path-bar button:hover {
+    @include button(insensitive-active);
+    color: $text_color;
+  }
+
+  .nautilus-path-bar button.toggle.popup {
+    @extend %button;
+  }
+
+  .nautilus-path-bar button:backdrop:hover {
+    @include button(normal);
+  }
+
+  .nautilus-path-bar button.current-dir:hover {
+	background-color: transparent;
   }
 
   .titlebar {
