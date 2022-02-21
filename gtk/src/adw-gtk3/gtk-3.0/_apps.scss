@@ -507,3 +507,18 @@ $panel_fg_color: #ffffff;
     min-height: 32px;
   }
 }
+
+// Chromium
+window.background.chromium {
+  background-color: if($variant == 'light', $bg_color, lighten($bg_color, 10%));
+
+  entry, 
+  > button {
+    border-color: if($variant == 'light', darken($bg_color, 27%), lighten($bg_color, 27%));
+    background-color: if($variant == 'light', darken($bg_color, 20%), lighten($bg_color, 21%));
+  }
+  
+  textview.view { 
+    background-color: if($variant == 'light', darken($bg_color, 10%), $bg_color); 
+  }
+}
