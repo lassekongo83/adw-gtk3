@@ -39,6 +39,7 @@
   .titlebar {
     :not(.raised) .linked > button {
       @extend %linked;
+      margin-right: 0;
     }
   }
 }
