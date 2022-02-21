@@ -21,49 +21,43 @@
   .nautilus-path-bar {
     @include button(normal);
     border-radius: $button_radius;
-  }
 
-  .nautilus-path-bar:backdrop {
-    @include button(backdrop);
-  }
+    &:backdrop {
+      @include button(backdrop);
+    }
 
-  .nautilus-path-bar button {
-    margin: 0px;
-    padding-left: 8px;
-    padding-right: 8px;
-  }
+    button {
+      margin: 0px;
+      padding-left: 8px;
+      padding-right: 8px;
 
-  .nautilus-path-bar button:first-child {
-    @include button(normal);
-    border-width: 0px 1px 0px 0px;
-    border-radius: $button_radius;
-  }
+      &:first-child {
+        @include button(normal);
+        border-width: 0px 1px 0px 0px;
+        border-radius: $button_radius;
+      }
 
-  .nautilus-path-bar button:not(:first-child) {
-    @include button(normal);
-    border-width: 0px 1px 0px 1px;
-    border-radius: $button_radius;
-  }
+      &:not(:first-child) {
+        @include button(normal);
+        border-width: 0px 1px 0px 1px;
+        border-radius: $button_radius;
+        &:hover, &:backdrop:hover { border-left-color: $borders_color; }
+      }
 
-  .nautilus-path-bar button:backdrop {
-     background-color: transparent;
-  }
+      &:hover {
+        @include button(insensitive-active);
+        color: $text_color;
+      }
 
-  .nautilus-path-bar button:hover {
-    @include button(insensitive-active);
-    color: $text_color;
-  }
+      &:backdrop {
+        background-color: transparent;
+        &:hover { @include button(normal); }
+      }
 
-  .nautilus-path-bar button.toggle.popup {
-    @extend %button;
-  }
+      &.toggle.popup { @extend %button; }
 
-  .nautilus-path-bar button:backdrop:hover {
-    @include button(normal);
-  }
-
-  .nautilus-path-bar button.current-dir:hover {
-	background-color: transparent;
+      &.current-dir:hover { background-color: transparent; }
+    }
   }
 
   .titlebar {
@@ -72,12 +66,14 @@
       margin-right: 0;
     }
   }
+
   .linked.raised button.image-button:not(:only-child) {
     &, &:backdrop {
       background-color: transparent;
       border-left: none;
     }
   }
+
   .linked .image-button:not(:hover):not(:checked):not(:active) {
     &, &:backdrop { background-color: transparent; }
   }
