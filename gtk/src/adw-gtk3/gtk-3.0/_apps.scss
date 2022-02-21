@@ -25,13 +25,13 @@
   }
 
   .nautilus-path-bar button:first-child {
-    @extend %button;
+    //@extend %button;
     border-width: 0px 1px 0px 0px;
     border-radius: $button_radius 0px 0px $button_radius;
   }
 
   .nautilus-path-bar button:not(:first-child) {
-    @extend %button;
+    //@extend %button;
     border-width: 0px 1px 0px 1px;
     border-radius: 0px 0px 0px 0px;
   }
@@ -50,6 +50,10 @@
   }
   .linked .image-button:not(:hover):not(:checked):not(:active) {
     &, &:backdrop { background-color: transparent; }
+  }
+
+  .search + .toggle {
+    @extend %colored_hbuttons;
   }
 }
 
@@ -218,6 +222,10 @@ geary-conversation-viewer#conversation_viewer { // right side
       border-color: $borders_color;
     }
   }
+}
+
+.geary-message-summary button.flat {
+  margin: 0 2px;
 }
 
 // GNOME software

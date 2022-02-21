@@ -75,7 +75,8 @@ headerbar, .titlebar {
   }
 
   // Linked image buttons (back and forward, plus and minus, etc)
-  .linked button.image-button:not(:only-child) {
+  .linked button.image-button:not(:only-child),
+  .linked.raised button:not(:only-child) {
     @extend %colored_hbuttons;
     @extend %linked;
   }
