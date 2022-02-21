@@ -76,9 +76,7 @@ headerbar, .titlebar {
 
   // Linked image buttons (back and forward, plus and minus, etc)
   .linked button.image-button:not(:only-child) {
-    &:not(:disabled) { @extend %colored_hbuttons; }
-    &:disabled { background-color: $hb_button_disabled_color; }
-    &:backdrop:disabled { background-color: $hb_button_backdrop_color; }
+    @extend %colored_hbuttons;
     @extend %linked;
   }
 
@@ -112,21 +110,6 @@ headerbar, .titlebar {
     background-color: darken($backdrop_dark_fill, 4%);
     &:backdrop { background-color: $backdrop_dark_fill; }
   }
-
-  // style image buttons next to a linked search-entry, like in nautilus and dconf-editor
-  .linked .search ~ button {
-    background-color: $hb_button_color;
-    border-radius: 0 $button_radius $button_radius 0;
-    //border-left: 1px solid transparent;
-    &:hover { background-color: $button_hover_color; }
-    &:active, &:checked { background-color: $hb_button_checked_color; }
-    &:backdrop { background-color: $hb_button_backdrop_color; }
-  }
-  //.linked .search:focus ~ button {
-    //border-left: 1px solid entry_focus_border();
-    //box-shadow: 1px 0 entry_focus_border();
-    //transition: border 300ms ease-in-out;
-  //}
 
   // better animation when switching from backdrop
   &:not(:backdrop) { transition: 200ms ease-in; }
