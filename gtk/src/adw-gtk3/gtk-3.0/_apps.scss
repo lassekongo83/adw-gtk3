@@ -591,3 +591,8 @@ window.background.chromium {
   }
   .titlebar .text-button { @extend %colored_hbuttons; }
 }
+
+// Firefox
+#MozillaGtkWidget.background {
+  button { font-weight: initial; }
+}

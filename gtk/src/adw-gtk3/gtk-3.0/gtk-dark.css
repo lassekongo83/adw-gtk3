@@ -2837,3 +2837,5 @@ window.background.chromium { background-color: #3e3e3e; }
 window.background.chromium entry, window.background.chromium > button { border-color: dimgray; background-color: #5a5a5a; }
 
 window.background.chromium textview.view { background-color: #242424; }
+
+#MozillaGtkWidget.background button { font-weight: initial; }
