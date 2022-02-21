@@ -4864,9 +4864,7 @@ cursor-handle {
   box-shadow: none;
   border-style: none;
 
-  @each $s,$as in ('',''),
-                  (':hover','-hover'),
-                  (':active','-active') { //no need for insensitive and backdrop
+  @each $s,$as in ('','') {
     &.top#{$s}:dir(ltr), &.bottom#{$s}:dir(rtl) {
       $_url: 'assets/text-select-start#{$as}#{$asset_suffix}';
       -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
