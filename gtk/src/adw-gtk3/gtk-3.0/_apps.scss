@@ -548,3 +548,12 @@ window.background.chromium {
     background-color: if($variant == 'light', darken($bg_color, 10%), $bg_color); 
   }
 }
+
+// GNOME Calendar
+.org-gnome-Calendar {
+  .titlebar .linked button {
+    @extend %linked;
+    @extend %colored_hbuttons;
+  }
+  .titlebar .text-button { @extend %colored_hbuttons; }
+}

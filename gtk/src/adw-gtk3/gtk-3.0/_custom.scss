@@ -17,6 +17,12 @@
       background-color: $hb_button_color;
     }
   }
+  &:disabled {
+    background-color: $hb_button_disabled_color;
+  }
+  &:backdrop:disabled {
+     background-color: $hb_button_backdrop_hover_color;
+  }
 }
 
 // headerbar stuff
