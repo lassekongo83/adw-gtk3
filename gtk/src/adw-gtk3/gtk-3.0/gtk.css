@@ -1984,8 +1984,6 @@ colorswatch#editor-color-sample overlay { border-radius: 4.5px; }
 colorchooser .popover.osd { border-radius: 5px; }
 
 /******** Misc * */
-.content-view { background-color: #e8e8e8; }
-
 .content-view:hover { -gtk-icon-effect: highlight; }
 
 .content-view:backdrop { background-color: #e8e8e8; }
@@ -2282,7 +2280,7 @@ list.content > row:backdrop switch:not(:disabled), list.view.frame > row:backdro
 
 list.content > row:backdrop switch:not(:disabled):checked, list.view.frame > row:backdrop switch:not(:disabled):checked { background-color: #3584e4; }
 
-list.view.frame { border-radius: 12px; }
+list.view.frame { border-radius: 12px; background-color: #ffffff; }
 
 list.view.frame:backdrop { background-color: #ffffff; }
 
@@ -2441,6 +2439,10 @@ list.content > row:last-child { border-top-left-radius: 0; border-top-right-radi
 list.content > row:only-child { border-bottom: none; border-radius: 12px; -gtk-outline-radius: 12px; }
 
 list.content > row:not(:selected):hover { background-color: #f9f9f9; }
+
+list.content > row:not(:selected):hover button:not(:backdrop) { color: rgba(0, 0, 0, 0.8); outline-color: rgba(0, 0, 0, 0.1); background-color: #dddddd; box-shadow: none; transition: none; }
+
+.content list { background-color: transparent; border-radius: 12px; }
 
 button.list-button:not(:active):not(:checked):not(:hover) { color: rgba(0, 0, 0, 0.8); outline-color: rgba(0, 0, 0, 0.1); background-color: #e6e6e6; }
 

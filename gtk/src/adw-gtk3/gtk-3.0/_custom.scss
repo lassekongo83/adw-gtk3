@@ -168,6 +168,7 @@ list.content, list.view.frame {
 // Non "content" lists
 list.view.frame {
   border-radius: $card_radius;
+  background-color: $card_bg_color;
   &:backdrop { background-color: $card_bg_color; }
   > row:not(:selected):hover button:not(:backdrop) {
     @include button(hover);
