@@ -76,30 +76,6 @@ $checkradio_bg_color: if($variant == 'light', $selected_bg_color, lighten($selec
 $checkradio_fg_color: $selected_fg_color;
 $checkradio_borders_color: if($variant == 'light', darken($checkradio_bg_color,20%), darken($checkradio_bg_color,40%));
 
-// Button colors from libadwaita (Maybe not 100% accurate)
-// FIXME Backdrop and disabled buttons are not yet accurate
-$button_color: if($variant == 'light', darken($bg_color, 10%), lighten($bg_color, 10%)); //gtkalpha(currentColor, .1);
-$button_hover_color: if($variant == 'light', darken($bg_color, 15%), lighten($bg_color, 15%)); //gtkalpha(currentColor, .15);
-$button_active_color: if($variant == 'light', darken($bg_color, 30%), lighten($bg_color, 30%)); //gtkalpha(currentColor, .3);
-$button_checked_color: $button_active_color; //gtkalpha(currentColor, .3);
-$button_checked_hover_color: if($variant == 'light', darken($bg_color, 35%), lighten($bg_color, 35%)); //gtkalpha(currentColor, .35);
-$button_checked_active_color: if($variant == 'light', darken($bg_color, 40%), lighten($bg_color, 40%)); //gtkalpha(currentColor, .4);
-$button_backdrop_color: if($variant == 'light', darken($bg_color, 5%), lighten($bg_color, 5%)); //gtkalpha(currentColor, .09);
-$button_disabled_color: $button_backdrop_color; //gtkalpha(currentColor, .09);
-$button_disabled_checked_color: if($variant == 'light', darken($bg_color, 24%), lighten($bg_color, 24%)); //gtkalpha(currentColor, .28);
-
-// headerbar buttons
-$hb_button_color: if($variant == 'light', darken($headerbar_color, 7%), lighten($headerbar_color, 8%));
-$hb_button_hover_color: if($variant == 'light', darken($headerbar_color, 5%), lighten($headerbar_color, 5.7%));
-$hb_button_active_color: if($variant == 'light', darken($headerbar_color, 21.7%), lighten($headerbar_color, 24.3%));
-$hb_button_checked_color: $hb_button_active_color;
-$hb_button_checked_hover_color: $hb_button_active_color;
-$hb_button_checked_active_color: $hb_button_active_color;
-$hb_button_backdrop_color: if($variant == 'light', darken($bg_color, 4%), lighten($bg_color, 4.3%));
-$hb_button_backdrop_hover_color: if($variant == 'light', darken($bg_color, 2.7%), lighten($bg_color, 2.7%));
-$hb_button_disabled_color: if($variant == 'light', darken($headerbar_color, 3%), lighten($headerbar_color, 4%));
-$hb_button_disabled_checked_color: $button_disabled_checked_color; // FIXME
-
 // titlebuttons
 $titlebutton_normal: if($variant == 'light', darken($headerbar_color, 7%), lighten($headerbar_color, 8%));
 $titlebutton_normal_hover: if($variant == 'light', darken($headerbar_color, 11%), lighten($headerbar_color, 12%));

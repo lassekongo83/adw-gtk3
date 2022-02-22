@@ -1,73 +1,65 @@
 // Custom added styles
 
+$linked_border: if($variant == 'light', darken($borders_color, 2.7%), lighten($borders_color, 2.7%));
+
 %colored_hbuttons {
-  background-color: $hb_button_color;
+  @include button(normal, $headerbar_color, $fg_color);
   &:backdrop {
-    background-color: $hb_button_backdrop_color;
+    @include button(backdrop, $bg_color, $backdrop_fg_color);
   }
   &:hover {
-    background-color: $button_hover_color;
+    @include button(hover, $headerbar_color, $fg_color);
     &:backdrop {
-      background-color: darken($hb_button_backdrop_color, 2%);
+      @if $variant == 'light' { @include button(backdrop, darken($bg_color, 2.7%), $backdrop_fg_color); }
+      @else { @include button(backdrop, lighten($bg_color, 2.7%), $backdrop_fg_color); }
     }
   }
   &:active, &:checked {
-    background-color: $hb_button_active_color;
+    @include button(active, $headerbar_color, $fg_color);
     &:backdrop {
-      background-color: $hb_button_color;
+      @include button(normal, $bg_color, $fg_color); //FIXME
     }
   }
   &:disabled {
-    background-color: $hb_button_disabled_color;
+    @include button(insensitive, $headerbar_color, $insensitive_fg_color);
   }
   &:backdrop:disabled {
-     background-color: $hb_button_backdrop_hover_color;
+    @include button(backdrop-insensitive, $bg_color, $backdrop_insensitive_color);
   }
 }
 
 // headerbar stuff
 headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
   button:not(.titlebutton) {
-    background-color: transparent;
-    border-color: transparent;
-    &:backdrop {
-      border-color: transparent;
-      background-color: transparent;
-    }
+    &, &:backdrop { @include button(undecorated); }
+
     &:hover {
-      background-color: $hb_button_hover_color;
+      @if $variant == 'light' { @include button(hover, lighten($headerbar_color, 6.3%), $fg_color); }
+      @else { @include button(hover, darken($headerbar_color, 6.3%), $fg_color); }
     }
+
     &:backdrop:hover {
-      background-color: $hb_button_backdrop_hover_color;
+      @if $variant == 'light' { @include button(backdrop, lighten($bg_color, 1.3%), $backdrop_fg_color); }
+      @else { @include button(backdrop, darken($bg_color, 1.3%), $backdrop_fg_color); }
     }
-    &:active, &:checked {
-      background-color: $hb_button_active_color;
-      &.suggested-action {
-        background-color: $selected_bg_color;
-        color: $selected_fg_color;
-      }
+
+    &:active, &:checked, &:active:hover, &:checked:hover {
+      @if $variant == 'light' { @include button(active, lighten($headerbar_color, 18%), $fg_color); }
+      @else { @include button(active, darken($headerbar_color, 18%), $fg_color); }
     }
-    &:active:hover, &:checked:hover {
-      background-color: $hb_button_checked_hover_color;
-      &.suggested-action {
-        background-color: $selected_bg_color;
-        color: $selected_fg_color;
-      }
-    }
+
     &.default:not(:backdrop) {
-      background-color: $hb_button_color;
-      color: $fg_color;
+      @include button(normal, $headerbar_color, $fg_color);
     }
-    &.suggested-action:not(:backdrop) {
-      background-color: $suggested_bg_color;
-      color: $selected_fg_color;
-      &:hover { background-color: lighten($suggested_bg_color, 6%); }
+
+    &.suggested-action, &.text-button.suggested-action {
+      @include button(normal, $suggested_bg_color, $selected_fg_color);
     }
-    &.destructive-action:not(:backdrop) {
-      background-color: $destructive_color;
-      color: $selected_fg_color;
-      &:hover { background-color: lighten($destructive_color, 6%); }
+
+    &.destructive-action, &.text-button.destructive-action  {
+      @include button(normal, $destructive_color, $selected_fg_color);
     }
+
     // Text buttons
     &.text-button:not(.suggested-action):not(.destructive-action):not(:disabled) {
       @extend %colored_hbuttons;
@@ -79,26 +71,45 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
   .linked.raised button:not(:only-child) {
     @extend %colored_hbuttons;
     @extend %linked;
+    &, &:hover, &:not(:backdrop), &:not(:disabled) {
+      &:not(:first-child) { border-left-color: $linked_border; }
+      &:not(:last-child) { border-right-color: $linked_border; }
+    }
   }
 
   // Stack buttons
   & > .stack-switcher.linked > button {
+    @extend %colored_hbuttons;
     @extend %linked;
+    &, &:hover, &:not(:backdrop), &:not(:disabled) {
+      &:not(:first-child) { border-left-color: $linked_border; }
+      &:not(:last-child) { border-right-color: $linked_border; }
+    }
   }
 
   // hdy viewswitcher buttons (weather, system monitor, etc.)
   viewswitcher button.radio:checked {
-    background-color: $button_hover_color;
-    &:backdrop { background-color: $hb_button_backdrop_color; }
+    @include button(normal, $headerbar_color, $fg_color);
+    &:backdrop {
+      @if $variant == 'light' { @include button(backdrop, lighten($bg_color, 1.3%), $backdrop_fg_color); }
+      @else { @include button(backdrop, darken($bg_color, 1.3%), $backdrop_fg_color); }
+    }
+    &:hover {
+      @include button(hover, $headerbar_color, $fg_color);
+      &:backdrop {
+        @if $variant == 'light' { @include button(backdrop, darken($bg_color, 2.7%), $backdrop_fg_color); }
+        @else { @include button(backdrop, lighten($bg_color, 2.7%), $backdrop_fg_color); }
+      }
+    }
   }
 
   // Entries
   entry {
     margin: 6px 0;
-    background-color: $hb_button_color;
-    &:backdrop { background-color: $hb_button_backdrop_color; }
-    &:disabled { background-color: $hb_button_disabled_color; }
-    &:backdrop:disabled { background-color: $hb_button_backdrop_color; }
+    @include button(normal, $headerbar_color, $text_color);
+    &:backdrop { @include button(backdrop, $headerbar_color, $backdrop_text_color); }
+    &:disabled { @include button(insensitive, $headerbar_color, $insensitive_fg_color); }
+    &:backdrop:disabled { @include button(backdrop-insensitive, $headerbar_color, $backdrop_insensitive_color); }
   }
 
   // We want to match libadwaita's thinner buttons...
@@ -116,32 +127,9 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
   &:not(:backdrop) { transition: 200ms ease-in; }
 }
 
-// selection mode
-.titlebar {
-  &.selection-mode button {
-    margin: 6px 0;
-    background-color: transparent;
-    &.text-button:not(:hover):not(:checked):not(:active):not(:disabled) {
-      background-color: lighten($suggested_bg_color, 10%);
-    }
-    &.image-button:not(:disabled) { color: $selected_fg_color; }
-    &.image-button:disabled, &.image-button:backdrop { color: transparentize($selected_fg_color, 0.4); }
-
-    // there has to be a better way for this
-    &.image-button, &.text-button, &.toggle.image-button, &.toggle.text-button {
-      &:hover { background-color: lighten($suggested_bg_color, 16%); }
-      &:active, &:checked { background-color: lighten($suggested_bg_color, 22%); }
-      &:disabled, &:backdrop {
-        background-color: transparent;
-        border-color: transparent;
-      }
-    }
-  }
-}
-
 // Buttons on $base_color backgrounds should be a little bit brighter. Only needed for the light theme.
 // This could be avoided with libadwaita colors, but GTK3 is CPU heavy and can't handle all the alpha
-@if $variant == 'light' {
+/*@if $variant == 'light' {
   .view,
   popover.background,
   list {
@@ -164,7 +152,7 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
       background-color: if($variant == 'light', lighten($button_color, 4%), lighten($button_color, 4.7%));
     }
   }
-}
+}*/
 
 // Even out toggle button padding to make them more square
 button.toggle:not(.image-button) {
@@ -210,7 +198,7 @@ list.view.frame {
   border-radius: $card_radius;
   &:backdrop { background-color: $card_bg_color; }
   > row:not(:selected):hover button:not(:backdrop) {
-    background-color: $button_hover_color;
+    @include button(hover);
     transition: none;
   }
 }
@@ -238,29 +226,6 @@ list.view.frame {
     &:hover:active, &:active { background-color: $titlebutton_normal_active; }
     &:backdrop { background: $titlebutton_backdrop; }
     &:backdrop:hover { background: $titlebutton_backdrop_hover; }
-  }
-}
-
-// I'm confused why the default styles for this doesn't work
-// https://github.com/lassekongo83/adw-gtk3/issues/4#issuecomment-1018729772
-button, .titlebar button, headerbar button {
-  &.destructive-action {
-    background-color: $destructive_color;
-    &:hover { // Color values here are just a guess
-      background-color: lighten($destructive_color, 6%);
-    }
-    &:checked, &:active {
-      &, &:hover { background-color: darken($destructive_color, 11%); }
-    }
-  }
-  &.suggested-action {
-    background-color: $suggested_bg_color;
-    &:hover {
-      background-color: lighten($suggested_bg_color, 6%);
-    }
-    &:checked, &:active {
-      &, &:hover { background-color: darken($suggested_bg_color, 11%); }
-    }
   }
 }
 

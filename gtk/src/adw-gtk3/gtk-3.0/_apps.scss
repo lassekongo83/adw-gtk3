@@ -11,10 +11,11 @@
   .path-bar-box {
     border-radius: $button_radius;
     border: none;
-    background-color: $hb_button_color;
     padding-right: 6px;
+    @include button(normal, $headerbar_color, $fg_color);
+
     &:backdrop {
-      background-color: $hb_button_backdrop_color;
+      @include button(backdrop, $bg_color, $backdrop_fg_color);
     }
   }
 
@@ -27,7 +28,7 @@
     }
 
     button {
-      margin: 0px;
+      margin: 0;
       padding-left: 8px;
       padding-right: 8px;
 
@@ -54,7 +55,7 @@
         &:hover { @include button(normal); }
       }
 
-      &.toggle.popup { @extend %button; }
+      &.toggle.popup { @include button(normal); }
 
       &.current-dir:hover { background-color: transparent; }
     }
@@ -63,14 +64,25 @@
   .titlebar {
     :not(.raised) .linked > button {
       @extend %linked;
-      margin-right: 0;
+    }
+  }
+  .titlebar {
+    :not(.raised) .linked.nautilus-path-bar > button {
+      @extend %linked;
+      margin: 1px 0;
+      &:first-child { border-right-color: transparent; }
+      &, &:hover, &:not(:backdrop), &:not(:disabled) {
+        &:not(:first-child) { border-left-color: $linked_border; }
+        &:not(:last-child) { border-right-color: $linked_border; }
+      }
     }
   }
 
+  // Back and forward buttons
   .linked.raised button.image-button:not(:only-child) {
-    &, &:backdrop {
+    &, &:backdrop, &:disabled, &:backdrop:disabled {
       background-color: transparent;
-      border-left: none;
+      border: none;
     }
   }
 
@@ -78,8 +90,9 @@
     &, &:backdrop { background-color: transparent; }
   }
 
-  .search + .toggle {
+  .search + .toggle.popup {
     @extend %colored_hbuttons;
+    border-left-color: $linked_border;
   }
 }
 

@@ -221,7 +221,7 @@ viewswitcher {
     }
 
     &:not(:checked):hover:not(:backdrop) {
-      background-color: $hb_button_hover_color;
+      @include button(hover);
       background-image: none;
     }
 
@@ -236,14 +236,15 @@ viewswitcher {
     }
 
     &:not(:checked):hover:backdrop {
-      background-color: $hb_button_backdrop_hover_color;
+      @include button(backdrop);
       background-image: none;
     }
 
     // View switcher in a header bar
     headerbar &:not(:checked) {
       &:hover:not(:backdrop) {
-        background-color: $hb_button_hover_color;
+        @if $variant == 'light' { @include button(hover, lighten($headerbar_color, 6.3%), $fg_color); }
+        @else { @include button(hover, darken($headerbar_color, 6.3%), $fg_color); }
         background-image: none;
       }
 
@@ -258,19 +259,17 @@ viewswitcher {
       }
 
       &:hover:backdrop {
-        background-color: $hb_button_backdrop_hover_color;
+        @if $variant == 'light' { @include button(backdrop, lighten($bg_color, 1.3%), $backdrop_fg_color); }
+        @else { @include button(backdrop, darken($bg_color, 1.3%), $backdrop_fg_color); }
         background-image: none;
       }
     }
     &:checked, &:active {
-      background-color: $hb_button_color;
+      @include button(active);
       background-image: none;
       &:backdrop {
+        @include button(backdrop-active);
         background-image: none;
-        background-color: $hb_button_backdrop_color;
-        &:hover {
-          background-color: $hb_button_backdrop_hover_color;
-        }
       }
     }
 
@@ -409,9 +408,7 @@ list.content {
 
 // List button
 button.list-button:not(:active):not(:checked):not(:hover) {
-  background: $button_color;
-  border: 1px solid transparent;
-  box-shadow: none;
+  @include button(normal);
 }
 
 // HdyStatusPage

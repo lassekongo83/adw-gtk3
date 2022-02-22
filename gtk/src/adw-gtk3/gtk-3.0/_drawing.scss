@@ -49,7 +49,7 @@
   @if $t==normal {
     color: $text_color;
     border-color: transparent;
-    background-color: $button_color;
+    background-color: if($variant == 'light', darken($bg_color, 8%), lighten($bg_color, 8.3%));
     @include _shadows(entry_focus_shadow(transparentize($fc, 1)), $_entry_edge);
     // for the transition to work the number of shadows in different states needs to match, hence the transparent shadow here.
   }
@@ -62,19 +62,19 @@
   @if $t==insensitive {
     color: $insensitive_fg_color;
     border-color: transparent;
-    background-color: $button_disabled_color;
+    background-color: if($variant == 'light', darken($bg_color, 4%), lighten($bg_color, 4.3%));
     //box-shadow: $_entry_edge;
   }
   @if $t==backdrop {
     color: $backdrop_text_color;
     border-color: transparent;
-    background-color: $button_backdrop_color;
+    background-color: if($variant == 'light', darken($bg_color, 8%), lighten($bg_color, 8.3%));
     //box-shadow: $_blank_edge;
   }
   @if $t==backdrop-insensitive {
     color: $backdrop_insensitive_color;
     border-color: transparent;
-    background-color: $button_disabled_color;
+    background-color: if($variant == 'light', darken($bg_color, 4%), lighten($bg_color, 4.3%));
     //box-shadow: $_blank_edge;
   }
   @if $t==osd {
@@ -197,9 +197,9 @@
   //
     color: $tc;
     outline-color: transparentize($tc, 0.7);
-    border-color: transparent;
-    background-color: $button_color;
-    box-shadow: none;
+    //border-color: transparent;
+    background-color: if($variant == 'light', darken($c, 8%), lighten($c, 8.3%)); //gtkalpha(currentColor, .1);
+    //box-shadow: none;
     //@include _button_text_shadow($tc, $c);
   }
 
@@ -209,8 +209,8 @@
   //
     color: $tc;
     outline-color: transparentize($tc, 0.7);
-    border-color: transparent;
-    background-color: $button_hover_color;
+    //border-color: transparent;
+    background-color: if($variant == 'light', darken($c, 11.3%), lighten($c, 13%)); //gtkalpha(currentColor, .15);
     box-shadow: none;
   }
 
@@ -234,13 +234,13 @@
   //
     color: $tc;
     outline-color: transparentize($tc, 0.7);
-    border-color: transparent;
-    background-color: $button_active_color;
+    //border-color: transparent;
+    background-color: if($variant == 'light', darken($c, 23.7%), lighten($c, 25.3%)); //gtkalpha(currentColor, .3);
     box-shadow: none;
 
     text-shadow: none;
     -gtk-icon-shadow: none;
-    &:hover { background-color: $button_checked_hover_color; }
+    &:hover { background-color: if($variant == 'light', darken($c, 27.3%), lighten($c, 29.7%)); } //gtkalpha(currentColor, .35);
   }
 
   @else if $t==insensitive {
@@ -250,8 +250,8 @@
     $_bg: if($c != $bg_color, mix($c, $base_color, 85%), $insensitive_bg_color);
 
     color: if($tc != $fg_color, mix($tc, $_bg, 50%), $insensitive_fg_color);
-    border-color: transparent;
-    background-color: $button_disabled_color;
+    //border-color: transparent;
+    background-color: if($variant == 'light', darken($c, 4%), lighten($c, 4.3%)); //gtkalpha(currentColor, .09);
     text-shadow: none;
     -gtk-icon-shadow: none;
     box-shadow: none;
@@ -265,8 +265,8 @@
     $_bc: if($c != $bg_color, _border_color($c), $insensitive_borders_color);
 
     color: if($c != $bg_color, mix($tc, $_bg, 60%), $insensitive_fg_color);
-    border-color: transparent;
-    background-color: $button_disabled_checked_color;
+    //border-color: transparent;
+    background-color: if($variant == 'light', darken($c, 11.7%), lighten($c, 13%)); //gtkalpha(currentColor, .28);
     box-shadow: none;
   }
 
@@ -274,45 +274,58 @@
   //
   // backdrop button
   //
-    @include button(insensitive);
+    $_bg: if($c != $bg_color, $c, $backdrop_bg_color);
+    $_bc: if($variant == 'light', $c, _border_color($c));
+
+    color: if($tc != $fg_color, mix($tc, $_bg, 80%), $backdrop_fg_color);
+    //border-color: transparent;
+    background-color: if($variant == 'light', darken($c, 4%), lighten($c, 4.3%));
+    text-shadow: none;
+    -gtk-icon-shadow: none;
   }
 
   @else if $t==backdrop-active {
   //
   // backdrop pushed button
   //
-    @include button(insensitive-active);
+    $_bg: if($variant == 'light', darken(mix($c, $base_color, 85%), 8%), darken(mix($c, $base_color, 85%), 4%));
+    $_bc: if($variant == 'light', $_bg ,_border_color($c));
+
+    color: if($tc != $fg_color, mix($tc, $_bg, 80%), $backdrop_fg_color);
+    //border-color: transparent;
+    background-color: if($variant == 'light', darken($c, 11.7%), lighten($c, 13%));
+    //@include _shadows(inset 0 1px transparentize(white, 1), $_blank_edge);
   }
 
   @else if $t==backdrop-insensitive {
   //
   // backdrop insensitive button
   //
-
     $_bg: if($c != $bg_color, mix($c, $base_color, 85%), $insensitive_bg_color);
     $_bc: if($variant == 'light', $_bg,_border_color($c));
 
+    // FIXME figure out the correct colors here
     color: if($c != $bg_color, mix($tc, $_bg, 35%), $backdrop_insensitive_color);
-    border-color: transparent;
-    background-color: $button_backdrop_color;
+    //border-color: transparent;
+    background-color: if($variant == 'light', darken($c, 4%), lighten($c, 4.3%));
     text-shadow: none;
     -gtk-icon-shadow: none;
     // white with 0 alpha to avoid an ugly transition, since no color means
     // black with 0 alpha
     //@include _shadows(inset 0 1px transparentize(white, 1), $_blank_edge);
+
   }
 
   @else if $t==backdrop-insensitive-active {
   //
   // backdrop insensitive pushed button
   //
-
     $_bg: if($variant == 'light', darken(mix($c, $base_color, 85%), 8%), darken(mix($c, $base_color, 85%), 4%));
     $_bc: if($variant == 'light', $_bg, _border_color($c));
 
     color: if($c != $bg_color, mix($tc, $_bg, 35%), $backdrop_insensitive_color);
-    border-color: transparent;
-    background-color:$button_disabled_checked_color; //image($_bg);
+    //border-color: transparent;
+    background-color: if($variant == 'light', darken($c, 11.7%), lighten($c, 13%));
     //@include _shadows(inset 0 1px transparentize(white, 1), $_blank_edge);
   }
 
@@ -524,7 +537,7 @@
   // possible $t values:
   // normal, hover, active, insensitive, backdrop, backdrop-insensitive
 
-  $_border_color: if($variant == 'light', if($c==$checkradio_bg_color, $c, $alt_borders_color), if($c==$checkradio_bg_color, $c, $button_color));
+  $_border_color: if($variant == 'light', if($c==$checkradio_bg_color, $c, $alt_borders_color), if($c==$checkradio_bg_color, $c, $borders_color));
   $_dim_border_color: transparentize($_border_color, if($variant == 'light', 0.3, 0.7));
 
   @if $t==normal  {
