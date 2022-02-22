@@ -4649,7 +4649,7 @@ colorchooser .popover.osd { border-radius: 5px; }
  ********/
 //content view (grid/list)
 .content-view {
-  //background-color: darken($bg_color,7%);
+  background-color: darken($bg_color,7%);
 
   &:hover { -gtk-icon-effect: highlight; }
 

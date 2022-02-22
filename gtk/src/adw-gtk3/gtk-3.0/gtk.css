@@ -1984,6 +1984,8 @@ colorswatch#editor-color-sample overlay { border-radius: 4.5px; }
 colorchooser .popover.osd { border-radius: 5px; }
 
 /******** Misc * */
+.content-view { background-color: #e8e8e8; }
+
 .content-view:hover { -gtk-icon-effect: highlight; }
 
 .content-view:backdrop { background-color: #e8e8e8; }
