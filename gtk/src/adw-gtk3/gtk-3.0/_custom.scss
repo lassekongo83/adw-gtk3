@@ -239,3 +239,6 @@ treeview.view:not(:backdrop):not(:selected):hover {
 .preferences scrolledwindow > .frame > clamp {
   &.large, &.medium, &.small { padding-bottom: 30px; }
 }
+
+// Linked osd buttons, like in totem
+.osd .linked > button { border-color: transparent; }
