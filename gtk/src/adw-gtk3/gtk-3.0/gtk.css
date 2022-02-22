@@ -2633,6 +2633,8 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 
 .nautilus-window .search + .toggle.popup { border-left-color: #c8c8c8; }
 
+.nautilus-window .view .dim-label, .nautilus-window iconview .dim-label, .nautilus-window .view label.separator, .nautilus-window iconview label.separator, .nautilus-window .view headerbar .subtitle, headerbar .nautilus-window .view .subtitle, .nautilus-window iconview headerbar .subtitle, headerbar .nautilus-window iconview .subtitle, .nautilus-window .view .titlebar:not(headerbar) .subtitle, .titlebar:not(headerbar) .nautilus-window .view .subtitle, .nautilus-window iconview .titlebar:not(headerbar) .subtitle, .titlebar:not(headerbar) .nautilus-window iconview .subtitle { color: rgba(0, 0, 0, 0.35); }
+
 .floating-bar { padding: 3px; background-color: #ffffff; border-width: 1px; border-style: solid solid none; border-color: #cfcfcf; border-radius: 8px 0 0 0; }
 
 .floating-bar.bottom.left { border-left-style: none; border-top-left-radius: 0; }

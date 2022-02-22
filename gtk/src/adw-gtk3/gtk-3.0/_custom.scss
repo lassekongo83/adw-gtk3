@@ -193,7 +193,6 @@ list.content, list.view.frame {
 }
 
 // Non "content" lists
-// Applying the same style as list.content may cause breakage, so we use a simpler style
 list.view.frame {
   border-radius: $card_radius;
   &:backdrop { background-color: $card_bg_color; }

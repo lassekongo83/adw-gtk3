@@ -94,6 +94,8 @@
     @extend %colored_hbuttons;
     border-left-color: $linked_border;
   }
+
+  .view .dim-label { color: transparentize($fg_color, 0.45); }
 }
 
 // Floating status bar
