@@ -127,33 +127,6 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
   &:not(:backdrop) { transition: 200ms ease-in; }
 }
 
-// Buttons on $base_color backgrounds should be a little bit brighter. Only needed for the light theme.
-// This could be avoided with libadwaita colors, but GTK3 is CPU heavy and can't handle all the alpha
-/*@if $variant == 'light' {
-  .view,
-  popover.background,
-  list {
-    button:not(.suggested-action):not(.destructive-action) {
-      background-color: if($variant == 'light', lighten($button_color, 4%), lighten($button_color, 4.7%));
-      &:hover {
-        background-color: if($variant == 'light', $button_color, lighten($button_hover_color, 7%));
-      }
-      &:active, &:checked {
-        background-color: if($variant == 'light', lighten($button_checked_color, 8%), $button_checked_color);
-      }
-      &:checked:hover {
-        background-color: if($variant == 'light', lighten($button_checked_color, 4%), lighten($button_checked_color, 4%));
-      }
-      &:disabled, &:backdrop {
-        background-color: if($variant == 'light', lighten($button_color, 7%), darken($button_color, 7%));
-      }
-    }
-    entry:not(:backdrop):not(:disabled) {
-      background-color: if($variant == 'light', lighten($button_color, 4%), lighten($button_color, 4.7%));
-    }
-  }
-}*/
-
 // Even out toggle button padding to make them more square
 button.toggle:not(.image-button) {
   padding-left: 8px;

@@ -2266,7 +2266,6 @@ headerbar:not(.selection-mode) switch:disabled:backdrop, .titlebar:not(.selectio
 
 headerbar:not(.selection-mode):not(:backdrop), .titlebar:not(.selection-mode):not(:backdrop) { transition: 200ms ease-in; }
 
-/*@if $variant == 'light' { .view, popover.background, list { button:not(.suggested-action):not(.destructive-action) { background-color: if($variant == 'light', lighten($button_color, 4%), lighten($button_color, 4.7%)); &:hover { background-color: if($variant == 'light', $button_color, lighten($button_hover_color, 7%)); } &:active, &:checked { background-color: if($variant == 'light', lighten($button_checked_color, 8%), $button_checked_color); } &:checked:hover { background-color: if($variant == 'light', lighten($button_checked_color, 4%), lighten($button_checked_color, 4%)); } &:disabled, &:backdrop { background-color: if($variant == 'light', lighten($button_color, 7%), darken($button_color, 7%)); } } entry:not(:backdrop):not(:disabled) { background-color: if($variant == 'light', lighten($button_color, 4%), lighten($button_color, 4.7%)); } } }*/
 button.toggle:not(.image-button) { padding-left: 8px; padding-right: 8px; }
 
 .flat.popup:not(.title) { font-weight: normal; }
@@ -2698,6 +2697,8 @@ geary-conversation-viewer#conversation_viewer list.background.conversation-listb
 geary-conversation-viewer#conversation_viewer searchbar > revealer > box { background-color: #ffffff; border-color: #cfcfcf; }
 
 .geary-message-summary button.flat { margin: 0 2px; }
+
+.view.tile, iconview.tile { box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1); border-radius: 12px; }
 
 .counter-label { margin-top: 2px; margin-bottom: 2px; border-width: 0px; padding-left: 2px; padding-right: 2px; box-shadow: inset 0 0 10px 10px #2ec27e; }
 
