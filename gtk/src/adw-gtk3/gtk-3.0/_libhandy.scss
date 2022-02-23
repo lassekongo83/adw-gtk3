@@ -404,11 +404,6 @@ list.content {
       background-color: if($variant == 'light', darken($card_bg_color, 2.3%), lighten($card_bg_color, 2.3%));
     }
   }
-
-  > row:not(:selected):hover button:not(:backdrop) {
-    @include button(hover);
-    transition: none;
-  }
 }
 
 .content list {

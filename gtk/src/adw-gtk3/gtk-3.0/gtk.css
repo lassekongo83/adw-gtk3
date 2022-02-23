@@ -2492,8 +2492,6 @@ list.content > row:only-child { border-bottom: none; border-radius: 12px; -gtk-o
 
 list.content > row:not(:selected):hover { background-color: #f9f9f9; }
 
-list.content > row:not(:selected):hover button:not(:backdrop) { color: rgba(0, 0, 0, 0.8); outline-color: rgba(0, 0, 0, 0.1); background-color: #dddddd; box-shadow: none; transition: none; }
-
 .content list { background-color: transparent; border-radius: 12px; }
 
 button.list-button:not(:active):not(:checked):not(:hover) { color: rgba(0, 0, 0, 0.8); outline-color: rgba(0, 0, 0, 0.1); background-color: #e6e6e6; }

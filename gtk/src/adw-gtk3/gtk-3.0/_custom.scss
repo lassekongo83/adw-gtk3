@@ -170,6 +170,7 @@ list.view.frame {
     &:backdrop:disabled { @include button(backdrop-insensitive, $card_bg_color, $backdrop_insensitive_color); }
   }
 }
+
 popover.background {
   button {
     @include button(normal, $popover_bg_color, $fg_color);
