@@ -91,7 +91,7 @@
   }
 
   .search + .toggle.popup {
-    @extend %colored_hbuttons;
+    @extend %colored_buttons;
     border-left-color: $linked_border;
   }
 
@@ -607,9 +607,9 @@ window.background.chromium {
 .org-gnome-Calendar {
   .titlebar .linked button {
     @extend %linked;
-    @extend %colored_hbuttons;
+    @extend %colored_buttons;
   }
-  .titlebar .text-button { @extend %colored_hbuttons; }
+  .titlebar .text-button { @extend %colored_buttons; }
 }
 
 // Firefox

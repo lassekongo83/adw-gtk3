@@ -7,7 +7,7 @@ $bg_color: if($variant == 'light', #fafafa, #242424);
 $fg_color: if($variant == 'light', transparentize(black, .2), white);
 
 $selected_fg_color: #ffffff;
-$selected_bg_color: if($variant == 'light', $blue_3, $blue_4);
+$selected_bg_color: if($variant == 'light', $blue_3, $blue_3);
 $selected_borders_color: if($variant== 'light', darken($selected_bg_color, 15%), darken($selected_bg_color, 30%));
 $borders_color: if($variant == 'light', darken($bg_color, 17%), lighten($bg_color, 14.7%)); //#cfcfcf, #494949
 $alt_borders_color: if($variant == 'light', darken($bg_color, 24%), darken($bg_color, 18%));
@@ -17,7 +17,7 @@ $link_visited_color: if($variant == 'light', darken($selected_bg_color, 20%), li
 $top_hilight: $borders_edge;
 $dark_fill: mix($borders_color, $bg_color, 50%);
 $headerbar_color: if($variant == 'light', darken($bg_color, 6%), lighten($bg_color, 4.7%)); //if($variant == 'light', #ebebeb, #303030);
-$menu_color: if($variant == 'light', $base_color, lighten($bg_color, 5%));
+$menu_color: if($variant == 'light', $base_color, lighten($bg_color, 8%));
 $popover_bg_color: $menu_color;
 $popover_hover_color: if($variant == 'light', darken($menu_color, 13%), lighten($menu_color, 13%)); //gtkalpha(currentColor, .13);
 
@@ -72,7 +72,7 @@ $suggested_bg_color: $selected_bg_color;
 $suggested_border_color: $selected_borders_color;
 $progress_bg_color: $selected_bg_color;
 $progress_border_color: $selected_borders_color;
-$checkradio_bg_color: if($variant == 'light', $selected_bg_color, lighten($selected_bg_color,10%));
+$checkradio_bg_color: $selected_bg_color;
 $checkradio_fg_color: $selected_fg_color;
 $checkradio_borders_color: if($variant == 'light', darken($checkradio_bg_color,20%), darken($checkradio_bg_color,40%));
 

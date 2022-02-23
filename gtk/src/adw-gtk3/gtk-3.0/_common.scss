@@ -2679,7 +2679,10 @@ notebook {
           margin-left: 0px;
           margin-right: 0px;
 
-          &.reorderable-page { border-style: none solid; }
+          &.reorderable-page {
+            border-style: none solid;
+            margin-left: 1px; // Fixes a small issue in gnome-terminal
+          }
         }
       }
     }
@@ -2909,19 +2912,18 @@ switch {
   outline-offset: -4px;
 
   // similar to the .scale
-  //border: 1px solid $borders_color;
   padding: 2px;
   border-radius: 14px;
   color: $fg_color;
   background-color: $trough_color;
-  //text-shadow: 0 1px transparentize(black, 0.9);
 
   &:checked {
     color: $selected_fg_color;
-    //border-color: $checkradio_borders_color;
     background-color: $checkradio_bg_color;
-    //text-shadow: 0 1px transparentize($selected_borders_color, 0.5),
-    //             0 0 2px transparentize(white, 0.4);
+    &:hover {
+      background-image: image(gtkalpha(currentColor, .1));
+      &:active { background-image: image(transparentize(black, .8)); }
+    }
   }
 
   &:disabled {
@@ -2951,9 +2953,9 @@ switch {
   }
 
   slider {
-    //margin: -1px;
-    min-width: 20px;
-    min-height: 20px;
+    margin: 0px;
+    min-width: 18px;
+    min-height: 18px;
     background-color: $slider_color;
     border: 1px solid transparent;
     border-radius: 50%;
