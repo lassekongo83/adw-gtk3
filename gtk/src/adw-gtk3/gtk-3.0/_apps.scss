@@ -526,7 +526,7 @@ $panel_fg_color: #ffffff;
       border-radius: $button_radius;
     }
 
-    spinbutton button { border-width: 4px; }
+    spinbutton button { border-width: 1px; }
   }
 
   > toolbar.vertical {

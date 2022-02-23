@@ -626,15 +626,15 @@ toolbar.vertical separator { margin: 6px 1px 7px 0; }
 
 toolbar:not(.inline-toolbar):not(.osd) > *:not(.toggle):not(.popup) > * { margin-right: 1px; margin-bottom: 1px; }
 
-.inline-toolbar { padding: 3px; border-width: 0 1px 1px; border-radius: 0  0 5px 5px; }
+.inline-toolbar { background-color: #242424; border-color: #494949; border-style: solid; padding: 3px; border-width: 0 1px 1px; border-radius: 0  0 5px 5px; }
 
 searchbar > revealer > box, .location-bar { border-width: 0 0 1px; padding: 3px; }
 
 searchbar > revealer > box { margin: -6px; padding: 6px; }
 
-.inline-toolbar, searchbar > revealer > box, .location-bar { border-style: solid; border-color: #494949; background-color: #2f2f2f; }
+searchbar > revealer > box, .location-bar { border-style: solid; border-color: #494949; background-color: #242424; }
 
-.inline-toolbar:backdrop, searchbar > revealer > box:backdrop, .location-bar:backdrop { border-color: #454545; background-color: #3b3b3b; box-shadow: none; transition: 200ms ease-out; }
+searchbar > revealer > box:backdrop, .location-bar:backdrop { border-color: #454545; background-color: #3b3b3b; box-shadow: none; transition: 200ms ease-out; }
 
 /*************** Header bars * */
 .titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 46px; border-width: 0 0 1px; border-style: solid; border-color: #494949; border-radius: 0; background: #303030 linear-gradient(to top, #303030, #303030); /* Darken switchbuttons for headerbars. issue #1588 */ }
@@ -2878,7 +2878,7 @@ XfdesktopIconView.view .rubberband { border-radius: 0; }
 
 #ToolboxCommon > #AuxToolbox button:not(.up):not(.down) { min-height: 24px; min-width: 16px; padding: 4px 8px; border-radius: 6px; }
 
-#ToolboxCommon > #AuxToolbox spinbutton button { border-width: 4px; }
+#ToolboxCommon > #AuxToolbox spinbutton button { border-width: 1px; }
 
 #ToolboxCommon > toolbar.vertical { margin-top: -4px; }
 
