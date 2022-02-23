@@ -151,6 +151,42 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
   &:not(:backdrop) { transition: 200ms ease-in; }
 }
 
+// Different button color on brighter elements like lists and popovers
+.content list,
+list.content,
+list.view.frame {
+  button, > row:not(:selected):hover button {
+    @include button(normal, $card_bg_color, $card_fg_color);
+    &:hover { @include button(hover, $card_bg_color, $card_fg_color); }
+    &:active, &:checked { @include button(active, $card_bg_color, $card_fg_color); }
+    &:disabled { @include button(insensitive, $card_bg_color, $insensitive_fg_color); }
+    &:backdrop { @include button(backdrop, $card_bg_color, $backdrop_fg_color); }
+    &:backdrop:disabled { @include button(backdrop-insensitive, $card_bg_color, $backdrop_insensitive_color); }
+  }
+  entry {
+    @include button(normal, $card_bg_color, $text_color);
+    &:disabled { @include button(insensitive, $card_bg_color, $insensitive_fg_color); }
+    &:backdrop { @include button(backdrop, $card_bg_color, $backdrop_text_color); }
+    &:backdrop:disabled { @include button(backdrop-insensitive, $card_bg_color, $backdrop_insensitive_color); }
+  }
+}
+popover.background {
+  button {
+    @include button(normal, $popover_bg_color, $fg_color);
+    &:hover { @include button(hover, $popover_bg_color, $fg_color); }
+    &:active, &:checked { @include button(active, $popover_bg_color, $fg_color); }
+    &:disabled { @include button(insensitive, $popover_bg_color, $insensitive_fg_color); }
+    &:backdrop { @include button(backdrop, $popover_bg_color, $backdrop_fg_color); }
+    &:backdrop:disabled { @include button(backdrop-insensitive, $popover_bg_color, $backdrop_insensitive_color); }
+  }
+  entry {
+    @include button(normal, $popover_bg_color, $text_color);
+    &:disabled { @include button(insensitive, $popover_bg_color, $insensitive_fg_color); }
+    &:backdrop { @include button(backdrop, $popover_bg_color, $backdrop_text_color); }
+    &:backdrop:disabled { @include button(backdrop-insensitive, $popover_bg_color, $backdrop_insensitive_color); }
+  }
+}
+
 // Even out toggle button padding to make them more square
 button.toggle:not(.image-button) {
   padding-left: 8px;
@@ -194,10 +230,10 @@ list.view.frame {
   border-radius: $card_radius;
   background-color: $card_bg_color;
   &:backdrop { background-color: $card_bg_color; }
-  > row:not(:selected):hover button:not(:backdrop) {
-    @include button(hover);
-    transition: none;
-  }
+  //> row:not(:selected):hover button:not(:backdrop) {
+  //  @include button(hover);
+  //  transition: none;
+  //}
 }
 
 // Legacy application titlebuttons

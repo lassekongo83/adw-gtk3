@@ -2296,6 +2296,50 @@ headerbar:not(.selection-mode) switch:disabled:backdrop, .titlebar:not(.selectio
 
 headerbar:not(.selection-mode):not(:backdrop), .titlebar:not(.selection-mode):not(:backdrop) { transition: 200ms ease-in; }
 
+.content list button, .content list > row:not(:selected):hover button, list.content button, list.content > row:not(:selected):hover button, list.view.frame button, list.view.frame > row:not(:selected):hover button { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #4a4a4a; }
+
+.content list button:hover, .content list > row:not(:selected):hover button:hover, list.content button:hover, list.content > row:not(:selected):hover button:hover, list.view.frame button:hover, list.view.frame > row:not(:selected):hover button:hover { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #565656; box-shadow: none; }
+
+.content list button:active, .content list button:checked, .content list > row:not(:selected):hover button:active, .content list > row:not(:selected):hover button:checked, list.content button:active, list.content button:checked, list.content > row:not(:selected):hover button:active, list.content > row:not(:selected):hover button:checked, list.view.frame button:active, list.view.frame button:checked, list.view.frame > row:not(:selected):hover button:active, list.view.frame > row:not(:selected):hover button:checked { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #767676; box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+
+.content list button:active:hover, .content list button:checked:hover, .content list > row:not(:selected):hover button:active:hover, .content list > row:not(:selected):hover button:checked:hover, list.content button:active:hover, list.content button:checked:hover, list.content > row:not(:selected):hover button:active:hover, list.content > row:not(:selected):hover button:checked:hover, list.view.frame button:active:hover, list.view.frame button:checked:hover, list.view.frame > row:not(:selected):hover button:active:hover, list.view.frame > row:not(:selected):hover button:checked:hover { background-color: #818181; }
+
+.content list button:disabled, .content list > row:not(:selected):hover button:disabled, list.content button:disabled, list.content > row:not(:selected):hover button:disabled, list.view.frame button:disabled, list.view.frame > row:not(:selected):hover button:disabled { color: #626262; background-color: #404040; text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
+
+.content list button:backdrop, .content list > row:not(:selected):hover button:backdrop, list.content button:backdrop, list.content > row:not(:selected):hover button:backdrop, list.view.frame button:backdrop, list.view.frame > row:not(:selected):hover button:backdrop { color: #7f7f7f; background-color: #404040; text-shadow: none; -gtk-icon-shadow: none; }
+
+.content list button:backdrop:disabled, .content list > row:not(:selected):hover button:backdrop:disabled, list.content button:backdrop:disabled, list.content > row:not(:selected):hover button:backdrop:disabled, list.view.frame button:backdrop:disabled, list.view.frame > row:not(:selected):hover button:backdrop:disabled { color: #3a3a3a; background-color: #404040; text-shadow: none; -gtk-icon-shadow: none; }
+
+.content list entry, list.content entry, list.view.frame entry { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #4a4a4a; }
+
+.content list entry:disabled, list.content entry:disabled, list.view.frame entry:disabled { color: #626262; background-color: #404040; text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
+
+.content list entry:backdrop, list.content entry:backdrop, list.view.frame entry:backdrop { color: #b3b3b3; background-color: #404040; text-shadow: none; -gtk-icon-shadow: none; }
+
+.content list entry:backdrop:disabled, list.content entry:backdrop:disabled, list.view.frame entry:backdrop:disabled { color: #3a3a3a; background-color: #404040; text-shadow: none; -gtk-icon-shadow: none; }
+
+popover.background button { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #4e4e4e; }
+
+popover.background button:hover { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #5a5a5a; box-shadow: none; }
+
+popover.background button:active, popover.background button:checked { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #797979; box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+
+popover.background button:active:hover, popover.background button:checked:hover { background-color: #848484; }
+
+popover.background button:disabled { color: #636363; background-color: #434343; text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
+
+popover.background button:backdrop { color: gray; background-color: #434343; text-shadow: none; -gtk-icon-shadow: none; }
+
+popover.background button:backdrop:disabled { color: #3c3c3c; background-color: #434343; text-shadow: none; -gtk-icon-shadow: none; }
+
+popover.background entry { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #4e4e4e; }
+
+popover.background entry:disabled { color: #636363; background-color: #434343; text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
+
+popover.background entry:backdrop { color: #b4b4b4; background-color: #434343; text-shadow: none; -gtk-icon-shadow: none; }
+
+popover.background entry:backdrop:disabled { color: #3c3c3c; background-color: #434343; text-shadow: none; -gtk-icon-shadow: none; }
+
 button.toggle:not(.image-button) { padding-left: 8px; padding-right: 8px; }
 
 .flat.popup:not(.title) { font-weight: normal; }
@@ -2315,8 +2359,6 @@ list.content > row:backdrop switch:not(:disabled):checked, list.view.frame > row
 list.view.frame { border-radius: 12px; background-color: #353535; }
 
 list.view.frame:backdrop { background-color: #353535; }
-
-list.view.frame > row:not(:selected):hover button:not(:backdrop) { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #454545; box-shadow: none; transition: none; }
 
 .ssd .titlebar { border-width: 0; padding: 0px 4px; min-height: 36px; border-bottom: 1px solid #494949; -gtk-icon-shadow: none; text-shadow: none; color: white; }
 

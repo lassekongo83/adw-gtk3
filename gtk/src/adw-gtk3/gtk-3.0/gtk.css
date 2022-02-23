@@ -2274,6 +2274,50 @@ headerbar:not(.selection-mode) switch:disabled:backdrop, .titlebar:not(.selectio
 
 headerbar:not(.selection-mode):not(:backdrop), .titlebar:not(.selection-mode):not(:backdrop) { transition: 200ms ease-in; }
 
+.content list button, .content list > row:not(:selected):hover button, list.content button, list.content > row:not(:selected):hover button, list.view.frame button, list.view.frame > row:not(:selected):hover button { color: rgba(0, 0, 0, 0.8); outline-color: rgba(0, 0, 0, 0.1); background-color: #ebebeb; }
+
+.content list button:hover, .content list > row:not(:selected):hover button:hover, list.content button:hover, list.content > row:not(:selected):hover button:hover, list.view.frame button:hover, list.view.frame > row:not(:selected):hover button:hover { color: rgba(0, 0, 0, 0.8); outline-color: rgba(0, 0, 0, 0.1); background-color: #e2e2e2; box-shadow: none; }
+
+.content list button:active, .content list button:checked, .content list > row:not(:selected):hover button:active, .content list > row:not(:selected):hover button:checked, list.content button:active, list.content button:checked, list.content > row:not(:selected):hover button:active, list.content > row:not(:selected):hover button:checked, list.view.frame button:active, list.view.frame button:checked, list.view.frame > row:not(:selected):hover button:active, list.view.frame > row:not(:selected):hover button:checked { color: rgba(0, 0, 0, 0.8); outline-color: rgba(0, 0, 0, 0.1); background-color: #c3c3c3; box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+
+.content list button:active:hover, .content list button:checked:hover, .content list > row:not(:selected):hover button:active:hover, .content list > row:not(:selected):hover button:checked:hover, list.content button:active:hover, list.content button:checked:hover, list.content > row:not(:selected):hover button:active:hover, list.content > row:not(:selected):hover button:checked:hover, list.view.frame button:active:hover, list.view.frame button:checked:hover, list.view.frame > row:not(:selected):hover button:active:hover, list.view.frame > row:not(:selected):hover button:checked:hover { background-color: #b9b9b9; }
+
+.content list button:disabled, .content list > row:not(:selected):hover button:disabled, list.content button:disabled, list.content > row:not(:selected):hover button:disabled, list.view.frame button:disabled, list.view.frame > row:not(:selected):hover button:disabled { color: rgba(208, 208, 208, 0.95); background-color: whitesmoke; text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
+
+.content list button:backdrop, .content list > row:not(:selected):hover button:backdrop, list.content button:backdrop, list.content > row:not(:selected):hover button:backdrop, list.view.frame button:backdrop, list.view.frame > row:not(:selected):hover button:backdrop { color: rgba(175, 175, 175, 0.92); background-color: whitesmoke; text-shadow: none; -gtk-icon-shadow: none; }
+
+.content list button:backdrop:disabled, .content list > row:not(:selected):hover button:backdrop:disabled, list.content button:backdrop:disabled, list.content > row:not(:selected):hover button:backdrop:disabled, list.view.frame button:backdrop:disabled, list.view.frame > row:not(:selected):hover button:backdrop:disabled { color: #f0f0f0; background-color: whitesmoke; text-shadow: none; -gtk-icon-shadow: none; }
+
+.content list entry, list.content entry, list.view.frame entry { color: black; outline-color: rgba(0, 0, 0, 0.3); background-color: #ebebeb; }
+
+.content list entry:disabled, list.content entry:disabled, list.view.frame entry:disabled { color: rgba(208, 208, 208, 0.95); background-color: whitesmoke; text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
+
+.content list entry:backdrop, list.content entry:backdrop, list.view.frame entry:backdrop { color: #5b5b5b; background-color: whitesmoke; text-shadow: none; -gtk-icon-shadow: none; }
+
+.content list entry:backdrop:disabled, list.content entry:backdrop:disabled, list.view.frame entry:backdrop:disabled { color: #f0f0f0; background-color: whitesmoke; text-shadow: none; -gtk-icon-shadow: none; }
+
+popover.background button { color: rgba(0, 0, 0, 0.8); outline-color: rgba(0, 0, 0, 0.1); background-color: #ebebeb; }
+
+popover.background button:hover { color: rgba(0, 0, 0, 0.8); outline-color: rgba(0, 0, 0, 0.1); background-color: #e2e2e2; box-shadow: none; }
+
+popover.background button:active, popover.background button:checked { color: rgba(0, 0, 0, 0.8); outline-color: rgba(0, 0, 0, 0.1); background-color: #c3c3c3; box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+
+popover.background button:active:hover, popover.background button:checked:hover { background-color: #b9b9b9; }
+
+popover.background button:disabled { color: rgba(208, 208, 208, 0.95); background-color: whitesmoke; text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
+
+popover.background button:backdrop { color: rgba(175, 175, 175, 0.92); background-color: whitesmoke; text-shadow: none; -gtk-icon-shadow: none; }
+
+popover.background button:backdrop:disabled { color: #f0f0f0; background-color: whitesmoke; text-shadow: none; -gtk-icon-shadow: none; }
+
+popover.background entry { color: black; outline-color: rgba(0, 0, 0, 0.3); background-color: #ebebeb; }
+
+popover.background entry:disabled { color: rgba(208, 208, 208, 0.95); background-color: whitesmoke; text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
+
+popover.background entry:backdrop { color: #5b5b5b; background-color: whitesmoke; text-shadow: none; -gtk-icon-shadow: none; }
+
+popover.background entry:backdrop:disabled { color: #f0f0f0; background-color: whitesmoke; text-shadow: none; -gtk-icon-shadow: none; }
+
 button.toggle:not(.image-button) { padding-left: 8px; padding-right: 8px; }
 
 .flat.popup:not(.title) { font-weight: normal; }
@@ -2293,8 +2337,6 @@ list.content > row:backdrop switch:not(:disabled):checked, list.view.frame > row
 list.view.frame { border-radius: 12px; background-color: #ffffff; }
 
 list.view.frame:backdrop { background-color: #ffffff; }
-
-list.view.frame > row:not(:selected):hover button:not(:backdrop) { color: rgba(0, 0, 0, 0.8); outline-color: rgba(0, 0, 0, 0.1); background-color: #dddddd; box-shadow: none; transition: none; }
 
 .ssd .titlebar { border-width: 0; padding: 0px 4px; min-height: 36px; border-bottom: 1px solid #cfcfcf; -gtk-icon-shadow: none; text-shadow: none; color: rgba(0, 0, 0, 0.8); }
 
