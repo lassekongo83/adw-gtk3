@@ -124,18 +124,7 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
 
   // hdy viewswitcher buttons (weather, system monitor, etc.)
   viewswitcher button.radio:checked {
-    @include button(normal, $headerbar_color, $fg_color);
-    &:backdrop {
-      @if $variant == 'light' { @include button(backdrop, lighten($bg_color, 1.3%), $backdrop_fg_color); }
-      @else { @include button(backdrop, darken($bg_color, 1.3%), $backdrop_fg_color); }
-    }
-    &:hover {
-      @include button(hover, $headerbar_color, $fg_color);
-      &:backdrop {
-        @if $variant == 'light' { @include button(backdrop, darken($bg_color, 2.7%), $backdrop_fg_color); }
-        @else { @include button(backdrop, lighten($bg_color, 2.7%), $backdrop_fg_color); }
-      }
-    }
+    @extend %headerbar_buttons;
   }
 
   // Entries
