@@ -1574,7 +1574,7 @@ searchbar > revealer > box {
   border-style: solid;
   border-color: $borders_color;
   $_bg: mix($bg_color, $borders_color, 70%);
-  background-color: $bg_color; //$_bg;
+  background-color: $_bg;
 
   &:backdrop {
     border-color: $backdrop_borders_color;

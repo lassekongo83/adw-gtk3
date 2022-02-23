@@ -632,7 +632,7 @@ searchbar > revealer > box, .location-bar { border-width: 0 0 1px; padding: 3px;
 
 searchbar > revealer > box { margin: -6px; padding: 6px; }
 
-searchbar > revealer > box, .location-bar { border-style: solid; border-color: #494949; background-color: #242424; }
+searchbar > revealer > box, .location-bar { border-style: solid; border-color: #494949; background-color: #2f2f2f; }
 
 searchbar > revealer > box:backdrop, .location-bar:backdrop { border-color: #454545; background-color: #3b3b3b; box-shadow: none; transition: 200ms ease-out; }
 

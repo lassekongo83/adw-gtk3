@@ -640,7 +640,7 @@ searchbar > revealer > box, .location-bar { border-width: 0 0 1px; padding: 3px;
 
 searchbar > revealer > box { margin: -6px; padding: 6px; }
 
-searchbar > revealer > box, .location-bar { border-style: solid; border-color: #cfcfcf; background-color: #fafafa; }
+searchbar > revealer > box, .location-bar { border-style: solid; border-color: #cfcfcf; background-color: #ededed; }
 
 searchbar > revealer > box:backdrop, .location-bar:backdrop { border-color: #dddddd; background-color: #e6e6e6; box-shadow: none; transition: 200ms ease-out; }
 
