@@ -19,7 +19,7 @@ $dark_fill: mix($borders_color, $bg_color, 50%);
 $headerbar_color: if($variant == 'light', darken($bg_color, 6%), lighten($bg_color, 4.7%)); //if($variant == 'light', #ebebeb, #303030);
 $menu_color: if($variant == 'light', $base_color, lighten($bg_color, 8%));
 $popover_bg_color: $menu_color;
-$popover_hover_color: if($variant == 'light', darken($menu_color, 13%), lighten($menu_color, 13%)); //gtkalpha(currentColor, .13);
+$popover_hover_color: if($variant == 'light', darken($menu_color, 7%), lighten($menu_color, 7%)); //gtkalpha(currentColor, .13);
 
 $scrollbar_bg_color: $base_color;
 $scrollbar_slider_color: if($variant == 'light', darken($scrollbar_bg_color, 20%), lighten($scrollbar_bg_color, 20%)); //gtkalpha(currentColor, .2);
