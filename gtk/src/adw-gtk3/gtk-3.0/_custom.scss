@@ -33,6 +33,24 @@ $backdrop_linked_border: if($variant == 'light', lighten($backdrop_borders_color
   &:backdrop:disabled {
     @include button(backdrop-insensitive, $bg_color, $backdrop_insensitive_color);
   }
+
+  &.default:not(:backdrop):not(.suggested-action):not(.destructive-action) {
+    @include button(normal, $headerbar_color, $fg_color);
+  }
+
+  &.suggested-action, &.text-button.suggested-action {
+    @include button(normal, $suggested_bg_color, white);
+    &:hover { @include button(hover, $suggested_bg_color, white); }
+    &:active, &:checked { @include button(active, transparentize($suggested_bg_color, 0.5), white); }
+    &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($suggested_bg_color, 0.5), white); }
+  }
+
+  &.destructive-action, &.text-button.destructive-action  {
+    @include button(normal, $destructive_color, white);
+    &:hover { @include button(normal, $destructive_color, white); }
+    &:active, &:checked { @include button(active, transparentize($destructive_color, 0.5), white); }
+    &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($destructive_color, 0.5), white); }
+  }
 }
 
 %headerbar_buttons {
@@ -64,16 +82,22 @@ $backdrop_linked_border: if($variant == 'light', lighten($backdrop_borders_color
     }
   }
 
-  &.default:not(:backdrop) {
+  &.default:not(:backdrop):not(.suggested-action):not(.destructive-action) {
     @include button(normal, $headerbar_color, $fg_color);
   }
 
   &.suggested-action, &.text-button.suggested-action {
-    @include button(normal, $suggested_bg_color, $selected_fg_color);
+    @include button(normal, $suggested_bg_color, white);
+    &:hover { @include button(hover, $suggested_bg_color, white); }
+    &:active, &:checked { @include button(active, transparentize($suggested_bg_color, 0.5), white); }
+    &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($suggested_bg_color, 0.5), white); }
   }
 
   &.destructive-action, &.text-button.destructive-action  {
-    @include button(normal, $destructive_color, $selected_fg_color);
+    @include button(normal, $destructive_color, white);
+    &:hover { @include button(normal, $destructive_color, white); }
+    &:active, &:checked { @include button(active, transparentize($destructive_color, 0.5), white); }
+    &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($destructive_color, 0.5), white); }
   }
 }
 
