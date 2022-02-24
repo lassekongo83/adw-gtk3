@@ -597,15 +597,16 @@ window.background.chromium {
     border-color: if($variant == 'light', darken($bg_color, 27%), lighten($bg_color, 27%));
     background-color: if($variant == 'light', darken($bg_color, 20%), lighten($bg_color, 21%));
   }
-  
+
   textview.view { 
-    background-color: if($variant == 'light', darken($bg_color, 10%), $bg_color); 
+    background-color: $base_color; //if($variant == 'light', darken($bg_color, 10%), $bg_color); 
   }
 }
 
 // GNOME Calendar
 .org-gnome-Calendar {
-  .titlebar .linked button {
+  .titlebar:not(.selection-mode) .linked button,
+  headerbar:not(.selection-mode) .linked button {
     @extend %linked;
     @extend %colored_buttons;
   }

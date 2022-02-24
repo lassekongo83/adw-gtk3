@@ -20,7 +20,6 @@ $backdrop_linked_border: if($variant == 'light', lighten($backdrop_borders_color
     }
   }
   &:active, &:checked {
-    //@include button(active, $headerbar_color, $fg_color);
     @if $variant == 'light' { @include button(active, lighten($headerbar_color, 1.7%), $fg_color); }
     @else { @include button(active, darken($headerbar_color, 1%), $fg_color); }
     &:backdrop {
