@@ -38,8 +38,8 @@ $backdrop_linked_border: if($variant == 'light', lighten($backdrop_borders_color
     @include button(normal, $headerbar_color, $fg_color);
   }
 
-  &.suggested-action { @extend %suggested_buttons; }
-  &.destructive-action { @extend %destructive_buttons; }
+  &.suggested-action, &.text-button.suggested-action { @extend %suggested_buttons; }
+  &.destructive-action, &.text-button.destructive-action { @extend %destructive_buttons; }
 }
 
 %headerbar_buttons {
@@ -75,8 +75,8 @@ $backdrop_linked_border: if($variant == 'light', lighten($backdrop_borders_color
     @include button(normal, $headerbar_color, $fg_color);
   }
 
-  &.suggested-action { @extend %suggested_buttons; }
-  &.destructive-action { @extend %destructive_buttons; }
+  &.suggested-action, &.text-button.suggested-action { @extend %suggested_buttons; }
+  &.destructive-action, &.text-button.destructive-action { @extend %destructive_buttons; }
 }
 
 %suggested_buttons {
