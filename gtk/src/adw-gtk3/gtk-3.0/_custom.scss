@@ -250,6 +250,12 @@ list.content, list.view.frame {
   }
 }
 
+// Fix wrong border-radius on hdy spinbutton entries
+list.content .horizontal spinbutton entry {
+  border-top-left-radius: $button_radius;
+  border-bottom-left-radius: $button_radius;
+}
+
 // Non "content" lists
 list.view.frame {
   border-radius: $card_radius;

@@ -2394,6 +2394,8 @@ list.content > row:backdrop switch:not(:disabled), list.view.frame > row:backdro
 
 list.content > row:backdrop switch:not(:disabled):checked, list.view.frame > row:backdrop switch:not(:disabled):checked { background-color: #3584e4; }
 
+list.content .horizontal spinbutton entry { border-top-left-radius: 6px; border-bottom-left-radius: 6px; }
+
 list.view.frame { border-radius: 12px; background-color: #353535; }
 
 list.view.frame:backdrop { background-color: #353535; }
