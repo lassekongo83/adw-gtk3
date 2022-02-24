@@ -185,13 +185,13 @@ list.view.frame {
     &:active, &:checked { @include button(active, $card_bg_color, $card_fg_color); }
     &:disabled { @include button(insensitive, $card_bg_color, $insensitive_fg_color); }
     &:backdrop { @include button(backdrop, $card_bg_color, $backdrop_fg_color); }
-    &:backdrop:disabled { @include button(backdrop-insensitive, $card_bg_color, $backdrop_insensitive_color); }
+    &:backdrop:disabled { @include button(backdrop-insensitive, $card_bg_color, $backdrop_fg_color); }
   }
   entry {
     @include button(normal, $card_bg_color, $text_color);
     &:disabled { @include button(insensitive, $card_bg_color, $insensitive_fg_color); }
     &:backdrop { @include button(backdrop, $card_bg_color, $backdrop_text_color); }
-    &:backdrop:disabled { @include button(backdrop-insensitive, $card_bg_color, $backdrop_insensitive_color); }
+    &:backdrop:disabled { @include button(backdrop-insensitive, $card_bg_color, $backdrop_fg_color); }
   }
 }
 
@@ -202,13 +202,13 @@ popover.background {
     &:active, &:checked { @include button(active, $popover_bg_color, $fg_color); }
     &:disabled { @include button(insensitive, $popover_bg_color, $insensitive_fg_color); }
     &:backdrop { @include button(backdrop, $popover_bg_color, $backdrop_fg_color); }
-    &:backdrop:disabled { @include button(backdrop-insensitive, $popover_bg_color, $backdrop_insensitive_color); }
+    &:backdrop:disabled { @include button(backdrop-insensitive, $popover_bg_color, $backdrop_fg_color); }
   }
   entry {
     @include button(normal, $popover_bg_color, $text_color);
     &:disabled { @include button(insensitive, $popover_bg_color, $insensitive_fg_color); }
     &:backdrop { @include button(backdrop, $popover_bg_color, $backdrop_text_color); }
-    &:backdrop:disabled { @include button(backdrop-insensitive, $popover_bg_color, $backdrop_insensitive_color); }
+    &:backdrop:disabled { @include button(backdrop-insensitive, $popover_bg_color, $backdrop_fg_color); }
   }
 }
 

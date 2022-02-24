@@ -355,15 +355,31 @@ viewswitchertitle viewswitcher {
 
 // Lists
 list.content {
+  list {
+    background-color: transparent;
+    border-radius: $card_radius;
+  }
+
   background-color: $card_bg_color;
   color: $card_fg_color;
-  //padding-top: 6px;
-  //padding-bottom: 6px;
-  //@if $variant == 'light' { border: 1px solid $borders_color; }
   border-radius: $card_radius;
   box-shadow: 0 0 0 1px transparentize(black, 0.97),
               0 1px 3px 1px transparentize(black, .93),
               0 2px 6px 2px transparentize(black, .97);
+
+  // Nested rows background
+  // FIXME, bring this closer to libadwaita
+  list.nested > row:not(:active) {
+    border: 1px solid $borders_color;
+    &:not(:hover):not(:selected),
+    &:hover:not(.activatable):not(:selected) {
+      background-color: hdymix($bg_color, $card_bg_color, 0.5);
+    }
+
+    &:hover.activatable:not(:selected) {
+      background-color: hdymix($fg_color, $card_bg_color, 0.954);
+    }
+  }
 
   > row {
     margin: 0;
@@ -374,20 +390,24 @@ list.content {
     &.expander:checked + row {
       margin-top: 6px;
     }
+
     &:not(:last-child) {
       border-bottom: 1px solid if($variant == 'light', lighten($borders_color, 7%), lighten($borders_color, 3.7%));
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
+
     &:not(:first-child):not(:last-child) {
       border-radius: 0;
       -gtk-outline-radius: 0;
     }
+
     &:first-child {
       border-top-left-radius: $card_radius;
       border-top-right-radius: $card_radius;
       -gtk-outline-radius: $card_radius $card_radius 0 0;
     }
+
     &:last-child {
       border-top-left-radius: 0;
       border-top-right-radius: 0;
@@ -395,25 +415,23 @@ list.content {
       border-bottom-right-radius: $card_radius;
       -gtk-outline-radius: 0 0 $card_radius $card_radius;
     }
+
     &:only-child {
       border-bottom: none;
       border-radius: $card_radius;
       -gtk-outline-radius: $card_radius;
     }
-    &:not(:selected):hover {
-      background-color: if($variant == 'light', darken($card_bg_color, 2.3%), lighten($card_bg_color, 2.3%));
+
+    &:not(.expander):not(:active):hover.activatable:not(:selected),
+    &.expander row.header:not(:active):hover.activatable:not(:selected) {
+      background-color: hdymix($fg_color, $card_bg_color, 0.954);
     }
   }
 }
 
-.content list {
-  background-color: transparent;
-  border-radius: $card_radius;
-}
-
 // List button
 button.list-button:not(:active):not(:checked):not(:hover) {
-  @include button(normal);
+  @include button(normal, $card_bg_color, $fg_color);
 }
 
 // HdyStatusPage

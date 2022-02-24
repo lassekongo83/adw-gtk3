@@ -2346,7 +2346,7 @@ headerbar:not(.selection-mode):not(:backdrop), .titlebar:not(.selection-mode):no
 
 .content list button:backdrop, .content list > row:not(:selected):hover button:backdrop, list.content button:backdrop, list.content > row:not(:selected):hover button:backdrop, list.view.frame button:backdrop, list.view.frame > row:not(:selected):hover button:backdrop { color: #7f7f7f; background-color: #404040; text-shadow: none; -gtk-icon-shadow: none; }
 
-.content list button:backdrop:disabled, .content list > row:not(:selected):hover button:backdrop:disabled, list.content button:backdrop:disabled, list.content > row:not(:selected):hover button:backdrop:disabled, list.view.frame button:backdrop:disabled, list.view.frame > row:not(:selected):hover button:backdrop:disabled { color: #3a3a3a; background-color: #404040; text-shadow: none; -gtk-icon-shadow: none; }
+.content list button:backdrop:disabled, .content list > row:not(:selected):hover button:backdrop:disabled, list.content button:backdrop:disabled, list.content > row:not(:selected):hover button:backdrop:disabled, list.view.frame button:backdrop:disabled, list.view.frame > row:not(:selected):hover button:backdrop:disabled { color: #545454; background-color: #404040; text-shadow: none; -gtk-icon-shadow: none; }
 
 .content list entry, list.content entry, list.view.frame entry { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #4a4a4a; }
 
@@ -2354,7 +2354,7 @@ headerbar:not(.selection-mode):not(:backdrop), .titlebar:not(.selection-mode):no
 
 .content list entry:backdrop, list.content entry:backdrop, list.view.frame entry:backdrop { color: #b3b3b3; background-color: #404040; text-shadow: none; -gtk-icon-shadow: none; }
 
-.content list entry:backdrop:disabled, list.content entry:backdrop:disabled, list.view.frame entry:backdrop:disabled { color: #3a3a3a; background-color: #404040; text-shadow: none; -gtk-icon-shadow: none; }
+.content list entry:backdrop:disabled, list.content entry:backdrop:disabled, list.view.frame entry:backdrop:disabled { color: #545454; background-color: #404040; text-shadow: none; -gtk-icon-shadow: none; }
 
 popover.background button { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #4e4e4e; }
 
@@ -2368,7 +2368,7 @@ popover.background button:disabled { color: #636363; background-color: #434343; 
 
 popover.background button:backdrop { color: gray; background-color: #434343; text-shadow: none; -gtk-icon-shadow: none; }
 
-popover.background button:backdrop:disabled { color: #3c3c3c; background-color: #434343; text-shadow: none; -gtk-icon-shadow: none; }
+popover.background button:backdrop:disabled { color: #555555; background-color: #434343; text-shadow: none; -gtk-icon-shadow: none; }
 
 popover.background entry { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #4e4e4e; }
 
@@ -2376,7 +2376,7 @@ popover.background entry:disabled { color: #636363; background-color: #434343; t
 
 popover.background entry:backdrop { color: #b4b4b4; background-color: #434343; text-shadow: none; -gtk-icon-shadow: none; }
 
-popover.background entry:backdrop:disabled { color: #3c3c3c; background-color: #434343; text-shadow: none; -gtk-icon-shadow: none; }
+popover.background entry:backdrop:disabled { color: #555555; background-color: #434343; text-shadow: none; -gtk-icon-shadow: none; }
 
 button.toggle:not(.image-button) { padding-left: 8px; padding-right: 8px; }
 
@@ -2538,6 +2538,14 @@ viewswitchertitle viewswitcher { margin-left: 12px; margin-right: 12px; }
 
 list.content { background-color: #353535; color: white; border-radius: 12px; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 1px 3px 1px rgba(0, 0, 0, 0.07), 0 2px 6px 2px rgba(0, 0, 0, 0.03); }
 
+list.content list { background-color: transparent; border-radius: 12px; }
+
+list.content list.nested > row:not(:active) { border: 1px solid #494949; }
+
+list.content list.nested > row:not(:active):not(:hover):not(:selected), list.content list.nested > row:not(:active):hover:not(.activatable):not(:selected) { background-color: mix(#242424, #353535, 0.5); }
+
+list.content list.nested > row:not(:active):hover.activatable:not(:selected) { background-color: mix(white, #353535, 0.954); }
+
 list.content > row { margin: 0; padding: 2px; transition: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
 list.content > row.expander:checked:not(:first-child), list.content > row.expander:checked + row { margin-top: 6px; }
@@ -2552,11 +2560,9 @@ list.content > row:last-child { border-top-left-radius: 0; border-top-right-radi
 
 list.content > row:only-child { border-bottom: none; border-radius: 12px; -gtk-outline-radius: 12px; }
 
-list.content > row:not(:selected):hover { background-color: #3b3b3b; }
+list.content > row:not(.expander):not(:active):hover.activatable:not(:selected), list.content > row.expander row.header:not(:active):hover.activatable:not(:selected) { background-color: mix(white, #353535, 0.954); }
 
-.content list { background-color: transparent; border-radius: 12px; }
-
-button.list-button:not(:active):not(:checked):not(:hover) { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #393939; }
+button.list-button:not(:active):not(:checked):not(:hover) { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #4a4a4a; }
 
 statuspage > scrolledwindow > viewport > box > clamp > box > .icon { color: rgba(255, 255, 255, 0.5); }
 
