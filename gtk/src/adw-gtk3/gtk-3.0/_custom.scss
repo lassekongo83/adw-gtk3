@@ -38,19 +38,8 @@ $backdrop_linked_border: if($variant == 'light', lighten($backdrop_borders_color
     @include button(normal, $headerbar_color, $fg_color);
   }
 
-  &.suggested-action, &.text-button.suggested-action {
-    @include button(normal, $suggested_bg_color, white);
-    &:hover { @include button(hover, $suggested_bg_color, white); }
-    &:active, &:checked { @include button(active, transparentize($suggested_bg_color, 0.5), white); }
-    &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($suggested_bg_color, 0.5), white); }
-  }
-
-  &.destructive-action, &.text-button.destructive-action  {
-    @include button(normal, $destructive_color, white);
-    &:hover { @include button(normal, $destructive_color, white); }
-    &:active, &:checked { @include button(active, transparentize($destructive_color, 0.5), white); }
-    &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($destructive_color, 0.5), white); }
-  }
+  &.suggested-action { @extend %suggested_buttons; }
+  &.destructive-action { @extend %destructive_buttons; }
 }
 
 %headerbar_buttons {
@@ -86,19 +75,22 @@ $backdrop_linked_border: if($variant == 'light', lighten($backdrop_borders_color
     @include button(normal, $headerbar_color, $fg_color);
   }
 
-  &.suggested-action, &.text-button.suggested-action {
-    @include button(normal, $suggested_bg_color, white);
-    &:hover { @include button(hover, $suggested_bg_color, white); }
-    &:active, &:checked { @include button(active, transparentize($suggested_bg_color, 0.5), white); }
-    &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($suggested_bg_color, 0.5), white); }
-  }
+  &.suggested-action { @extend %suggested_buttons; }
+  &.destructive-action { @extend %destructive_buttons; }
+}
 
-  &.destructive-action, &.text-button.destructive-action  {
-    @include button(normal, $destructive_color, white);
-    &:hover { @include button(normal, $destructive_color, white); }
-    &:active, &:checked { @include button(active, transparentize($destructive_color, 0.5), white); }
-    &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($destructive_color, 0.5), white); }
-  }
+%suggested_buttons {
+  @include button(normal, $suggested_bg_color, white);
+  &:hover { @include button(hover, $suggested_bg_color, white); }
+  &:active, &:checked { @include button(active, transparentize($suggested_bg_color, 0.5), white); }
+  &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($suggested_bg_color, 0.5), white); }
+}
+
+%destructive_buttons {
+  @include button(normal, $destructive_color, white);
+  &:hover { @include button(normal, $destructive_color, white); }
+  &:active, &:checked { @include button(active, transparentize($destructive_color, 0.5), white); }
+  &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($destructive_color, 0.5), white); }
 }
 
 // headerbar stuff
@@ -187,19 +179,8 @@ list.view.frame {
     &:backdrop { @include button(backdrop, $card_bg_color, $backdrop_fg_color); }
     &:backdrop:disabled { @include button(backdrop-insensitive, $card_bg_color, $backdrop_fg_color); }
 
-    &.suggested-action {
-      @include button(normal, $suggested_bg_color, white);
-      &:hover { @include button(hover, $suggested_bg_color, white); }
-      &:active, &:checked { @include button(active, transparentize($suggested_bg_color, 0.5), white); }
-      &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($suggested_bg_color, 0.5), white); }
-    }
-
-    &.destructive-action {
-      @include button(normal, $destructive_color, white);
-      &:hover { @include button(normal, $destructive_color, white); }
-      &:active, &:checked { @include button(active, transparentize($destructive_color, 0.5), white); }
-      &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($destructive_color, 0.5), white); }
-    }
+    &.suggested-action { @extend %suggested_buttons; }
+    &.destructive-action { @extend %destructive_buttons; }
   }
   entry {
     @include button(normal, $card_bg_color, $text_color);
