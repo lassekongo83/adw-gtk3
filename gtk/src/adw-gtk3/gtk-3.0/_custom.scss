@@ -302,3 +302,9 @@ treeview.view:not(:backdrop):not(:selected):hover {
 
 // Linked osd buttons, like in totem
 .osd .linked > button { border-color: transparent; }
+
+// Toolbars
+.primary-toolbar, .toolbar {
+  background-color: $bg_color;
+  &:backdrop { background-color: $backdrop_bg_color; }
+}

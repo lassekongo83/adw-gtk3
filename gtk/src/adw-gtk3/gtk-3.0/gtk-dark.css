@@ -2400,6 +2400,10 @@ treeview.view:not(:backdrop):not(:selected):hover { background-color: #303030; }
 
 .osd .linked > button { border-color: transparent; }
 
+.primary-toolbar, .toolbar { background-color: #242424; }
+
+.primary-toolbar:backdrop, .toolbar:backdrop { background-color: #242424; }
+
 window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized), window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) > decoration, window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) > decoration-overlay { border-radius: 12px; }
 
 popover.combo { padding: 0px; }
