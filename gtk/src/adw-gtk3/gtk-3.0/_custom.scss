@@ -196,6 +196,9 @@ popover.background {
     &:disabled { @include button(insensitive, $popover_bg_color, $insensitive_fg_color); }
     &:backdrop { @include button(backdrop, $popover_bg_color, $backdrop_fg_color); }
     &:backdrop:disabled { @include button(backdrop-insensitive, $popover_bg_color, $backdrop_fg_color); }
+
+    &.suggested-action { @extend %suggested_buttons; }
+    &.destructive-action { @extend %destructive_buttons; }
   }
   entry {
     @include button(normal, $popover_bg_color, $text_color);
