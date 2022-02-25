@@ -43,10 +43,9 @@ $backdrop_linked_border: if($variant == 'light', lighten($backdrop_borders_color
 
 %headerbar_buttons {
   // The normal state is set where it's needed. Usually undecorated.
-  // FIXME, dark theme may need some tweaks
   &:hover {
     @if $variant == 'light' { @include button(hover, lighten($headerbar_color, 6.3%), $fg_color); }
-    @else { @include button(hover, darken($headerbar_color, 6.3%), $fg_color); }
+    @else { @include button(hover, darken($headerbar_color, 7.7%), $fg_color); }
   }
 
   &:backdrop:hover {
@@ -56,7 +55,7 @@ $backdrop_linked_border: if($variant == 'light', lighten($backdrop_borders_color
 
   &:active, &:checked {
     @if $variant == 'light' { @include button(normal, lighten($headerbar_color, 1%), $fg_color); }
-    @else { @include button(normal, darken($headerbar_color, 1%), $fg_color); }
+    @else { @include button(normal, darken($headerbar_color, 0.3%), $fg_color); }
     &:backdrop {
       @include button(normal, $bg_color, $backdrop_fg_color); //FIXME
     }
@@ -64,7 +63,7 @@ $backdrop_linked_border: if($variant == 'light', lighten($backdrop_borders_color
 
   &:active:hover, &:checked:hover {
     @if $variant == 'light' { @include button(normal, darken($headerbar_color, 1.3%), $fg_color); }
-    @else { @include button(normal, lighten($headerbar_color, 1.3%), $fg_color); }
+    @else { @include button(normal, lighten($headerbar_color, 2.3%), $fg_color); }
     &:backdrop {
       @include button(normal, $bg_color, $backdrop_fg_color); //FIXME
     }

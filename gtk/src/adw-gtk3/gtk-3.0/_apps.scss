@@ -599,7 +599,7 @@ window.background.chromium {
   }
 
   textview.view { 
-    background-color: $base_color; //if($variant == 'light', darken($bg_color, 10%), $bg_color); 
+    background-color: $base_color;
   }
 }
 
