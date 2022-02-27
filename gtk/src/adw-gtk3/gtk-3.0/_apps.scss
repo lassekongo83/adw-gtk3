@@ -612,3 +612,7 @@ window.background.chromium {
 #MozillaGtkWidget.background {
   button { font-weight: initial; }
 }
+
+// GNOME Web
+// https://github.com/lassekongo83/adw-gtk3/issues/59
+button .download_progress trough { min-height: 2px; }

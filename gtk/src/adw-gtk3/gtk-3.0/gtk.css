@@ -2907,3 +2907,5 @@ window.background.chromium entry, window.background.chromium > button { border-c
 window.background.chromium textview.view { background-color: #ffffff; }
 
 #MozillaGtkWidget.background button { font-weight: initial; }
+
+button .download_progress trough { min-height: 2px; }
