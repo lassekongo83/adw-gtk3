@@ -7,18 +7,6 @@
   notebook > stack:not(:only-child),
   notebook > stack:not(:only-child) searchbar { @extend %view; }
 
-  // Path-bar
-  .path-bar-box {
-    border-radius: $button_radius;
-    border: none;
-    padding-right: 6px;
-    @include button(normal, $headerbar_color, $fg_color);
-
-    &:backdrop {
-      @include button(backdrop, $bg_color, $backdrop_fg_color);
-    }
-  }
-
   headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
     // Path-bar
     .path-bar-box {
