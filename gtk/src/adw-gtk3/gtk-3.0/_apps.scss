@@ -19,62 +19,78 @@
     }
   }
 
-  .nautilus-path-bar {
-    @include button(normal);
-    border-radius: $button_radius;
-
-    &:backdrop {
-      @include button(backdrop);
-    }
-
-    button {
-      margin: 0;
-      padding-left: 8px;
-      padding-right: 8px;
-
-      &:first-child {
-        @include button(normal);
-        border-width: 0px 1px 0px 0px;
-        border-radius: $button_radius;
-      }
-
-      &:not(:first-child) {
-        @include button(normal);
-        border-width: 0px 1px 0px 1px;
-        border-radius: $button_radius;
-        &:hover, &:backdrop:hover { border-left-color: $borders_color; }
-      }
-
-      &:hover {
-        @include button(insensitive-active);
-        color: $text_color;
-      }
+  headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
+    // Path-bar
+    .path-bar-box {
+      border-radius: $button_radius;
+      border: none;
+      padding-right: 6px;
+      @include button(normal, $headerbar_color, $fg_color);
 
       &:backdrop {
-        background-color: transparent;
-        &:hover { @include button(normal); }
+        @include button(backdrop, $bg_color, $backdrop_fg_color);
+      }
+    }
+
+    .nautilus-path-bar {
+      border-radius: $button_radius;
+      @include button(insensitive-active);
+
+      &:backdrop {
+        @include button(backdrop);
       }
 
-      &.toggle.popup { @include button(normal); }
+      button:not(.titlebutton) {
+        margin: 0;
+        padding-left: 8px;
+        padding-right: 8px;
 
-      &.current-dir:hover { background-color: transparent; }
+        &.current-dir {
+          border-width: 0px;
+          border-radius: $button_radius;
+          background-color: transparent;
+        }
+
+        &:not(.current-dir) {
+          border-width: 0px;
+          border-radius: $button_radius;
+          background-color: transparent;
+        }
+        &:not(.current-dir):hover {
+          @include button(active);
+          * {
+            opacity: 1;
+          }
+        }
+        &:not(.current-dir):backdrop:hover {
+          @include button(insensitive-active);
+        }
+        &.toggle.popup {
+          @include button(insensitive-active);
+          border-radius: 0 $button-radius $button-radius 0;
+          image {
+            color: $text_color;
+          }
+        }
+        &.toggle.popup:checked {
+          @include button(active);
+        }
+        &.toggle.popup:backdrop {
+          @include button(backdrop);
+          image {
+            @include button(backdrop);
+          }
+        }
+        &.toggle.popup:backdrop:hover {
+          @include button(normal);
+        }
+      }
     }
   }
 
   .titlebar {
     :not(.raised) .linked > button {
       @extend %linked;
-    }
-  }
-  .titlebar {
-    :not(.raised) .linked.nautilus-path-bar > button {
-      @extend %linked;
-      margin: 1px 0;
-      &:first-child { border-right-color: transparent; }
-      &, &:hover, &:not(:backdrop), &:not(:disabled) {
-        &:not(:first-child) { border-left-color: $linked_border; }
-        &:not(:last-child) { border-right-color: $linked_border; }
-      }
     }
   }
 
