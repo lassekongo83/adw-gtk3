@@ -620,3 +620,11 @@ window.background.chromium {
 // GNOME Web
 // https://github.com/lassekongo83/adw-gtk3/issues/59
 button .download_progress trough { min-height: 2px; }
+
+// Getting things GNOME
+// https://github.com/lassekongo83/adw-gtk3/issues/63
+// Trying to make it as specific as possible
+.titlebar > .linked.horizontal > button:not(.image-button):not(.text-button):not(.raised):not(.default):not(.suggested-action):not(.destructive-action):not(.popup):not(.toggle):not(:only-child) {
+  @extend %colored_buttons;
+}
+
