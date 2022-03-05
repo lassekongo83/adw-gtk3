@@ -255,8 +255,7 @@ list.content .horizontal spinbutton entry {
 // Non "content" lists
 list.view.frame {
   border-radius: $card_radius;
-  background-color: $card_bg_color;
-  &:backdrop { background-color: $card_bg_color; }
+  &, &:backdrop { background-color: $card_bg_color; }
 }
 
 // Legacy application titlebuttons

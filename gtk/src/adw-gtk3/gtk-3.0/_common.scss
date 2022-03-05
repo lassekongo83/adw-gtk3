@@ -2407,11 +2407,11 @@ notebook {
     padding: 0px;
     border-color: $borders_color;
     border-width: 0px;
-    background-color: $shade_color;
+    background-color: $bg_color;
 
     &:backdrop {
       border-color: $backdrop_borders_color;
-      @if $variant == 'light' { background-color: $backdrop_dark_fill; }
+      //@if $variant == 'light' { background-color: $backdrop_dark_fill; }
     }
 
     &.top { box-shadow: inset 0 -1px $borders_color; }
@@ -2422,13 +2422,21 @@ notebook {
     tabs { margin: 0px; }
 
     > tabs > tab {
+      &.reorderable-page {
+        background-color: $shade_color;
+      }
+      @if $variant == 'light' {
+        &.reorderable-page:backdrop { background-color: lighten($shade_color, 5.3%); }
+      }
       &:checked {
-        background-color: $active_tab_color;
-        @if $variant == 'light' { &:backdrop { background-color: $backdrop_base_color; } }
+        &.reorderable-page {
+          background-color: $active_tab_color;
+          @if $variant == 'light' { &:backdrop { background-color: $backdrop_base_color; } }
+        }
       }
-      &:not(:checked) {
-        color: transparentize($fg_color, 0.4);
-      }
+      //&:not(:checked) {
+      //  color: transparentize($fg_color, 0.4);
+      //}
     }
 
     &.top {
@@ -2437,14 +2445,15 @@ notebook {
         margin-bottom: 0px;
         > tab {
           //border-right: 1px solid $borders_color;
-          box-shadow: inset -1px 0 $borders_color;
+          //box-shadow: inset -1px 0 $borders_color;
           &:not(.reorderable-page):hover {
-            box-shadow: inset -1px 0 $borders_color,
-                        inset 0 -4px $borders_color;
+            box-shadow: inset 0 -4px $borders_color;
+            &:not(:checked) {
+              background-color: if($variant == 'light', darken($bg_color, 5.3%), lighten($bg_color, 6%));
+            }
           }
           &:not(.reorderable-page):checked {
-            box-shadow: inset -1px 0 $borders_color,
-                        inset 0 -4px $selected_bg_color;
+            box-shadow: inset 0 -4px $selected_bg_color;
           }
 
           //&:backdrop { box-shadow: none; }
@@ -2458,14 +2467,15 @@ notebook {
         margin-top: 0px;
         > tab {
           //border-right: 1px solid $borders_color;
-          box-shadow: inset -1px 0 $borders_color;
+          //box-shadow: inset -1px 0 $borders_color;
           &:not(.reorderable-page):hover {
-            box-shadow: inset -1px 0 $borders_color,
-                        inset 0 4px $borders_color;
+            box-shadow: inset 0 4px $borders_color;
+            &:not(:checked) {
+              background-color: if($variant == 'light', darken($bg_color, 5.3%), lighten($bg_color, 6%));
+            }
           }
           &:not(.reorderable-page):checked {
-            box-shadow: inset -1px 0 $borders_color,
-                        inset 0 4px $selected_bg_color;
+            box-shadow: inset 0 4px $selected_bg_color;
           }
 
           //&:backdrop { box-shadow: none; }
@@ -2479,14 +2489,15 @@ notebook {
         margin-right: 0px;
         > tab {
           //border-bottom: 1px solid $borders_color;
-          box-shadow: inset 0 -1px $borders_color;
+          //box-shadow: inset 0 -1px $borders_color;
           &:not(.reorderable-page):hover {
-            box-shadow: inset 0 -1px $borders_color,
-                        inset -4px 0 $borders_color;
+            box-shadow: inset -4px 0 $borders_color;
+            &:not(:checked) {
+              background-color: if($variant == 'light', darken($bg_color, 5.3%), lighten($bg_color, 6%));
+            }
           }
           &:not(.reorderable-page):checked {
-            box-shadow: inset 0 -1px $borders_color,
-                        inset -4px 0 $selected_bg_color;
+            box-shadow: inset -4px 0 $selected_bg_color;
           }
 
           //&:backdrop { box-shadow: none; }
@@ -2500,14 +2511,15 @@ notebook {
         margin-left: 0px;
         > tab {
           //border-bottom: 1px solid $borders_color;
-          box-shadow: inset 0 -1px $borders_color;
+          //box-shadow: inset 0 -1px $borders_color;
           &:not(.reorderable-page):hover {
-            box-shadow: inset 0 -1px $borders_color,
-                        inset 4px 0 $borders_color;
+            box-shadow: inset 4px 0 $borders_color;
+            &:not(:checked) {
+              background-color: if($variant == 'light', darken($bg_color, 5.3%), lighten($bg_color, 6%));
+            }
           }
           &:not(.reorderable-page):checked {
-            box-shadow: inset 0 -1px $borders_color,
-                        inset 4px 0 $selected_bg_color;
+            box-shadow: inset 4px 0 $selected_bg_color;
           }
 
           //&:backdrop { box-shadow: none; }
@@ -2595,17 +2607,20 @@ notebook {
       border-width: 0px;         // for reorderable tabs
       border-color: transparent; //
 
-      box-shadow: inset -1px -1px $borders_color;
+      &.reorderable-page {
+        box-shadow: inset -1px -1px $borders_color;
+        border: none;
+      }
 
       &:hover {
         color: $fg_color;
-        background-color: darken($shade_color, 3%);
-        transition: background 150ms ease-in-out;
+        //background-color: darken($shade_color, 3%);
 
         &.reorderable-page {
           border-color: transparentize($borders_color, 0.7);
-          background-color: darken($shade_color, 3%);
+          background-color: darken($shade_color, 2%);
           box-shadow: inset -1px -1px $borders_color;
+          transition: background 150ms ease-in-out;
         }
       }
 
@@ -2648,8 +2663,8 @@ notebook {
         margin-top: 4px;
         margin-bottom: 4px;
         // FIXME: generalize .small-button?
-        min-width: 22px;
-        min-height: 22px;
+        min-width: 20px;
+        min-height: 20px;
         border-radius: 100%;
 
         &:last-child {
@@ -2679,12 +2694,13 @@ notebook {
         }
 
         tab {
-          margin-left: 0px;
-          margin-right: 0px;
+          margin-left: 4px;
+          margin-right: 4px;
 
           &.reorderable-page {
             border-style: none solid;
-            margin-left: 1px; // Fixes a small issue in gnome-terminal
+            margin-left: 0px;
+            margin-right: 0px;
           }
         }
       }
@@ -2697,18 +2713,22 @@ notebook {
         padding-bottom: 4px;
 
         &:not(:only-child) {
-          margin-top: 0px;
-          margin-bottom: 0px;
+          margin-top: 3px;
+          margin-bottom: 3px;
 
           &:first-child { margin-top: -1px; }
           &:last-child { margin-bottom: -1px; }
         }
 
         tab {
-          margin-top: 0px;
-          margin-bottom: 0px;
+          margin-top: 4px;
+          margin-bottom: 4px;
 
-          &.reorderable-page { border-style: solid none; }
+          &.reorderable-page {
+            border-style: none solid;
+            margin-top: 0px;
+            margin-bottom: 0px;
+          }
         }
       }
     }

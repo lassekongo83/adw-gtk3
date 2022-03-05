@@ -590,12 +590,12 @@ tabbar {
     }
 
     &:hover {
-      background-color: darken($shade_color, 3%);
+      background-color: darken($shade_color, 2%);
     }
 
     &:backdrop {
       border-color: $backdrop_borders_color;
-      background-color: if($variant == 'light', $backdrop_dark_fill, $shade_color);
+      background-color: if($variant == 'light', lighten($shade_color, 5.3%), $shade_color);
       color: mix($backdrop_fg_color, $backdrop_bg_color, 60%);
 
       &:checked {

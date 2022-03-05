@@ -920,9 +920,9 @@ popover.background separator { margin: 3px; }
 popover.background list separator { margin: 0px; }
 
 /************* Notebooks * */
-notebook > header { padding: 0px; border-color: #cfcfcf; border-width: 0px; background-color: #e1e1e1; }
+notebook > header { padding: 0px; border-color: #cfcfcf; border-width: 0px; background-color: #fafafa; }
 
-notebook > header:backdrop { border-color: #dddddd; background-color: #e6e6e6; }
+notebook > header:backdrop { border-color: #dddddd; }
 
 notebook > header.top { box-shadow: inset 0 -1px #cfcfcf; }
 
@@ -934,51 +934,53 @@ notebook > header.right { box-shadow: inset 1px 0 #cfcfcf; }
 
 notebook > header tabs { margin: 0px; }
 
-notebook > header > tabs > tab:checked { background-color: #ebebeb; }
+notebook > header > tabs > tab.reorderable-page { background-color: #e2e2e2; }
 
-notebook > header > tabs > tab:checked:backdrop { background-color: #fafafa; }
+notebook > header > tabs > tab.reorderable-page:backdrop { background-color: #f0f0f0; }
 
-notebook > header > tabs > tab:not(:checked) { color: rgba(0, 0, 0, 0.4); }
+notebook > header > tabs > tab:checked.reorderable-page { background-color: #ebebeb; }
+
+notebook > header > tabs > tab:checked.reorderable-page:backdrop { background-color: #fafafa; }
 
 notebook > header.top { border-bottom-style: solid; }
 
 notebook > header.top > tabs { margin-bottom: 0px; }
 
-notebook > header.top > tabs > tab { box-shadow: inset -1px 0 #cfcfcf; }
+notebook > header.top > tabs > tab:not(.reorderable-page):hover { box-shadow: inset 0 -4px #cfcfcf; }
 
-notebook > header.top > tabs > tab:not(.reorderable-page):hover { box-shadow: inset -1px 0 #cfcfcf, inset 0 -4px #cfcfcf; }
+notebook > header.top > tabs > tab:not(.reorderable-page):hover:not(:checked) { background-color: #ececec; }
 
-notebook > header.top > tabs > tab:not(.reorderable-page):checked { box-shadow: inset -1px 0 #cfcfcf, inset 0 -4px #3584e4; }
+notebook > header.top > tabs > tab:not(.reorderable-page):checked { box-shadow: inset 0 -4px #3584e4; }
 
 notebook > header.bottom { border-top-style: solid; }
 
 notebook > header.bottom > tabs { margin-top: 0px; }
 
-notebook > header.bottom > tabs > tab { box-shadow: inset -1px 0 #cfcfcf; }
+notebook > header.bottom > tabs > tab:not(.reorderable-page):hover { box-shadow: inset 0 4px #cfcfcf; }
 
-notebook > header.bottom > tabs > tab:not(.reorderable-page):hover { box-shadow: inset -1px 0 #cfcfcf, inset 0 4px #cfcfcf; }
+notebook > header.bottom > tabs > tab:not(.reorderable-page):hover:not(:checked) { background-color: #ececec; }
 
-notebook > header.bottom > tabs > tab:not(.reorderable-page):checked { box-shadow: inset -1px 0 #cfcfcf, inset 0 4px #3584e4; }
+notebook > header.bottom > tabs > tab:not(.reorderable-page):checked { box-shadow: inset 0 4px #3584e4; }
 
 notebook > header.left { border-right-style: solid; }
 
 notebook > header.left > tabs { margin-right: 0px; }
 
-notebook > header.left > tabs > tab { box-shadow: inset 0 -1px #cfcfcf; }
+notebook > header.left > tabs > tab:not(.reorderable-page):hover { box-shadow: inset -4px 0 #cfcfcf; }
 
-notebook > header.left > tabs > tab:not(.reorderable-page):hover { box-shadow: inset 0 -1px #cfcfcf, inset -4px 0 #cfcfcf; }
+notebook > header.left > tabs > tab:not(.reorderable-page):hover:not(:checked) { background-color: #ececec; }
 
-notebook > header.left > tabs > tab:not(.reorderable-page):checked { box-shadow: inset 0 -1px #cfcfcf, inset -4px 0 #3584e4; }
+notebook > header.left > tabs > tab:not(.reorderable-page):checked { box-shadow: inset -4px 0 #3584e4; }
 
 notebook > header.right { border-left-style: solid; }
 
 notebook > header.right > tabs { margin-left: 0px; }
 
-notebook > header.right > tabs > tab { box-shadow: inset 0 -1px #cfcfcf; }
+notebook > header.right > tabs > tab:not(.reorderable-page):hover { box-shadow: inset 4px 0 #cfcfcf; }
 
-notebook > header.right > tabs > tab:not(.reorderable-page):hover { box-shadow: inset 0 -1px #cfcfcf, inset 4px 0 #cfcfcf; }
+notebook > header.right > tabs > tab:not(.reorderable-page):hover:not(:checked) { background-color: #ececec; }
 
-notebook > header.right > tabs > tab:not(.reorderable-page):checked { box-shadow: inset 0 -1px #cfcfcf, inset 4px 0 #3584e4; }
+notebook > header.right > tabs > tab:not(.reorderable-page):checked { box-shadow: inset 4px 0 #3584e4; }
 
 notebook > header.top > tabs > arrow { border-top-style: none; }
 
@@ -1006,11 +1008,13 @@ notebook > header > tabs > arrow:hover:not(:active):not(:backdrop) { background-
 
 notebook > header > tabs > arrow:disabled { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; }
 
-notebook > header tab { min-height: 30px; min-width: 30px; padding: 3px 12px; outline-offset: -5px; color: rgba(0, 0, 0, 0.8); font-weight: normal; border-width: 0px; border-color: transparent; box-shadow: inset -1px -1px #cfcfcf; }
+notebook > header tab { min-height: 30px; min-width: 30px; padding: 3px 12px; outline-offset: -5px; color: rgba(0, 0, 0, 0.8); font-weight: normal; border-width: 0px; border-color: transparent; }
 
-notebook > header tab:hover { color: rgba(0, 0, 0, 0.8); background-color: #d9d9d9; transition: background 150ms ease-in-out; }
+notebook > header tab.reorderable-page { box-shadow: inset -1px -1px #cfcfcf; border: none; }
 
-notebook > header tab:hover.reorderable-page { border-color: rgba(207, 207, 207, 0.3); background-color: #d9d9d9; box-shadow: inset -1px -1px #cfcfcf; }
+notebook > header tab:hover { color: rgba(0, 0, 0, 0.8); }
+
+notebook > header tab:hover.reorderable-page { border-color: rgba(207, 207, 207, 0.3); background-color: #dddddd; box-shadow: inset -1px -1px #cfcfcf; transition: background 150ms ease-in-out; }
 
 notebook > header tab:backdrop { color: rgba(195, 195, 195, 0.94); }
 
@@ -1024,7 +1028,7 @@ notebook > header tab:backdrop:checked { color: rgba(150, 150, 150, 0.9); }
 
 notebook > header tab:backdrop:checked.reorderable-page { border-color: #dddddd; background-color: #fafafa; }
 
-notebook > header tab button.flat { padding: 0; margin-top: 4px; margin-bottom: 4px; min-width: 22px; min-height: 22px; border-radius: 100%; }
+notebook > header tab button.flat { padding: 0; margin-top: 4px; margin-bottom: 4px; min-width: 20px; min-height: 20px; border-radius: 100%; }
 
 notebook > header tab button.flat:hover { color: currentColor; }
 
@@ -1042,21 +1046,21 @@ notebook > header.top tabs:not(:only-child):first-child, notebook > header.botto
 
 notebook > header.top tabs:not(:only-child):last-child, notebook > header.bottom tabs:not(:only-child):last-child { margin-right: -1px; }
 
-notebook > header.top tabs tab, notebook > header.bottom tabs tab { margin-left: 0px; margin-right: 0px; }
+notebook > header.top tabs tab, notebook > header.bottom tabs tab { margin-left: 4px; margin-right: 4px; }
 
-notebook > header.top tabs tab.reorderable-page, notebook > header.bottom tabs tab.reorderable-page { border-style: none solid; margin-left: 1px; }
+notebook > header.top tabs tab.reorderable-page, notebook > header.bottom tabs tab.reorderable-page { border-style: none solid; margin-left: 0px; margin-right: 0px; }
 
 notebook > header.left tabs, notebook > header.right tabs { padding-top: 4px; padding-bottom: 4px; }
 
-notebook > header.left tabs:not(:only-child), notebook > header.right tabs:not(:only-child) { margin-top: 0px; margin-bottom: 0px; }
+notebook > header.left tabs:not(:only-child), notebook > header.right tabs:not(:only-child) { margin-top: 3px; margin-bottom: 3px; }
 
 notebook > header.left tabs:not(:only-child):first-child, notebook > header.right tabs:not(:only-child):first-child { margin-top: -1px; }
 
 notebook > header.left tabs:not(:only-child):last-child, notebook > header.right tabs:not(:only-child):last-child { margin-bottom: -1px; }
 
-notebook > header.left tabs tab, notebook > header.right tabs tab { margin-top: 0px; margin-bottom: 0px; }
+notebook > header.left tabs tab, notebook > header.right tabs tab { margin-top: 4px; margin-bottom: 4px; }
 
-notebook > header.left tabs tab.reorderable-page, notebook > header.right tabs tab.reorderable-page { border-style: solid none; }
+notebook > header.left tabs tab.reorderable-page, notebook > header.right tabs tab.reorderable-page { border-style: none solid; margin-top: 0px; margin-bottom: 0px; }
 
 notebook > header.top tab { padding-bottom: 4px; }
 
@@ -2354,9 +2358,9 @@ list.content > row:backdrop switch:not(:disabled):checked, list.view.frame > row
 
 list.content .horizontal spinbutton entry { border-top-left-radius: 6px; border-bottom-left-radius: 6px; }
 
-list.view.frame { border-radius: 12px; background-color: #ffffff; }
+list.view.frame { border-radius: 12px; }
 
-list.view.frame:backdrop { background-color: #ffffff; }
+list.view.frame, list.view.frame:backdrop { background-color: #ffffff; }
 
 .ssd .titlebar { border-width: 0; padding: 0px 4px; min-height: 36px; border-bottom: 1px solid #cfcfcf; -gtk-icon-shadow: none; text-shadow: none; color: rgba(0, 0, 0, 0.8); }
 
@@ -2544,7 +2548,7 @@ row > box.header { margin-left: 12px; margin-right: 12px; min-height: 50px; }
 
 row > box.header > box.title { margin-top: 8px; margin-bottom: 8px; }
 
-tabbar .box { min-height: 30px; background: #e1e1e1; border-bottom: 1px solid #cfcfcf; }
+tabbar .box { min-height: 30px; background: #e2e2e2; border-bottom: 1px solid #cfcfcf; }
 
 tabbar .box:backdrop { background-color: #e6e6e6; border-color: #dddddd; }
 
@@ -2574,19 +2578,19 @@ tabbar .needs-attention-left undershoot.left { background: linear-gradient(to ri
 
 tabbar .needs-attention-right undershoot.right { background: linear-gradient(to left, rgba(53, 132, 228, 0.7), rgba(53, 132, 228, 0.5) 1px, rgba(53, 132, 228, 0) 20px); }
 
-tabbar tab { border-style: solid; border-color: #cfcfcf; border-width: 0 1px 0 1px; transition: background 150ms ease-in-out; background-color: #e1e1e1; }
+tabbar tab { border-style: solid; border-color: #cfcfcf; border-width: 0 1px 0 1px; transition: background 150ms ease-in-out; background-color: #e2e2e2; }
 
 tabbar tab:checked { background-color: #ebebeb; }
 
 tabbar tab:checked:hover { background-color: #ebebeb; }
 
-tabbar tab:hover { background-color: #d9d9d9; }
+tabbar tab:hover { background-color: #dddddd; }
 
-tabbar tab:backdrop { border-color: #dddddd; background-color: #e6e6e6; color: rgba(195, 195, 195, 0.94); }
+tabbar tab:backdrop { border-color: #dddddd; background-color: #f0f0f0; color: rgba(195, 195, 195, 0.94); }
 
 tabbar tab:backdrop:checked { background-color: #fafafa; }
 
-tabbar .start-action, tabbar .end-action { background: #e1e1e1; border-color: #bdbdbd; border-style: solid; transition: background 150ms ease-in-out; }
+tabbar .start-action, tabbar .end-action { background: #e2e2e2; border-color: #bdbdbd; border-style: solid; transition: background 150ms ease-in-out; }
 
 tabbar .start-action:backdrop, tabbar .end-action:backdrop { border-color: #dddddd; background-color: #e6e6e6; }
 

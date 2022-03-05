@@ -105,6 +105,6 @@ $card_bg_color: if($variant == 'light', $base_color, lighten($bg_color, 6.7%));
 $card_fg_color: if($variant == 'light', $fg_color, white);
 
 // Notebook and tabs
-$notebook_color: if($variant == 'light', $base_color, lighten($bg_color, 4.7%));
-$shade_color: if($variant == 'light', darken($bg_color, 10%), lighten($bg_color, 0.7%));
-$active_tab_color: if($variant == 'light', lighten($shade_color, 4%), lighten($bg_color, 4.7%));
+$notebook_color: $base_color; //if($variant == 'light', $base_color, lighten($bg_color, 4.7%));
+$shade_color: if($variant == 'light', darken($bg_color, 9.3%), lighten($bg_color, 0.7%));
+$active_tab_color: if($variant == 'light', lighten($shade_color, 3.3%), lighten($bg_color, 4.7%));
