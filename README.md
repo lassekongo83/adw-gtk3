@@ -40,10 +40,8 @@ Install the theme(s) locally if you for some reason can't run as a sudo user. Fe
 ```bash
 git clone https://github.com/lassekongo83/adw-gtk3.git
 cd adw-gtk3
-meson build
-DESTDIR=/home/your-username/.themes ninja -C build install
-mv ~/.themes/usr/share/themes/* ~/.themes
-rm -r ~/.themes/usr
+meson -Dprefix="${HOME}/.local" build
+ninja -C build install
 ```
 
 ### Updating the theme
@@ -60,9 +58,7 @@ sudo ninja -C build install
 For a local install:
 ```bash
 git pull
-DESTDIR=/home/your-username/.themes ninja -C build install
-mv ~/.themes/usr/share/themes/* ~/.themes
-rm -r ~/.themes/usr
+ninja -C build install
 ```
 
 ## Changing themes
