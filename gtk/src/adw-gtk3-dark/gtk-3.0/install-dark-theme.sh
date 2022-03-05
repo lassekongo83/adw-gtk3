@@ -10,4 +10,6 @@ for ver in gtk-3.0; do
   #ln -sf "../../${project_name}/${ver}/gtk-dark.css" "${theme_dir}/${ver}/gtk.css"
   #ln -sf "../../${project_name}/${ver}/assets" "${theme_dir}/${ver}/assets"
   cp -r "gtk/src/${project_name}/${ver}/gtk-dark.css" "${theme_dir}/${ver}/gtk.css"
+  # For the new dark theme switcher in GNOME 42
+  cp -r "gtk/src/${project_name}/${ver}/gtk-dark.css" "${theme_dir}/${ver}/gtk-dark.css"
 done
