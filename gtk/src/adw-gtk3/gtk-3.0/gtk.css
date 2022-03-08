@@ -2362,7 +2362,7 @@ list.view.frame { border-radius: 12px; }
 
 list.view.frame, list.view.frame:backdrop { background-color: #ffffff; }
 
-.ssd .titlebar { border-width: 0; padding: 0px 4px; min-height: 36px; border-bottom: 1px solid #cfcfcf; -gtk-icon-shadow: none; text-shadow: none; color: rgba(0, 0, 0, 0.8); }
+.ssd .titlebar { border-width: 0; padding: 0px 4px; min-height: 36px; border-bottom: 1px solid #cfcfcf; }
 
 .ssd .titlebar:backdrop { border-color: #dddddd; }
 

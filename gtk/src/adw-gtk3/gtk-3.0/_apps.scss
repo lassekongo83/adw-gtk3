@@ -627,4 +627,3 @@ button .download_progress trough { min-height: 2px; }
 .titlebar > .linked.horizontal > button:not(.image-button):not(.text-button):not(.raised):not(.default):not(.suggested-action):not(.destructive-action):not(.popup):not(.toggle):not(:only-child) {
   @extend %colored_buttons;
 }
-
