@@ -2940,6 +2940,11 @@ switch {
   color: $fg_color;
   background-color: $trough_color;
 
+  &:hover:not(:checked) {
+    background-color: $trough_hover_color;
+    &:active { background-color: $trough_active_color; }
+  }
+
   &:checked {
     color: $selected_fg_color;
     background-color: $checkradio_bg_color;

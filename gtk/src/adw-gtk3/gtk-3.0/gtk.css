@@ -1138,6 +1138,10 @@ treeview ~ scrollbar.vertical { border-top: 1px solid #cfcfcf; margin-top: -1px;
 /********** Switch * */
 switch { outline-offset: -4px; padding: 2px; border-radius: 14px; color: rgba(0, 0, 0, 0.8); background-color: #d4d4d4; /* only show i / o for the accessible theme */ }
 
+switch:hover:not(:checked) { background-color: #c7c7c7; }
+
+switch:hover:not(:checked):active { background-color: #bababa; }
+
 switch:checked { color: #ffffff; background-color: #3584e4; }
 
 switch:checked:hover { background-image: image(alpha(currentColor,0.1)); }
