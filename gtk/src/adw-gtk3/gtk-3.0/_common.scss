@@ -2657,7 +2657,11 @@ notebook {
 
       // colors the button like the label, overridden otherwise
       button.flat {
-        &:hover { color: currentColor; }
+        &:hover {
+          color: currentColor;
+          background-color: gtkalpha(currentColor, .15);
+        }
+        &:active { background-color: gtkalpha(currentColor, .3); }
 
         &, &:backdrop { color: gtkalpha(currentColor, 0.3); }
 

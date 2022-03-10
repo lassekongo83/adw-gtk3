@@ -1026,7 +1026,9 @@ notebook > header tab:backdrop:checked.reorderable-page { border-color: #dddddd;
 
 notebook > header tab button.flat { padding: 0; margin-top: 4px; margin-bottom: 4px; min-width: 20px; min-height: 20px; border-radius: 100%; }
 
-notebook > header tab button.flat:hover { color: currentColor; }
+notebook > header tab button.flat:hover { color: currentColor; background-color: alpha(currentColor,0.15); }
+
+notebook > header tab button.flat:active { background-color: alpha(currentColor,0.3); }
 
 notebook > header tab button.flat, notebook > header tab button.flat:backdrop { color: alpha(currentColor,0.3); }
 
