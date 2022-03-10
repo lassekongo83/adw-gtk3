@@ -636,13 +636,9 @@ toolbar:not(.inline-toolbar):not(.osd) > *:not(.toggle):not(.popup) > * { margin
 
 .inline-toolbar { background-color: #fafafa; border-color: #cfcfcf; border-style: solid; padding: 3px; border-width: 0 1px 1px; border-radius: 0  0 5px 5px; }
 
-searchbar > revealer > box, .location-bar { border-width: 0 0 1px; padding: 3px; }
+searchbar > revealer > box, .location-bar { border-width: 0 0 1px; border-style: solid; border-color: #cfcfcf; padding: 3px; }
 
 searchbar > revealer > box { margin: -6px; padding: 6px; }
-
-searchbar > revealer > box, .location-bar { border-style: solid; border-color: #cfcfcf; background-color: #ededed; }
-
-searchbar > revealer > box:backdrop, .location-bar:backdrop { border-color: #dddddd; background-color: #e6e6e6; box-shadow: none; transition: 200ms ease-out; }
 
 /*************** Header bars * */
 .titlebar:not(headerbar), headerbar { padding: 0 6px; min-height: 46px; border-width: 0 0 1px; border-style: solid; border-color: #cfcfcf; border-radius: 0; background: #ebebeb linear-gradient(to top, #ebebeb, #ebebeb); /* Darken switchbuttons for headerbars. issue #1588 */ }

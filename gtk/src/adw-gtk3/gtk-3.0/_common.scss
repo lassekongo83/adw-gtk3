@@ -1558,9 +1558,11 @@ searchbar > revealer > box,
 .location-bar {
   @extend %toolbar;
 
-  @extend %darkbar;
+  //@extend %darkbar;
 
   border-width: 0 0 1px;
+  border-style: solid;
+  border-color: $borders_color;
   padding: 3px;
 }
 
