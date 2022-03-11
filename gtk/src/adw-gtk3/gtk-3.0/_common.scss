@@ -4150,30 +4150,34 @@ messagedialog { // Message Dialog styling
       background-color: $bg_color;
       border-top: 1px solid $borders_color;
       border-left: 1px solid $borders_color;
-      &:hover {
-        @include button(hover);
-      }
-      &:active {
-        @include button(active);
-      }
+
+      &:hover { @include button(hover); }
+
+      &:active { @include button(active); }
+
       &.suggested-action {
         background-color: $suggested_bg_color;
         color: $selected_fg_color;
+        &:hover { @include button(hover, $suggested_bg_color, white); }
+        &:active, &:checked { @include button(active, $suggested_bg_color, white); }
       }
+
       &.destructive-action {
         background-color: $destructive_color;
         color: $selected_fg_color;
+        &:hover { @include button(hover, $destructive_color, white); }
+        &:active, &:checked { @include button(active, $destructive_color, white); }
       }
 
       &:first-child {
         border-left-style: none;
-        border-bottom-left-radius: $window_radius;
-        -gtk-outline-bottom-left-radius: $window_radius;
+        border-bottom-left-radius: $window_radius - 1;
+        -gtk-outline-bottom-left-radius: $window_radius - 1;
       }
 
       &:last-child {
-        border-bottom-right-radius: $window_radius;
-        -gtk-outline-bottom-right-radius: $window_radius;
+        border-bottom-right-radius: $window_radius - 1;
+        -gtk-outline-bottom-right-radius: $window_radius - 1;
       }
     }
   }

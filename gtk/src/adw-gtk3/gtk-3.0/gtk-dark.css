@@ -1737,11 +1737,23 @@ messagedialog.csd .dialog-action-area button:active:hover { background-color: #7
 
 messagedialog.csd .dialog-action-area button.suggested-action { background-color: #3584e4; color: #ffffff; }
 
+messagedialog.csd .dialog-action-area button.suggested-action:hover { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #6fa8ec; box-shadow: none; }
+
+messagedialog.csd .dialog-action-area button.suggested-action:active, messagedialog.csd .dialog-action-area button.suggested-action:checked { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #a7c9f3; box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+
+messagedialog.csd .dialog-action-area button.suggested-action:active:hover, messagedialog.csd .dialog-action-area button.suggested-action:checked:hover { background-color: #bbd5f6; }
+
 messagedialog.csd .dialog-action-area button.destructive-action { background-color: #c01c28; color: #ffffff; }
 
-messagedialog.csd .dialog-action-area button:first-child { border-left-style: none; border-bottom-left-radius: 12px; -gtk-outline-bottom-left-radius: 12px; }
+messagedialog.csd .dialog-action-area button.destructive-action:hover { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #e33c48; box-shadow: none; }
 
-messagedialog.csd .dialog-action-area button:last-child { border-bottom-right-radius: 12px; -gtk-outline-bottom-right-radius: 12px; }
+messagedialog.csd .dialog-action-area button.destructive-action:active, messagedialog.csd .dialog-action-area button.destructive-action:checked { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #eb737b; box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+
+messagedialog.csd .dialog-action-area button.destructive-action:active:hover, messagedialog.csd .dialog-action-area button.destructive-action:checked:hover { background-color: #ed868e; }
+
+messagedialog.csd .dialog-action-area button:first-child { border-left-style: none; border-bottom-left-radius: 11px; -gtk-outline-bottom-left-radius: 11px; }
+
+messagedialog.csd .dialog-action-area button:last-child { border-bottom-right-radius: 11px; -gtk-outline-bottom-right-radius: 11px; }
 
 filechooser .dialog-action-box { border-top: 1px solid #4f4f4f; }
 
