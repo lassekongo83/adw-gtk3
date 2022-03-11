@@ -616,6 +616,11 @@ window.background.chromium {
 #MozillaGtkWidget.background {
   button { font-weight: initial; }
 }
+@if $variant == 'dark' {
+  #MozillaGtkWidget.background {
+    background-color: $bg_color;
+  }
+}
 
 // GNOME Web
 // https://github.com/lassekongo83/adw-gtk3/issues/59

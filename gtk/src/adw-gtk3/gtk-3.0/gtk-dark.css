@@ -2936,4 +2936,6 @@ window.background.chromium textview.view { background-color: #1e1e1e; }
 
 #MozillaGtkWidget.background button { font-weight: initial; }
 
+#MozillaGtkWidget.background { background-color: #242424; }
+
 button .download_progress trough { min-height: 2px; }
