@@ -44,6 +44,17 @@ meson -Dprefix="${HOME}/.local" build
 ninja -C build install
 ```
 
+### Flatpak
+
+If you want to use this theme in flatpak applications, run these commands:
+
+Light theme: `flatpak install org.gtk.Gtk3theme.adw-gtk3`
+Dark theme: `flatpak install org.gtk.Gtk3theme.adw-gtk3-dark`
+
+The above commands assumes that you have the flathub respository active. If not: `flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo`
+
+Thanks to [https://github.com/dusansimic](dusansimic) for the help.
+
 ### Updating the theme
 
 Navigate to the `adw-gtk3` folder that was originally cloned. (If you removed it, do the steps above instead).
