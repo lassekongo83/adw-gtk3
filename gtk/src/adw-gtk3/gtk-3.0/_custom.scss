@@ -170,6 +170,14 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
   &:not(:backdrop) { transition: 200ms ease-in; }
 }
 
+// Selection mode
+headerbar.selection-mode, .titlebar.selection-mode {
+  // We want to match libadwaita's thinner buttons...
+  button:not(.titlebutton), entry { margin: 6px 0; }
+  // ...but not on hdy viewswitcher buttons
+  viewswitcher button.radio { margin: 0; }
+}
+
 // Different button color on brighter elements like lists and popovers
 .content list,
 list.content,

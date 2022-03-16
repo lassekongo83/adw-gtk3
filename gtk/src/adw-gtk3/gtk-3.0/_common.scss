@@ -1642,7 +1642,7 @@ headerbar {
 
     color: $selected_fg_color;
     border-color: $suggested_border_color;
-    text-shadow: 0 -1px transparentize(black, 0.5);
+    //text-shadow: 0 -1px transparentize(black, 0.5);
 
     @include headerbar_fill($suggested_bg_color, $_hc);
 
@@ -1677,24 +1677,24 @@ headerbar {
           @include button(backdrop, $suggested_bg_color, $selected_fg_color);
 
           -gtk-icon-effect: none;
-          border-color: $suggested_border_color;
+          border-color: transparent; //$suggested_border_color;
 
           &:active,
           &:checked {
             @include button(backdrop-active, $suggested_bg_color, $selected_fg_color);
 
-            border-color: $suggested_border_color;
+            //border-color: $suggested_border_color;
           }
 
           &:disabled {
             @include button(backdrop-insensitive, $suggested_bg_color, $selected_fg_color);
 
-            border-color: $suggested_border_color;
+            //border-color: $suggested_border_color;
 
             &:active, &:checked {
               @include button(backdrop-insensitive-active, $suggested_bg_color, $selected_fg_color);
 
-              border-color: $suggested_border_color;
+              //border-color: $suggested_border_color;
             }
           }
         }
@@ -4848,7 +4848,7 @@ button.titlebutton {
 .selection-mode .titlebar button.titlebutton,
 headerbar.selection-mode button.titlebutton,
 .titlebar.selection-mode button.titlebutton {
-  @include _button_text_shadow(white, $suggested_bg_color);
+  //@include _button_text_shadow(white, $suggested_bg_color);
 
   &:backdrop { -gtk-icon-shadow: none; }
 }
