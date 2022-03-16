@@ -79,17 +79,19 @@
   .titlebar {
     :not(.raised) .linked > button {
       @extend %linked;
+      @extend %headerbar_buttons;
     }
   }
 
   // Back and forward buttons
   .linked.raised button.image-button:not(:only-child) {
     &, &:backdrop, &:disabled, &:backdrop:disabled {
-      background-color: transparent;
+      @extend %headerbar_buttons;
       border: none;
     }
   }
 
+  .linked button.disclosure-button:not(:hover):not(:checked):not(:active),
   .linked .image-button:not(:hover):not(:checked):not(:active) {
     &, &:backdrop { background-color: transparent; }
   }
@@ -299,7 +301,7 @@ geary-conversation-viewer#conversation_viewer { // right side
     background-color: darken($base_color, 5%);
 
     &:backdrop {
-      background-color: $backdrop_base_color
+      background-color: $backdrop_base_color;
     }
   }
 }
@@ -604,11 +606,6 @@ window.background.chromium {
 
 // GNOME Calendar
 .org-gnome-Calendar {
-  .titlebar:not(.selection-mode) .linked button,
-  headerbar:not(.selection-mode) .linked button {
-    @extend %linked;
-    @extend %colored_buttons;
-  }
   .titlebar .text-button { @extend %colored_buttons; }
 }
 
@@ -626,9 +623,3 @@ window.background.chromium {
 // https://github.com/lassekongo83/adw-gtk3/issues/59
 button .download_progress trough { min-height: 2px; }
 
-// Getting things GNOME
-// https://github.com/lassekongo83/adw-gtk3/issues/63
-// Trying to make it as specific as possible
-.titlebar > .linked.horizontal > button:not(.image-button):not(.text-button):not(.raised):not(.default):not(.suggested-action):not(.destructive-action):not(.popup):not(.toggle):not(:only-child) {
-  @extend %colored_buttons;
-}

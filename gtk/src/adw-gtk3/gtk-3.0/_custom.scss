@@ -105,8 +105,9 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
 
   // Linked buttons
   // borders
-  .linked button.image-button:not(:only-child),
+  //.linked button.image-button:not(:only-child),
   .linked.raised button:not(:only-child),
+  .linked button:not(:only-child),
   & > .stack-switcher.linked > button:not(:only-child) {
     @extend %linked;
     &, &:hover, &:not(:backdrop), &:not(:disabled) {
@@ -121,9 +122,11 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
       &:not(:first-child) { border-left-color: $backdrop_linked_border; }
       &:not(:last-child) { border-right-color: $backdrop_linked_border; }
     }
+    &:first-child { border-left-color: transparent; }
+    &:last-child { border-right-color: transparent; }
 
     // Trick to get a linked right border on checked buttons, and no left border on the next button
-    &:first-child:checked:not(:backdrop),
+    &:first-child:not(:backdrop),
     &:not(:last-child):not(:backdrop) {
       &:checked, &:active {
         box-shadow: inset -1px 0 $linked_border_checked;
@@ -131,9 +134,11 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
       }
     }
   }
+
   // Linked color fills
-  .linked button.image-button:not(:only-child),
+  //.linked button.image-button:not(:only-child),
   .linked.raised button,
+  .linked button:not(:only-child),
   & > .stack-switcher.linked > button { @extend %colored_buttons; }
 
   // hdy viewswitcher buttons (weather, system monitor, etc.)
