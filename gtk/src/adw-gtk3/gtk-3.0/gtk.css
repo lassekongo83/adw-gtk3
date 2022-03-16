@@ -2402,6 +2402,42 @@ treeview.view:not(:backdrop):not(:selected):hover { background-color: #ededed; }
 
 window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized), window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) > decoration, window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) > decoration-overlay { border-radius: 12px; }
 
+window.csd.unified scrollbar { background-color: #ffffff; color: rgba(0, 0, 0, 0.8); }
+
+window.csd.unified scrollbar trough { margin: 7px; transition: all 200ms linear; border-radius: 10px; background-color: #d4d4d4; }
+
+window.csd.unified scrollbar trough > slider { min-width: 8px; min-height: 8px; margin: -6px; border: 6px solid transparent; border-radius: 10px; background-clip: padding-box; transition: all 200ms linear; background-color: #cccccc; }
+
+window.csd.unified scrollbar trough > slider:hover { background-color: #999999; }
+
+window.csd.unified scrollbar trough > slider:hover:active { background-color: #666666; }
+
+window.csd.unified scrollbar trough > slider:disabled { background-color: transparent; }
+
+window.csd.unified scrollbar.horizontal trough { margin-top: 6px; margin-bottom: 6px; }
+
+window.csd.unified scrollbar.vertical trough { margin-left: 6px; margin-right: 6px; }
+
+window.csd.unified scrollbar.overlay-indicator { background: none; color: inherit; box-shadow: none; padding: 0; }
+
+window.csd.unified scrollbar.overlay-indicator:not(.hovering) trough { background-color: transparent; }
+
+window.csd.unified scrollbar.overlay-indicator.horizontal trough > slider { min-width: 40px; }
+
+window.csd.unified scrollbar.overlay-indicator.horizontal.hovering trough > slider { min-height: 8px; }
+
+window.csd.unified scrollbar.overlay-indicator.horizontal:not(.hovering) trough { margin-top: 3px; margin-bottom: 3px; }
+
+window.csd.unified scrollbar.overlay-indicator.vertical trough > slider { min-height: 40px; }
+
+window.csd.unified scrollbar.overlay-indicator.vertical.hovering trough > slider { min-width: 8px; }
+
+window.csd.unified scrollbar.overlay-indicator.vertical:not(.hovering) trough { margin-left: 3px; margin-right: 3px; }
+
+window.csd.unified scrollbar.horizontal trough > slider { min-width: 40px; }
+
+window.csd.unified scrollbar.vertical trough > slider { min-height: 40px; }
+
 popover.combo { padding: 0px; }
 
 popover.combo list { border-style: none; background-color: transparent; min-width: 200px; margin-top: 6px; margin-bottom: 6px; }

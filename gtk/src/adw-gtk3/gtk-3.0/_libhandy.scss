@@ -72,6 +72,94 @@ window.csd.unified:not(.solid-csd):not(.fullscreen) {
   }
 }
 
+// Better scrollbars when the bottom corner is rounded
+window.csd.unified {
+  $_slider_width: 8px;
+  $_slider_min_length: 40px;
+  $_scrollbar_transition: all 200ms linear;
+  scrollbar {
+    background-color: $base_color;
+    color: $fg_color;
+
+    trough {
+      margin: 7px;
+      transition: $_scrollbar_transition;
+      border-radius: 10px;
+      background-color: $trough_color;
+
+      > slider {
+        min-width: $_slider_width;
+        min-height: $_slider_width;
+        margin: -6px;
+        border: 6px solid transparent;
+        border-radius: 10px;
+        background-clip: padding-box;
+        transition: $_scrollbar_transition;
+
+        background-color: $scrollbar_slider_color;
+
+        &:hover { background-color: $scrollbar_slider_hover_color; }
+
+        &:hover:active { background-color: $scrollbar_slider_active_color; }
+
+        &:disabled { background-color: transparent; }
+      }
+    }
+
+    &.horizontal trough {
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+
+    &.vertical trough {
+      margin-left: 6px;
+      margin-right: 6px;
+    }
+
+    &.overlay-indicator {
+      background: none;
+      color: inherit;
+      box-shadow: none;
+      padding: 0;
+
+      &:not(.hovering) trough { background-color: transparent; }
+
+      &.horizontal {
+        trough > slider {
+          min-width: $_slider_min_length;
+        }
+
+        &.hovering trough > slider {
+          min-height: $_slider_width;
+        }
+
+        &:not(.hovering) trough {
+          margin-top: 3px;
+          margin-bottom: 3px;
+        }
+      }
+
+      &.vertical {
+        trough > slider {
+          min-height: $_slider_min_length;
+        }
+
+        &.hovering trough > slider {
+          min-width: $_slider_width;
+        }
+
+        &:not(.hovering) trough {
+          margin-left: 3px;
+          margin-right: 3px;
+        }
+      }
+    }
+
+    &.horizontal trough > slider { min-width: $_slider_min_length; }
+    &.vertical trough > slider { min-height: $_slider_min_length; }
+  }
+}
+
 // HdyComboRow
 popover.combo {
   padding: 0px;
