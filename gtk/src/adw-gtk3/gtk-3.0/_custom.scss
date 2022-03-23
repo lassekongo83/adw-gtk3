@@ -37,6 +37,8 @@ $backdrop_linked_border: if($variant == 'light', lighten($backdrop_borders_color
     @include button(normal, $headerbar_color, $fg_color);
   }
 
+  &.flat:not(:hover):not(:active) { @include button(undecorated); }
+
   &.suggested-action, &.text-button.suggested-action { @extend %suggested_buttons; }
   &.destructive-action, &.text-button.destructive-action { @extend %destructive_buttons; }
 }
@@ -72,6 +74,8 @@ $backdrop_linked_border: if($variant == 'light', lighten($backdrop_borders_color
   &.default:not(:backdrop):not(.suggested-action):not(.destructive-action) {
     @include button(normal, $headerbar_color, $fg_color);
   }
+
+  &.flat:not(:hover):not(:active) { @include button(undecorated); }
 
   &.suggested-action, &.text-button.suggested-action { @extend %suggested_buttons; }
   &.destructive-action, &.text-button.destructive-action { @extend %destructive_buttons; }
@@ -184,6 +188,7 @@ list.content,
 list.view.frame {
   button, > row:not(:selected):hover button {
     @include button(normal, $card_bg_color, $card_fg_color);
+    &.flat:not(:hover):not(:active) { @include button(undecorated); }
     &:hover { @include button(hover, $card_bg_color, $card_fg_color); }
     &:active, &:checked { @include button(active, $card_bg_color, $card_fg_color); }
     &:disabled { @include button(insensitive, $card_bg_color, $insensitive_fg_color); }
@@ -204,6 +209,7 @@ list.view.frame {
 popover.background {
   button {
     @include button(normal, $popover_bg_color, $fg_color);
+    &.flat:not(:hover):not(:active) { @include button(undecorated); }
     &:hover { @include button(hover, $popover_bg_color, $fg_color); }
     &:active, &:checked { @include button(active, $popover_bg_color, $fg_color); }
     &:disabled { @include button(insensitive, $popover_bg_color, $insensitive_fg_color); }
