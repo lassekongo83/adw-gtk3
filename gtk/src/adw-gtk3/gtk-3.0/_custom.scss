@@ -152,17 +152,11 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
 
   // Entries
   entry {
-    margin: 6px 0;
     @include button(normal, $headerbar_color, $text_color);
     &:backdrop { @include button(backdrop, $headerbar_color, $backdrop_text_color); }
     &:disabled { @include button(insensitive, $headerbar_color, $insensitive_fg_color); }
     &:backdrop:disabled { @include button(backdrop-insensitive, $headerbar_color, $backdrop_insensitive_color); }
   }
-
-  // We want to match libadwaita's thinner buttons...
-  button:not(.titlebutton) { margin: 6px 0; }
-  // ...but not on hdy viewswitcher buttons
-  viewswitcher button.radio { margin: 0; }
 
   // disabled switches
   switch:disabled {
@@ -172,14 +166,6 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
 
   // better animation when switching from backdrop
   &:not(:backdrop) { transition: 200ms ease-in; }
-}
-
-// Selection mode
-headerbar.selection-mode, .titlebar.selection-mode {
-  // We want to match libadwaita's thinner buttons...
-  button:not(.titlebutton), entry { margin: 6px 0; }
-  // ...but not on hdy viewswitcher buttons
-  viewswitcher button.radio { margin: 0; }
 }
 
 // Different button color on brighter elements like lists and popovers

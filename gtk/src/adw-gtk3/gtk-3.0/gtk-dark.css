@@ -711,7 +711,7 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 
 .solid-csd .titlebar:dir(rtl):not(headerbar), .solid-csd .titlebar:dir(ltr):not(headerbar), .solid-csd headerbar:backdrop:dir(rtl), .solid-csd headerbar:backdrop:dir(ltr), .solid-csd headerbar:dir(rtl), .solid-csd headerbar:dir(ltr) { margin-left: -1px; margin-right: -1px; margin-top: -1px; border-radius: 0; box-shadow: none; }
 
-headerbar entry, headerbar spinbutton, headerbar separator:not(.sidebar), headerbar button { margin-top: 4px; margin-bottom: 4px; }
+headerbar entry, headerbar spinbutton, headerbar separator:not(.sidebar), headerbar button { margin-top: 6px; margin-bottom: 6px; }
 
 headerbar switch { margin-top: 9px; margin-bottom: 9px; }
 
@@ -2318,7 +2318,7 @@ headerbar:not(.selection-mode) .linked.raised button:not(:only-child):first-chil
 
 headerbar:not(.selection-mode) .linked.raised button:not(:only-child):first-child:not(:backdrop):checked + button, headerbar:not(.selection-mode) .linked.raised button:not(:only-child):first-child:not(:backdrop):active + button, headerbar:not(.selection-mode) .linked.raised button:not(:only-child):not(:last-child):not(:backdrop):checked + button, headerbar:not(.selection-mode) .linked.raised button:not(:only-child):not(:last-child):not(:backdrop):active + button, headerbar:not(.selection-mode) .linked button:not(:only-child):first-child:not(:backdrop):checked + button, headerbar:not(.selection-mode) .linked button:not(:only-child):first-child:not(:backdrop):active + button, headerbar:not(.selection-mode) .linked button:not(:only-child):not(:last-child):not(:backdrop):checked + button, headerbar:not(.selection-mode) .linked button:not(:only-child):not(:last-child):not(:backdrop):active + button, headerbar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):first-child:not(:backdrop):checked + button, headerbar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):first-child:not(:backdrop):active + button, headerbar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):not(:last-child):not(:backdrop):checked + button, headerbar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):not(:last-child):not(:backdrop):active + button, .titlebar:not(.selection-mode) .linked.raised button:not(:only-child):first-child:not(:backdrop):checked + button, .titlebar:not(.selection-mode) .linked.raised button:not(:only-child):first-child:not(:backdrop):active + button, .titlebar:not(.selection-mode) .linked.raised button:not(:only-child):not(:last-child):not(:backdrop):checked + button, .titlebar:not(.selection-mode) .linked.raised button:not(:only-child):not(:last-child):not(:backdrop):active + button, .titlebar:not(.selection-mode) .linked button:not(:only-child):first-child:not(:backdrop):checked + button, .titlebar:not(.selection-mode) .linked button:not(:only-child):first-child:not(:backdrop):active + button, .titlebar:not(.selection-mode) .linked button:not(:only-child):not(:last-child):not(:backdrop):checked + button, .titlebar:not(.selection-mode) .linked button:not(:only-child):not(:last-child):not(:backdrop):active + button, .titlebar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):first-child:not(:backdrop):checked + button, .titlebar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):first-child:not(:backdrop):active + button, .titlebar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):not(:last-child):not(:backdrop):checked + button, .titlebar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):not(:last-child):not(:backdrop):active + button { border-left-color: transparent; }
 
-headerbar:not(.selection-mode) entry, .titlebar:not(.selection-mode) entry { margin: 6px 0; color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #454545; }
+headerbar:not(.selection-mode) entry, .titlebar:not(.selection-mode) entry { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #454545; }
 
 headerbar:not(.selection-mode) entry:backdrop, .titlebar:not(.selection-mode) entry:backdrop { color: #b2b2b2; background-color: #3b3b3b; text-shadow: none; -gtk-icon-shadow: none; }
 
@@ -2326,19 +2326,11 @@ headerbar:not(.selection-mode) entry:disabled, .titlebar:not(.selection-mode) en
 
 headerbar:not(.selection-mode) entry:backdrop:disabled, .titlebar:not(.selection-mode) entry:backdrop:disabled { color: #373737; background-color: #3b3b3b; text-shadow: none; -gtk-icon-shadow: none; }
 
-headerbar:not(.selection-mode) button:not(.titlebutton), .titlebar:not(.selection-mode) button:not(.titlebutton) { margin: 6px 0; }
-
-headerbar:not(.selection-mode) viewswitcher button.radio, .titlebar:not(.selection-mode) viewswitcher button.radio { margin: 0; }
-
 headerbar:not(.selection-mode) switch:disabled, .titlebar:not(.selection-mode) switch:disabled { background-color: #343434; }
 
 headerbar:not(.selection-mode) switch:disabled:backdrop, .titlebar:not(.selection-mode) switch:disabled:backdrop { background-color: #3e3e3e; }
 
 headerbar:not(.selection-mode):not(:backdrop), .titlebar:not(.selection-mode):not(:backdrop) { transition: 200ms ease-in; }
-
-headerbar.selection-mode button:not(.titlebutton), headerbar.selection-mode entry, .titlebar.selection-mode button:not(.titlebutton), .titlebar.selection-mode entry { margin: 6px 0; }
-
-headerbar.selection-mode viewswitcher button.radio, .titlebar.selection-mode viewswitcher button.radio { margin: 0; }
 
 .content list button, .content list > row:not(:selected):hover button, list.content button, list.content > row:not(:selected):hover button, list.view.frame button, list.view.frame > row:not(:selected):hover button { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #4a4a4a; }
 
