@@ -178,6 +178,11 @@ $disk_space_free: #eeeeec;
     background-color: $backdrop_bg_color;
     border-color: $backdrop_borders_color;
   }
+
+  button {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
 }
 
 .gedit-document-panel {

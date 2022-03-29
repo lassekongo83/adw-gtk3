@@ -2806,6 +2806,8 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 
 .gedit-search-slider:backdrop { background-color: #fafafa; border-color: #dddddd; }
 
+.gedit-search-slider button { padding-top: 7px; padding-bottom: 7px; }
+
 .gedit-document-panel { background-color: #fafafa; }
 
 .gedit-document-panel row.activatable { padding: 6px; }
