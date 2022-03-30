@@ -333,19 +333,37 @@ XfdesktopIconView.view {
   }
 }
 
-$panel_bg_color: #1e1e1e;
-$panel_fg_color: #ffffff;
+$panel_bg_color: #000;
+$panel_fg_color: if($variant == 'light', lighten($bg_color, 10%), darken($fg_color, 5%));
+$panel_transition_duration: 250ms;
 .xfce4-panel.background {
   border: none; 
   background-color: $panel_bg_color;
   color: $panel_fg_color;
+  transition-duration: $panel_transition_duration;
+
+  .tasklist button,
+  #actions-button,
+  #clock-button { margin: 2px; }
+
+  .tasklist image {
+    //-gtk-icon-transform: scale(0); margin: -10px; // Removes the icon
+    margin-left: 2px;
+    margin-right: 2px;
+  }
 
   button {
-    font-weight: normal;
-    padding: 0;
+    label {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+  }
+
+  button {
+    padding: 0 6px;
     min-height: 12px;
     min-width: 12px;
-    border-radius: 0;
+    border-radius: 24px;
     color: $panel_fg_color;
     @include button(undecorated);
 
@@ -356,15 +374,15 @@ $panel_fg_color: #ffffff;
     
     &:hover:not(:active):not(:checked) {
       color: $panel_fg_color;
-      background-color: lighten($panel_bg_color, 20%);
+      background-color: transparentize($panel_fg_color, 0.85);
       background-image: none;
-      box-shadow: none;
     }
 
     &:checked {
-      background-color: lighten($panel_bg_color, 30%);
+      background-color: transparentize($panel_fg_color, 0.8);
       color: $panel_fg_color;
-      box-shadow: inset 0 -2px $selected_bg_color;
+
+      &:hover { background-color: transparentize($panel_fg_color, 0.75); }
 
       &:disabled {
         @include button(undecorated);
