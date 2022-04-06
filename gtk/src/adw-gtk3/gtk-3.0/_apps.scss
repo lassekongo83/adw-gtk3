@@ -637,8 +637,12 @@ window.background.chromium {
   button { font-weight: initial; }
 }
 @if $variant == 'dark' {
-  #MozillaGtkWidget.background {
-    background-color: lighten($bg_color, 8.3%); // Same as buttons
+  #MozillaGtkWidget {
+    &.background { background-color: $headerbar_color; }
+
+    > widget {
+      border { border-color: $borders_color; }
+    }
   }
 }
 
