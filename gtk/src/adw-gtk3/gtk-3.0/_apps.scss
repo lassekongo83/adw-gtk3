@@ -638,11 +638,10 @@ window.background.chromium {
 }
 @if $variant == 'dark' {
   #MozillaGtkWidget.background {
-    background-color: $bg_color;
+    background-color: lighten($bg_color, 8.3%); // Same as buttons
   }
 }
 
 // GNOME Web
 // https://github.com/lassekongo83/adw-gtk3/issues/59
 button .download_progress trough { min-height: 2px; }
-
