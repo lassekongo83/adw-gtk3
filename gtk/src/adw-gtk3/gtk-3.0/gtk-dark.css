@@ -854,7 +854,7 @@ menu:backdrop, .menu:backdrop, .org-gnome-Builder .dzlmenubutton:backdrop, .cont
 
 menu menuitem, .menu menuitem, .org-gnome-Builder .dzlmenubutton menuitem, .org-gnome-Builder .dzlmenubutton .dzlmenubuttonitem, .context-menu menuitem { min-height: 16px; min-width: 40px; padding: 4px 6px; text-shadow: none; font-weight: normal; }
 
-menu menuitem:hover, .menu menuitem:hover, .org-gnome-Builder .dzlmenubutton menuitem:hover, .org-gnome-Builder .dzlmenubutton .dzlmenubuttonitem:hover, .context-menu menuitem:hover { background-color: #3f3f3f; }
+menu menuitem:hover, .menu menuitem:hover, .org-gnome-Builder .dzlmenubutton menuitem:hover, .org-gnome-Builder .dzlmenubutton .dzlmenubuttonitem:hover, .context-menu menuitem:hover { background-color: #3584E4; }
 
 menu menuitem:disabled, .menu menuitem:disabled, .org-gnome-Builder .dzlmenubutton menuitem:disabled, .org-gnome-Builder .dzlmenubutton .dzlmenubuttonitem:disabled, .context-menu menuitem:disabled { color: #929292; }
 
@@ -1671,7 +1671,7 @@ row.activatable:selected { color: white; }
 
 row.activatable:selected:active { background-color: #4e4e4e; }
 
-row.activatable:selected.has-open-popup, row.activatable:selected:hover { background-color: #3f3f3f; color: white; }
+row.activatable:selected.has-open-popup, row.activatable:selected:hover { background-color: #3584E4; color: white; }
 
 row.activatable:selected:backdrop { background-color: #303030; color: white; }
 
