@@ -2772,7 +2772,7 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 
 .nautilus-window .linked.raised button.image-button:not(:only-child), .nautilus-window .linked.raised button.image-button:not(:only-child):backdrop, .nautilus-window .linked.raised button.image-button:not(:only-child):disabled, .nautilus-window .linked.raised button.image-button:not(:only-child):backdrop:disabled { border: none; }
 
-.nautilus-window .linked button.disclosure-button:not(:hover):not(:checked):not(:active), .nautilus-window .linked button.disclosure-button:not(:hover):not(:checked):not(:active):backdrop, .nautilus-window .linked .image-button:not(:hover):not(:checked):not(:active), .nautilus-window .linked .image-button:not(:hover):not(:checked):not(:active):backdrop { background-color: transparent; }
+.nautilus-window .linked button.disclosure-button:not(:hover):not(:checked):not(:active), .nautilus-window .linked button.disclosure-button:not(:hover):not(:checked):not(:active):backdrop, .nautilus-window .linked .image-button:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .linked .image-button:not(:hover):not(:checked):not(:active):not(.model):backdrop { background-color: transparent; }
 
 .nautilus-window .search + .toggle.popup { border-left-color: #c8c8c8; }
 

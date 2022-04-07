@@ -92,7 +92,7 @@
   }
 
   .linked button.disclosure-button:not(:hover):not(:checked):not(:active),
-  .linked .image-button:not(:hover):not(:checked):not(:active) {
+  .linked .image-button:not(:hover):not(:checked):not(:active):not(.model) {
     &, &:backdrop { background-color: transparent; }
   }
 
