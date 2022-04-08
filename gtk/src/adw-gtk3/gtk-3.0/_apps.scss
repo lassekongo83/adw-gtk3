@@ -595,23 +595,6 @@ $panel_transition_duration: 250ms;
   }
 }
 
-// GNOME Builder
-.org-gnome-Builder {
-  .dzlmenubutton {
-    @extend %menu;
-    .dzlmenubuttonitem {
-      @extend %menuitem;
-      min-height: 32px;
-    }
-  }
-  headerbar {
-    & > :not(.stack-switcher) .linked > button {
-      @extend %linked;
-      @extend %button;
-    }
-  }
-}
-
 // Chromium
 window.background.chromium {
   background-color: if($variant == 'light', $bg_color, lighten($bg_color, 10%));
