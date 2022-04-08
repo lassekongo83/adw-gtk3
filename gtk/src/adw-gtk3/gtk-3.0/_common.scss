@@ -2259,7 +2259,7 @@ menu,
 
     &:hover {
       //color: $selected_fg_color;
-      background-color: $view_selected_hover_color;
+      background-color: if($variant == 'light', $view_selected_hover_color, $popover_hover_color);
     }
 
     &:disabled {
