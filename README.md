@@ -90,7 +90,15 @@ gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3
 gsettings set org.gnome.desktop.interface gtk-theme Adwaita
 ```
 
-#### How to remove the theme(s)
+#### Dark theme issues
+
+For GNOME 42+ using gnome-tweaks won't be enough.
+
+1. Open GNOME settings > go to the Appearance section > select Dark.
+2. Open `gnome-tweaks` and set the theme to `adw-gtk3-dark`.
+3. If you use flatpak applications, install: `org.gtk.Gtk3theme.adw-gtk3-dark`.
+
+### How to remove the theme(s)
 
 To be safe from any crashes or weirdness, change the theme to another one before running the command below.
 
@@ -98,3 +106,4 @@ For a global install: `sudo rm -r /usr/share/themes/adw-gtk3*`
 
 For a local install: `rm -r ~/.local/share/themes/adw-gtk3*`
 
+Flatpak: `flatpak uninstall org.gtk.Gtk3theme.adw-gtk3 && flatpak uninstall org.gtk.Gtk3theme.adw-gtk3-dark`
