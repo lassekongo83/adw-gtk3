@@ -2758,7 +2758,7 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 
 .nautilus-window headerbar:not(.selection-mode) .path-bar-box:backdrop, .nautilus-window .titlebar:not(.selection-mode) .path-bar-box:backdrop { color: #7c7c7c; background-color: #2f2f2f; text-shadow: none; -gtk-icon-shadow: none; }
 
-.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar { border-radius: 6px; color: #929292; background-color: #454545; box-shadow: none; }
+.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar { border-radius: 6px; color: #929292; background-color: #454545; box-shadow: none; min-height: 34px; }
 
 .nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar:backdrop, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar:backdrop { color: #929292; background-color: #2f2f2f; text-shadow: none; -gtk-icon-shadow: none; }
 

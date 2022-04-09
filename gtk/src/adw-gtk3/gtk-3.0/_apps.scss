@@ -23,6 +23,7 @@
     .nautilus-path-bar {
       border-radius: $button_radius;
       @include button(insensitive-active);
+      min-height: 34px;
 
       &:backdrop {
         @include button(backdrop);
@@ -599,7 +600,7 @@ $panel_transition_duration: 250ms;
 window.background.chromium {
   background-color: if($variant == 'light', $bg_color, lighten($bg_color, 10%));
 
-  entry, 
+  entry,
   > button {
     border-color: if($variant == 'light', darken($bg_color, 27%), lighten($bg_color, 27%));
     background-color: if($variant == 'light', darken($bg_color, 20%), lighten($bg_color, 21%));
