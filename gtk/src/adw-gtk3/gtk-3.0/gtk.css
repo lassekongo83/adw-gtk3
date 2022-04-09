@@ -2979,3 +2979,5 @@ window.background.chromium textview.view { background-color: #ffffff; }
 #MozillaGtkWidget.background button { font-weight: initial; }
 
 button .download_progress trough { min-height: 2px; }
+
+.org-gnome-Builder .dzlmenubuttonitem { font-weight: normal; min-height: 32px; }
