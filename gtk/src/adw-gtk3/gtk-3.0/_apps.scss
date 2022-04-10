@@ -102,6 +102,12 @@
     border-left-color: $linked_border;
   }
 
+  // A border makes the search entry slightly taller than the buttons. Fix focus state with inset box-shadow.
+  .titlebar entry {
+    border-width: 0;
+    &:focus { box-shadow: inset 0 0 0 2px entry_focus_border(); }
+  }
+
   .view .dim-label { color: transparentize($fg_color, 0.45); }
 }
 
