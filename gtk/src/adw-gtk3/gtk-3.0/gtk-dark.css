@@ -3009,3 +3009,29 @@ window.background.chromium textview.view { background-color: #1e1e1e; }
 button .download_progress trough { min-height: 2px; }
 
 .org-gnome-Builder .dzlmenubuttonitem { font-weight: normal; min-height: 32px; }
+
+sq_view { font-size: 1.5em; background-color: white; box-shadow: inset 0 1px 0 0 #1e1e1e; }
+
+sq_view.wide sq_button { margin: 3px; }
+
+sq_view.pin sq_button { border-radius: 0px; margin: 1px 1px 1px 1px; }
+
+sq_button { border-radius: 6px; margin: 2px; color: white; background: rgba(255, 255, 255, 0.93); box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2); }
+
+sq_button:active { background: rgba(255, 255, 255, 0.89); }
+
+sq_button.altline, sq_button.special { background: rgba(255, 255, 255, 0.85); }
+
+sq_button.altline:active, sq_button.special:active { background: rgba(255, 255, 255, 0.8); }
+
+sq_button.latched { font-weight: bold; background: rgba(255, 255, 255, 0.8); color: rgba(255, 255, 255, 0.2); }
+
+sq_button.locked { font-weight: bold; background: rgba(255, 255, 255, 0.5); color: #1e1e1e; }
+
+sq_button.action { font-size: 0.75em; }
+
+sq_button.small { font-size: 0.5em; }
+
+#Return { background: #3584e4; color: #ffffff; }
+
+#Return:active { background: black; color: #010101; }
