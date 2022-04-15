@@ -2782,6 +2782,8 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 
 .nautilus-window .view .dim-label, .nautilus-window iconview .dim-label, .nautilus-window .view label.separator, .nautilus-window iconview label.separator, .nautilus-window .view headerbar .subtitle, headerbar .nautilus-window .view .subtitle, .nautilus-window iconview headerbar .subtitle, headerbar .nautilus-window iconview .subtitle, .nautilus-window .view .titlebar:not(headerbar) .subtitle, .titlebar:not(headerbar) .nautilus-window .view .subtitle, .nautilus-window iconview .titlebar:not(headerbar) .subtitle, .titlebar:not(headerbar) .nautilus-window iconview .subtitle { color: rgba(0, 0, 0, 0.35); }
 
+.nautilus-window .thumbnail { box-shadow: 0px 1px 2px 0px rgba(207, 207, 207, 0.5), 0px 0px 0px 1px rgba(207, 207, 207, 0.5), 0px 2px 0px 0px rgba(207, 207, 207, 0.5); border-radius: 2px; background: url("/org/gnome/nautilus/Checkerboard.png") repeat; }
+
 .floating-bar { padding: 3px; background-color: #ffffff; border-width: 1px; border-style: solid solid none; border-color: #cfcfcf; border-radius: 8px 0 0 0; }
 
 .floating-bar.bottom.left { border-left-style: none; border-top-left-radius: 0; }

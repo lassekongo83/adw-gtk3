@@ -109,6 +109,16 @@
   }
 
   .view .dim-label { color: transparentize($fg_color, 0.45); }
+
+  // Add a border around thumbnails
+  .thumbnail {
+    box-shadow: 0px 1px 2px 0px transparentize($borders_color, 0.5),
+                0px 0px 0px 1px transparentize($borders_color, 0.5),
+                0px 2px 0px 0px transparentize($borders_color, 0.5);
+    border-radius: 2px;
+    // Background for thumbnails with transparent areas.
+    background: url('/org/gnome/nautilus/Checkerboard.png') repeat;
+  }
 }
 
 // Floating status bar
