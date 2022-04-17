@@ -152,10 +152,15 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
 
   // Entries
   entry {
+    min-height: 32px; // Evens out the height for the top and bottom borders which adds 2px
     @include button(normal, $headerbar_color, $text_color);
-    &:backdrop { @include button(backdrop, $headerbar_color, $backdrop_text_color); }
+    &:backdrop { @include button(backdrop, $bg_color, $backdrop_text_color); }
     &:disabled { @include button(insensitive, $headerbar_color, $insensitive_fg_color); }
-    &:backdrop:disabled { @include button(backdrop-insensitive, $headerbar_color, $backdrop_insensitive_color); }
+    &:disabled:backdrop { @include button(insensitive, $bg_color, $backdrop_insensitive_color); }
+  }
+  .linked entry:not(:first-child) {
+    border-left-color: $linked_border;
+    &:backdrop { border-left-color: $backdrop_linked_border; }
   }
 
   // disabled switches

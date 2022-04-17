@@ -2318,13 +2318,17 @@ headerbar:not(.selection-mode) .linked.raised button:not(:only-child):first-chil
 
 headerbar:not(.selection-mode) .linked.raised button:not(:only-child):first-child:not(:backdrop):checked + button, headerbar:not(.selection-mode) .linked.raised button:not(:only-child):first-child:not(:backdrop):active + button, headerbar:not(.selection-mode) .linked.raised button:not(:only-child):not(:last-child):not(:backdrop):checked + button, headerbar:not(.selection-mode) .linked.raised button:not(:only-child):not(:last-child):not(:backdrop):active + button, headerbar:not(.selection-mode) .linked button:not(:only-child):first-child:not(:backdrop):checked + button, headerbar:not(.selection-mode) .linked button:not(:only-child):first-child:not(:backdrop):active + button, headerbar:not(.selection-mode) .linked button:not(:only-child):not(:last-child):not(:backdrop):checked + button, headerbar:not(.selection-mode) .linked button:not(:only-child):not(:last-child):not(:backdrop):active + button, headerbar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):first-child:not(:backdrop):checked + button, headerbar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):first-child:not(:backdrop):active + button, headerbar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):not(:last-child):not(:backdrop):checked + button, headerbar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):not(:last-child):not(:backdrop):active + button, .titlebar:not(.selection-mode) .linked.raised button:not(:only-child):first-child:not(:backdrop):checked + button, .titlebar:not(.selection-mode) .linked.raised button:not(:only-child):first-child:not(:backdrop):active + button, .titlebar:not(.selection-mode) .linked.raised button:not(:only-child):not(:last-child):not(:backdrop):checked + button, .titlebar:not(.selection-mode) .linked.raised button:not(:only-child):not(:last-child):not(:backdrop):active + button, .titlebar:not(.selection-mode) .linked button:not(:only-child):first-child:not(:backdrop):checked + button, .titlebar:not(.selection-mode) .linked button:not(:only-child):first-child:not(:backdrop):active + button, .titlebar:not(.selection-mode) .linked button:not(:only-child):not(:last-child):not(:backdrop):checked + button, .titlebar:not(.selection-mode) .linked button:not(:only-child):not(:last-child):not(:backdrop):active + button, .titlebar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):first-child:not(:backdrop):checked + button, .titlebar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):first-child:not(:backdrop):active + button, .titlebar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):not(:last-child):not(:backdrop):checked + button, .titlebar:not(.selection-mode) > .stack-switcher.linked > button:not(:only-child):not(:last-child):not(:backdrop):active + button { border-left-color: transparent; }
 
-headerbar:not(.selection-mode) entry, .titlebar:not(.selection-mode) entry { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #454545; }
+headerbar:not(.selection-mode) entry, .titlebar:not(.selection-mode) entry { min-height: 32px; color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #454545; }
 
-headerbar:not(.selection-mode) entry:backdrop, .titlebar:not(.selection-mode) entry:backdrop { color: #b2b2b2; background-color: #3b3b3b; text-shadow: none; -gtk-icon-shadow: none; }
+headerbar:not(.selection-mode) entry:backdrop, .titlebar:not(.selection-mode) entry:backdrop { color: #b0b0b0; background-color: #2f2f2f; text-shadow: none; -gtk-icon-shadow: none; }
 
 headerbar:not(.selection-mode) entry:disabled, .titlebar:not(.selection-mode) entry:disabled { color: #606060; background-color: #3b3b3b; text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
 
-headerbar:not(.selection-mode) entry:backdrop:disabled, .titlebar:not(.selection-mode) entry:backdrop:disabled { color: #373737; background-color: #3b3b3b; text-shadow: none; -gtk-icon-shadow: none; }
+headerbar:not(.selection-mode) entry:disabled:backdrop, .titlebar:not(.selection-mode) entry:disabled:backdrop { color: #363636; background-color: #2f2f2f; text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
+
+headerbar:not(.selection-mode) .linked entry:not(:first-child), .titlebar:not(.selection-mode) .linked entry:not(:first-child) { border-left-color: #5b5b5b; }
+
+headerbar:not(.selection-mode) .linked entry:not(:first-child):backdrop, .titlebar:not(.selection-mode) .linked entry:not(:first-child):backdrop { border-left-color: #3c3c3c; }
 
 headerbar:not(.selection-mode) switch:disabled, .titlebar:not(.selection-mode) switch:disabled { background-color: #343434; }
 
@@ -2795,10 +2799,6 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 .nautilus-window .linked button.disclosure-button:not(:hover):not(:checked):not(:active), .nautilus-window .linked button.disclosure-button:not(:hover):not(:checked):not(:active):backdrop, .nautilus-window .linked .image-button:not(:hover):not(:checked):not(:active):not(.model), .nautilus-window .linked .image-button:not(:hover):not(:checked):not(:active):not(.model):backdrop { background-color: transparent; }
 
 .nautilus-window .search + .toggle.popup { border-left-color: #5b5b5b; }
-
-.nautilus-window .titlebar entry { border-width: 0; }
-
-.nautilus-window .titlebar entry:focus { box-shadow: inset 0 0 0 2px rgba(120, 174, 237, 0.5); }
 
 .nautilus-window .view .dim-label, .nautilus-window iconview .dim-label, .nautilus-window .view label.separator, .nautilus-window iconview label.separator, .nautilus-window .view headerbar .subtitle, headerbar .nautilus-window .view .subtitle, .nautilus-window iconview headerbar .subtitle, headerbar .nautilus-window iconview .subtitle, .nautilus-window .view .titlebar:not(headerbar) .subtitle, .titlebar:not(headerbar) .nautilus-window .view .subtitle, .nautilus-window iconview .titlebar:not(headerbar) .subtitle, .titlebar:not(headerbar) .nautilus-window iconview .subtitle { color: rgba(255, 255, 255, 0.55); }
 
