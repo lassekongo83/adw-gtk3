@@ -2804,6 +2804,8 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 
 .nautilus-window .thumbnail { box-shadow: 0px 1px 2px 0px rgba(79, 79, 79, 0.5), 0px 0px 0px 1px rgba(79, 79, 79, 0.5), 0px 2px 0px 0px rgba(79, 79, 79, 0.5); border-radius: 2px; background: url("/org/gnome/nautilus/Checkerboard.png") repeat; }
 
+.nautilus-window .operations-list, .nautilus-window .operations-list > :hover { background: none; }
+
 .floating-bar { padding: 3px; background-color: #1e1e1e; border-width: 1px; border-style: solid solid none; border-color: #4f4f4f; border-radius: 8px 0 0 0; }
 
 .floating-bar.bottom.left { border-left-style: none; border-top-left-radius: 0; }

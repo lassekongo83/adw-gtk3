@@ -113,6 +113,12 @@
     // Background for thumbnails with transparent areas.
     background: url('/org/gnome/nautilus/Checkerboard.png') repeat;
   }
+
+   // https://github.com/lassekongo83/adw-gtk3/issues/89
+  .operations-list,
+  .operations-list > :hover {
+    background: none;
+  }
 }
 
 // Floating status bar
