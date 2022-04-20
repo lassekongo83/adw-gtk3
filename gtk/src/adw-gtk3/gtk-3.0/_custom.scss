@@ -1,8 +1,8 @@
 // Custom added styles
 
-$linked_border: if($variant == 'light', darken($borders_color, 2.7%), lighten($borders_color, 5%));
-$linked_border_checked: if($variant == 'light', darken($linked_border, 13.7%), lighten($linked_border, 14.7%));
-$backdrop_linked_border: if($variant == 'light', lighten($backdrop_borders_color, 4%), darken($backdrop_borders_color, 5%));
+$linked_border: if($variant == 'light', darken($borders_color, 6.7%), lighten($borders_color, 5%));
+$linked_border_checked: if($variant == 'light', darken($linked_border, 17.7%), lighten($linked_border, 14.7%));
+$backdrop_linked_border: if($variant == 'light', $backdrop_borders_color, darken($backdrop_borders_color, 5%));
 
 // Trying to mimic the headerbar button colors from the libadwaita theme when used in gtk4-widget-factory
 %colored_buttons {

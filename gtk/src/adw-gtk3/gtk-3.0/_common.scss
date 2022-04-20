@@ -1011,8 +1011,8 @@ toolbar.inline-toolbar toolbutton {
 }
 
 %linked_middle {
-  border-left-color: $borders_color;
-  border-right-color: $borders_color;
+  border-left-color: if($variant == 'light', darken($borders_color, 5.7%), lighten($borders_color, 5%));
+  border-right-color: if($variant == 'light', darken($borders_color, 5.7%), lighten($borders_color, 5%));
   border-right-style: none;
   border-radius: 0;
   -gtk-outline-radius: 0;
@@ -1596,7 +1596,7 @@ headerbar {
   min-height: $_headerbar_height;
   border-width: 0 0 1px;
   border-style: solid;
-  border-color: $borders_color;
+  border-color: if($variant == 'light', darken($bg_color, 17%), lighten($bg_color, 16.7%)); //$borders_color;
   border-radius: 0;
 
   @include headerbar_fill;
@@ -3971,7 +3971,7 @@ scrolledwindow {
 
 //vbox and hbox separators
 separator {
-  background: $borders_color; //if($variant == 'light', transparentize(black, 0.9), transparentize(white, 0.9));
+  background: $borders_color;
   min-width: 1px;
   min-height: 1px;
   &:backdrop { background: $backdrop_borders_color; }
