@@ -1006,11 +1006,11 @@ notebook > header > tabs > arrow:disabled { border-color: transparent; backgroun
 
 notebook > header tab { min-height: 30px; min-width: 30px; padding: 3px 12px; outline-offset: -5px; color: rgba(0, 0, 0, 0.8); font-weight: normal; border-width: 0px; border-color: transparent; }
 
-notebook > header tab.reorderable-page { box-shadow: inset -1px -1px #dddddd; border: none; }
+notebook > header tab.reorderable-page { box-shadow: inset -1px -1px #cfcfcf; border: none; }
 
 notebook > header tab:hover { color: rgba(0, 0, 0, 0.8); }
 
-notebook > header tab:hover.reorderable-page { border-color: rgba(221, 221, 221, 0.3); background-color: #dddddd; box-shadow: inset -1px -1px #dddddd; transition: background 150ms ease-in-out; }
+notebook > header tab:hover.reorderable-page { border-color: rgba(221, 221, 221, 0.3); background-color: #dddddd; box-shadow: inset -1px -1px #cfcfcf; transition: background 150ms ease-in-out; }
 
 notebook > header tab:backdrop { color: rgba(195, 195, 195, 0.94); }
 
@@ -1018,11 +1018,11 @@ notebook > header tab:backdrop.reorderable-page { border-color: transparent; bac
 
 notebook > header tab:checked, notebook > header tab:checked:hover { color: rgba(0, 0, 0, 0.8); }
 
-notebook > header tab:checked.reorderable-page, notebook > header tab:checked:hover.reorderable-page { border-width: 0; border-color: #dddddd; background-color: #ebebeb; box-shadow: inset -1px -1px #dddddd; }
+notebook > header tab:checked.reorderable-page, notebook > header tab:checked:hover.reorderable-page { border-width: 0; border-color: #cfcfcf; background-color: #ebebeb; box-shadow: inset -1px -1px #cfcfcf; }
 
 notebook > header tab:backdrop:checked { color: rgba(150, 150, 150, 0.9); }
 
-notebook > header tab:backdrop:checked.reorderable-page { border-color: #e7e7e7; background-color: #fafafa; }
+notebook > header tab:backdrop:checked.reorderable-page { border-color: #e7e7e7; box-shadow: inset -1px -1px #dddddd; background-color: #fafafa; }
 
 notebook > header tab button.flat { padding: 0; margin-top: 4px; margin-bottom: 4px; min-width: 20px; min-height: 20px; border-radius: 100%; }
 
@@ -2608,7 +2608,7 @@ row > box.header { margin-left: 12px; margin-right: 12px; min-height: 50px; }
 
 row > box.header > box.title { margin-top: 8px; margin-bottom: 8px; }
 
-tabbar .box { min-height: 30px; background: #e2e2e2; border-bottom: 1px solid #dddddd; }
+tabbar .box { min-height: 30px; background: #e2e2e2; border-bottom: 1px solid #cfcfcf; }
 
 tabbar .box:backdrop { background-color: #ededed; border-color: #e7e7e7; }
 
@@ -2638,7 +2638,7 @@ tabbar .needs-attention-left undershoot.left { background: linear-gradient(to ri
 
 tabbar .needs-attention-right undershoot.right { background: linear-gradient(to left, rgba(53, 132, 228, 0.7), rgba(53, 132, 228, 0.5) 1px, rgba(53, 132, 228, 0) 20px); }
 
-tabbar tab { border-style: solid; border-color: #dddddd; border-width: 0 1px 0 1px; transition: background 150ms ease-in-out; background-color: #e2e2e2; }
+tabbar tab { border-style: solid; border-color: #cfcfcf; border-width: 0 1px 0 1px; transition: background 150ms ease-in-out; background-color: #e2e2e2; }
 
 tabbar tab:checked { background-color: #ebebeb; }
 

@@ -100,6 +100,8 @@ $fill_text_color: $selected_fg_color;
 $slider_color: gtkmix(white, $base_color, 80%);
 $slider_hover_color: white;
 
+$headerbar_border: if($variant == 'light', darken($bg_color, 17%), lighten($bg_color, 16.7%));
+
 // "Cards" or content list views
 $card_bg_color: if($variant == 'light', $base_color, lighten($bg_color, 6.7%));
 $card_fg_color: if($variant == 'light', $fg_color, white);

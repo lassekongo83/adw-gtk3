@@ -1596,7 +1596,7 @@ headerbar {
   min-height: $_headerbar_height;
   border-width: 0 0 1px;
   border-style: solid;
-  border-color: if($variant == 'light', darken($bg_color, 17%), lighten($bg_color, 16.7%)); //$borders_color;
+  border-color: $headerbar_border;
   border-radius: 0;
 
   @include headerbar_fill;
@@ -2610,7 +2610,7 @@ notebook {
       border-color: transparent; //
 
       &.reorderable-page {
-        box-shadow: inset -1px -1px $borders_color;
+        box-shadow: inset -1px -1px $headerbar_border;
         border: none;
       }
 
@@ -2621,7 +2621,7 @@ notebook {
         &.reorderable-page {
           border-color: transparentize($borders_color, 0.7);
           background-color: darken($shade_color, 2%);
-          box-shadow: inset -1px -1px $borders_color;
+          box-shadow: inset -1px -1px $headerbar_border;
           transition: background 150ms ease-in-out;
         }
       }
@@ -2640,9 +2640,9 @@ notebook {
         color: $fg_color;
         &.reorderable-page {
           border-width: 0;
-          border-color: $borders_color;
+          border-color: $headerbar_border;
           background-color: $active_tab_color;
-          box-shadow: inset -1px -1px $borders_color;
+          box-shadow: inset -1px -1px $headerbar_border;
         }
       }
 
@@ -2651,6 +2651,7 @@ notebook {
 
         &.reorderable-page {
           border-color: $backdrop_borders_color;
+          box-shadow: inset -1px -1px $borders_color;
           background-color: if($variant == 'light', $backdrop_base_color, $active_tab_color);
         }
       }
