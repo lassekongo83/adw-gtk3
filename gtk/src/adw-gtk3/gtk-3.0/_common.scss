@@ -1011,8 +1011,8 @@ toolbar.inline-toolbar toolbutton {
 }
 
 %linked_middle {
-  border-left-color: if($variant == 'light', darken($borders_color, 5.7%), lighten($borders_color, 5%));
-  border-right-color: if($variant == 'light', darken($borders_color, 5.7%), lighten($borders_color, 5%));
+  border-left-color: if($variant == 'light', darken($borders_color, 5.7%), $borders_color);
+  border-right-color: if($variant == 'light', darken($borders_color, 5.7%), $borders_color);
   border-right-style: none;
   border-radius: 0;
   -gtk-outline-radius: 0;
