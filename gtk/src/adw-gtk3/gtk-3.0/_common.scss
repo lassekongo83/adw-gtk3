@@ -4732,7 +4732,7 @@ decoration {
   // this needs to be transparent
   // see bug #722563
   $_wm_border: if($variant=='light', transparentize(black, 0.95), darken($borders_color, 4%));
-  $_wm_border_backdrop: if($variant=='light', transparentize(black, 0.98), darken($borders_color, 4%));
+  $_wm_border_backdrop: if($variant=='light', transparentize(black, 0.98), darken($borders_color, 8.3%));
 
   box-shadow: 0 3px 12px 1px transparentize(black, 0.7),
               0 0 0 1px $_wm_border; //doing borders with box-shadow

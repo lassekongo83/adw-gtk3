@@ -2039,13 +2039,13 @@ colorchooser .popover.osd { border-radius: 5px; }
 /********************** Window Decorations * */
 decoration { border-radius: 12px 12px 0 0; border-width: 0px; box-shadow: 0 3px 12px 1px rgba(0, 0, 0, 0.3), 0 0 0 1px #444444; margin: 10px; }
 
-decoration:backdrop { box-shadow: 0 3px 12px 1px transparent, 0 2px 6px 2px rgba(0, 0, 0, 0.14), 0 0 0 1px #444444; transition: 200ms ease-out; }
+decoration:backdrop { box-shadow: 0 3px 12px 1px transparent, 0 2px 6px 2px rgba(0, 0, 0, 0.14), 0 0 0 1px #393939; transition: 200ms ease-out; }
 
 .maximized decoration, .fullscreen decoration { border-radius: 0; box-shadow: none; }
 
 .tiled decoration, .tiled-top decoration, .tiled-right decoration, .tiled-bottom decoration, .tiled-left decoration { border-radius: 0; box-shadow: 0 0 0 1px #444444, 0 0 0 20px transparent; }
 
-.tiled decoration:backdrop, .tiled-top decoration:backdrop, .tiled-right decoration:backdrop, .tiled-bottom decoration:backdrop, .tiled-left decoration:backdrop { box-shadow: 0 0 0 1px #444444, 0 0 0 20px transparent; }
+.tiled decoration:backdrop, .tiled-top decoration:backdrop, .tiled-right decoration:backdrop, .tiled-bottom decoration:backdrop, .tiled-left decoration:backdrop { box-shadow: 0 0 0 1px #393939, 0 0 0 20px transparent; }
 
 .popup decoration { box-shadow: none; }
 
