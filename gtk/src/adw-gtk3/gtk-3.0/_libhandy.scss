@@ -673,12 +673,12 @@ tabbar {
       background-color: $active_tab_color;
 
       &:hover {
-        background-color: $active_tab_color;
+        background-color: if($variant == 'light', darken($active_tab_color, 2.3%), lighten($active_tab_color, 2.3%));
       }
     }
 
     &:hover {
-      background-color: darken($shade_color, 2%);
+      background-color: if($variant == 'light', darken($shade_color, 2%), lighten($shade_color, 2.3%));
     }
 
     &:backdrop {

@@ -2620,7 +2620,7 @@ notebook {
 
         &.reorderable-page {
           border-color: transparentize($borders_color, 0.7);
-          background-color: darken($shade_color, 2%);
+          background-color: if($variant == 'light', darken($shade_color, 2%), lighten($shade_color, 2.3%));
           box-shadow: inset -1px -1px $headerbar_border;
           transition: background 150ms ease-in-out;
         }
@@ -2636,13 +2636,16 @@ notebook {
         }
       }
 
-      &:checked, &:checked:hover {
+      &:checked {
         color: $fg_color;
         &.reorderable-page {
           border-width: 0;
           border-color: $headerbar_border;
           background-color: $active_tab_color;
           box-shadow: inset -1px -1px $headerbar_border;
+          &:hover {
+            background-color: if($variant == 'light', darken($active_tab_color, 2.3%), lighten($active_tab_color, 2.3%));
+          }
         }
       }
 

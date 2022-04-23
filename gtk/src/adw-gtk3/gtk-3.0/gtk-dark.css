@@ -998,15 +998,17 @@ notebook > header tab.reorderable-page { box-shadow: inset -1px -1px #4f4f4f; bo
 
 notebook > header tab:hover { color: white; }
 
-notebook > header tab:hover.reorderable-page { border-color: rgba(79, 79, 79, 0.3); background-color: #212121; box-shadow: inset -1px -1px #4f4f4f; transition: background 150ms ease-in-out; }
+notebook > header tab:hover.reorderable-page { border-color: rgba(79, 79, 79, 0.3); background-color: #2c2c2c; box-shadow: inset -1px -1px #4f4f4f; transition: background 150ms ease-in-out; }
 
 notebook > header tab:backdrop { color: #666666; }
 
 notebook > header tab:backdrop.reorderable-page { border-color: transparent; background-color: #262626; box-shadow: inset -1px -1px #4f4f4f; }
 
-notebook > header tab:checked, notebook > header tab:checked:hover { color: white; }
+notebook > header tab:checked { color: white; }
 
-notebook > header tab:checked.reorderable-page, notebook > header tab:checked:hover.reorderable-page { border-width: 0; border-color: #4f4f4f; background-color: #303030; box-shadow: inset -1px -1px #4f4f4f; }
+notebook > header tab:checked.reorderable-page { border-width: 0; border-color: #4f4f4f; background-color: #303030; box-shadow: inset -1px -1px #4f4f4f; }
+
+notebook > header tab:checked.reorderable-page:hover { background-color: #363636; }
 
 notebook > header tab:backdrop:checked { color: #929292; }
 
@@ -2662,9 +2664,9 @@ tabbar tab { border-style: solid; border-color: #4f4f4f; border-width: 0 1px 0 1
 
 tabbar tab:checked { background-color: #303030; }
 
-tabbar tab:checked:hover { background-color: #303030; }
+tabbar tab:checked:hover { background-color: #363636; }
 
-tabbar tab:hover { background-color: #212121; }
+tabbar tab:hover { background-color: #2c2c2c; }
 
 tabbar tab:backdrop { border-color: #494949; background-color: #262626; color: #666666; }
 

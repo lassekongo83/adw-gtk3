@@ -1016,9 +1016,11 @@ notebook > header tab:backdrop { color: rgba(195, 195, 195, 0.94); }
 
 notebook > header tab:backdrop.reorderable-page { border-color: transparent; background-color: #ededed; box-shadow: inset -1px -1px #dddddd; }
 
-notebook > header tab:checked, notebook > header tab:checked:hover { color: rgba(0, 0, 0, 0.8); }
+notebook > header tab:checked { color: rgba(0, 0, 0, 0.8); }
 
-notebook > header tab:checked.reorderable-page, notebook > header tab:checked:hover.reorderable-page { border-width: 0; border-color: #cfcfcf; background-color: #ebebeb; box-shadow: inset -1px -1px #cfcfcf; }
+notebook > header tab:checked.reorderable-page { border-width: 0; border-color: #cfcfcf; background-color: #ebebeb; box-shadow: inset -1px -1px #cfcfcf; }
+
+notebook > header tab:checked.reorderable-page:hover { background-color: #e5e5e5; }
 
 notebook > header tab:backdrop:checked { color: rgba(150, 150, 150, 0.9); }
 
@@ -2642,7 +2644,7 @@ tabbar tab { border-style: solid; border-color: #cfcfcf; border-width: 0 1px 0 1
 
 tabbar tab:checked { background-color: #ebebeb; }
 
-tabbar tab:checked:hover { background-color: #ebebeb; }
+tabbar tab:checked:hover { background-color: #e5e5e5; }
 
 tabbar tab:hover { background-color: #dddddd; }
 
