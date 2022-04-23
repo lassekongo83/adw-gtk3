@@ -2764,9 +2764,9 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 
 .nautilus-window headerbar:not(.selection-mode) .path-bar-box:backdrop, .nautilus-window .titlebar:not(.selection-mode) .path-bar-box:backdrop { color: #7c7c7c; background-color: #2f2f2f; text-shadow: none; -gtk-icon-shadow: none; }
 
-.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar { border-radius: 6px; color: #929292; background-color: #454545; box-shadow: none; min-height: 34px; }
+.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar { border-radius: 6px; color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #454545; min-height: 34px; }
 
-.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar:backdrop, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar:backdrop { color: #929292; background-color: #2f2f2f; text-shadow: none; -gtk-icon-shadow: none; }
+.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar:backdrop, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar:backdrop { color: #7c7c7c; background-color: #2f2f2f; text-shadow: none; -gtk-icon-shadow: none; }
 
 .nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton), .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton) { margin: 0; padding-left: 8px; padding-right: 8px; }
 
@@ -2780,21 +2780,25 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 
 .nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton):not(.current-dir):hover *, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton):not(.current-dir):hover * { opacity: 1; }
 
-.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton):not(.current-dir):backdrop:hover, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton):not(.current-dir):backdrop:hover { color: #929292; background-color: #454545; box-shadow: none; }
+.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton):not(.current-dir):hover:backdrop, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton):not(.current-dir):hover:backdrop { color: #7a7a7a; background-color: #454545; }
 
-.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup { color: #929292; background-color: #454545; box-shadow: none; border-radius: 0 6px 6px 0; }
+.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #454545; border-radius: 0 6px 6px 0; border-left: 1px solid #5b5b5b; }
 
 .nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup image, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup image { color: white; }
 
-.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:checked, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:checked { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #656565; box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:hover, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:hover { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #515151; box-shadow: none; }
 
-.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:checked:hover, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:checked:hover { background-color: #707070; }
+.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:checked, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:checked { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #717171; box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
-.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop { color: #929292; background-color: #2f2f2f; text-shadow: none; -gtk-icon-shadow: none; }
+.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:checked:hover, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:checked:hover { background-color: #7c7c7c; }
 
-.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop image, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop image { color: #929292; background-color: #2f2f2f; text-shadow: none; -gtk-icon-shadow: none; }
+.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop { color: #7c7c7c; background-color: #2f2f2f; text-shadow: none; -gtk-icon-shadow: none; border-left: 1px solid #3c3c3c; }
 
-.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop:hover, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop:hover { color: white; outline-color: rgba(255, 255, 255, 0.3); background-color: #393939; }
+.nautilus-window headerbar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop:hover, .nautilus-window .titlebar:not(.selection-mode) .nautilus-path-bar button:not(.titlebutton).toggle.popup:backdrop:hover { color: #929292; outline-color: rgba(146, 146, 146, 0.3); background-color: #393939; }
+
+.nautilus-window .path-buttons-box { border: 2px solid transparent; }
+
+.nautilus-window .path-buttons-box button { min-height: 22px; }
 
 .nautilus-window .linked.raised button.image-button:not(:only-child), .nautilus-window .linked.raised button.image-button:not(:only-child):backdrop, .nautilus-window .linked.raised button.image-button:not(:only-child):disabled, .nautilus-window .linked.raised button.image-button:not(:only-child):backdrop:disabled { border: none; }
 

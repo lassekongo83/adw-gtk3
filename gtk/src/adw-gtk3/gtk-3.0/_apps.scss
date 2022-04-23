@@ -22,11 +22,11 @@
 
     .nautilus-path-bar {
       border-radius: $button_radius;
-      @include button(insensitive-active);
+      @include button(normal, $headerbar_color, $fg_color);
       min-height: 34px;
 
       &:backdrop {
-        @include button(backdrop);
+        @include button(backdrop, $bg_color, $backdrop_fg_color);
       }
 
       button:not(.titlebutton) {
@@ -44,37 +44,40 @@
           border-width: 0px;
           border-radius: $button_radius;
           background-color: transparent;
-        }
-        &:not(.current-dir):hover {
-          @include button(active);
-          * {
-            opacity: 1;
+
+          &:hover {
+            @include button(active, $bg_color, $fg_color);
+            * { opacity: 1; }
+            &:backdrop {
+              @include button(backdrop-active, $bg_color, $backdrop_fg_color);
+            }
           }
         }
-        &:not(.current-dir):backdrop:hover {
-          @include button(insensitive-active);
-        }
+
         &.toggle.popup {
-          @include button(insensitive-active);
+          @include button(normal, $headerbar_color, $fg_color);
           border-radius: 0 $button-radius $button-radius 0;
-          image {
-            color: $text_color;
+          border-left: 1px solid $linked_border;
+          image { color: $text_color; }
+
+          &:hover { @include button(hover, $headerbar_color, $fg_color); }
+
+          &:checked { @include button(active, $headerbar_color, $fg_color); }
+
+          &:backdrop {
+            @include button(backdrop, $bg_color, $backdrop_fg_color);
+            &:hover { @include button(normal, $bg_color, $backdrop_fg_color); }
+            border-left: 1px solid $backdrop_linked_border;
           }
-        }
-        &.toggle.popup:checked {
-          @include button(active);
-        }
-        &.toggle.popup:backdrop {
-          @include button(backdrop);
-          image {
-            @include button(backdrop);
-          }
-        }
-        &.toggle.popup:backdrop:hover {
-          @include button(normal);
         }
       }
     }
+  }
+
+  .path-buttons-box {
+    border: 2px solid transparent;
+
+    button { min-height: 22px; }
   }
 
   .titlebar {
