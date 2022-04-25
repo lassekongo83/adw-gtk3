@@ -6,10 +6,16 @@ install_subdir('assets', install_dir : gtk3_dir, strip_directory : false)
 # theme sources .scss files
 
 # The files that need to be compiled
-gtk3_scss_sources = [
-  'gtk',
-  'gtk-dark',
-]
+if get_option('dark')
+  gtk3_scss_sources = [
+    'gtk',
+    'gtk-dark',
+  ]
+else
+  gtk3_scss_sources = [
+    'gtk',
+  ]
+endif
 
 # Dependencies of the files that need to be compiled
 gtk3_scss_dependencies = [
