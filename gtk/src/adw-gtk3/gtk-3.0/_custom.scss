@@ -248,14 +248,6 @@ scrolledwindow list {
   }
 }
 
-// libadwaita switches don't have a backdrop effect on .content lists
-list.content, list.view.frame {
-  > row:backdrop {
-    switch:not(:disabled) { background-color: $trough_color; }
-    switch:not(:disabled):checked { background-color: $checkradio_bg_color; }
-  }
-}
-
 // Fix wrong border-radius on hdy spinbutton entries
 list.content .horizontal spinbutton entry {
   border-top-left-radius: $button_radius;

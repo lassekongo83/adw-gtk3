@@ -2378,10 +2378,6 @@ scrolledwindow list row { margin: 0 6px; border-radius: 6px; }
 
 scrolledwindow list separator.horizontal { margin: 6px; }
 
-list.content > row:backdrop switch:not(:disabled), list.view.frame > row:backdrop switch:not(:disabled) { background-color: #d4d4d4; }
-
-list.content > row:backdrop switch:not(:disabled):checked, list.view.frame > row:backdrop switch:not(:disabled):checked { background-color: #3584e4; }
-
 list.content .horizontal spinbutton entry { border-top-left-radius: 6px; border-bottom-left-radius: 6px; }
 
 list.view.frame { border-radius: 12px; }
@@ -2567,6 +2563,8 @@ viewswitchertitle viewswitcher { margin-left: 12px; margin-right: 12px; }
 list.content { background-color: #ffffff; color: rgba(0, 0, 0, 0.8); border-radius: 12px; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 1px 3px 1px rgba(0, 0, 0, 0.07), 0 2px 6px 2px rgba(0, 0, 0, 0.03); }
 
 list.content list { background-color: transparent; border-radius: 12px; }
+
+list.content:backdrop { color: rgba(150, 150, 150, 0.9); }
 
 list.content list.nested > row:not(:active) { border: 1px solid #dddddd; }
 
