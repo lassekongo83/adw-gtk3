@@ -2414,11 +2414,11 @@ window.csd.unified scrollbar { background-color: #ffffff; color: rgba(0, 0, 0, 0
 
 window.csd.unified scrollbar trough { margin: 7px; transition: all 200ms linear; border-radius: 10px; background-color: #d4d4d4; }
 
-window.csd.unified scrollbar trough > slider { min-width: 8px; min-height: 8px; margin: -6px; border: 6px solid transparent; border-radius: 10px; background-clip: padding-box; transition: all 200ms linear; background-color: #cccccc; }
+window.csd.unified scrollbar trough > slider { min-width: 8px; min-height: 8px; margin: -6px; border: 6px solid transparent; border-radius: 10px; background-clip: padding-box; transition: all 200ms linear; background-color: #999999; }
 
-window.csd.unified scrollbar trough > slider:hover { background-color: #999999; }
+window.csd.unified scrollbar trough > slider:hover { background-color: #666666; }
 
-window.csd.unified scrollbar trough > slider:hover:active { background-color: #666666; }
+window.csd.unified scrollbar trough > slider:hover:active { background-color: #333333; }
 
 window.csd.unified scrollbar trough > slider:disabled { background-color: transparent; }
 

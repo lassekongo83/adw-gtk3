@@ -2434,11 +2434,11 @@ window.csd.unified scrollbar { background-color: #1e1e1e; color: white; }
 
 window.csd.unified scrollbar trough { margin: 7px; transition: all 200ms linear; border-radius: 10px; background-color: #4a4a4a; }
 
-window.csd.unified scrollbar trough > slider { min-width: 8px; min-height: 8px; margin: -6px; border: 6px solid transparent; border-radius: 10px; background-clip: padding-box; transition: all 200ms linear; background-color: #515151; }
+window.csd.unified scrollbar trough > slider { min-width: 8px; min-height: 8px; margin: -6px; border: 6px solid transparent; border-radius: 10px; background-clip: padding-box; transition: all 200ms linear; background-color: #848484; }
 
-window.csd.unified scrollbar trough > slider:hover { background-color: #848484; }
+window.csd.unified scrollbar trough > slider:hover { background-color: #b7b7b7; }
 
-window.csd.unified scrollbar trough > slider:hover:active { background-color: #b7b7b7; }
+window.csd.unified scrollbar trough > slider:hover:active { background-color: #eaeaea; }
 
 window.csd.unified scrollbar trough > slider:disabled { background-color: transparent; }
 

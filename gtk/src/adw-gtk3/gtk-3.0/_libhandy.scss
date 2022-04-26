@@ -96,11 +96,15 @@ window.csd.unified {
         background-clip: padding-box;
         transition: $_scrollbar_transition;
 
-        background-color: $scrollbar_slider_color;
+        background-color: if($variant == 'light', darken($scrollbar_slider_color, 20%), lighten($scrollbar_slider_color, 20%));
 
-        &:hover { background-color: $scrollbar_slider_hover_color; }
+        &:hover {
+          background-color: if($variant == 'light', darken($scrollbar_slider_hover_color, 20%), lighten($scrollbar_slider_hover_color, 20%));
+        }
 
-        &:hover:active { background-color: $scrollbar_slider_active_color; }
+        &:hover:active {
+          background-color: if($variant == 'light', darken($scrollbar_slider_active_color, 20%), lighten($scrollbar_slider_active_color, 20%));
+        }
 
         &:disabled { background-color: transparent; }
       }
