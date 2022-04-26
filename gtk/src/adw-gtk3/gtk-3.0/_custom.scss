@@ -310,3 +310,11 @@ treeview.view:not(:backdrop):not(:selected):hover {
   background-color: $bg_color;
   &:backdrop { background-color: $backdrop_bg_color; }
 }
+
+// Popover menuitems
+popover.background {
+  modelbutton.flat {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

@@ -2416,6 +2416,8 @@ treeview.view:not(:backdrop):not(:selected):hover { background-color: #ededed; }
 
 .primary-toolbar:backdrop, .toolbar:backdrop { background-color: #fafafa; }
 
+popover.background modelbutton.flat { padding-left: 16px; padding-right: 16px; }
+
 window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized), window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) > decoration, window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) > decoration-overlay { border-radius: 12px; }
 
 window.csd.unified scrollbar { background-color: #ffffff; color: rgba(0, 0, 0, 0.8); }
