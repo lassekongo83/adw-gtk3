@@ -171,6 +171,16 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
 
   // better animation when switching from backdrop
   &:not(:backdrop) { transition: 200ms ease-in; }
+
+  // Balance out the titlebutton margin
+  .right {
+    margin-left: -4px;
+    separator { min-width: 0; }
+  }
+  .left {
+    margin-right: -4px;
+    separator { min-width: 0; }
+  }
 }
 
 // Different button color on brighter elements like lists and popovers
