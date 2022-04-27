@@ -158,7 +158,10 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
     &:disabled { @include button(insensitive, $headerbar_color, $insensitive_fg_color); }
     &:disabled:backdrop { @include button(insensitive, $bg_color, $backdrop_insensitive_color); }
 
-    image { padding: 0 6px; }
+    image {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
   }
   .linked entry:not(:first-child) {
     border-left-color: $linked_border;
