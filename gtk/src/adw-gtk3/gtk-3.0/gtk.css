@@ -2308,6 +2308,8 @@ headerbar:not(.selection-mode) entry:disabled, .titlebar:not(.selection-mode) en
 
 headerbar:not(.selection-mode) entry:disabled:backdrop, .titlebar:not(.selection-mode) entry:disabled:backdrop { color: #e8e8e8; background-color: #f0f0f0; text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
 
+headerbar:not(.selection-mode) entry image, .titlebar:not(.selection-mode) entry image { padding: 0 6px; }
+
 headerbar:not(.selection-mode) .linked entry:not(:first-child), .titlebar:not(.selection-mode) .linked entry:not(:first-child) { border-left-color: #cccccc; }
 
 headerbar:not(.selection-mode) .linked entry:not(:first-child):backdrop, .titlebar:not(.selection-mode) .linked entry:not(:first-child):backdrop { border-left-color: #e7e7e7; }
