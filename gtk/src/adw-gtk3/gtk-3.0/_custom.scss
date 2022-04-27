@@ -158,11 +158,63 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
     &:disabled { @include button(insensitive, $headerbar_color, $insensitive_fg_color); }
     &:disabled:backdrop { @include button(insensitive, $bg_color, $backdrop_insensitive_color); }
 
-    image {
-      padding-left: 6px;
-      padding-right: 6px;
+    image { // icons inside the entry
+      &.left { margin-right: 6px; }
+      &.right { margin-left: 6px; }
+
+      // entry icons colors
+      color: mix($fg_color, $base_color, 80%);
+      &:hover { color: $fg_color; }
+      &:active { color: $selected_bg_color; }
+      &:backdrop { color: mix($backdrop_fg_color, $backdrop_base_color, 80%); }
+    }
+
+    selection { @extend %selected_items; }
+
+    // entry error and warning style
+    @each $e_type, $e_color in (error, $error_color),
+                               (warning, $warning_color) {
+      &.#{$e_type} {
+        color: $e_color;
+        border-color: entry_focus_border($e_color);
+
+        &:focus { @include entry(focus, $e_color); }
+
+        selection { background-color: $e_color; }
+      }
+    }
+
+    &.flat {
+      &:focus, &:backdrop, &:disabled, &:backdrop:disabled, & {
+        min-height: 0;
+        padding: 2px;
+        background-color: transparent;
+        border-color: transparent;
+        border-radius: 0;
+      }
+    }
+
+    &:drop(active) {
+      &:focus, & {
+        border-color: $drop_target_color;
+        box-shadow: inset 0 0 0 1px $drop_target_color;
+      }
+    }
+
+    progress {
+      margin: 2px -6px;
+      background-color: transparent;
+      background-image: none;
+      border-radius: 0;
+      border-width: 0 0 2px;
+      border-color: $progress_bg_color;
+      border-style: solid;
+      box-shadow: none;
+
+      &:backdrop { background-color: transparent; }
     }
   }
+
   .linked entry:not(:first-child) {
     border-left-color: $linked_border;
     &:backdrop { border-left-color: $backdrop_linked_border; }
