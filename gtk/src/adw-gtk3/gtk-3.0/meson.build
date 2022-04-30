@@ -14,6 +14,7 @@ if get_option('dark')
 else
   gtk3_scss_sources = [
     'gtk',
+    'gtk-dark',
   ]
 endif
 
