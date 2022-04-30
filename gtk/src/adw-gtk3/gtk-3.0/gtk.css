@@ -3061,3 +3061,7 @@ sq_button.small { font-size: 0.5em; }
 #Return { background: #3584e4; color: #ffffff; }
 
 #Return:active { background: black; color: #010101; }
+
+terminal-window notebook > header.top tabs:not(:only-child):first-child, terminal-window notebook > header.bottom tabs:not(:only-child):first-child { margin-left: 0px; }
+
+terminal-window notebook > header.top tabs:not(:only-child):last-child, terminal-window notebook > header.bottom tabs:not(:only-child):last-child { margin-right: 0px; }

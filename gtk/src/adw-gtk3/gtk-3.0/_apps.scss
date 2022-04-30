@@ -716,3 +716,16 @@ sq_button {
     color: mix($selected_fg_color, black, 0.2);
   }
 }
+
+// GNOME Terminal
+terminal-window notebook > header {
+  &.top,
+  &.bottom {
+    tabs {
+      &:not(:only-child) {
+        &:first-child { margin-left: 0px; }
+        &:last-child { margin-right: 0px; }
+      }
+    }
+  }
+}
