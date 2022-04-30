@@ -3248,7 +3248,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
  * GtkScale *
  ************/
 %scale_trough {
-  border-radius: 99px;
+  border-radius: $button_radius;
   background-color: $trough_color;
 
   &:disabled { background-color: $backdrop_dark_fill; }
@@ -3274,7 +3274,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
 }
 
 %scale_highlight {
-  border-radius: 99px;
+  border-radius: $button_radius;
   background-color: $fill_color;
   color: $fill_text_color;
 

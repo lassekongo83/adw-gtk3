@@ -1294,7 +1294,7 @@ menu menuitem radio:checked:not(:backdrop), menu menuitem radio:indeterminate:no
 treeview.view check:selected:focus, treeview.view check:selected, treeview.view radio:selected:focus, treeview.view radio:selected { color: #ffffff; border-color: #185fb4; }
 
 /************ GtkScale * */
-progressbar trough, scale fill, scale trough { border-radius: 99px; background-color: #d4d4d4; }
+progressbar trough, scale fill, scale trough { border-radius: 6px; background-color: #d4d4d4; }
 
 progressbar trough:disabled, scale fill:disabled, scale trough:disabled { background-color: #ededed; }
 
@@ -1308,7 +1308,7 @@ row:selected progressbar trough, progressbar row:selected trough, row:selected s
 
 .osd progressbar trough:disabled, progressbar .osd trough:disabled, .osd scale fill:disabled, scale .osd fill:disabled, .osd scale trough:disabled, scale .osd trough:disabled { background-color: rgba(0, 0, 0, 0.65); }
 
-progressbar progress, scale highlight { border-radius: 99px; background-color: #3584e4; color: #ffffff; }
+progressbar progress, scale highlight { border-radius: 6px; background-color: #3584e4; color: #ffffff; }
 
 progressbar progress:disabled, scale highlight:disabled { background-color: transparent; border-color: transparent; }
 
