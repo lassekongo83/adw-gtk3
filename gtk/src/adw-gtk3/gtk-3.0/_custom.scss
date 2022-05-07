@@ -96,7 +96,7 @@ $backdrop_linked_border: if($variant == 'light', $backdrop_borders_color, darken
 }
 
 // headerbar stuff
-headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
+headerbar, .titlebar {
   button:not(.titlebutton) {
     &, &:backdrop { @include button(undecorated); }
     @extend %headerbar_buttons;
@@ -148,6 +148,12 @@ headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
   // hdy viewswitcher buttons (weather, system monitor, etc.)
   viewswitcher button.radio:checked {
     @extend %headerbar_buttons;
+  }
+
+  // Selection mode
+  &.selection-mode {
+    button,
+    button.text-button:not(.suggested-action):not(.destructive-action):not(:disabled) { @extend %suggested_buttons; }
   }
 
   // Entries

@@ -7,7 +7,7 @@
   notebook > stack:not(:only-child),
   notebook > stack:not(:only-child) searchbar { @extend %view; }
 
-  headerbar:not(.selection-mode), .titlebar:not(.selection-mode) {
+  headerbar, .titlebar {
     // Path-bar
     .path-bar-box {
       border-radius: $button_radius;
@@ -114,7 +114,7 @@
                 0px 2px 0px 0px transparentize($borders_color, 0.5);
     border-radius: 2px;
     // Background for thumbnails with transparent areas.
-    background: url('/org/gnome/nautilus/Checkerboard.png') repeat;
+    background: url('assets/Checkerboard.png') repeat;
   }
 
    // https://github.com/lassekongo83/adw-gtk3/issues/89
@@ -122,6 +122,11 @@
   .operations-list > :hover {
     background: none;
   }
+
+  // https://github.com/lassekongo83/adw-gtk3/issues/111
+  .nautilus-canvas-item { border-radius: 0px; }
+
+  .nautilus-canvas-item.label-text { border-radius: $button_radius; }
 }
 
 // Floating status bar
@@ -652,6 +657,13 @@ window.background.chromium {
 // GNOME Web
 // https://github.com/lassekongo83/adw-gtk3/issues/59
 button .download_progress trough { min-height: 2px; }
+
+.titlebar .navigation-box.linked button:not(:only-child) {
+  &, &:disabled, &:backdrop {
+    &:not(:hover):not(:active) { @include button(undecorated); }
+    &:last-child { border-left-color: transparent; }
+  }
+}
 
 // GNOME Builder
 .org-gnome-Builder {
