@@ -20,8 +20,7 @@ ArchLinux users can skip the below steps and install it from AUR: https://aur.ar
 
 ### Requirements
 
-- GTK 3.24.13+
-
+* GTK 3.24.13+
 * Debian/Ubuntu/Mint/PopOS - `apt install ninja-build git meson sassc`
 * Fedora - `dnf install ninja-build git meson sassc`
 * Arch/Manjaro - `pacman -S ninja git meson sassc`
