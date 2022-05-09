@@ -105,4 +105,4 @@ For a global install: `sudo rm -r /usr/share/themes/adw-gtk3*`
 
 For a local install: `rm -r ~/.local/share/themes/adw-gtk3*`
 
-Flatpak: `flatpak uninstall org.gtk.Gtk3theme.adw-gtk3 && flatpak uninstall org.gtk.Gtk3theme.adw-gtk3-dark`
+Flatpak: `flatpak uninstall org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark`
