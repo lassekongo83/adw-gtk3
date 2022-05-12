@@ -741,3 +741,11 @@ terminal-window notebook > header {
     }
   }
 }
+
+// GNOME Console/kgx
+// FIXME: Does not work for some unknown reason
+//.terminal-window {
+//  &.root {}
+//  &.remote {}
+//}
+

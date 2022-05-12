@@ -243,13 +243,6 @@ assistant {
   border: none;
   background-color: $osd_bg_color;
   background-clip: padding-box;
-  text-shadow: 0 1px black;
-  -gtk-icon-shadow: 0 1px black;
-
-  &:backdrop {
-    text-shadow: none;
-    -gtk-icon-shadow: none;
-  }
 }
 
 
@@ -700,7 +693,7 @@ button {
 
   // big standalone buttons like in Documents pager
   &.osd {
-    min-width: 26px;
+    min-width: 32px;
     min-height: 32px;
 
     &.image-button { min-width: 34px; }
@@ -4043,7 +4036,7 @@ row {
   @extend %osd;
 
   padding: 10px;
-  border-radius: 0 0 $button_radius $button_radius;
+  border-radius: 0 0 $card_radius $card_radius;
   background-color: $osd_bg_color;
   background-image: linear-gradient(to bottom, transparentize(black, 0.8),
                                                transparent 2px);
