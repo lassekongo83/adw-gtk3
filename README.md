@@ -76,6 +76,12 @@ The above commands assumes that you have the flathub respository active. If not:
 
 Thanks to [@dusansimic](https://github.com/dusansimic) for the help.
 
+### Snapcraft
+
+The theme is also available on snapcraft - https://snapcraft.io/adw-gtk3-theme
+
+Thanks to [@kuroehanako](https://github.com/kuroehanako) for the help.
+
 ## How to change themes
 
 Use `gnome-tweaks` to change your GTK3 themes.
