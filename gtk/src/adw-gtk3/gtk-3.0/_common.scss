@@ -7,7 +7,7 @@ $asset_suffix: if($variant=='dark', '-dark', '');
 $backdrop_transition: 200ms ease-out;
 $button_transition: all 200ms $ease-out-quad;
 $button_radius: 6px;
-$menu_radius: 6px;
+$menu_radius: 12px;
 $window_radius: $button_radius + 6;
 $popover_radius: $window_radius;
 $card_radius: $button_radius + 6;
@@ -2219,7 +2219,7 @@ menubar,
   }
 
   // remove padding and rounding from menubar submenu decoration
-  .csd.popup decoration {border-radius:0;}
+  .csd.popup decoration {border-radius:$menu_radius;}
 }
 
 // Needed to make the border-radius of menus work
@@ -2231,7 +2231,7 @@ menu,
 %menu,
 .context-menu {
   margin: 4px; // see https://bugzilla.gnome.org/show_bug.cgi?id=591258
-  padding: 4px 0px;
+  padding: 6px 6px;
   background-color: $menu_color;
   border: 1px solid $borders_color; // adds borders in a non composited env
 
@@ -2239,16 +2239,18 @@ menu,
     border: none; // axes borders in a composited env
     border-radius: $menu_radius;
   }
-
+  
+  separator {margin: 6px 0}
   &:backdrop { background-color: $backdrop_menu_color; }
 
   menuitem,
   %menuitem {
     min-height: 16px;
     min-width: 40px;
-    padding: 4px 6px;
+    padding: 7px 6px;
     text-shadow: none;
     font-weight: normal;
+    border-radius: 6px;
 
     &:hover {
       //color: $selected_fg_color;
@@ -2389,7 +2391,7 @@ popover.background {
     &.osd { @extend %osd; }
   }
 
-  separator { margin: 3px; }
+  separator { margin: 3px }
 
   list separator { margin: 0px; }
 }
