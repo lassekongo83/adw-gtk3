@@ -3054,8 +3054,6 @@ window.background.chromium textview.view { background-color: #1e1e1e; }
 
 #MozillaGtkWidget.background button { font-weight: initial; }
 
-#MozillaGtkWidget.background scrollbar slider { background-color: #515151; }
-
 #MozillaGtkWidget.background { background-color: #303030; }
 
 #MozillaGtkWidget > widget border { border-color: #454545; }
