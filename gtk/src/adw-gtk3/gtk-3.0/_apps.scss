@@ -643,6 +643,10 @@ window.background.chromium {
 // Firefox
 #MozillaGtkWidget.background {
   button { font-weight: initial; }
+
+  scrollbar slider {
+    background-color: if($variant == 'light', darken($scrollbar_slider_color, 20%), $scrollbar_slider_color);
+  }
 }
 @if $variant == 'dark' {
   #MozillaGtkWidget {
