@@ -86,6 +86,8 @@ $backdrop_linked_border: if($variant == 'light', $backdrop_borders_color, darken
   &:hover { @include button(hover, $suggested_bg_color, white); }
   &:active, &:checked { @include button(active, transparentize($suggested_bg_color, 0.5), white); }
   &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($suggested_bg_color, 0.5), white); }
+  &:disabled { @include button(insensitive, $headerbar_color, $fg_color); }
+  &:backdrop:disabled { @include button(backdrop-insensitive, $bg_color, $backdrop_insensitive_color); }
 }
 
 %destructive_buttons {
@@ -93,6 +95,8 @@ $backdrop_linked_border: if($variant == 'light', $backdrop_borders_color, darken
   &:hover { @include button(normal, $destructive_color, white); }
   &:active, &:checked { @include button(active, transparentize($destructive_color, 0.5), white); }
   &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($destructive_color, 0.5), white); }
+  &:disabled { @include button(insensitive, $headerbar_color, $fg_color); }
+  &:backdrop:disabled { @include button(backdrop-insensitive, $bg_color, $backdrop_insensitive_color); }
 }
 
 // headerbar stuff
