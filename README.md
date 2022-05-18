@@ -39,7 +39,7 @@ See [CONTRIBUTING.md](https://github.com/lassekongo83/adw-gtk3/blob/main/CONTRIB
 ## How to uninstall the theme(s)
 To be safe from any crashes or weirdness, change the theme to another one before running the command(s) below.
 
-For a global install: `sudo rm -r /usr/share/themes/adw-gtk3*`
-For a local install: `rm -r ~/.local/share/themes/adw-gtk3*`
+- For a global install: `sudo rm -r /usr/share/themes/adw-gtk3*`
+- For a local install: `rm -r ~/.local/share/themes/adw-gtk3*`
 
 Flatpak: `flatpak uninstall org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark`
