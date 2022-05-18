@@ -34,7 +34,7 @@ Thanks to [@dusansimic](https://github.com/dusansimic) (Flatpak, AUR), [@kuroeha
 ### Installation from source
 This will install the latest version from the main branch. Use this install method if you want to contribute.
 
-See [CONTRIBUTING.md](https://github.com/lassekongo83/adw-gtk3/CONTRIBUTING.md) for the instructions.
+See [CONTRIBUTING.md](https://github.com/lassekongo83/adw-gtk3/blob/main/CONTRIBUTING.md) for the instructions.
 
 ## How to uninstall the theme(s)
 To be safe from any crashes or weirdness, change the theme to another one before running the command(s) below.
