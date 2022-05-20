@@ -749,3 +749,45 @@ terminal-window notebook > header {
 //  &.remote {}
 //}
 
+
+// These need adding to ~/.config/gtk-3.0/gtk.css //
+/*
+// GNOME Console/kgx
+.terminal-window.root headerbar button:not(.titlebutton),
+.terminal-window.remote headerbar button:not(.titlebutton) {
+  min-width: 16px;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.terminal-window.root headerbar button:not(.titlebutton):hover,
+.terminal-window.remote headerbar button:not(.titlebutton):hover,
+.terminal-window.root headerbar button:not(.titlebutton):checked,
+.terminal-window.remote headerbar button:not(.titlebutton):checked,
+.terminal-window.root headerbar button.titlebutton,
+.terminal-window.remote headerbar button.titlebutton {
+  background: alpha(white, 0.12);
+}
+
+.terminal-window.root headerbar button:not(.titlebutton):active,
+.terminal-window.remote headerbar button:not(.titlebutton):active,
+.terminal-window.root headerbar button:not(.titlebutton):checked:hover,
+.terminal-window.remote headerbar button:not(.titlebutton):checked:hover,
+.terminal-window.root headerbar button.titlebutton:hover,
+.terminal-window.remote headerbar button.titlebutton:hover {
+  background: alpha(white, 0.18);
+}
+
+.terminal-window.root headerbar button.titlebutton:active,
+.terminal-window.remote headerbar button.titlebutton:active {
+  background: alpha(white, 0.3);
+}
+
+// Inkscape menus
+menubar menu   {
+   padding: 6px;
+   border-radius: 12px
+}
+
+*/
+
