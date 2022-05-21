@@ -21,7 +21,7 @@
   box-shadow: $shadows;
 }
 
-$focus_border_color: if($variant == 'light', transparentize($blue_4, 0.5), transparentize(#78aeed, 0.5));
+$focus_border_color: transparentize($accent_color, 0.5);
 
 // entries
 @function entry_focus_border($fc:$focus_border_color) {
