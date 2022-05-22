@@ -111,9 +111,7 @@ headerbar, .titlebar {
     @extend %colored_buttons;
   }
 
-  // Linked buttons
-  // borders
-  //.linked button.image-button:not(:only-child),
+  // Linked button borders
   .linked.raised button:not(:only-child),
   .linked button:not(:only-child),
   & > .stack-switcher.linked > button:not(:only-child) {
@@ -144,7 +142,6 @@ headerbar, .titlebar {
   }
 
   // Linked color fills
-  //.linked button.image-button:not(:only-child),
   .linked.raised button,
   .linked button:not(:only-child),
   & > .stack-switcher.linked > button { @extend %colored_buttons; }

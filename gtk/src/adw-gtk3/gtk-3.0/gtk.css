@@ -2886,30 +2886,6 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 
 list.tweak-categories separator.horizontal { background: transparent; margin: 2px 0; }
 
-.geary-expanded headerbar { border: none; }
-
-geary-conversation-viewer#conversation_viewer list.background.conversation-listbox.content { background-color: #fafafa; border: none; border-radius: 0; }
-
-geary-conversation-viewer#conversation_viewer list.background.conversation-listbox.content > row.activatable { border: 1px solid #dddddd; border-bottom-width: 0; }
-
-geary-conversation-viewer#conversation_viewer list.background.conversation-listbox.content > row.activatable:first-child { border-top-left-radius: 12px; border-top-right-radius: 12px; }
-
-geary-conversation-viewer#conversation_viewer list.background.conversation-listbox.content .geary-attachment-pane { border-radius: 0 0 12px 12px; }
-
-geary-conversation-viewer#conversation_viewer list.background.conversation-listbox.content .geary-attachment-pane actionbar.background { background-color: transparent; }
-
-geary-conversation-viewer#conversation_viewer list.background.conversation-listbox.content .geary-attachment-pane actionbar.background > revealer > box { border-radius: 0 0 12px 12px; }
-
-geary-conversation-viewer#conversation_viewer list.background.conversation-listbox.content geary-composer-editor > box.background { background-color: transparent; }
-
-geary-conversation-viewer#conversation_viewer list.background.conversation-listbox.content geary-composer-editor > box.background > actionbar > revealer > box { border-radius: 0 0 12px 12px; }
-
-geary-conversation-viewer#conversation_viewer searchbar > revealer > box { background-color: #ffffff; border-color: #dddddd; }
-
-.geary-message-summary button.flat { margin: 0 2px; }
-
-.counter-label { margin-top: 2px; margin-bottom: 2px; border-width: 0px; padding-left: 2px; padding-right: 2px; box-shadow: inset 0 0 10px 10px #2ec27e; }
-
 .org-gnome-Todo taskrow.activatable.new-task-row button.popup.toggle { border-radius: 0px; border: none; border-left: 1px solid #dddddd; padding-left: 10px; padding-right: 10px; -gtk-outline-radius: 0px; }
 
 .org-gnome-Todo viewport.view, .org-gnome-Todo listbox.transparent { background-color: #f2f2f2; }
@@ -3009,30 +2985,6 @@ XfdesktopIconView.view .rubberband { border-radius: 0; }
 .nemo-window toolbar.horizontal.primary-toolbar button:backdrop:disabled:active, .nemo-window toolbar.horizontal.primary-toolbar button:backdrop:disabled:checked { color: #d4d4d4; background-color: gainsboro; }
 
 #dialog-action_area3 { margin: 5px; }
-
-#ToolboxCommon > #AuxToolbox #StyleSwatch { font-size: smaller; }
-
-#ToolboxCommon > #AuxToolbox #Kludge { padding: 0; }
-
-#ToolboxCommon > #AuxToolbox spinbutton, #ToolboxCommon > #AuxToolbox entry { min-height: 32px; }
-
-#ToolboxCommon > #AuxToolbox button:not(.up):not(.down) { min-height: 24px; min-width: 16px; padding: 4px 8px; border-radius: 6px; }
-
-#ToolboxCommon > #AuxToolbox spinbutton button { border-width: 1px; }
-
-#ToolboxCommon > toolbar.vertical { margin-top: -4px; }
-
-#ToolboxCommon > toolbar.vertical button { min-height: 24px; min-width: 24px; padding: 4px; border-radius: 6px; }
-
-#CanvasTable button { min-height: 16px; min-width: 16px; padding: 0; }
-
-#Canvas_and_Dock frame > border { border: none; }
-
-#Canvas_and_Dock widget > widget > button.flat { min-height: 16px; min-width: 16px; padding: 4px; }
-
-#Canvas_and_Dock widget > widget > box.horizontal image { padding: 4px; }
-
-#Canvas_and_Dock box.horizontal > box.vertical > button.flat { min-height: 16px; min-width: 24px; padding: 8px 4px; }
 
 window.background.chromium { background-color: #fafafa; }
 
