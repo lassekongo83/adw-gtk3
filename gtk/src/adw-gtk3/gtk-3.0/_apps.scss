@@ -530,7 +530,7 @@ window.background.chromium {
   }
 }
 
-// GNOME Web
+// GNOME Web / Epiphany
 // https://github.com/lassekongo83/adw-gtk3/issues/59
 button .download_progress trough { min-height: 2px; }
 
@@ -539,6 +539,17 @@ button .download_progress trough { min-height: 2px; }
     &:not(:hover):not(:active) { @include button(undecorated); }
     &:last-child { border-left-color: transparent; }
   }
+}
+
+// Attempts to style the suggestions. The text color of the large label/.title can't be styled.
+dzlsuggestionpopover > revealer > box > elastic > scrolledwindow > viewport > list > row:selected {
+  &, &:hover { background-color: $selected_bg_color; } // FIXME: Hover not working for some reason.
+
+  .subtitle {
+    color: $selected_fg_color;
+    @extend .dim-label;
+  }
+  image { color: $selected_fg_color; }
 }
 
 // GNOME Builder
