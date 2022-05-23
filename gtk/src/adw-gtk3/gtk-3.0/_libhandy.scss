@@ -455,9 +455,15 @@ list.content {
   background-color: $card_bg_color;
   color: $card_fg_color;
   border-radius: $card_radius;
-  box-shadow: 0 0 0 1px transparentize(black, 0.97),
-              0 1px 3px 1px transparentize(black, .93),
-              0 2px 6px 2px transparentize(black, .97);
+
+  // This is one thing that can't be the same as libadwaita becuase ...
+  border: 1px solid $borders_color;
+
+  // ... these shadows aren't always possible with GTK3.
+
+  //box-shadow: 0 0 0 1px transparentize(black, 0.97),
+  //            0 1px 3px 1px transparentize(black, .93),
+  //            0 2px 6px 2px transparentize(black, .97);
 
   &:backdrop { color: $backdrop_fg_color; }
 
