@@ -3014,6 +3014,8 @@ window.background.chromium textview.view { background-color: #1e1e1e; }
 
 #MozillaGtkWidget.background button { font-weight: initial; }
 
+#MozillaGtkWidget.background menuitem check, #MozillaGtkWidget.background menuitem radio { min-height: 12px; min-width: 12px; }
+
 #MozillaGtkWidget.background { background-color: #303030; }
 
 #MozillaGtkWidget > widget border { border-color: #454545; }

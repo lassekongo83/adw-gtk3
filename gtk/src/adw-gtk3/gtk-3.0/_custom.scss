@@ -142,6 +142,7 @@ headerbar, .titlebar {
   }
 
   // Linked color fills
+  // In libadwaita the linked buttons appear on hover, so it would be better to have ".linked:hover button" instead, but sadly it is not possible.
   .linked.raised button,
   .linked button:not(:only-child),
   & > .stack-switcher.linked > button { @extend %colored_buttons; }
