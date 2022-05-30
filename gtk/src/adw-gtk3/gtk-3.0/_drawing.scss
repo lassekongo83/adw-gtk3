@@ -513,9 +513,9 @@ $focus_border_color: transparentize($accent_color, 0.5);
   box-shadow: none;              //
 }
 
-/***************************
- * Check and Radio buttons *
- ***************************/
+// ***************************
+// * Check and Radio buttons *
+// ***************************
 
  @mixin check($t, $c:$bg_color, $tc:$fg_color, $checked: false) {
   // Check/Radio drawing function

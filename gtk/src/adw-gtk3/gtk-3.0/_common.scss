@@ -53,13 +53,13 @@ $_switch_margin: if($_sizevariant=='default', 9px, 7px);
   outline-width: 1px;
   -gtk-outline-radius: $button-radius - 2;
 
-  -gtk-secondary-caret-color: $selected_bg_color
+  -gtk-secondary-caret-color: $selected_bg_color;
 }
 
 
-/***************
- * Base States *
- ***************/
+// ***************
+// * Base States *
+// ***************
 .background {
   color: $fg_color;
   background-color: $bg_color;
@@ -72,12 +72,10 @@ $_switch_margin: if($_sizevariant=='default', 9px, 7px);
   }
 }
 
-/*
-   These wildcard seems unavoidable, need to investigate.
-   Wildcards are bad and troublesome, use them with care,
-   or better, just don't.
-   Everytime a wildcard is used a kitten dies, painfully.
-*/
+// These wildcard seems unavoidable, need to investigate.
+// Wildcards are bad and troublesome, use them with care,
+// or better, just don't.
+// Everytime a wildcard is used a kitten dies, painfully.
 
 *:disabled { -gtk-icon-effect: dim; }
 
@@ -246,9 +244,9 @@ assistant {
 }
 
 
-/*********************
- * Spinner Animation *
- *********************/
+// *********************
+// * Spinner Animation *
+// *********************
 @keyframes spin {
   to { -gtk-icon-transform: rotate(1turn); }
 }
@@ -267,9 +265,9 @@ spinner {
   }
 }
 
-/**********************
- * General Typography *
- **********************/
+// **********************
+// * General Typography *
+// **********************
 
 .large-title {
    font-weight: 300;
@@ -308,9 +306,9 @@ spinner {
    font-size: 9pt;
 }
 
-/****************
- * Text Entries *
- ****************/
+// ****************
+// * Text Entries *
+// ****************
 
 %entry,
 entry {
@@ -547,9 +545,9 @@ treeview entry {
   }
 }
 
-/***********
- * Buttons *
- ***********/
+// ***********
+// * Buttons *
+// ***********
 // stuff for .needs-attention
 $_dot_color: if($variant=='light', $selected_bg_color,
                                    lighten($selected_bg_color,15%));
@@ -900,7 +898,7 @@ button {
   &.circular { // The Bloody Circul Button
     border-radius: 9999px;
     -gtk-outline-radius: 9999px;
-    padding: $_circ_btn_pad; /* circles instead of ellipses */
+    padding: $_circ_btn_pad; // circles instead of ellipses
 
     label { padding: 0; }
 
@@ -1119,7 +1117,7 @@ toolbar.inline-toolbar toolbutton {
   -gtk-icon-shadow: none;
 }
 
-/* menu buttons */
+// menu buttons
 modelbutton.flat,
 .menuitem.button.flat {
   min-height: 32px;
@@ -1171,8 +1169,8 @@ button.color {
   }
 }
 
-/* list buttons */
-/* tone down as per new designs, see issue #1473, #1748 */
+// list buttons
+// tone down as per new designs, see issue #1473, #1748
 list row button.image-button:not(.flat) {
   @extend %undecorated_button;
   border: 1px solid transparentize($borders_color, .5);
@@ -1181,9 +1179,9 @@ list row button.image-button:not(.flat) {
   &:checked { @include button(active); }
 }
 
-/*********
- * Links *
- *********/
+// *********
+// * Links *
+// *********
 
 %link,
 *:link {
@@ -1242,9 +1240,9 @@ button:visited {
 }
 
 
-/*****************
- * GtkSpinButton *
- *****************/
+// *****************
+// * GtkSpinButton *
+// *****************
 spinbutton {
   &:not(.vertical) {
     // in this horizontal configuration, the whole spinbutton
@@ -1449,9 +1447,9 @@ spinbutton {
 }
 
 
-/**************
- * ComboBoxes *
- **************/
+// **************
+// * ComboBoxes *
+// **************
 combobox {
   arrow {
     -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
@@ -1488,9 +1486,9 @@ combobox {
 .linked.vertical > combobox:only-child > box > button.combo { @extend %linked_vertical_only_child; }
 
 
-/************
- * Toolbars *
- ************/
+// ************
+// * Toolbars *
+// ************
 %toolbar {
   -GtkWidget-window-dragging: true;
   padding: 4px;
@@ -1580,9 +1578,9 @@ searchbar > revealer > box {
 }
 
 
-/***************
- * Header bars *
- ***************/
+// ***************
+// * Header bars *
+// ***************
 %titlebar,
 headerbar {
   padding: 0 6px;
@@ -1617,7 +1615,7 @@ headerbar {
     @extend .dim-label;
   }
 
-  /* Darken switchbuttons for headerbars. issue #1588 */
+  // Darken switchbuttons for headerbars. issue #1588
   stackswitcher button:checked,
   button.toggle:checked {
 
@@ -1923,14 +1921,14 @@ window.devel {
 
     &:backdrop {
       background: $bg_color cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
-                  image($bg_color); /* background-color would flash */
+                  image($bg_color); // background-color would flash
     }
   }
 }
 
-/************
- * Pathbars *
- ************/
+// ************
+// * Pathbars *
+// ************
 
 // GtkPathBar does not work with just .linked, so we must override that. But we
 // can’t simply remove .linked from the widget as that might break other themes.
@@ -1967,9 +1965,9 @@ filechooser .path-bar.linked > button {
 }
 
 
-/**************
- * Tree Views *
- **************/
+// **************
+// * Tree Views *
+// **************
 
 $_treeview_borders_color: if($variant=='light',mix($borders_color, $base_color,80%),mix($fg_color, $base_color, 20%));
 
@@ -2184,9 +2182,9 @@ treeview.view {
 
 
 
-/*********
- * Menus *
- *********/
+// *********
+// * Menus *
+// *********
 menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
@@ -2339,9 +2337,9 @@ menuitem {
   }
 }
 
-/***************
- * Popovers   *
- ***************/
+// ************
+// * Popovers *
+// ************
 
 popover.background {
   padding: 2px;
@@ -2394,9 +2392,9 @@ popover.background {
   list separator { margin: 0px; }
 }
 
-/*************
- * Notebooks *
- *************/
+// *************
+// * Notebooks *
+// *************
 notebook {
   > header {
     padding: 0px;
@@ -2748,9 +2746,9 @@ notebook {
 }
 
 
-/**************
- * Scrollbars *
- **************/
+// **************
+// * Scrollbars *
+// **************
 scrollbar {
   $_slider_min_length: 40px;
   $_slider_width: 8px;
@@ -2931,9 +2929,9 @@ treeview ~ scrollbar.vertical {
   margin-top: -1px;
 }
 
-/**********
- * Switch *
- **********/
+// **********
+// * Switch *
+// **********
 switch {
   outline-offset: -4px;
 
@@ -2995,7 +2993,7 @@ switch {
     -gtk-outline-radius: 20px;
   }
   
-  image { color: transparent; } /* only show i / o for the accessible theme */
+  image { color: transparent; } // only show i / o for the accessible theme
 
   &:hover slider {
     background-color: $slider_hover_color;
@@ -3035,9 +3033,9 @@ switch {
 }
 
 
-/*************************
- * Check and Radio items *
- *************************/
+// *************************
+// * Check and Radio items *
+// *************************
 // draw regular check and radio items using our PNG assets
 // all assets are rendered from assets.svg. never add pngs directly
 
@@ -3237,9 +3235,9 @@ treeview.view radio {
 treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a workaround
 
 
-/************
- * GtkScale *
- ************/
+// ************
+// * GtkScale *
+// ************
 %scale_trough {
   border-radius: $button_radius;
   background-color: $trough_color;
@@ -3718,9 +3716,9 @@ scale {
 }
 
 
-/*****************
- * Progress bars *
- *****************/
+// *****************
+// * Progress bars *
+// *****************
 progressbar {
   // sizing
   &.horizontal {
@@ -3797,9 +3795,9 @@ progressbar {
 }
 
 
-/*************
- * Level Bar *
- *************/
+// *************
+// * Level Bar *
+// *************
 levelbar {
   &.horizontal {
     block {
@@ -3873,9 +3871,9 @@ levelbar {
 }
 
 
-/****************
- * Print dialog *
-*****************/
+// ****************
+// * Print dialog *
+// *****************
 printdialog {
   paper {
     color: $fg_color;
@@ -3893,9 +3891,9 @@ printdialog {
 }
 
 
-/**********
- * Frames *
- **********/
+// **********
+// * Frames *
+// **********
 frame > border,
 .frame {
   box-shadow: none;
@@ -3975,9 +3973,9 @@ separator {
 }
 
 
-/*********
- * Lists *
- *********/
+// *********
+// * Lists *
+// *********
 list {
   color: $text_color;
   background-color: $base_color;
@@ -4028,9 +4026,9 @@ row {
   &:selected { background-color: $view_selected_color; }
 }
 
-/*********************
- * App Notifications *
- *********************/
+// *********************
+// * App Notifications *
+// *********************
 .app-notification,
 .app-notification.frame {
   @extend %osd;
@@ -4054,9 +4052,9 @@ row {
 }
 
 
-/*************
- * Expanders *
- *************/
+// *************
+// * Expanders *
+// *************
 expander {
   title > arrow {
     min-width: 16px;
@@ -4073,9 +4071,9 @@ expander {
 }
 
 
-/************
- * Calendar *
- ***********/
+// ************
+// * Calendar *
+// ************
 calendar {
   color: $text_color;
   border: 1px solid $borders_color;
@@ -4119,9 +4117,9 @@ calendar {
 }
 
 
-/***********
- * Dialogs *
- ***********/
+// ***********
+// * Dialogs *
+// ***********
 messagedialog { // Message Dialog styling
   .titlebar {
     min-height: 20px;
@@ -4196,9 +4194,9 @@ filechooserbutton:drop(active) {
 }
 
 
-/***********
- * Sidebar *
- ***********/
+// ***********
+// * Sidebar *
+// ***********
 .sidebar {
   border-style: none;
   background-color: $sidebar_bg_color;
@@ -4280,9 +4278,9 @@ separator.sidebar {
 }
 
 
-/****************
- * File chooser *
- ****************/
+// ****************
+// * File chooser *
+// ****************
 $_placesidebar_icons_opacity: 0.7;
 
 row image.sidebar-icon { opacity: $_placesidebar_icons_opacity; } // dim the sidebar icons
@@ -4386,9 +4384,9 @@ placesview {
 }
 
 
-/*********
- * Paned *
- *********/
+// *********
+// * Paned *
+// *********
 paned {
   > separator {
     min-width: 1px;
@@ -4457,9 +4455,9 @@ paned {
 }
 
 
-/**************
- * GtkInfoBar *
- **************/
+// **************
+// * GtkInfoBar *
+// **************
 infobar {
   border-style: none;
 
@@ -4505,9 +4503,9 @@ infobar {
 }
 
 
-/************
- * Tooltips *
- ************/
+// ************
+// * Tooltips *
+// ************
 tooltip {
   &.background {
     // background-color needs to be set this way otherwise it gets drawn twice
@@ -4519,7 +4517,7 @@ tooltip {
                                               // very dark backgrounds
   }
 
-  padding: 4px; /* not working */
+  padding: 4px; // not working
   border-radius: 5px;
   box-shadow: none; // otherwise it gets inherited by windowframe.csd
   text-shadow: 0 1px black;
@@ -4535,9 +4533,9 @@ tooltip {
 }
 
 
-/*****************
- * Color Chooser *
- *****************/
+// *****************
+// * Color Chooser *
+// *****************
 colorswatch {
   // This widget is made of two boxes one on top of the other, the lower box is colorswatch {} the other one
   // is colorswatch overlay {}, colorswatch has the programmatically set background, so most of the style is
@@ -4683,9 +4681,9 @@ colorswatch {
 // colorscale popup
 colorchooser .popover.osd { border-radius: 5px; }
 
-/********
- * Misc *
- ********/
+// ********
+// * Misc *
+// ********
 //content view (grid/list)
 .content-view {
   background-color: darken($bg_color,7%);
@@ -4717,9 +4715,9 @@ colorchooser .popover.osd { border-radius: 5px; }
 }
 
 
-/**********************
- * Window Decorations *
- *********************/
+// **********************
+// * Window Decorations *
+// **********************
 decoration {
   border-radius: $window_radius $window_radius 0 0;
   // lamefun trick to get rounded borders regardless of CSD use
@@ -4873,9 +4871,9 @@ headerbar.selection-mode button.titlebutton,
 .monospace { font-family: monospace; }
 
 
-/**********************
- * Touch Copy & Paste *
- *********************/
+// **********************
+// * Touch Copy & Paste *
+// **********************
 //touch selection handlebars for the Popover.osd above
 cursor-handle {
   background-color: transparent;
@@ -4948,10 +4946,10 @@ stackswitcher button.text-button.circular { // FIXME aggregate with buttons
   padding: 0;
 }
 
-/*************
- * App Icons *
- *************/
-/* Outline for low res icons */
+// *************
+// * App Icons *
+// *************
+// Outline for low res icons
 .lowres-icon {
     -gtk-icon-shadow: 0 -1px rgba(0,0,0,0.05),
       1px 0 rgba(0,0,0,0.1),
@@ -4959,7 +4957,7 @@ stackswitcher button.text-button.circular { // FIXME aggregate with buttons
       -1px 0 rgba(0,0,0,0.1);
 }
 
-/* Dropshadow for large icons */
+// Dropshadow for large icons
 .icon-dropshadow {
   -gtk-icon-shadow: 0 1px 12px rgba(0,0,0,0.05),
       0 -1px rgba(0,0,0,0.05),
@@ -4968,9 +4966,9 @@ stackswitcher button.text-button.circular { // FIXME aggregate with buttons
       -1px 0 rgba(0,0,0,0.1);
 }
 
-/*********
- * Emoji *
- ********/
+// *********
+// * Emoji *
+// *********
 
 popover.emoji-picker { 
   padding-left: 0;
@@ -4990,7 +4988,7 @@ button.emoji-section {
   min-width: 32px;
   min-height: 28px;
 
-  /* reset props inherited from the button style */
+  // reset props inherited from the button style
   background: none;
   box-shadow: none;
   text-shadow: none;
