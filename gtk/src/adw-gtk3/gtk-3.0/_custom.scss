@@ -227,6 +227,7 @@ headerbar, .titlebar {
     border-left-color: $linked_border;
     &:backdrop { border-left-color: $backdrop_linked_border; }
   }
+  .linked entry ~ .image-button { @extend %colored_buttons; }
 
   // disabled switches
   switch:disabled {

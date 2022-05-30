@@ -105,6 +105,9 @@
     border-left-color: $linked_border;
   }
 
+  // Location entry button
+  .linked entry ~ .image-button:not(:hover):not(:checked):not(:active):not(.model) { @extend %colored_buttons; }
+
   .view .dim-label { color: transparentize($fg_color, 0.45); }
 
   // Add a border around thumbnails
