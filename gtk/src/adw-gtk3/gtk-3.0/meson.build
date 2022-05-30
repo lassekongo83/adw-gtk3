@@ -28,6 +28,7 @@ gtk3_scss_dependencies = [
   '_common.scss',
   '_drawing.scss',
   '_libhandy.scss',
+  '_granite.scss',
   '_apps.scss',
 ]
 

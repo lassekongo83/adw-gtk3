@@ -2696,6 +2696,158 @@ tabbar .tab-indicator:not(.clickable) { background: none; box-shadow: none; bord
 
 .windowhandle, .windowhandle * { -GtkWidget-window-dragging: true; }
 
+window.rounded, window.rounded actionbar { border-radius: 0 0 12px 12px; }
+
+window.rounded decoration, window.rounded actionbar decoration { border-radius: 12px; }
+
+window.flat headerbar { box-shadow: none; }
+
+.accent { color: #3584e4; }
+
+.h1 { font-size: 20pt; font-weight: 300; }
+
+.h2 { font-size: 16pt; font-weight: 200; }
+
+.h3 { font-size: 11pt; }
+
+.h4, .category-label { color: rgba(0, 0, 0, 0.8); font-weight: 700; }
+
+.h4 { padding-top: 0.5em; padding-bottom: 0.5em; }
+
+list .h4 { padding-left: 0.5em; }
+
+.storage-bar .trough { padding: 8px 6px; border: none; border-radius: 6px 6px 0 0; background-image: none; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 1px 3px 1px rgba(0, 0, 0, 0.07), 0 2px 6px 2px rgba(0, 0, 0, 0.03); }
+
+.storage-bar .fill-block { padding: 8px 6px; border: 1px solid rgba(0, 0, 0, 0.35); border-top-width: 0; border-right-width: 0; border-bottom-width: 1px; border-left-width: 0; border-radius: 0; border-bottom-color: #848484; background-color: #d9d9d9; }
+
+.storage-bar .fill-block:first-child { border-radius: 6px 0 0; }
+
+.storage-bar .fill-block:last-child { border-radius: 0 6px 0 0; }
+
+.storage-bar .fill-block:only-child { border-radius: 6px 6px 0 0; }
+
+.storage-bar .fill-block image { -gtk-icon-style: symbolic; }
+
+.storage-bar .empty-block { border-bottom-width: 1px; border-bottom-color: #777777; background-color: #f2f2f2; }
+
+.storage-bar .empty-block image { color: black; }
+
+.storage-bar .app { border-bottom-width: 1px; border-bottom-color: #9e2ea0; background-color: #dc8add; }
+
+.storage-bar .app image { color: white; }
+
+.storage-bar .audio { border-bottom-width: 1px; border-bottom-color: #e17000; background-color: #ffa348; }
+
+.storage-bar .audio image { color: black; }
+
+.storage-bar .files { border-bottom-width: 1px; border-bottom-color: #3f8ae5; background-color: #99c1f1; }
+
+.storage-bar .files image { color: black; }
+
+.storage-bar .photo { border-bottom-width: 1px; border-bottom-color: #178a40; background-color: #57e389; }
+
+.storage-bar .photo image { color: black; }
+
+.storage-bar .video { border-bottom-width: 1px; border-bottom-color: #d61f0b; background-color: #f66151; }
+
+.storage-bar .video image { color: white; }
+
+.storage-bar .legend { padding: 8px; border-radius: 50%; }
+
+.storage-bar .legend image { color: black; }
+
+.storage-bar .disk-bar { padding: 0; border-radius: 6px; background-color: #cdab8f; }
+
+.storage-bar .ext2, .storage-bar .ext3, .storage-bar .ext4, .storage-bar .fat16, .storage-bar .fat32, .storage-bar .btrfs, .storage-bar .xfs, .storage-bar .ntfs, .storage-bar .luks, .storage-bar .lvm, .storage-bar .none, .storage-bar .swap, .storage-bar .unused { border: none; box-shadow: inset 0 -2px rgba(94, 92, 100, 0.5), inset 1px 0 rgba(94, 92, 100, 0.5), inset -1px 0 rgba(94, 92, 100, 0.5); }
+
+.storage-bar .swap { background-color: #a51d2d; }
+
+.storage-bar .swap image { color: white; }
+
+.storage-bar .ext4 { background-color: #57e389; }
+
+.storage-bar .ext4 image { color: black; }
+
+.storage-bar .ext3 { background-color: #26a269; }
+
+.storage-bar .ext3 image { color: white; }
+
+.storage-bar .ext2 { background-color: #8ff0a4; }
+
+.storage-bar .ext2 image { color: black; }
+
+.storage-bar .fat16, .storage-bar .fat32 { background-color: #f8e45c; }
+
+.storage-bar .fat16 image, .storage-bar .fat32 image { color: black; }
+
+.storage-bar .btrfs { background-color: #1a5fb4; }
+
+.storage-bar .btrfs image { color: white; }
+
+.storage-bar .xfs { background-color: #99c1f1; }
+
+.storage-bar .xfs image { color: black; }
+
+.storage-bar .ntfs { background-color: #ffa348; }
+
+.storage-bar .ntfs image { color: black; }
+
+.storage-bar .luks { background-color: #c061cb; }
+
+.storage-bar .luks image { color: black; }
+
+.storage-bar .lvm { background-color: #dc8add; }
+
+.storage-bar .lvm image { color: black; }
+
+.storage-bar .none { background-color: #99c1f1; }
+
+.storage-bar .none image { color: black; }
+
+.storage-bar .unused { background-color: #cdab8f; }
+
+.storage-bar .unused image { color: black; }
+
+.storage-bar .legend { box-shadow: none; }
+
+GraniteWidgetsPopOver { -GraniteWidgetsPopOver-arrow-width: 21; -GraniteWidgetsPopOver-arrow-height: 10; -GraniteWidgetsPopOver-border-radius: 8px; -GraniteWidgetsPopOver-border-width: 0; -GraniteWidgetsPopOver-shadow-size: 12; border: 1px solid #ffffff; background: #ffffff; color: rgba(0, 0, 0, 0.8); }
+
+GraniteWidgetsPopOver .button { background-image: none; background: none; border: none; }
+
+GraniteWidgetsPopOver .button:active, GraniteWidgetsPopOver .button:active:hover { color: #3584e4; }
+
+GraniteWidgetsPopOver > .frame { border: none; }
+
+GraniteWidgetsPopOver .sidebar.view, GraniteWidgetsPopOver iconview.sidebar { border: none; background: none; }
+
+GraniteWidgetsStaticNotebook .frame { border: none; }
+
+.popover_bg { background-color: #ffffff; background-image: none; border: 1px solid #ffffff; color: rgba(0, 0, 0, 0.8); }
+
+.deck { background-color: #ffffff; }
+
+.card { transition: all 300ms cubic-bezier(0.25, 0.8, 0.25, 1); border: none; border-radius: 6px; background-color: #ffffff; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 1px 3px 1px rgba(0, 0, 0, 0.07), 0 2px 6px 2px rgba(0, 0, 0, 0.03); }
+
+.card.collapsed { background-color: #fafafa; }
+
+.source-list { -GtkTreeView-horizontal-separator: 1px; -GtkTreeView-vertical-separator: 6px; background-color: #fafafa; border: solid #dddddd; color: rgba(0, 0, 0, 0.8); border-right-width: 1px; }
+
+.source-list .category-expander { color: transparent; }
+
+.source-list .badge { background-image: none; background-color: rgba(0, 0, 0, 0.4); color: #fafafa; border-radius: 10px; padding: 0 6px; margin: 0 3px; border-width: 0; }
+
+.source-list .badge:selected:backdrop, .source-list .badge:selected:hover:backdrop { background-color: rgba(0, 0, 0, 0.2); color: #ededed; }
+
+.source-list row, .source-list .list-row { border: none; padding: 0; }
+
+.source-list row > GtkLabel, .source-list row > label, .source-list .list-row > GtkLabel, .source-list .list-row > label { padding-left: 6px; padding-right: 6px; }
+
+.mode-switch, .mode-switch:checked { background-color: #3584e4; background-image: none; }
+
+.avatar { border-radius: 999px; box-shadow: none; }
+
+.overlay-bar { padding: 4px; }
+
 .nautilus-window headerbar .path-bar-box, .nautilus-window .titlebar .path-bar-box { border-radius: 6px; border: none; padding-right: 6px; color: rgba(0, 0, 0, 0.8); outline-color: rgba(0, 0, 0, 0.1); background-color: #d6d6d6; }
 
 .nautilus-window headerbar .path-bar-box:backdrop, .nautilus-window .titlebar .path-bar-box:backdrop { color: rgba(173, 173, 173, 0.92); background-color: #f0f0f0; text-shadow: none; -gtk-icon-shadow: none; }
