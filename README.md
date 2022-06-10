@@ -17,6 +17,16 @@ You can then enable adw-gtk3 in the application `gnome-tweaks`.
 
 **If you use the dark theme** you'll also need to enable the dark appearance in `gnome-control-center`.
 
+Alternatively you can set the theme in the terminal:
+```bash
+# adw-gtk3 light
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3' && gsettings set org.gnome.desktop.interface color-scheme 'default'
+# adw-gtk3 dark
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+# Revert to GNOME's default theme
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita' && gsettings set org.gnome.desktop.interface color-scheme 'default'
+```
+
 ### Other install options
 These packages are maintained by contributors. It is recommended to install the flatpak versions if you use flatpak applications and the snapcraft version if you use snap applications.
 
