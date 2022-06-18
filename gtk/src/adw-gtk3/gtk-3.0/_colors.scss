@@ -6,16 +6,21 @@ $text_color: if($variant == 'light', black, white);
 $bg_color: if($variant == 'light', #fafafa, #242424);
 $fg_color: if($variant == 'light', transparentize(black, .2), white);
 
+// Some named colors from _defaults.scss (not all are used... yet)
+$accent_bg_color: gtkcolor(accent_bg_color);
+$accent_fg_color: gtkcolor(accent_fg_color);
+$accent_color: gtkcolor(accent_color);
+
 $selected_fg_color: #ffffff;
-$selected_bg_color: if($variant == 'light', $blue_3, $blue_3);
-$selected_borders_color: if($variant== 'light', darken($selected_bg_color, 15%), darken($selected_bg_color, 30%));
-$borders_color: if($variant == 'light', darken($bg_color, 11.3%), lighten($bg_color, 13%)); //#dddddd, #454545
+$selected_bg_color: $accent_bg_color; //if($variant == 'light', $blue_3, $blue_3);
+$selected_borders_color: if($variant== 'light', gtkmix(black, $selected_bg_color, 15%), gtkmix(black, $selected_bg_color, 30%));
+$borders_color: if($variant == 'light', gtkshade($bg_color, 0.884), gtkshade($bg_color, 1.92));; //#dddddd, #454545
 $alt_borders_color: if($variant == 'light', darken($bg_color, 24%), darken($bg_color, 18%));
 $borders_edge: if($variant == 'light', transparentize(white, 0.5), transparentize($fg_color, 0.93));
-$link_color: if($variant == 'light', darken($selected_bg_color, 10%), lighten($selected_bg_color, 20%));
-$link_visited_color: if($variant == 'light', darken($selected_bg_color, 20%), lighten($selected_bg_color, 10%));
+$link_color: if($variant == 'light', gtkmix(black, $selected_bg_color, 10%), gtkmix(white, $selected_bg_color, 20%));
+$link_visited_color: if($variant == 'light', gtkmix(black, $selected_bg_color, 20%), gtkmix(white, $selected_bg_color, 10%));
 $top_hilight: $borders_edge;
-$dark_fill: mix($borders_color, $bg_color, 50%);
+$dark_fill: gtkmix($borders_color, $bg_color, 50%);
 $headerbar_color: if($variant == 'light', darken($bg_color, 6%), lighten($bg_color, 4.7%)); //if($variant == 'light', #ebebeb, #303030);
 $menu_color: if($variant == 'light', $base_color, lighten($bg_color, 8%));
 $popover_bg_color: $menu_color;
@@ -58,8 +63,8 @@ $backdrop_bg_color: $bg_color;
 $backdrop_fg_color: mix($fg_color, $backdrop_bg_color, 50%);
 $backdrop_insensitive_color: if($variant == 'light', darken($backdrop_bg_color, 15%), lighten($backdrop_bg_color, 15%));
 $backdrop_selected_fg_color: if($variant == 'light', $backdrop_base_color, $backdrop_text_color);
-$backdrop_borders_color: if($variant == 'light', mix($borders_color, $bg_color, 67%), mix($borders_color, $bg_color, 88%));
-$backdrop_dark_fill: mix($backdrop_borders_color, $backdrop_bg_color, 70%);
+$backdrop_borders_color: if($variant == 'light', gtkmix($borders_color, $bg_color, 67%), gtkmix($borders_color, $bg_color, 88%));
+$backdrop_dark_fill: gtkmix($backdrop_borders_color, $backdrop_bg_color, 70%);
 $backdrop_sidebar_bg_color: $backdrop_base_color;
 
 $backdrop_scrollbar_bg_color: darken($backdrop_bg_color, 3%);
@@ -74,7 +79,7 @@ $progress_bg_color: $selected_bg_color;
 $progress_border_color: $selected_borders_color;
 $checkradio_bg_color: $selected_bg_color;
 $checkradio_fg_color: $selected_fg_color;
-$checkradio_borders_color: if($variant == 'light', darken($checkradio_bg_color,20%), darken($checkradio_bg_color,40%));
+$checkradio_borders_color: if($variant == 'light', gtkmix(black,$checkradio_bg_color,20%), gtkmix(black,$checkradio_bg_color,40%));
 
 // titlebuttons
 $titlebutton_normal: if($variant == 'light', darken($headerbar_color, 7%), lighten($headerbar_color, 8%));
@@ -84,6 +89,8 @@ $titlebutton_backdrop: if($variant == 'light', darken($bg_color, 4%), lighten($b
 $titlebutton_backdrop_hover: if($variant == 'light', darken($bg_color, 5.7%), lighten($bg_color, 6.3%));
 
 // Other colors from libadwaita
+$border_color: gtkalpha(currentColor, .15); // not the same as borderS-color
+
 $view_hover_color: if($variant == 'light', darken($base_color, 7%), lighten($base_color, 7%)); //gtkalpha(currentColor, .07);
 $view_active_color: if($variant == 'light', darken($base_color, 16%), lighten($base_color, 16%)); //gtkalpha(currentColor, .16);
 $view_selected_color: if($variant == 'light', darken($base_color, 10%), lighten($base_color, 10%)); //gtkalpha(currentColor, .1);
@@ -110,6 +117,3 @@ $card_fg_color: if($variant == 'light', $fg_color, white);
 $notebook_color: $base_color; //if($variant == 'light', $base_color, lighten($bg_color, 4.7%));
 $shade_color: if($variant == 'light', darken($bg_color, 9.3%), lighten($bg_color, 0.7%));
 $active_tab_color: if($variant == 'light', lighten($shade_color, 3.3%), lighten($bg_color, 4.7%));
-
-// FIXME: Remove once color rework is done
-$accent_color: if($variant == 'dark', #78aeed, $blue_4);

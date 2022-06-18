@@ -68,7 +68,7 @@ list .h4 {
     border-bottom-width: 1px;
     border-left-width: 0;
     border-radius: 0;
-    border-bottom-color: darken($borders_color, 35%);
+    border-bottom-color: gtkshade($borders_color, 0.75);
     background-color: darken($base_color, 15%);
 
     &:first-child { border-radius: $button_radius 0 0; }
@@ -80,7 +80,7 @@ list .h4 {
 
   .empty-block {
     border-bottom-width: 1px;
-    border-bottom-color: darken($borders_color, 40%);
+    border-bottom-color: gtkshade($borders_color, 0.6);
     background-color: darken($base_color, 5%);
 
     image { color: black; }
@@ -88,7 +88,7 @@ list .h4 {
 
   .app {
     border-bottom-width: 1px;
-    border-bottom-color: darken($purple_1, 30%);
+    border-bottom-color: gtkshade($purple_1, 0.7);
     background-color: $purple_1;
 
     image { color: white; }
@@ -96,7 +96,7 @@ list .h4 {
 
   .audio {
     border-bottom-width: 1px;
-    border-bottom-color: darken($orange_2, 20%);
+    border-bottom-color: gtkshade($orange_2, 0.8);
     background-color: $orange_2;
 
     image { color: black; }
@@ -104,7 +104,7 @@ list .h4 {
 
   .files {
     border-bottom-width: 1px;
-    border-bottom-color: darken($blue_1, 20%);
+    border-bottom-color: gtkshade($blue_1, 0.8);
     background-color: $blue_1;
 
     image { color: black; }
@@ -112,7 +112,7 @@ list .h4 {
 
   .photo {
     border-bottom-width: 1px;
-    border-bottom-color: darken($green_2, 30%);
+    border-bottom-color: gtkshade($green_2, 0.7);
     background-color: $green_2;
 
     image { color: black; }
@@ -120,7 +120,7 @@ list .h4 {
 
   .video {
     border-bottom-width: 1px;
-    border-bottom-color: darken($red_1, 20%);
+    border-bottom-color: gtkshade($red_1, 0.8);
     background-color: $red_1;
 
     image { color: white; }
@@ -466,9 +466,9 @@ button.back-button.text-button {
 
 // Checkerboard
 .checkerboard {
-  box-shadow: 0px 1px 2px 0px transparentize($borders_color, 0.5),
-              0px 0px 0px 1px transparentize($borders_color, 0.5),
-              0px 2px 0px 0px transparentize($borders_color, 0.5);
+  box-shadow: 0px 1px 2px 0px gtkalpha($borders_color, 0.5),
+              0px 0px 0px 1px gtkalpha($borders_color, 0.5),
+              0px 2px 0px 0px gtkalpha($borders_color, 0.5);
   border-radius: 2px;
   background: url('assets/Checkerboard.png') repeat;
 }

@@ -1,0 +1,60 @@
+// GTK NAMED COLORS
+// ----------------
+// use responsibly!
+
+// Sass thinks we're using the colors in the variables as strings and may shoot
+// warning, it's innocuous and can be defeated by using #{$var}.
+
+// These are the colors apps are can override. We define the defaults here and
+// define variables for them in _colors.scss
+
+// The main accent color and the matching text value
+@define-color accent_bg_color @blue_3;
+@define-color accent_fg_color white;
+@define-color accent_color #{if($variant == 'dark', #78aeed, "@blue_4")};
+
+// destructive-action buttons
+@define-color destructive_bg_color #{if($variant == 'dark', "@red_4", "@red_3")};
+@define-color destructive_fg_color white;
+@define-color destructive_color #{if($variant == 'dark', #ff7b63, "@red_4")};
+
+// Levelbars, entries, labels and infobars. These don't need text colors
+@define-color success_bg_color #{if($variant == 'dark', "@green_5", "@green_4")};
+@define-color success_fg_color white;
+@define-color success_color #{if($variant == 'dark', "@green_1", "@green_5")};
+
+@define-color warning_bg_color #{if($variant == 'dark', #cd9309, "@yellow_5")};
+@define-color warning_fg_color #{transparentize(black, .2)};
+@define-color warning_color #{if($variant == 'dark', "@yellow_2", #ae7b03)};
+
+@define-color error_bg_color #{if($variant == 'dark', "@red_4", "@red_3")};
+@define-color error_fg_color white;
+@define-color error_color #{if($variant == 'dark', #ff7b63, "@red_4")};
+
+// Window
+@define-color window_bg_color #{if($variant == 'light', #fafafa, #242424)};
+@define-color window_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
+
+// Views - e.g. text view or tree view
+@define-color view_bg_color #{if($variant == 'light', #ffffff, #1e1e1e)};
+@define-color view_fg_color #{if($variant == 'light', #000000, #ffffff)};
+
+// Header bar, search bar, tab bar
+@define-color headerbar_bg_color #{if($variant == 'light', #ebebeb, #303030)};
+@define-color headerbar_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
+@define-color headerbar_border_color #{if($variant == 'light', transparentize(black, .2), white)};
+@define-color headerbar_backdrop_color @window_bg_color;
+@define-color headerbar_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
+
+// Cards, boxed lists
+@define-color card_bg_color #{if($variant == 'light', #ffffff, transparentize(white, .92))};
+@define-color card_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
+@define-color card_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
+
+// Popovers
+@define-color popover_bg_color #{if($variant == 'light', #ffffff, #383838)};
+@define-color popover_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
+
+// Miscellaneous
+@define-color shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
+@define-color scrollbar_outline_color #{if($variant == 'light', white, transparentize(black, .5))};

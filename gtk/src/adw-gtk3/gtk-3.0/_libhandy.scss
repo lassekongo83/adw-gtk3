@@ -492,7 +492,7 @@ list.content {
     }
 
     &:not(:last-child) {
-      border-bottom: 1px solid if($variant == 'light', lighten($borders_color, 7%), lighten($borders_color, 3.7%));
+      border-bottom: 1px solid $border_color;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
@@ -599,9 +599,9 @@ row {
 
 @mixin need-attention-gradient($dir) {
   background: linear-gradient(to #{$dir},
-                              transparentize($selected_bg_color, .3),
-                              transparentize($selected_bg_color, .5) 1px,
-                              transparentize($selected_bg_color, 1) 20px);
+                              gtkalpha($selected_bg_color, .7),
+                              gtkalpha($selected_bg_color, .5) 1px,
+                              gtkalpha($selected_bg_color, 0) 20px);
 }
 
 tabbar {
@@ -746,7 +746,7 @@ tabbar {
     min-height: 26px;
     background-color: $active_tab_color;
 
-    $_wm_border: if($variant=='light', transparentize(black, 0.77), transparentize($borders_color, 0.1));
+    $_wm_border: if($variant=='light', transparentize(black, 0.77), gtkalpha($borders_color, 0.9));
 
     box-shadow: 0 3px 9px 1px transparentize(black, 0.75),
                 0 0 0 1px $_wm_border, //doing borders with box-shadow
@@ -765,8 +765,8 @@ tabbar,
       background-image:
         radial-gradient(ellipse at bottom,
                         transparentize(white, .2),
-                        transparentize($selected_bg_color, .8) 15%,
-                        transparentize($selected_bg_color, 1) 15%);
+                        gtkalpha($selected_bg_color, .2) 15%,
+                        gtkalpha($selected_bg_color, 0) 15%);
     }
 
     .tab-close-button,

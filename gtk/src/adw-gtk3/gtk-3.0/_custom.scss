@@ -1,9 +1,5 @@
 // Custom added styles
 
-$linked_border: if($variant == 'light', darken($borders_color, 6.7%), lighten($borders_color, 5%));
-$linked_border_checked: if($variant == 'light', darken($linked_border, 17.7%), lighten($linked_border, 14.7%));
-$backdrop_linked_border: if($variant == 'light', $backdrop_borders_color, darken($backdrop_borders_color, 5%));
-
 // Trying to mimic the headerbar button colors from the libadwaita theme when used in gtk4-widget-factory
 %colored_buttons {
   @if $variant == 'light' { @include button(normal, lighten($headerbar_color, 1%), $fg_color); }
@@ -84,8 +80,8 @@ $backdrop_linked_border: if($variant == 'light', $backdrop_borders_color, darken
 %suggested_buttons {
   @include button(normal, $suggested_bg_color, white);
   &:hover { @include button(hover, $suggested_bg_color, white); }
-  &:active, &:checked { @include button(active, transparentize($suggested_bg_color, 0.5), white); }
-  &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($suggested_bg_color, 0.5), white); }
+  &:active, &:checked { @include button(active, gtkalpha($suggested_bg_color, 0.5), white); }
+  &:backdrop, &:backdrop:hover { @include button(backdrop, gtkalpha($suggested_bg_color, 0.5), white); }
   &:disabled { @include button(insensitive, $headerbar_color, $fg_color); }
   &:backdrop:disabled { @include button(backdrop-insensitive, $bg_color, $backdrop_insensitive_color); }
 }
@@ -93,8 +89,8 @@ $backdrop_linked_border: if($variant == 'light', $backdrop_borders_color, darken
 %destructive_buttons {
   @include button(normal, $destructive_color, white);
   &:hover { @include button(normal, $destructive_color, white); }
-  &:active, &:checked { @include button(active, transparentize($destructive_color, 0.5), white); }
-  &:backdrop, &:backdrop:hover { @include button(backdrop, transparentize($destructive_color, 0.5), white); }
+  &:active, &:checked { @include button(active, gtkalpha($destructive_color, 0.5), white); }
+  &:backdrop, &:backdrop:hover { @include button(backdrop, gtkalpha($destructive_color, 0.5), white); }
   &:disabled { @include button(insensitive, $headerbar_color, $fg_color); }
   &:backdrop:disabled { @include button(backdrop-insensitive, $bg_color, $backdrop_insensitive_color); }
 }
@@ -117,16 +113,16 @@ headerbar, .titlebar {
   & > .stack-switcher.linked > button:not(:only-child) {
     @extend %linked;
     &, &:hover, &:not(:backdrop), &:not(:disabled) {
-      &:not(:first-child) { border-left-color: $linked_border; }
-      &:not(:last-child) { border-right-color: $linked_border; }
+      &:not(:first-child) { border-left-color: $border_color; }
+      &:not(:last-child) { border-right-color: $border_color; }
     }
     &:active, &:checked {
-      &:not(:first-child) { border-left-color: $linked_border_checked; }
-      &:not(:last-child) { border-right-color: $linked_border_checked; }
+      &:not(:first-child) { border-left-color: $border_color; }
+      &:not(:last-child) { border-right-color: $border_color; }
     }
     &:backdrop {
-      &:not(:first-child) { border-left-color: $backdrop_linked_border; }
-      &:not(:last-child) { border-right-color: $backdrop_linked_border; }
+      &:not(:first-child) { border-left-color: $border_color; }
+      &:not(:last-child) { border-right-color: $border_color; }
     }
     &:first-child { border-left-color: transparent; }
     &:last-child { border-right-color: transparent; }
@@ -135,7 +131,7 @@ headerbar, .titlebar {
     &:first-child:not(:backdrop),
     &:not(:last-child):not(:backdrop) {
       &:checked, &:active {
-        box-shadow: inset -1px 0 $linked_border_checked;
+        box-shadow: inset -1px 0 $border_color;
         + button { border-left-color: transparent; }
       }
     }
@@ -171,10 +167,10 @@ headerbar, .titlebar {
       &.right { margin-left: 6px; }
 
       // entry icons colors
-      color: mix($fg_color, $base_color, 80%);
+      color: gtkmix($fg_color, $base_color, 80%);
       &:hover { color: $fg_color; }
       &:active { color: $selected_bg_color; }
-      &:backdrop { color: mix($backdrop_fg_color, $backdrop_base_color, 80%); }
+      &:backdrop { color: gtkmix($backdrop_fg_color, $backdrop_base_color, 80%); }
     }
 
     selection { @extend %selected_items; }
@@ -224,14 +220,14 @@ headerbar, .titlebar {
   }
 
   .linked entry:not(:first-child) {
-    border-left-color: $linked_border;
-    &:backdrop { border-left-color: $backdrop_linked_border; }
+    border-left-color: $border_color;
+    &:backdrop { border-left-color: $border_color; }
   }
   .linked entry ~ .image-button { @extend %colored_buttons; }
 
   // disabled switches
   switch:disabled {
-    background-color: darken($backdrop_dark_fill, 4%);
+    background-color: gtkshade($backdrop_dark_fill, 0.96);
     &:backdrop { background-color: $backdrop_dark_fill; }
   }
 

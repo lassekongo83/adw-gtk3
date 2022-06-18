@@ -57,7 +57,7 @@
         &.toggle.popup {
           @include button(normal, $headerbar_color, $fg_color);
           border-radius: 0 $button-radius $button-radius 0;
-          border-left: 1px solid $linked_border;
+          border-left: 1px solid $border_color;
           image { color: $text_color; }
 
           &:hover { @include button(hover, $headerbar_color, $fg_color); }
@@ -67,7 +67,7 @@
           &:backdrop {
             @include button(backdrop, $bg_color, $backdrop_fg_color);
             &:hover { @include button(normal, $bg_color, $backdrop_fg_color); }
-            border-left: 1px solid $backdrop_linked_border;
+            border-left: 1px solid $border_color;
           }
         }
       }
@@ -102,7 +102,7 @@
 
   .search + .toggle.popup {
     @extend %colored_buttons;
-    border-left-color: $linked_border;
+    border-left-color: $border_color;
   }
 
   // Location entry button
@@ -112,9 +112,9 @@
 
   // Add a border around thumbnails
   .thumbnail {
-    box-shadow: 0px 1px 2px 0px transparentize($borders_color, 0.5),
-                0px 0px 0px 1px transparentize($borders_color, 0.5),
-                0px 2px 0px 0px transparentize($borders_color, 0.5);
+    box-shadow: 0px 1px 2px 0px gtkalpha($borders_color, 0.5),
+                0px 0px 0px 1px gtkalpha($borders_color, 0.5),
+                0px 2px 0px 0px gtkalpha($borders_color, 0.5);
     border-radius: 2px;
     // Background for thumbnails with transparent areas.
     background: url('assets/Checkerboard.png') repeat;
@@ -285,7 +285,7 @@ XfdesktopIconView.view {
   color: $osd_fg_color;
   border-radius: $button_radius;
   &:active {
-    background: rgba(darken($selected_bg_color, 15%), 0.5);
+    background: gtkalpha(gtkmix(black, $selected_bg_color, 15%), 0.5);
     text-shadow: 0 1px 1px black;
   }
   .label { text-shadow: 1px 1px 2px black; }
@@ -362,7 +362,7 @@ $panel_transition_duration: 250ms;
         @include button(normal, $menu_color, $text_color);
         &:disabled {
           @include button(insensitive);
-          border-color: transparentize($borders_color, 0.5);
+          border-color: gtkalpha($borders_color, 0.5);
         }
       }
     }
@@ -576,8 +576,8 @@ dzlsuggestionpopover > revealer > box > elastic > scrolledwindow > viewport > li
 // From: https://gitlab.gnome.org/World/Phosh/squeekboard/-/tree/master/data
 sq_view {
   font-size: 1.5em;
-  background-color: mix($base_color, $fg_color, 0.1);
-  box-shadow: inset 0 1px 0 0 mix($borders_color, $base_color, 0.8);
+  background-color: gtkmix($base_color, $fg_color, 10%);
+  box-shadow: inset 0 1px 0 0 gtkmix($borders_color, $base_color, 80%);
 
   &.wide sq_button { margin: 3px; }
 
@@ -623,8 +623,8 @@ sq_button {
   color: $selected_fg_color;
 
   &:active {
-    background: mix($selected_bg_color, black, 0.2);
-    color: mix($selected_fg_color, black, 0.2);
+    background: gtkmix(black, $selected_bg_color, 20%);
+    color: gtkmix(black, $selected_fg_color, 20%);
   }
 }
 
