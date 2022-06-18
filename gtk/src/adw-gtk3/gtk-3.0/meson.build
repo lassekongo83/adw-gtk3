@@ -22,6 +22,7 @@ endif
 gtk3_scss_dependencies = [
   '_functions.scss',
   '_palette.scss',
+  '_defaults.scss',
   '_colors-public.scss',
   '_custom.scss',
   '_colors.scss',
