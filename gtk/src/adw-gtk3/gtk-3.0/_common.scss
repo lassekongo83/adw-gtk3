@@ -2184,7 +2184,7 @@ menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
   padding: 0px;
-  box-shadow: inset 0 -1px transparentize(black, 0.9);
+  box-shadow: inset 0 -1px $border_color;
 
   &:backdrop { background-color: $backdrop_bg_color; }
 
@@ -4092,9 +4092,9 @@ calendar {
 
     &:hover { color: $fg_color; }
 
-    &:backdrop { color: transparentize($backdrop_fg_color,0.55); }
+    &:backdrop { color: gtkalpha($backdrop_fg_color,0.45); }
 
-    &:disabled { color:  transparentize($insensitive_fg_color,0.55); }
+    &:disabled { color:  gtkalpha($insensitive_fg_color,0.45); }
   }
 
   &.highlight {

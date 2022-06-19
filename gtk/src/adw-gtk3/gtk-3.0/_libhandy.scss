@@ -320,11 +320,11 @@ viewswitcher {
     &:not(only-child):first-child:not(:checked):hover,
     &:not(:checked):hover + button:not(:checked):not(:hover),
     &:not(:checked):not(:hover) + button:not(:checked):hover {
-      border-left-color: shade($borders_color, 1.15);
+      border-left-color: $border_color;
     }
 
     &:not(only-child):last-child:not(:checked):hover {
-      border-right-color: shade($borders_color, 1.15);
+      border-right-color: $border_color;
     }
 
     &:not(:checked):hover:backdrop {
@@ -335,24 +335,32 @@ viewswitcher {
     // View switcher in a header bar
     headerbar &:not(:checked) {
       &:hover:not(:backdrop) {
-        @if $variant == 'light' { @include button(hover, lighten($headerbar_color, 6.3%), $fg_color); }
-        @else { @include button(hover, darken($headerbar_color, 6.3%), $fg_color); }
         background-image: none;
+        @if $variant == 'light' {
+          @include button(hover, gtkmix(black, $headerbar_color, 0.3%), $headerbar_fg_color);
+        }
+        @else {
+          @include button(hover, gtkmix(black, $headerbar_color, 0.7%), $headerbar_fg_color);
+        }
       }
 
       &:not(only-child):first-child:hover,
       &:hover + button:not(:checked):not(:hover),
       &:not(:hover) + button:not(:checked):hover {
-        border-left-color: $borders_color;
+        border-left-color: $border_color;
       }
 
       &:not(only-child):last-child:hover {
-        border-right-color: $borders_color;
+        border-right-color: $border_color;
       }
 
       &:hover:backdrop {
-        @if $variant == 'light' { @include button(backdrop, lighten($bg_color, 1.3%), $backdrop_fg_color); }
-        @else { @include button(backdrop, darken($bg_color, 1.3%), $backdrop_fg_color); }
+        @if $variant == 'light' {
+          @include button(backdrop, gtkmix(black, $bg_color, 2.7%), $backdrop_fg_color);
+        }
+        @else {
+          @include button(backdrop, gtkmix(white, $bg_color, 3%), $backdrop_fg_color);
+        }
         background-image: none;
       }
     }

@@ -46,8 +46,8 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   $_blank_edge: if($edge == none, none, 0 1px transparentize($edge, 1));
   $_entry_edge: if($edge == none, none, _widget_edge($edge));
 
-  $entry_normal: if($variant == 'light', gtkshade($bg_color, 0.92), gtkshade($bg_color, 1.58));
-  $entry_disabled: if($variant == 'light', gtkshade($bg_color, 0.96), gtkshade($bg_color, 1.32));
+  $entry_normal: if($variant == 'light', gtkmix(black, $bg_color, 8%), gtkmix(white, $bg_color, 9.7%));
+  $entry_disabled: if($variant == 'light', gtkmix(black, $bg_color, 4.3%), gtkmix(white, $bg_color, 5.3%));
   $entry_backdrop: $entry_disabled;
   $entry_backdrop_disabled: $entry_disabled;
 
@@ -320,10 +320,10 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   //
   // backdrop insensitive pushed button
   //
-    $_bg: if($variant == 'light', gtkshade(gtkmix($c, $base_color, 85%), 0.92), gtkshade(gtkmix($c, $base_color, 85%), 0.96));
-    $_bc: if($variant == 'light', $_bg, _border_color($c));
+    $_bg: if($variant == 'light', gtkshade(gtkmix($c, $base_color, 85%), 0.92), gtkshade(gtkmix($c, $base_color, 85%), 0.94));
+    $_bc: if($c != $bg_color, _border_color($c), $insensitive_borders_color);
 
-    color: if($c != $bg_color, gtkmix($tc, $_bg, 35%), $backdrop_insensitive_color);
+    color: if($c != $bg_color, gtkmix($tc, $_bg, 60%), $insensitive_fg_color);
     background-color: $button_disabled_active;
     //@include _shadows(inset 0 1px transparentize(white, 1), $_blank_edge);
   }
@@ -547,7 +547,7 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
 
   @if $t==insensitive {
     box-shadow: none;
-    color: transparentize($tc, 0.3);
+    color: gtkalpha($tc, 0.7);
     border-color: if($variant == 'light', gtkmix(white, $_border_color, 5%), gtkmix(black, $_border_color, 5%));
   }
 
@@ -559,6 +559,6 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
 
   @if $t==backdrop-insensitive {
     box-shadow: none;
-    color: transparentize($tc, 0.3);
+    color: gtkalpha($tc, 0.7);
   }
 }

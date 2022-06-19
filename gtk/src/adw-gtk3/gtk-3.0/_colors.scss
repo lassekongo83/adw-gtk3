@@ -10,21 +10,23 @@ $fg_color: if($variant == 'light', transparentize(black, .2), white);
 $accent_bg_color: gtkcolor(accent_bg_color);
 $accent_fg_color: gtkcolor(accent_fg_color);
 $accent_color: gtkcolor(accent_color);
+$headerbar_bg_color: gtkcolor(headerbar_bg_color);
+$headerbar_fg_color: gtkcolor(headerbar_fg_color);
 
-$selected_fg_color: #ffffff;
-$selected_bg_color: $accent_bg_color; //if($variant == 'light', $blue_3, $blue_3);
+$selected_fg_color: $accent_fg_color;
+$selected_bg_color: $accent_bg_color;
 $selected_borders_color: if($variant== 'light', gtkmix(black, $selected_bg_color, 15%), gtkmix(black, $selected_bg_color, 30%));
-$borders_color: if($variant == 'light', gtkshade($bg_color, 0.884), gtkshade($bg_color, 1.92));; //#dddddd, #454545
+$borders_color: if($variant == 'light', gtkmix(black, $bg_color, 11.7%), gtkmix(white, $bg_color, 15%));
 $alt_borders_color: if($variant == 'light', darken($bg_color, 24%), darken($bg_color, 18%));
 $borders_edge: if($variant == 'light', transparentize(white, 0.5), transparentize($fg_color, 0.93));
 $link_color: if($variant == 'light', gtkmix(black, $selected_bg_color, 10%), gtkmix(white, $selected_bg_color, 20%));
 $link_visited_color: if($variant == 'light', gtkmix(black, $selected_bg_color, 20%), gtkmix(white, $selected_bg_color, 10%));
 $top_hilight: $borders_edge;
 $dark_fill: gtkmix($borders_color, $bg_color, 50%);
-$headerbar_color: if($variant == 'light', darken($bg_color, 6%), lighten($bg_color, 4.7%)); //if($variant == 'light', #ebebeb, #303030);
+$headerbar_color: $headerbar_bg_color;
 $menu_color: if($variant == 'light', $base_color, lighten($bg_color, 8%));
 $popover_bg_color: $menu_color;
-$popover_hover_color: if($variant == 'light', darken($menu_color, 7%), lighten($menu_color, 7%)); //gtkalpha(currentColor, .13);
+$popover_hover_color: if($variant == 'light', darken($menu_color, 7%), lighten($menu_color, 7%));
 
 $scrollbar_bg_color: $base_color;
 $scrollbar_slider_color: if($variant == 'light', darken($scrollbar_bg_color, 20%), lighten($scrollbar_bg_color, 20%)); //gtkalpha(currentColor, .2);
@@ -52,18 +54,18 @@ $shadow_color: transparentize(black, 0.9);
 $drop_target_color: $selected_bg_color;
 
 //insensitive state derived colors
-$insensitive_fg_color: mix($fg_color, $bg_color, 50%);
-$insensitive_bg_color: mix($bg_color, $base_color, 60%);
+$insensitive_fg_color: gtkmix($fg_color, $bg_color, 50%);
+$insensitive_bg_color: gtkmix($bg_color, $base_color, 60%);
 $insensitive_borders_color: $borders_color;
 
 //colors for the backdrop state, derived from the main colors.
 $backdrop_base_color: $bg_color; //if($variant == 'light', darken($base_color, 1%), lighten($base_color, 1%));
-$backdrop_text_color: mix($text_color, $backdrop_base_color, 80%);
+$backdrop_text_color: gtkmix($text_color, $backdrop_base_color, 80%);
 $backdrop_bg_color: $bg_color;
 $backdrop_fg_color: mix($fg_color, $backdrop_bg_color, 50%);
 $backdrop_insensitive_color: if($variant == 'light', darken($backdrop_bg_color, 15%), lighten($backdrop_bg_color, 15%));
 $backdrop_selected_fg_color: if($variant == 'light', $backdrop_base_color, $backdrop_text_color);
-$backdrop_borders_color: if($variant == 'light', gtkmix($borders_color, $bg_color, 67%), gtkmix($borders_color, $bg_color, 88%));
+$backdrop_borders_color: if($variant == 'light', gtkmix(black, $bg_color, 7.7%), gtkmix(white, $bg_color, 13.3%));
 $backdrop_dark_fill: gtkmix($backdrop_borders_color, $backdrop_bg_color, 70%);
 $backdrop_sidebar_bg_color: $backdrop_base_color;
 
@@ -82,9 +84,9 @@ $checkradio_fg_color: $selected_fg_color;
 $checkradio_borders_color: if($variant == 'light', gtkmix(black,$checkradio_bg_color,20%), gtkmix(black,$checkradio_bg_color,40%));
 
 // titlebuttons
-$titlebutton_normal: if($variant == 'light', darken($headerbar_color, 7%), lighten($headerbar_color, 8%));
-$titlebutton_normal_hover: if($variant == 'light', darken($headerbar_color, 11%), lighten($headerbar_color, 12%));
-$titlebutton_normal_active: if($variant == 'light', darken($headerbar_color, 22%), lighten($headerbar_color, 24.3%));
+$titlebutton_normal: if($variant == 'light', gtkmix(black, $headerbar_color, 7.7%), gtkmix(white, $headerbar_color, 10%));
+$titlebutton_normal_hover: if($variant == 'light', gtkmix(black, $headerbar_color, 12%), gtkmix(white, $headerbar_color, 15%));
+$titlebutton_normal_active: if($variant == 'light', gtkmix(black, $headerbar_color, 24%), gtkmix(white, $headerbar_color, 30%));
 $titlebutton_backdrop: if($variant == 'light', darken($bg_color, 4%), lighten($bg_color, 4.3%));
 $titlebutton_backdrop_hover: if($variant == 'light', darken($bg_color, 5.7%), lighten($bg_color, 6.3%));
 
