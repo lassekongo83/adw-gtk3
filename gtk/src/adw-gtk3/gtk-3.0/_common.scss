@@ -81,12 +81,12 @@ $_switch_margin: if($_sizevariant=='default', 9px, 7px);
 
   &:hover {
     color: $fg_color;
-    background-color: lighten($bg_color, 10%);
+    background-color: gtkshade($bg_color, 1.1);
   }
 
   &:active {
     color: $fg_color;
-    background-color: darken($bg_color, 10%);
+    background-color: gtkshade($bg_color, 0.9);
   }
 
   &:disabled {
@@ -134,7 +134,7 @@ textview {
   }
 }
 
-textview border { background-color: mix($bg_color, $base_color, 50%); }
+textview border { background-color: gtkmix($bg_color, $base_color, 50%); }
 
 iconview { @extend .view; }
 
@@ -164,7 +164,7 @@ flowbox {
   border-radius: 0;
   padding: 0;
   
-  &:backdrop { background-color: if($variant=='light', transparent, darken($backdrop_base_color,5%)); }
+  &:backdrop { background-color: if($variant=='light', transparent, gtkmix(black,$backdrop_base_color,5%)); }
   &:active, &:selected { background-color: if($variant=='light', transparent, $selected_bg_color); }
   &:disabled { background-color: if($variant=='light', transparent, $insensitive_bg_color); }
 }
@@ -203,8 +203,8 @@ label {
 
   &.error {
     color: $error_color;
-    &:disabled { color: transparentize($error_color,0.5); }
-    &:disabled:backdrop { color: transparentize($error_color,0.6); }
+    &:disabled { color: gtkalpha($error_color,0.5); }
+    &:disabled:backdrop { color: gtkalpha($error_color,0.4); }
   }
 }
 
@@ -228,7 +228,7 @@ assistant {
 
   .sidebar label { padding: 6px 12px; }
 
-  .sidebar label.highlight { background-color: mix($bg_color, $fg_color, 80%); }
+  .sidebar label.highlight { background-color: gtkmix($bg_color, $fg_color, 80%); }
 }
 
 %osd,
@@ -361,13 +361,13 @@ entry {
     }
 
     image { // entry icons colors
-      color: mix($fg_color, $base_color, 80%);
+      color: gtkmix($fg_color, $base_color, 80%);
 
       &:hover { color: $fg_color; }
 
       &:active { color: $selected_bg_color; }
 
-      &:backdrop { color: mix($backdrop_fg_color, $backdrop_base_color, 80%); }
+      &:backdrop { color: gtkmix($backdrop_fg_color, $backdrop_base_color, 80%); }
     }
 
     &:drop(active) {
@@ -1328,7 +1328,7 @@ spinbutton {
 
       color: $osd_fg_color;
       border-style: none none none solid;
-      border-color: transparentize($osd_borders_color, 0.3);
+      border-color: gtkalpha($osd_borders_color, 0.7);
       border-radius: 0;
       box-shadow: none;
       -gtk-icon-shadow: 0 1px black;
@@ -1339,8 +1339,8 @@ spinbutton {
         @include button(undecorated);
 
         color: $osd_fg_color;
-        border-color: transparentize(opacify($osd_borders_color, 1), 0.5);
-        background-color: transparentize($osd_fg_color, 0.9);
+        border-color: gtkalpha(opacify($osd_borders_color, 1), 0.5);
+        background-color: gtkalpha($osd_fg_color, 0.1);
         -gtk-icon-shadow: 0 1px black;
         box-shadow: none;
       }
@@ -1349,7 +1349,7 @@ spinbutton {
         @include button(undecorated);
 
         color: $osd_fg_color;
-        border-color: transparentize(opacify($osd_borders_color, 1), 0.5);
+        border-color: gtkalpha(opacify($osd_borders_color, 1), 0.5);
         -gtk-icon-shadow: none;
         box-shadow: none;
       }
@@ -1358,7 +1358,7 @@ spinbutton {
         @include button(undecorated);
 
         color: $osd_insensitive_fg_color;
-        border-color: transparentize(opacify($osd_borders_color, 1), 0.5);
+        border-color: gtkalpha(opacify($osd_borders_color, 1), 0.5);
         -gtk-icon-shadow: none;
         box-shadow: none;
       }
@@ -1628,7 +1628,6 @@ headerbar {
 
     color: $selected_fg_color;
     border-color: $suggested_border_color;
-    //text-shadow: 0 -1px transparentize(black, 0.5);
 
     @include headerbar_fill($suggested_bg_color, $_hc);
 
@@ -1902,14 +1901,14 @@ headerbar { // headerbar border rounding
 
 window.devel {
   headerbar.titlebar:not(.selection-mode) {
-    $c: darken($bg_color, 10%);
+    $c: $headerbar_color;
     $gradient: cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
                linear-gradient(to right, transparent 65%, gtkalpha($selected_bg_color, 0.2)),
-               linear-gradient(to top, darken($c, 3%), $c 3px, lighten($c, 6%));
+               linear-gradient(to top, gtkmix(black, $c, 3%), $c 3px, gtkmix(white, $c, 6%));
     @if $variant == 'dark' {
       $gradient: cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
                  linear-gradient(to right, transparent 65%, gtkalpha($selected_bg_color, 0.1)),
-                 linear-gradient(to top, lighten($c, 3%) 3px, lighten($c, 5%));
+                 linear-gradient(to top, gtkmix(white, $c, 3%) 3px, gtkmix(white, $c, 5%));
     }
 
     background: $bg_color $gradient;
@@ -1964,7 +1963,7 @@ filechooser .path-bar.linked > button {
 // * Tree Views *
 // **************
 
-$_treeview_borders_color: if($variant=='light',gtkmix($borders_color, $base_color,80%),gtkmix($fg_color, $base_color, 20%));
+$_treeview_borders_color: $border_color;
 
 treeview.view {
   @at-root * {
@@ -1976,7 +1975,7 @@ treeview.view {
     -GtkTreeView-expander-size: 16;
    }
 
-  border-left-color: mix($fg_color, $base_color, 50%); // this is actually the tree lines color,
+  border-left-color: gtkmix($fg_color, $base_color, 50%); // this is actually the tree lines color,
   border-top-color: $bg_color;                         // while this is the grid lines color, better then nothing
 
   rubberband { @extend rubberband; } // to avoid borders being overridden by the previously set props
@@ -1990,7 +1989,7 @@ treeview.view {
 
     &:backdrop, & {
       border-left-color: gtkmix($selected_fg_color, $selected_bg_color, 50%);
-      border-top-color: transparentize($fg_color, 0.9); // doesn't work unfortunatelly
+      border-top-color: gtkalpha($fg_color, 0.1); // doesn't work unfortunatelly
     }
   }
 
@@ -2009,11 +2008,11 @@ treeview.view {
     min-height: 2px;
     color: $bg_color;
 
-    &:backdrop { color: transparentize($bg_color, 0.9); }
+    &:backdrop { color: gtkalpha($bg_color, 0.1); }
   }
 
   &:backdrop {
-    border-left-color: mix($backdrop_fg_color, $backdrop_bg_color, 50%);
+    border-left-color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 50%);
     border-top: $backdrop_bg_color;
   }
   &:drop(active) {
@@ -2086,7 +2085,7 @@ treeview.view {
   }
 
   &.trough { // progress bar trough in treeviews
-    background-color: transparentize($fg_color,0.9);
+    background-color: gtkalpha($fg_color,0.1);
 
     &:selected {
       &:focus, & {
@@ -2100,7 +2099,7 @@ treeview.view {
 
   header {
     button {
-      $_column_header_color: mix($fg_color, $base_color, 50%);
+      $_column_header_color: gtkmix($fg_color, $base_color, 50%);
 
       @extend %column_header_button;
 
@@ -2114,7 +2113,7 @@ treeview.view {
       &:hover {
         @extend %column_header_button;
 
-        color: mix($_column_header_color, $fg_color, 50%);
+        color: gtkmix($_column_header_color, $fg_color, 50%);
         box-shadow: none;
         transition: none; //I shouldn't need this
       }
@@ -2160,7 +2159,7 @@ treeview.view {
   }
 
   &:backdrop {
-    color: mix($backdrop_fg_color, $backdrop_bg_color, 50%);
+    color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 50%);
     border-color: $backdrop_bg_color;
     border-style: none solid solid none;
     background-image: none;
@@ -2244,7 +2243,7 @@ menu,
     font-weight: normal;
 
     &:hover {
-      //color: $selected_fg_color;
+      color: if($variant == 'light', $fg_color, $selected_fg_color);
       background-color: if($variant == 'light', $view_selected_hover_color, $popover_hover_color);
     }
 
@@ -2292,7 +2291,7 @@ menu,
 
     &.top {
       margin-top: -4px;
-      border-bottom: 1px solid mix($fg_color, $base_color, 10%);
+      border-bottom: 1px solid gtkmix($fg_color, $base_color, 10%);
       border-top-right-radius: $menu_radius;
       border-top-left-radius: $menu_radius;
       -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
@@ -2301,13 +2300,13 @@ menu,
     &.bottom {
       margin-top: 8px;
       margin-bottom: -12px;
-      border-top: 1px solid mix($fg_color, $base_color, 10%);
+      border-top: 1px solid gtkmix($fg_color, $base_color, 10%);
       border-bottom-right-radius: $menu_radius;
       border-bottom-left-radius: $menu_radius;
       -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
     }
 
-    &:hover { background-color: mix($fg_color, $base_color, 10%); }
+    &:hover { background-color: gtkmix($fg_color, $base_color, 10%); }
 
     &:backdrop { background-color: $backdrop_menu_color; }
 
@@ -4994,7 +4993,7 @@ button.emoji-section {
   &:last-child { margin-right: 7px; }
 
   &:backdrop:not(:checked) { border-color: transparent; }
-  &:hover { border-color: if($variant == 'light', $borders_color, transparentize($fg_color, .9)); }
+  &:hover { border-color: if($variant == 'light', $borders_color, gtkalpha($fg_color, .1)); }
   &:checked { border-color: $selected_bg_color; }
 
   label {

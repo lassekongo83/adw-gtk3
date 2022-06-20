@@ -24,9 +24,9 @@ $link_visited_color: if($variant == 'light', gtkmix(black, $selected_bg_color, 2
 $top_hilight: $borders_edge;
 $dark_fill: gtkmix($borders_color, $bg_color, 50%);
 $headerbar_color: $headerbar_bg_color;
-$menu_color: if($variant == 'light', $base_color, lighten($bg_color, 8%));
+$menu_color: if($variant == 'light', $base_color, gtkmix(white, $bg_color, 9.3%));
 $popover_bg_color: $menu_color;
-$popover_hover_color: if($variant == 'light', darken($menu_color, 7%), lighten($menu_color, 7%));
+$popover_hover_color: if($variant == 'light', gtkshade($menu_color, 0.92), gtkshade($menu_color, 1.36));
 
 $scrollbar_bg_color: $base_color;
 $scrollbar_slider_color: if($variant == 'light', darken($scrollbar_bg_color, 20%), lighten($scrollbar_bg_color, 20%)); //gtkalpha(currentColor, .2);
@@ -70,7 +70,7 @@ $backdrop_dark_fill: gtkmix($backdrop_borders_color, $backdrop_bg_color, 70%);
 $backdrop_sidebar_bg_color: $backdrop_base_color;
 
 $backdrop_scrollbar_bg_color: darken($backdrop_bg_color, 3%);
-$backdrop_scrollbar_slider_color: mix($backdrop_fg_color, $backdrop_bg_color, 40%);
+$backdrop_scrollbar_slider_color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 40%);
 
 $backdrop_menu_color: if($variant == 'light', $backdrop_base_color, mix($backdrop_bg_color, $backdrop_base_color, 20%));
 
@@ -87,8 +87,8 @@ $checkradio_borders_color: if($variant == 'light', gtkmix(black,$checkradio_bg_c
 $titlebutton_normal: if($variant == 'light', gtkmix(black, $headerbar_color, 7.7%), gtkmix(white, $headerbar_color, 10%));
 $titlebutton_normal_hover: if($variant == 'light', gtkmix(black, $headerbar_color, 12%), gtkmix(white, $headerbar_color, 15%));
 $titlebutton_normal_active: if($variant == 'light', gtkmix(black, $headerbar_color, 24%), gtkmix(white, $headerbar_color, 30%));
-$titlebutton_backdrop: if($variant == 'light', darken($bg_color, 4%), lighten($bg_color, 4.3%));
-$titlebutton_backdrop_hover: if($variant == 'light', darken($bg_color, 5.7%), lighten($bg_color, 6.3%));
+$titlebutton_backdrop: if($variant == 'light', gtkshade($bg_color, 0.96), gtkshade($bg_color, 1.32));
+$titlebutton_backdrop_hover: if($variant == 'light', gtkshade($bg_color, 0.94), gtkshade($bg_color, 1.46));
 
 // Other colors from libadwaita
 $border_color: gtkalpha(currentColor, .15); // not the same as borderS-color
