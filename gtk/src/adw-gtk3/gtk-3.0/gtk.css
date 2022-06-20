@@ -2509,13 +2509,13 @@ viewswitcher button:not(only-child):last-child:not(:checked):hover { border-righ
 
 viewswitcher button:not(:checked):hover:backdrop { color: rgba(150, 150, 150, 0.9); background-color: mix(black,#fafafa,0.957); text-shadow: none; -gtk-icon-shadow: none; background-image: none; }
 
-headerbar viewswitcher button:not(:checked):hover:not(:backdrop) { background-image: none; color: @headerbar_fg_color; outline-color: alpha(@headerbar_fg_color,0.3); background-color: mix(black,mix(black,@headerbar_bg_color,0.997),0.883); box-shadow: none; }
+headerbar viewswitcher button:not(:checked):hover:not(:backdrop) { background-image: none; color: @headerbar_fg_color; outline-color: alpha(@headerbar_fg_color,0.3); background-color: mix(black,mix(white,@headerbar_bg_color,0.72),0.92); }
 
 headerbar viewswitcher button:not(:checked):not(only-child):first-child:hover, headerbar viewswitcher button:not(:checked):hover + button:not(:checked):not(:hover), headerbar viewswitcher button:not(:checked):not(:hover) + button:not(:checked):hover { border-left-color: alpha(currentColor,0.15); }
 
 headerbar viewswitcher button:not(:checked):not(only-child):last-child:hover { border-right-color: alpha(currentColor,0.15); }
 
-headerbar viewswitcher button:not(:checked):hover:backdrop { color: mix(rgba(150, 150, 150, 0.9),mix(black,#fafafa,0.973),0.2); background-color: mix(black,mix(black,#fafafa,0.973),0.957); text-shadow: none; -gtk-icon-shadow: none; background-image: none; }
+headerbar viewswitcher button:not(:checked):hover:backdrop { color: mix(rgba(150, 150, 150, 0.9),mix(white,#fafafa,0.3),0.2); background-color: mix(black,mix(white,#fafafa,0.3),0.957); text-shadow: none; -gtk-icon-shadow: none; background-image: none; }
 
 viewswitcher button:checked, viewswitcher button:active { color: rgba(0, 0, 0, 0.8); outline-color: alpha(rgba(0, 0, 0, 0.8),0.3); background-color: mix(black,#fafafa,0.76); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; background-image: none; }
 
