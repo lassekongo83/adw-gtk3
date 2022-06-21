@@ -37,7 +37,7 @@ window.flat headerbar {
 
 .h4,
 .category-label {
-  color: rgba($fg_color, 0.8);
+  color: gtkshade($fg_color, 1.2);
   font-weight: 700;
 }
 
@@ -69,7 +69,7 @@ list .h4 {
     border-left-width: 0;
     border-radius: 0;
     border-bottom-color: gtkshade($borders_color, 0.75);
-    background-color: darken($base_color, 15%);
+    background-color: gtkshade($base_color, 0.85);
 
     &:first-child { border-radius: $button_radius 0 0; }
     &:last-child { border-radius: 0 $button_radius 0 0; }
@@ -81,7 +81,7 @@ list .h4 {
   .empty-block {
     border-bottom-width: 1px;
     border-bottom-color: gtkshade($borders_color, 0.6);
-    background-color: darken($base_color, 5%);
+    background-color: gtkshade($base_color, 0.95);
 
     image { color: black; }
   }
@@ -314,7 +314,7 @@ paper,
     &:selected:backdrop,
     &:selected:hover:backdrop {
       background-color: transparentize(black, 0.8);
-      color: darken($bg_color, 5%);
+      color: gtkshade($bg_color, 0.95);
     }
   }
 
@@ -414,7 +414,7 @@ label.terminal {
 
   .dim-label { @extend .dim-label; }
 
-  .h1, .h3 { color: rgba($fg_color, 0.8); }
+  .h1, .h3 { color: gtkshade($fg_color, 1.2); }
 }
 
 // Back button

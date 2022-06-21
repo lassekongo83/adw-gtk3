@@ -96,4 +96,4 @@ $_wm_highlight: if($variant=='light', $top_hilight,  // Sass gets mad if this is
 @define-color content_view_bg #{"" + $base_color};
 
 // Very contrasty background for text views (@theme_text_color foreground)
-@define-color text_view_bg #{"" + if($variant == 'light', $base_color, darken($base_color,6%))};
+@define-color text_view_bg #{"" + if($variant == 'light', $base_color, gtkshade($base_color,0.94))};

@@ -95,18 +95,6 @@ window.csd.unified {
         border-radius: 10px;
         background-clip: padding-box;
         transition: $_scrollbar_transition;
-
-        background-color: if($variant == 'light', darken($scrollbar_slider_color, 20%), lighten($scrollbar_slider_color, 20%));
-
-        &:hover {
-          background-color: if($variant == 'light', darken($scrollbar_slider_hover_color, 20%), lighten($scrollbar_slider_hover_color, 20%));
-        }
-
-        &:hover:active {
-          background-color: if($variant == 'light', darken($scrollbar_slider_active_color, 20%), lighten($scrollbar_slider_active_color, 20%));
-        }
-
-        &:disabled { background-color: transparent; }
       }
     }
 
@@ -544,10 +532,10 @@ button.list-button:not(:active):not(:checked):not(:hover) {
 
 // HdyStatusPage
 statuspage > scrolledwindow > viewport > box > clamp > box > .icon {
-  color: transparentize($fg_color, 0.5);
+  color: gtkalpha($fg_color, 0.5);
 
   &:backdrop {
-    color: transparentize($backdrop_fg_color, 0.5);
+    color: gtkalpha($backdrop_fg_color, 0.5);
   }
 }
 
@@ -615,11 +603,11 @@ row {
 tabbar {
   .box {
     min-height: 30px;
-    background: $shade_color;
-    border-bottom: 1px solid $headerbar_border;
+    background: $tab_color;
+    border-bottom: 1px solid $borders_color;
 
     &:backdrop {
-      background-color: if($variant == 'light', $backdrop_dark_fill, $shade_color);
+      background-color: $tab_color_backdrop;
       border-color: $backdrop_borders_color;
     }
   }
@@ -684,37 +672,31 @@ tabbar {
 
   tab {
     border-style: solid;
-    border-color: $headerbar_border;
+    border-color: $borders_color;
     border-width: 0 1px 0 1px;
     transition: background 150ms ease-in-out;
-    background-color: $shade_color;
+    background-color: $tab_color;
 
     &:checked {
-      background-color: $active_tab_color;
+      background-color: $tab_color_active;
 
-      &:hover {
-        background-color: if($variant == 'light', darken($active_tab_color, 2.3%), lighten($active_tab_color, 2.3%));
-      }
+      &:hover { background-color: $tab_color_active_hover; }
     }
 
-    &:hover {
-      background-color: if($variant == 'light', darken($shade_color, 2%), lighten($shade_color, 2.3%));
-    }
+    &:hover { background-color: $tab_color_hover; }
 
     &:backdrop {
       border-color: $backdrop_borders_color;
-      background-color: if($variant == 'light', lighten($shade_color, 5.3%), $shade_color);
-      color: mix($backdrop_fg_color, $backdrop_bg_color, 60%);
+      background-color: $tab_color_backdrop;
 
-      &:checked {
-        background-color: if($variant == 'light', $backdrop_base_color, $active_tab_color);
-      }
+      &:hover { background-color: $tab_color_backdrop_hover; }
+      &:checked { background-color: $tab_color_backdrop_active; }
     }
   }
 
   .start-action,
   .end-action {
-    background: $shade_color;
+    background: $tab_color;
     border-color: $alt_borders_color;
     border-style: solid;
     transition: background 150ms ease-in-out;
@@ -752,7 +734,7 @@ tabbar {
 .tab-drag-icon {
   tab {
     min-height: 26px;
-    background-color: $active_tab_color;
+    background-color: $tab_color_active;
 
     $_wm_border: if($variant=='light', transparentize(black, 0.77), gtkalpha($borders_color, 0.9));
 

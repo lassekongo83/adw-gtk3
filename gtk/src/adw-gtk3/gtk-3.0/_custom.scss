@@ -401,6 +401,11 @@ list.view.frame {
   }
 }
 
+.default-decoration .title {
+  color: $headerbar_fg_color;
+  &:backdrop { color: $backdrop_fg_color; }
+}
+
 // Tree views
 treeview.view:not(:backdrop):not(:selected):hover {
   background-color: $view_hover_color;

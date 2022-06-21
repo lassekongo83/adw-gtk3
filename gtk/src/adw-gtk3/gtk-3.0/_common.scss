@@ -922,32 +922,18 @@ button {
 }
 
 %needs_attention {
+  // the dot is drawn by using two radial gradient, the first one is the actual dot, the other
+  // simulates the shadow labels and icons normally have in buttons.
   animation: needs_attention 150ms ease-in;
-  $_dot_shadow: _text_shadow_color();
-  $_dot_shadow_r: if($variant=='light',0.5,0.45);
-  background-image: -gtk-gradient(radial,
-                                  center center, 0,
-                                  center center, 0.5,
-                                  to($_dot_color),
-                                  to(transparent)),
-                    -gtk-gradient(radial,
-                                  center center, 0,
-                                  center center, $_dot_shadow_r,
-                                  to($_dot_shadow),
-                                  to(transparent));
-  background-size: 6px 6px, 6px 6px;
+
+  background-image: radial-gradient(farthest-side, $accent_color 96%, transparent);
+  background-size: 6px 6px;
   background-repeat: no-repeat;
 
-  @if $variant == 'light' { background-position: right 3px, right 4px; }
-
-  @else { background-position: right 3px, right 2px; }
-
-  &:backdrop { background-size: 6px 6px, 0 0;}
+  background-position: right 3px;
 
   &:dir(rtl) {
-    @if $variant == 'light' { background-position: left 3px, left 4px; }
-
-    @else { background-position: left 3px, left 2px; }
+    background-position: left 3px;
   }
 }
 
@@ -1269,7 +1255,7 @@ spinbutton {
       margin: 0;
       padding-bottom: 0;
       padding-top: 0;
-      color: mix($fg_color, $base_color, 90%);
+      color: gtkmix($fg_color, $base_color, 90%);
       background-image: none;
       border-style: none none none solid;
       border-color: $borders_color;
@@ -2398,7 +2384,6 @@ notebook {
 
     &:backdrop {
       border-color: $backdrop_borders_color;
-      //@if $variant == 'light' { background-color: $backdrop_dark_fill; }
     }
 
     &.top { box-shadow: inset 0 -1px $borders_color; }
@@ -2408,42 +2393,22 @@ notebook {
 
     tabs { margin: 0px; }
 
-    > tabs > tab {
-      &.reorderable-page {
-        background-color: $shade_color;
-      }
-      @if $variant == 'light' {
-        &.reorderable-page:backdrop { background-color: lighten($shade_color, 5.3%); }
-      }
-      &:checked {
-        &.reorderable-page {
-          background-color: $active_tab_color;
-          @if $variant == 'light' { &:backdrop { background-color: $backdrop_base_color; } }
-        }
-      }
-      //&:not(:checked) {
-      //  color: transparentize($fg_color, 0.4);
-      //}
-    }
+    $tab_legacy_hover: if($variant == 'light', gtkshade($bg_color, 0.942), gtkshade($bg_color, 1.42));
 
     &.top {
       border-bottom-style: solid;
       > tabs {
         margin-bottom: 0px;
         > tab {
-          //border-right: 1px solid $borders_color;
-          //box-shadow: inset -1px 0 $borders_color;
           &:not(.reorderable-page):hover {
             box-shadow: inset 0 -4px $borders_color;
             &:not(:checked) {
-              background-color: if($variant == 'light', darken($bg_color, 5.3%), lighten($bg_color, 6%));
+              background-color: $tab_legacy_hover;
             }
           }
           &:not(.reorderable-page):checked {
             box-shadow: inset 0 -4px $selected_bg_color;
           }
-
-          //&:backdrop { box-shadow: none; }
         }
       }
     }
@@ -2453,19 +2418,15 @@ notebook {
       > tabs {
         margin-top: 0px;
         > tab {
-          //border-right: 1px solid $borders_color;
-          //box-shadow: inset -1px 0 $borders_color;
           &:not(.reorderable-page):hover {
             box-shadow: inset 0 4px $borders_color;
             &:not(:checked) {
-              background-color: if($variant == 'light', darken($bg_color, 5.3%), lighten($bg_color, 6%));
+              background-color: $tab_legacy_hover;
             }
           }
           &:not(.reorderable-page):checked {
             box-shadow: inset 0 4px $selected_bg_color;
           }
-
-          //&:backdrop { box-shadow: none; }
         }
       }
     }
@@ -2475,19 +2436,15 @@ notebook {
       > tabs {
         margin-right: 0px;
         > tab {
-          //border-bottom: 1px solid $borders_color;
-          //box-shadow: inset 0 -1px $borders_color;
           &:not(.reorderable-page):hover {
             box-shadow: inset -4px 0 $borders_color;
             &:not(:checked) {
-              background-color: if($variant == 'light', darken($bg_color, 5.3%), lighten($bg_color, 6%));
+              background-color: $tab_legacy_hover;
             }
           }
           &:not(.reorderable-page):checked {
             box-shadow: inset -4px 0 $selected_bg_color;
           }
-
-          //&:backdrop { box-shadow: none; }
         }
       }
     }
@@ -2497,19 +2454,15 @@ notebook {
       > tabs {
         margin-left: 0px;
         > tab {
-          //border-bottom: 1px solid $borders_color;
-          //box-shadow: inset 0 -1px $borders_color;
           &:not(.reorderable-page):hover {
             box-shadow: inset 4px 0 $borders_color;
             &:not(:checked) {
-              background-color: if($variant == 'light', darken($bg_color, 5.3%), lighten($bg_color, 6%));
+              background-color: $tab_legacy_hover;
             }
           }
           &:not(.reorderable-page):checked {
             box-shadow: inset 4px 0 $selected_bg_color;
           }
-
-          //&:backdrop { box-shadow: none; }
         }
       }
     }
@@ -2584,7 +2537,6 @@ notebook {
       min-height: 30px;
       min-width: 30px;
       padding: 3px 12px;
-      //background-color: transparent; //gtkalpha($headerbar_shade_color, .6);
 
       outline-offset: -5px;
 
@@ -2595,29 +2547,30 @@ notebook {
       border-color: transparent; //
 
       &.reorderable-page {
-        box-shadow: inset -1px -1px $headerbar_border;
+        background-color: $tab_color;
+        box-shadow: inset -1px -1px $border_color;
         border: none;
       }
 
       &:hover {
         color: $fg_color;
-        //background-color: darken($shade_color, 3%);
 
         &.reorderable-page {
-          border-color: gtkalpha($borders_color, 0.3);
-          background-color: if($variant == 'light', darken($shade_color, 2%), lighten($shade_color, 2.3%));
-          box-shadow: inset -1px -1px $headerbar_border;
+          border-color: $border_color;
+          background-color: $tab_color_hover;
+          box-shadow: inset -1px -1px $border_color;
           transition: background 150ms ease-in-out;
+          &:backdrop { background-color: $tab_color_backdrop_hover; }
         }
       }
 
       &:backdrop {
-        color: mix($backdrop_fg_color, $backdrop_bg_color, 60%);
+        color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
 
         &.reorderable-page {
           border-color: transparent;
-          background-color: if($variant == 'light', $backdrop_dark_fill, $shade_color);
-          box-shadow: inset -1px -1px $borders_color;
+          background-color: $tab_color_backdrop;
+          box-shadow: inset -1px -1px $border_color;
         }
       }
 
@@ -2625,11 +2578,11 @@ notebook {
         color: $fg_color;
         &.reorderable-page {
           border-width: 0;
-          border-color: $headerbar_border;
-          background-color: $active_tab_color;
-          box-shadow: inset -1px -1px $headerbar_border;
+          border-color: $border_color;
+          background-color: $tab_color_active;
+          box-shadow: inset -1px -1px $border_color;
           &:hover {
-            background-color: if($variant == 'light', darken($active_tab_color, 2.3%), lighten($active_tab_color, 2.3%));
+            background-color: $tab_color_active_hover;
           }
         }
       }
@@ -2638,9 +2591,9 @@ notebook {
         color: $backdrop_fg_color;
 
         &.reorderable-page {
-          border-color: $backdrop_borders_color;
-          box-shadow: inset -1px -1px $borders_color;
-          background-color: if($variant == 'light', $backdrop_base_color, $active_tab_color);
+          border-color: $border_color;
+          box-shadow: inset -1px -1px $border_color;
+          background-color: $tab_color_backdrop_active;
         }
       }
 
@@ -2755,7 +2708,7 @@ scrollbar {
     -GtkScrollbar-has-forward-stepper: false;
   }
 
-  background-color: $scrollbar_bg_color; // Want this to be transparent to match libadwaita, but it may cause breakage
+  background-color: $scrollbar_bg_color;
   transition: $_scrollbar_transition;
 
   // scrollbar border
@@ -2937,7 +2890,6 @@ switch {
 
   &:hover:not(:checked) {
     background-color: $trough_hover_color;
-    &:active { background-color: $trough_active_color; }
   }
 
   &:checked {
@@ -2996,7 +2948,6 @@ switch {
   &:checked > slider { background-color: $slider_hover_color; }
 
   &:disabled slider {
-    //@include button(insensitive);
     background-color: $slider_color;
     box-shadow: none;
   }
@@ -3004,8 +2955,6 @@ switch {
   &:backdrop {
     slider {
       transition: $backdrop_transition;
-
-      //@include button(backdrop);
       background-color: $slider_color;
     }
 
@@ -3365,7 +3314,7 @@ scale {
 
     // OSD
     .osd & {
-      background-color: mix($osd_fg_color, $osd_borders_color, 25%);
+      background-color: gtkmix($osd_fg_color, $osd_borders_color, 25%);
 
       &:disabled {
         &:backdrop, & {
@@ -3731,7 +3680,7 @@ progressbar {
 
   // FIXME: insensitive state missing and some other state should be set probably
   font-size: smaller;
-  color: transparentize($fg_color, 0.6);
+  color: gtkalpha($fg_color, 0.4);
   font-feature-settings: "tnum";
 
   &:backdrop {
@@ -3821,7 +3770,6 @@ levelbar {
     border: 0px solid;
     padding: 0; //2px;
     border-radius: 8px;
-    //@include entry(normal);
     background-color: $trough_color;
 
     &:backdrop { background-color: $backdrop_dark_fill; }
@@ -3857,9 +3805,9 @@ levelbar {
 
     &.empty {
       background-color: transparent;
-      border-color: if($variant == 'light', transparentize($fg_color,0.8), transparentize($fg_color,0.9));
+      border-color: if($variant == 'light', gtkalpha($fg_color,0.2), gtkalpha($fg_color,0.1));
 
-      &:backdrop { border-color: transparentize($backdrop_fg_color,0.85); }
+      &:backdrop { border-color: gtkalpha($backdrop_fg_color,0.15); }
     }
   }
 }
@@ -4056,7 +4004,7 @@ expander {
     -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
     &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
 
-    &:hover { color: lighten($fg_color,30%); } //only lightens the arrow
+    &:hover { color: gtkmix(white,$fg_color,30%); } //only lightens the arrow
     &:disabled { color: $insensitive_fg_color; }
     &:disabled:backdrop { color: $backdrop_insensitive_color; }
 
@@ -4087,7 +4035,7 @@ calendar {
   &.button {
     @extend %undecorated_button;
 
-    color: transparentize($fg_color, 0.55);
+    color: gtkalpha($fg_color, 0.45);
 
     &:hover { color: $fg_color; }
 
@@ -4137,8 +4085,8 @@ messagedialog { // Message Dialog styling
       border-radius: 0;
       -gtk-outline-radius: 0;
       background-color: $bg_color;
-      border-top: 1px solid $borders_color;
-      border-left: 1px solid $borders_color;
+      border-top: 1px solid $border_color;
+      border-left: 1px solid $border_color;
 
       &:hover { @include button(hover); }
 
@@ -4492,7 +4440,7 @@ infobar {
     border-radius: 50%;
   }
 
-  selection { background-color: darken($bg_color, 10%); }
+  selection { background-color: gtkshade($bg_color, 0.9); }
   *:link { color: $link_color; }
 }
 
@@ -4680,11 +4628,11 @@ colorchooser .popover.osd { border-radius: 5px; }
 // ********
 //content view (grid/list)
 .content-view {
-  background-color: darken($bg_color,7%);
+  background-color: gtkshade($bg_color,0.93);
 
   &:hover { -gtk-icon-effect: highlight; }
 
-  &:backdrop { background-color: darken($bg_color,7%); }
+  &:backdrop { background-color: gtkshade($bg_color,0.93); }
 
   rubberband, .rubberband { @extend rubberband; }
 }
@@ -4700,7 +4648,7 @@ colorchooser .popover.osd { border-radius: 5px; }
   button { // +/- buttons on GtkVolumeButton popup
     &:hover {
       @extend %undecorated_button;
-      background-color: transparentize($fg_color,0.9);
+      background-color: gtkalpha($fg_color,0.1);
       border-radius: 5px;
     }
 

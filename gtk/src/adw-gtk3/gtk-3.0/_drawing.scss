@@ -124,53 +124,6 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   @else { @return gtkshade($c, 0.9); }
 }
 
-@function _text_shadow_color ($tc: $fg_color, $bg: $bg_color) {
-//
-// calculate the color of text shadows
-//
-// $tc is the text color
-// $bg is the background color
-//
-  $_lbg: lightness($bg)/100%;
-  @if lightness($tc)<50% { @return transparentize(white, 1-$_lbg/($_lbg*1.3)); }
-  @else { @return transparentize(black, $_lbg*0.8); }
-}
-
-@function _button_hilight_color($c) {
-//
-// calculate the right top hilight color for buttons
-//
-// $c: base color;
-//
-  @if lightness($c)>95% { @return white; }
-  @else if lightness($c)>90% { @return transparentize(white, 0.2); }
-  @else if lightness($c)>80% { @return transparentize(white, 0.5); }
-  @else if lightness($c)>50% { @return transparentize(white, 0.8); }
-  @else if lightness($c)>40% { @return transparentize(white, 0.9); }
-  @else { @return transparentize(white, 0.98); }
-}
-
-@mixin _button_text_shadow ($tc:$fg_color, $bg:$bg_color) {
-//
-// helper function for the text emboss effect
-//
-// $tc is the optional text color, not the shadow color
-//
-// TODO: this functions needs a way to deal with special cases
-//
-
-  $_shadow: _text_shadow_color($tc, $bg);
-
-  @if lightness($tc)<50% {
-    text-shadow: 0 1px $_shadow;
-    -gtk-icon-shadow: 0 1px $_shadow;
-  }
-  @else {
-    text-shadow: 0 -1px $_shadow;
-    -gtk-icon-shadow: 0 -1px $_shadow;
-  }
-}
-
 @mixin button($t, $c:$bg_color, $tc:$fg_color, $edge: none, $backimage: null) {
 //
 // Button drawing function
@@ -193,12 +146,12 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   $_blank_edge: if($edge == none, none, _widget_edge(transparentize($edge,1)));
   $_button_shadow: 0 1px 2px transparentize($shadow_color, 0.03);
 
-  $button_normal: if($variant == 'light', gtkmix(black, $c, 8%), gtkmix(white, $c, 9.7%)); //if($variant == 'light', gtkshade($c, 0.92), gtkshade($c, 1.58));
-  $button_hover: if($variant == 'light', gtkmix(black, $c, 11.7%), gtkmix(white, $c, 15%)); //if($variant == 'light', gtkshade($c, 0.884), gtkshade($c, 1.92));
-  $button_active: if($variant == 'light', gtkmix(black, $c, 24%), gtkmix(white, $c, 29.7%)); //if($variant == 'light', gtkshade($c, 0.76), gtkshade($c, 2.8));
-  $button_active_hover: if($variant == 'light', gtkmix(black, $c, 28%), gtkmix(white, $c, 34.7%)); //if($variant == 'light', gtkshade($c, 0.72), gtkshade($c, 3.1));
-  $button_disabled: if($variant == 'light', gtkmix(black, $c, 4.3%), gtkmix(white, $c, 5.3%)); //if($variant == 'light', gtkshade($c, 0.96), gtkshade($c, 1.32));
-  $button_disabled_active: if($variant == 'light', gtkmix(black, $c, 12%), gtkmix(white, $c, 15%)); //if($variant == 'light', gtkshade($c, 0.88), gtkshade($c, 1.92));
+  $button_normal: if($variant == 'light', gtkmix(black, $c, 8%), gtkmix(white, $c, 9.7%));
+  $button_hover: if($variant == 'light', gtkmix(black, $c, 11.7%), gtkmix(white, $c, 15%));
+  $button_active: if($variant == 'light', gtkmix(black, $c, 24%), gtkmix(white, $c, 29.7%));
+  $button_active_hover: if($variant == 'light', gtkmix(black, $c, 28%), gtkmix(white, $c, 34.7%));
+  $button_disabled: if($variant == 'light', gtkmix(black, $c, 4.3%), gtkmix(white, $c, 5.3%));
+  $button_disabled_active: if($variant == 'light', gtkmix(black, $c, 12%), gtkmix(white, $c, 15%));
   $button_backdrop: $button_disabled;
   $button_backdrop_active: $button_disabled_active;
 

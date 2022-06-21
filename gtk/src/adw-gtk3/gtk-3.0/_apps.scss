@@ -13,7 +13,7 @@
       border-radius: $button_radius;
       border: none;
       padding-right: 6px;
-      @include button(normal, $headerbar_color, $fg_color);
+      @include button(normal, $headerbar_color, $headerbar_fg_color);
 
       &:backdrop {
         @include button(backdrop, $bg_color, $backdrop_fg_color);
@@ -22,7 +22,7 @@
 
     .nautilus-path-bar {
       border-radius: $button_radius;
-      @include button(normal, $headerbar_color, $fg_color);
+      @include button(normal, $headerbar_color, $headerbar_fg_color);
       min-height: 34px;
 
       &:backdrop {
@@ -46,7 +46,7 @@
           background-color: transparent;
 
           &:hover {
-            @include button(active, $bg_color, $fg_color);
+            @include button(active, $bg_color, $headerbar_fg_color);
             * { opacity: 1; }
             &:backdrop {
               @include button(backdrop-active, $bg_color, $backdrop_fg_color);
@@ -55,14 +55,14 @@
         }
 
         &.toggle.popup {
-          @include button(normal, $headerbar_color, $fg_color);
+          @include button(normal, $headerbar_color, $headerbar_fg_color);
           border-radius: 0 $button-radius $button-radius 0;
           border-left: 1px solid $border_color;
-          image { color: $text_color; }
+          image { color: $headerbar_fg_color; }
 
-          &:hover { @include button(hover, $headerbar_color, $fg_color); }
+          &:hover { @include button(hover, $headerbar_color, $headerbar_fg_color); }
 
-          &:checked { @include button(active, $headerbar_color, $fg_color); }
+          &:checked { @include button(active, $headerbar_color, $headerbar_fg_color); }
 
           &:backdrop {
             @include button(backdrop, $bg_color, $backdrop_fg_color);
@@ -108,7 +108,7 @@
   // Location entry button
   .linked entry ~ .image-button:not(:hover):not(:checked):not(:active):not(.model) { @extend %colored_buttons; }
 
-  .view .dim-label { color: transparentize($fg_color, 0.45); }
+  .view .dim-label { color: gtkalpha($fg_color, 0.55); }
 
   // Add a border around thumbnails
   .thumbnail {
@@ -233,11 +233,11 @@ $disk_space_free: #eeeeec;
 
   row:hover button {
     &:hover {
-      background-color: rgba($fg_color, 0.15);
+      background-color: gtkalpha(currentColor, .15);
     }
 
     &:active {
-      background-color: rgba($fg_color, 0.25);
+      background-color: gtkalpha(currentColor, .3);
     }
   }
 
@@ -257,7 +257,7 @@ list.tweak-categories separator.horizontal {
   taskrow.activatable.new-task-row button.popup.toggle {
     border-radius: 0px;
     border: none;
-    border-left: 1px solid $borders-color;
+    border-left: 1px solid $borders_color;
     padding-left: 10px;
     padding-right: 10px;
     -gtk-outline-radius: 0px;
@@ -265,7 +265,7 @@ list.tweak-categories separator.horizontal {
 
   viewport.view,
   listbox.transparent {
-    background-color: darken($base_color, 5%);
+    background-color: gtkshade($base_color, 0.95);
 
     &:backdrop {
       background-color: $backdrop_base_color;
@@ -296,7 +296,7 @@ XfdesktopIconView.view {
 }
 
 $panel_bg_color: #000;
-$panel_fg_color: if($variant == 'light', lighten($bg_color, 10%), darken($fg_color, 5%));
+$panel_fg_color: if($variant == 'light', gtkmix(white, $bg_color, 10%), gtkmix(black, $fg_color, 5%));
 $panel_transition_duration: 250ms;
 .xfce4-panel.background {
   border: none; 
@@ -331,24 +331,24 @@ $panel_transition_duration: 250ms;
 
     &:disabled {
       background-color: transparent;
-      color: transparentize($panel_fg_color, 0.8);
+      color: gtkalpha($panel_fg_color, 0.2);
     }
     
     &:hover:not(:active):not(:checked) {
       color: $panel_fg_color;
-      background-color: transparentize($panel_fg_color, 0.85);
+      background-color: gtkalpha($panel_fg_color, 0.25);
       background-image: none;
     }
 
     &:checked {
-      background-color: transparentize($panel_fg_color, 0.8);
+      background-color: gtkalpha($panel_fg_color, 0.2);
       color: $panel_fg_color;
 
-      &:hover { background-color: transparentize($panel_fg_color, 0.75); }
+      &:hover { background-color: gtkalpha($panel_fg_color, 0.35); }
 
       &:disabled {
         @include button(undecorated);
-        color: transparentize($panel_fg_color, 0.8);
+        color: gtkalpha($panel_fg_color, 0.2);
       }
     }
     entry { caret-color: $text_color; }
@@ -497,12 +497,12 @@ $panel_transition_duration: 250ms;
 
 // Chromium
 window.background.chromium {
-  background-color: if($variant == 'light', $bg_color, lighten($bg_color, 10%));
+  background-color: if($variant == 'light', $bg_color, gtkmix(white, $bg_color, 10%));
 
   entry,
   > button {
-    border-color: if($variant == 'light', darken($bg_color, 27%), lighten($bg_color, 27%));
-    background-color: if($variant == 'light', darken($bg_color, 20%), lighten($bg_color, 21%));
+    border-color: if($variant == 'light', gtkmix(black, $bg_color, 27%), gtkmix(white, $bg_color, 27%));
+    background-color: if($variant == 'light', gtkmix(black, $bg_color, 20%), gtkmix(white, $bg_color, 21%));
   }
 
   textview.view { 
@@ -520,7 +520,10 @@ window.background.chromium {
   button { font-weight: initial; }
 
   @if $variant == 'light' {
-    scrollbar slider { background-color: darken($scrollbar_slider_color, 20%); }
+    scrollbar slider {
+      background-color: gtkalpha(currentColor, .4);
+      &:hover { background-color: gtkalpha(currentColor, .6); }
+    }
   }
 
   // https://github.com/lassekongo83/adw-gtk3/issues/130
@@ -591,25 +594,25 @@ sq_button {
   border-radius: $button_radius;
   margin: 2px;
   color: $fg_color;
-  background: transparentize($fg_color, 0.07);
+  background: gtkalpha($fg_color, 0.93);
   box-shadow: 0 1px 0 0 rgba(0,0,0,0.2);
 
-  &:active { background: transparentize($fg_color, 0.11); }
+  &:active { background: gtkalpha($fg_color, 0.89); }
 
   &.altline, &.special {
-    background: transparentize($fg_color, 0.15);
-    &:active { background: transparentize($fg_color, 0.2); }
+    background: gtkalpha($fg_color, 0.85);
+    &:active { background: gtkalpha($fg_color, 0.8); }
   }
 
   &.latched {
     font-weight: bold;
-    background: transparentize($fg_color, 0.2);
-    color: transparentize($fg_color, 0.8);
+    background: gtkalpha($fg_color, 0.8);
+    color: gtkalpha($fg_color, 0.2);
   }
 
   &.locked {
     font-weight: bold;
-    background: transparentize($fg_color, 0.5);
+    background: gtkalpha($fg_color, 0.5);
     color: $base_color;
   }
 
