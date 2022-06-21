@@ -28,9 +28,10 @@ $link_visited_color: if($variant == 'light', gtkmix(black, $selected_bg_color, 2
 $top_hilight: $borders_edge;
 $dark_fill: gtkmix($borders_color, $bg_color, 50%);
 $headerbar_color: $headerbar_bg_color;
-$menu_color: if($variant == 'light', $base_color, gtkmix(white, $bg_color, 9.3%));
-$popover_bg_color: $menu_color;
-$popover_hover_color: if($variant == 'light', gtkshade($menu_color, 0.92), gtkshade($menu_color, 1.36));
+$popover_bg_color: gtkcolor(popover_bg_color);
+$popover_fg_color: gtkcolor(popover_fg_color);
+$popover_hover_color: gtkalpha(currentColor, .07); //if($variant == 'light', gtkshade($menu_color, 0.92), gtkshade($menu_color, 1.36));
+$menu_color: $popover_bg_color; //if($variant == 'light', $base_color, gtkmix(white, $bg_color, 9.3%));
 
 $scrollbar_bg_color: $base_color;
 $scrollbar_slider_color: gtkalpha(currentColor, .2);
@@ -117,8 +118,8 @@ $fill_text_color: $selected_fg_color;
 $headerbar_border: if($variant == 'light', gtkshade($bg_color, 0.828), gtkmix(white, $bg_color, 19.7%));
 
 // "Cards" or content list views
-$card_bg_color: if($variant == 'light', $base_color, gtkmix(white, $bg_color, 8%));
-$card_fg_color: if($variant == 'light', $fg_color, white);
+$card_bg_color: gtkcolor(card_bg_color); //if($variant == 'light', $base_color, gtkmix(white, $bg_color, 8%));
+$card_fg_color: gtkcolor(card_fg_color); //if($variant == 'light', $fg_color, white);
 
 // Notebook and tabs
 $notebook_color: $base_color;

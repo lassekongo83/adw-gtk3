@@ -1109,7 +1109,7 @@ modelbutton.flat,
 
   @extend %undecorated_button;
 
-  &:hover { background-color: $popover_hover_color; }
+  &:hover { background-color: $view_selected_color; }
 
   &:selected { @extend %selected_items; }
 
@@ -2230,7 +2230,7 @@ menu,
 
     &:hover {
       color: if($variant == 'light', $fg_color, $selected_fg_color);
-      background-color: if($variant == 'light', $view_selected_hover_color, $popover_hover_color);
+      background-color: $view_selected_hover_color; //if($variant == 'light', $view_selected_hover_color, $popover_hover_color);
     }
 
     &:disabled {
@@ -4974,6 +4974,6 @@ popover.emoji-completion contents row box {
 }
 
 popover.emoji-completion .emoji:hover {
-  background: $popover_hover_color;
+  background: $view_hover_color;
 }
 

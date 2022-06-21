@@ -22,13 +22,19 @@ sudo flatpak override --filesystem=xdg-config/gtk-3.0 && sudo flatpak override -
 
 ### Supported named colors
 ```
-window_bg_color # The main background color
-window_fg_color # The main foreground text color
-view_bg_color # A secondary background color used in icon views, text fields, etc
-view_fg_color # Secondary foreground text color
-accent_bg_color # Something colorful!
-accent_fg_color # The text over the accent color
-accent_color # Can be the same as accent_bg_color, but maybe with a slightly brighter tone
+window_bg_color    # The main background color used on GtkWindow
+window_fg_color    # The main foreground text color
+view_bg_color      # A secondary background color used in icon views, text fields, etc
+view_fg_color      # Secondary foreground text color
+accent_bg_color    # Something colorful!
+accent_fg_color    # The text over the accent color
+accent_color       # Can be the same as accent_bg_color, but maybe with a slightly brighter tone
 headerbar_bg_color # The headerbar background
-headerbar_fg_color # The headerbar foreground text color
+headerbar_fg_color # The headerbar foreground text color (not 100% implemented)
+card_bg_color      # The background color of lists
+card_fg_color      # The text color on lists (not 100% implemented)
+popover_bg_color   # The background color of popovers and menus
+popover_fg_color   # The text color on popovers (not 100% implemented)
 ```
+
+*Note that GTK-4 use a lot of transparent widgets, adw-gtk3 doesn't. This is because of performance reasons. So some colors may not look the same if you compare with a libadwaita app vs a GTK-3 app. (It should still be close enough.)*

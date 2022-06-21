@@ -501,7 +501,7 @@ stacksidebar row.needs-attention > label:dir(rtl), .stack-switcher > button.need
 
 modelbutton.flat, .menuitem.button.flat { min-height: 32px; padding-left: 5px; padding-right: 5px; border-radius: 6px; outline-offset: -2px; }
 
-modelbutton.flat:hover, .menuitem.button.flat:hover { background-color: shade(@view_bg_color,0.92); }
+modelbutton.flat:hover, .menuitem.button.flat:hover { background-color: alpha(currentColor,0.1); }
 
 modelbutton.flat arrow { background: none; }
 
@@ -863,7 +863,7 @@ menubar .csd.popup decoration, .menubar .csd.popup decoration { border-radius: 0
 
 .background.popup { background-color: transparent; }
 
-menu, .menu, .context-menu { margin: 4px; padding: 4px 0px; background-color: @view_bg_color; border: 1px solid mix(black,@window_bg_color,0.883); }
+menu, .menu, .context-menu { margin: 4px; padding: 4px 0px; background-color: @popover_bg_color; border: 1px solid mix(black,@window_bg_color,0.883); }
 
 .csd menu, .csd .menu, .csd .context-menu { border: none; border-radius: 6px; }
 
@@ -887,7 +887,7 @@ menu menuitem arrow:dir(rtl), .menu menuitem arrow:dir(rtl), .context-menu menui
 
 menu menuitem label:dir(rtl), menu menuitem label:dir(ltr), .menu menuitem label:dir(rtl), .menu menuitem label:dir(ltr), .context-menu menuitem label:dir(rtl), .context-menu menuitem label:dir(ltr) { color: inherit; }
 
-menu > arrow, .menu > arrow, .context-menu > arrow { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; min-height: 16px; min-width: 16px; padding: 4px; background-color: @view_bg_color; border-radius: 0; }
+menu > arrow, .menu > arrow, .context-menu > arrow { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; min-height: 16px; min-width: 16px; padding: 4px; background-color: @popover_bg_color; border-radius: 0; }
 
 menu > arrow.top, .menu > arrow.top, .context-menu > arrow.top { margin-top: -4px; border-bottom: 1px solid mix(@window_fg_color,@view_bg_color,0.9); border-top-right-radius: 6px; border-top-left-radius: 6px; -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
 
@@ -907,7 +907,7 @@ menuitem check:dir(ltr), menuitem radio:dir(ltr) { margin-right: 7px; }
 
 menuitem check:dir(rtl), menuitem radio:dir(rtl) { margin-left: 7px; }
 
-popover.background { padding: 2px; background-color: @view_bg_color; box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.09), 0 2px 8px 3px rgba(0, 0, 0, 0.05); }
+popover.background { padding: 2px; background-color: @popover_bg_color; box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.09), 0 2px 8px 3px rgba(0, 0, 0, 0.05); }
 
 .csd popover.background, popover.background { border: 1px solid mix(black,@window_bg_color,0.883); border-radius: 12px; }
 
@@ -2111,7 +2111,7 @@ popover.emoji-completion arrow { border: none; background: none; }
 
 popover.emoji-completion contents row box { padding: 2px 10px; }
 
-popover.emoji-completion .emoji:hover { background: shade(@view_bg_color,0.92); }
+popover.emoji-completion .emoji:hover { background: alpha(currentColor,0.07); }
 
 @define-color theme_fg_color @window_fg_color;
 @define-color theme_text_color @view_fg_color;
@@ -2297,53 +2297,53 @@ headerbar .left, .titlebar .left { margin-right: -4px; }
 
 headerbar .left separator, .titlebar .left separator { min-width: 0; }
 
-.content list button, .content list > row:not(:selected):hover button, list.content button, list.content > row:not(:selected):hover button, list.view.frame button, list.view.frame > row:not(:selected):hover button { color: @window_fg_color; outline-color: alpha(@window_fg_color,0.3); background-color: mix(black,@view_bg_color,0.92); }
+.content list button, .content list > row:not(:selected):hover button, list.content button, list.content > row:not(:selected):hover button, list.view.frame button, list.view.frame > row:not(:selected):hover button { color: @card_fg_color; outline-color: alpha(@card_fg_color,0.3); background-color: mix(black,@card_bg_color,0.92); }
 
 .content list button.flat:not(:hover):not(:active), .content list > row:not(:selected):hover button.flat:not(:hover):not(:active), list.content button.flat:not(:hover):not(:active), list.content > row:not(:selected):hover button.flat:not(:hover):not(:active), list.view.frame button.flat:not(:hover):not(:active), list.view.frame > row:not(:selected):hover button.flat:not(:hover):not(:active) { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; }
 
-.content list button:hover, .content list > row:not(:selected):hover button:hover, list.content button:hover, list.content > row:not(:selected):hover button:hover, list.view.frame button:hover, list.view.frame > row:not(:selected):hover button:hover { color: @window_fg_color; outline-color: alpha(@window_fg_color,0.3); background-color: mix(black,@view_bg_color,0.883); box-shadow: none; }
+.content list button:hover, .content list > row:not(:selected):hover button:hover, list.content button:hover, list.content > row:not(:selected):hover button:hover, list.view.frame button:hover, list.view.frame > row:not(:selected):hover button:hover { color: @card_fg_color; outline-color: alpha(@card_fg_color,0.3); background-color: mix(black,@card_bg_color,0.883); box-shadow: none; }
 
-.content list button:active, .content list button:checked, .content list > row:not(:selected):hover button:active, .content list > row:not(:selected):hover button:checked, list.content button:active, list.content button:checked, list.content > row:not(:selected):hover button:active, list.content > row:not(:selected):hover button:checked, list.view.frame button:active, list.view.frame button:checked, list.view.frame > row:not(:selected):hover button:active, list.view.frame > row:not(:selected):hover button:checked { color: @window_fg_color; outline-color: alpha(@window_fg_color,0.3); background-color: mix(black,@view_bg_color,0.76); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+.content list button:active, .content list button:checked, .content list > row:not(:selected):hover button:active, .content list > row:not(:selected):hover button:checked, list.content button:active, list.content button:checked, list.content > row:not(:selected):hover button:active, list.content > row:not(:selected):hover button:checked, list.view.frame button:active, list.view.frame button:checked, list.view.frame > row:not(:selected):hover button:active, list.view.frame > row:not(:selected):hover button:checked { color: @card_fg_color; outline-color: alpha(@card_fg_color,0.3); background-color: mix(black,@card_bg_color,0.76); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
-.content list button:active:hover, .content list button:checked:hover, .content list > row:not(:selected):hover button:active:hover, .content list > row:not(:selected):hover button:checked:hover, list.content button:active:hover, list.content button:checked:hover, list.content > row:not(:selected):hover button:active:hover, list.content > row:not(:selected):hover button:checked:hover, list.view.frame button:active:hover, list.view.frame button:checked:hover, list.view.frame > row:not(:selected):hover button:active:hover, list.view.frame > row:not(:selected):hover button:checked:hover { background-color: mix(black,@view_bg_color,0.72); }
+.content list button:active:hover, .content list button:checked:hover, .content list > row:not(:selected):hover button:active:hover, .content list > row:not(:selected):hover button:checked:hover, list.content button:active:hover, list.content button:checked:hover, list.content > row:not(:selected):hover button:active:hover, list.content > row:not(:selected):hover button:checked:hover, list.view.frame button:active:hover, list.view.frame button:checked:hover, list.view.frame > row:not(:selected):hover button:active:hover, list.view.frame > row:not(:selected):hover button:checked:hover { background-color: mix(black,@card_bg_color,0.72); }
 
-.content list button:disabled, .content list > row:not(:selected):hover button:disabled, list.content button:disabled, list.content > row:not(:selected):hover button:disabled, list.view.frame button:disabled, list.view.frame > row:not(:selected):hover button:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@view_bg_color,@view_bg_color,0.15),0.5); background-color: mix(black,@view_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
+.content list button:disabled, .content list > row:not(:selected):hover button:disabled, list.content button:disabled, list.content > row:not(:selected):hover button:disabled, list.view.frame button:disabled, list.view.frame > row:not(:selected):hover button:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@card_bg_color,@view_bg_color,0.15),0.5); background-color: mix(black,@card_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
 
-.content list button:backdrop, .content list > row:not(:selected):hover button:backdrop, list.content button:backdrop, list.content > row:not(:selected):hover button:backdrop, list.view.frame button:backdrop, list.view.frame > row:not(:selected):hover button:backdrop { color: mix(mix(@window_fg_color,@window_bg_color,0.5),@view_bg_color,0.2); background-color: mix(black,@view_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
+.content list button:backdrop, .content list > row:not(:selected):hover button:backdrop, list.content button:backdrop, list.content > row:not(:selected):hover button:backdrop, list.view.frame button:backdrop, list.view.frame > row:not(:selected):hover button:backdrop { color: mix(mix(@window_fg_color,@window_bg_color,0.5),@card_bg_color,0.2); background-color: mix(black,@card_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
 
-.content list button:backdrop:disabled, .content list > row:not(:selected):hover button:backdrop:disabled, list.content button:backdrop:disabled, list.content > row:not(:selected):hover button:backdrop:disabled, list.view.frame button:backdrop:disabled, list.view.frame > row:not(:selected):hover button:backdrop:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@view_bg_color,@view_bg_color,0.15),0.65); background-color: mix(black,@view_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
+.content list button:backdrop:disabled, .content list > row:not(:selected):hover button:backdrop:disabled, list.content button:backdrop:disabled, list.content > row:not(:selected):hover button:backdrop:disabled, list.view.frame button:backdrop:disabled, list.view.frame > row:not(:selected):hover button:backdrop:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@card_bg_color,@view_bg_color,0.15),0.65); background-color: mix(black,@card_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
 
-.content list entry, list.content entry, list.view.frame entry { color: @view_fg_color; outline-color: alpha(@view_fg_color,0.3); background-color: mix(black,@view_bg_color,0.92); }
+.content list entry, list.content entry, list.view.frame entry { color: @view_fg_color; outline-color: alpha(@view_fg_color,0.3); background-color: mix(black,@card_bg_color,0.92); }
 
-.content list entry:disabled, list.content entry:disabled, list.view.frame entry:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@view_bg_color,@view_bg_color,0.15),0.5); background-color: mix(black,@view_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
+.content list entry:disabled, list.content entry:disabled, list.view.frame entry:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@card_bg_color,@view_bg_color,0.15),0.5); background-color: mix(black,@card_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
 
-.content list entry:backdrop, list.content entry:backdrop, list.view.frame entry:backdrop { color: mix(mix(@view_fg_color,@window_bg_color,0.2),@view_bg_color,0.2); background-color: mix(black,@view_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
+.content list entry:backdrop, list.content entry:backdrop, list.view.frame entry:backdrop { color: mix(mix(@view_fg_color,@window_bg_color,0.2),@card_bg_color,0.2); background-color: mix(black,@card_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
 
-.content list entry:backdrop:disabled, list.content entry:backdrop:disabled, list.view.frame entry:backdrop:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@view_bg_color,@view_bg_color,0.15),0.65); background-color: mix(black,@view_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
+.content list entry:backdrop:disabled, list.content entry:backdrop:disabled, list.view.frame entry:backdrop:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@card_bg_color,@view_bg_color,0.15),0.65); background-color: mix(black,@card_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
 
-popover.background button { color: @window_fg_color; outline-color: alpha(@window_fg_color,0.3); background-color: mix(black,@view_bg_color,0.92); }
+popover.background button { color: @window_fg_color; outline-color: alpha(@window_fg_color,0.3); background-color: mix(black,@popover_bg_color,0.92); }
 
 popover.background button.flat:not(:hover):not(:active) { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; }
 
-popover.background button:hover { color: @window_fg_color; outline-color: alpha(@window_fg_color,0.3); background-color: mix(black,@view_bg_color,0.883); box-shadow: none; }
+popover.background button:hover { color: @window_fg_color; outline-color: alpha(@window_fg_color,0.3); background-color: mix(black,@popover_bg_color,0.883); box-shadow: none; }
 
-popover.background button:active, popover.background button:checked { color: @window_fg_color; outline-color: alpha(@window_fg_color,0.3); background-color: mix(black,@view_bg_color,0.76); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
+popover.background button:active, popover.background button:checked { color: @window_fg_color; outline-color: alpha(@window_fg_color,0.3); background-color: mix(black,@popover_bg_color,0.76); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
 
-popover.background button:active:hover, popover.background button:checked:hover { background-color: mix(black,@view_bg_color,0.72); }
+popover.background button:active:hover, popover.background button:checked:hover { background-color: mix(black,@popover_bg_color,0.72); }
 
-popover.background button:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@view_bg_color,@view_bg_color,0.15),0.5); background-color: mix(black,@view_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
+popover.background button:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@popover_bg_color,@view_bg_color,0.15),0.5); background-color: mix(black,@popover_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
 
-popover.background button:backdrop { color: mix(mix(@window_fg_color,@window_bg_color,0.5),@view_bg_color,0.2); background-color: mix(black,@view_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
+popover.background button:backdrop { color: mix(mix(@window_fg_color,@window_bg_color,0.5),@popover_bg_color,0.2); background-color: mix(black,@popover_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
 
-popover.background button:backdrop:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@view_bg_color,@view_bg_color,0.15),0.65); background-color: mix(black,@view_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
+popover.background button:backdrop:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@popover_bg_color,@view_bg_color,0.15),0.65); background-color: mix(black,@popover_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
 
-popover.background entry { color: @view_fg_color; outline-color: alpha(@view_fg_color,0.3); background-color: mix(black,@view_bg_color,0.92); }
+popover.background entry { color: @view_fg_color; outline-color: alpha(@view_fg_color,0.3); background-color: mix(black,@popover_bg_color,0.92); }
 
-popover.background entry:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@view_bg_color,@view_bg_color,0.15),0.5); background-color: mix(black,@view_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
+popover.background entry:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@popover_bg_color,@view_bg_color,0.15),0.5); background-color: mix(black,@popover_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
 
-popover.background entry:backdrop { color: mix(mix(@view_fg_color,@window_bg_color,0.2),@view_bg_color,0.2); background-color: mix(black,@view_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
+popover.background entry:backdrop { color: mix(mix(@view_fg_color,@window_bg_color,0.2),@popover_bg_color,0.2); background-color: mix(black,@popover_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
 
-popover.background entry:backdrop:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@view_bg_color,@view_bg_color,0.15),0.65); background-color: mix(black,@view_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
+popover.background entry:backdrop:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),mix(@popover_bg_color,@view_bg_color,0.15),0.65); background-color: mix(black,@popover_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; }
 
 button.toggle:not(.image-button) { padding-left: 8px; padding-right: 8px; }
 
@@ -2361,7 +2361,7 @@ list.content .horizontal spinbutton entry { border-top-left-radius: 6px; border-
 
 list.view.frame { border-radius: 12px; }
 
-list.view.frame, list.view.frame:backdrop { background-color: @view_bg_color; }
+list.view.frame, list.view.frame:backdrop { background-color: @card_bg_color; }
 
 .ssd .titlebar { border-width: 0; padding: 0px 4px; min-height: 36px; border-bottom: 1px solid shade(@window_bg_color,0.828); }
 
@@ -2539,7 +2539,7 @@ viewswitcherbar actionbar > revealer > box { padding: 0; }
 
 viewswitchertitle viewswitcher { margin-left: 12px; margin-right: 12px; }
 
-list.content { background-color: @view_bg_color; color: @window_fg_color; border-radius: 12px; border: 1px solid mix(black,@window_bg_color,0.883); }
+list.content { background-color: @card_bg_color; color: @card_fg_color; border-radius: 12px; border: 1px solid mix(black,@window_bg_color,0.883); }
 
 list.content list { background-color: transparent; border-radius: 12px; }
 
@@ -2547,9 +2547,9 @@ list.content:backdrop { color: mix(@window_fg_color,@window_bg_color,0.5); }
 
 list.content list.nested > row:not(:active) { border: 1px solid mix(black,@window_bg_color,0.883); }
 
-list.content list.nested > row:not(:active):not(:hover):not(:selected), list.content list.nested > row:not(:active):hover:not(.activatable):not(:selected) { background-color: mix(@window_bg_color, @view_bg_color, 0.5); }
+list.content list.nested > row:not(:active):not(:hover):not(:selected), list.content list.nested > row:not(:active):hover:not(.activatable):not(:selected) { background-color: mix(@window_bg_color, @card_bg_color, 0.5); }
 
-list.content list.nested > row:not(:active):hover.activatable:not(:selected) { background-color: mix(@window_fg_color, @view_bg_color, 0.954); }
+list.content list.nested > row:not(:active):hover.activatable:not(:selected) { background-color: mix(@window_fg_color, @card_bg_color, 0.954); }
 
 list.content > row { margin: 0; padding: 2px; transition: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
@@ -2565,9 +2565,9 @@ list.content > row:last-child { border-top-left-radius: 0; border-top-right-radi
 
 list.content > row:only-child { border-bottom: none; border-radius: 12px; -gtk-outline-radius: 12px; }
 
-list.content > row:not(.expander):not(:active):hover.activatable:not(:selected), list.content > row.expander row.header:not(:active):hover.activatable:not(:selected) { background-color: mix(@window_fg_color, @view_bg_color, 0.954); }
+list.content > row:not(.expander):not(:active):hover.activatable:not(:selected), list.content > row.expander row.header:not(:active):hover.activatable:not(:selected) { background-color: mix(@window_fg_color, @card_bg_color, 0.954); }
 
-button.list-button:not(:active):not(:checked):not(:hover) { color: @window_fg_color; outline-color: alpha(@window_fg_color,0.3); background-color: mix(black,@view_bg_color,0.92); }
+button.list-button:not(:active):not(:checked):not(:hover) { color: @window_fg_color; outline-color: alpha(@window_fg_color,0.3); background-color: mix(black,@card_bg_color,0.92); }
 
 statuspage > scrolledwindow > viewport > box > clamp > box > .icon { color: alpha(@window_fg_color,0.5); }
 
@@ -3047,7 +3047,7 @@ XfdesktopIconView.view .rubberband { border-radius: 0; }
 
 .xfce4-panel.background button menu { -gtk-icon-effect: none; text-shadow: none; }
 
-.xfce4-panel.background button menu .linked button { color: @view_fg_color; outline-color: alpha(@view_fg_color,0.3); background-color: mix(black,@view_bg_color,0.92); }
+.xfce4-panel.background button menu .linked button { color: @view_fg_color; outline-color: alpha(@view_fg_color,0.3); background-color: mix(black,@popover_bg_color,0.92); }
 
 .xfce4-panel.background button menu .linked button:disabled { color: mix(@window_fg_color,@window_bg_color,0.5); background-color: mix(black,@window_bg_color,0.957); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; border-color: alpha(mix(black,@window_bg_color,0.883),0.5); }
 
