@@ -46,7 +46,7 @@ This will install the latest version from the main branch. Use this install meth
 
 See [CONTRIBUTING.md](https://github.com/lassekongo83/adw-gtk3/blob/main/CONTRIBUTING.md) for the instructions.
 
-### Customizing
+## Customizing
 Adw-gtk3 supports some customization with named colors. See: [customizing.md](https://github.com/lassekongo83/adw-gtk3/blob/main/customizing.md) for more info.
 
 ### GTK-4
