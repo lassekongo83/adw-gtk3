@@ -42,12 +42,12 @@ dnf install adw-gtk3
 Thanks to [@dusansimic](https://github.com/dusansimic) (Flatpak, AUR), [@kuroehanako](https://github.com/kuroehanako) (Snapcraft), [@nickavem](https://github.com/nickavem) (Fedora copr) for the help.
 
 ### Installation from source
-This will install the latest version from the main branch. Use this install method if you want to contribute.
+This will install the latest version from the main branch. Use this install method if you want to contribute and help testing the theme.
 
 See [CONTRIBUTING.md](https://github.com/lassekongo83/adw-gtk3/blob/main/CONTRIBUTING.md) for the instructions.
 
 ## Customizing
-Adw-gtk3 supports some customization with named colors. See: [customizing.md](https://github.com/lassekongo83/adw-gtk3/blob/main/customizing.md) for more info.
+Adw-gtk3 supports some customization with named colors. See: [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
 
 ### GTK-4
 If you want to style GTK-4 apps with libadwaita see: [gtk4.md](https://github.com/lassekongo83/adw-gtk3/blob/main/gtk4.md)
