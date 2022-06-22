@@ -1135,9 +1135,9 @@ scrollbar.horizontal button.up { -gtk-icon-source: -gtk-icontheme("pan-start-sym
 
 treeview ~ scrollbar.vertical { border-top: 1px solid mix(black,@window_bg_color,0.883); margin-top: -1px; }
 
-switch { outline-offset: -4px; padding: 2px; border-radius: 14px; color: @window_fg_color; background-color: mix(black,@window_bg_color,0.847); }
+switch { outline-offset: -4px; padding: 2px; border-radius: 14px; color: @window_fg_color; background-color: alpha(currentColor,0.15); }
 
-switch:hover:not(:checked) { background-color: mix(black,@window_bg_color,0.793); }
+switch:hover:not(:checked) { background-color: alpha(currentColor,0.2); }
 
 switch:checked { color: @accent_fg_color; background-color: @accent_bg_color; }
 
@@ -1289,7 +1289,7 @@ menu menuitem radio:checked:not(:backdrop), menu menuitem radio:indeterminate:no
 
 treeview.view check:selected:focus, treeview.view check:selected, treeview.view radio:selected:focus, treeview.view radio:selected { color: @accent_fg_color; border-color: mix(black,@accent_bg_color,0.85); }
 
-progressbar trough, scale fill, scale trough { border-radius: 6px; background-color: mix(black,@window_bg_color,0.847); }
+progressbar trough, scale fill, scale trough { border-radius: 6px; background-color: alpha(currentColor,0.15); }
 
 progressbar trough:disabled, scale fill:disabled, scale trough:disabled { background-color: mix(mix(black,@window_bg_color,0.923),@window_bg_color,0.3); }
 
@@ -1551,7 +1551,7 @@ levelbar.vertical.discrete block { margin: 1px 0; min-height: 32px; }
 
 levelbar:backdrop { transition: 200ms ease-out; }
 
-levelbar trough { border: 0px solid; padding: 0; border-radius: 8px; background-color: mix(black,@window_bg_color,0.847); }
+levelbar trough { border: 0px solid; padding: 0; border-radius: 8px; background-color: alpha(currentColor,0.15); }
 
 levelbar trough:backdrop { background-color: mix(mix(black,@window_bg_color,0.923),@window_bg_color,0.3); }
 
@@ -2397,7 +2397,7 @@ window.csd.unified:not(.solid-csd):not(.fullscreen):not(.tiled):not(.tiled-top):
 
 window.csd.unified scrollbar { background-color: @view_bg_color; color: @window_fg_color; }
 
-window.csd.unified scrollbar trough { margin: 7px; transition: all 200ms linear; border-radius: 10px; background-color: mix(black,@window_bg_color,0.847); }
+window.csd.unified scrollbar trough { margin: 7px; transition: all 200ms linear; border-radius: 10px; background-color: alpha(currentColor,0.15); }
 
 window.csd.unified scrollbar trough > slider { min-width: 8px; min-height: 8px; margin: -6px; border: 6px solid transparent; border-radius: 10px; background-clip: padding-box; transition: all 200ms linear; }
 

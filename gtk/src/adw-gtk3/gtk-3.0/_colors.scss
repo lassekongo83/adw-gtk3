@@ -106,8 +106,9 @@ $view_selected_color: gtkalpha(currentColor, .1); //if($variant == 'light', dark
 $view_selected_hover_color:gtkalpha(currentColor, .13); //if($variant == 'light', darken($base_color, 13%), lighten($base_color, 13%));
 $view_selected_active_color: gtkalpha(currentColor, .19); //if($variant == 'light', darken($base_color, 19%), lighten($base_color, 19%));
 
-$trough_color: if($variant == 'light', gtkmix(black, $bg_color, 15.3%), gtkmix(white, $bg_color, 17.3%)); //gtkalpha(currentColor, .15);
-$trough_hover_color: if($variant == 'light', gtkmix(black, $bg_color, 20.7%), gtkmix(white, $bg_color, 23.3%)); //gtkalpha(currentColor, .2);
+$trough_color: gtkalpha(currentColor, .15); //if($variant == 'light', gtkmix(black, $bg_color, 15.3%), gtkmix(white, $bg_color, 17.3%)); //gtkalpha(currentColor, .15);
+$trough_hover_color: gtkalpha(currentColor, .2); //if($variant == 'light', gtkmix(black, $bg_color, 20.7%), gtkmix(white, $bg_color, 23.3%)); //gtkalpha(currentColor, .2);
+$trough_active_color: gtkalpha(currentColor, .25);
 
 $slider_color: gtkmix(white, $base_color, 80%);
 $slider_hover_color: white;
