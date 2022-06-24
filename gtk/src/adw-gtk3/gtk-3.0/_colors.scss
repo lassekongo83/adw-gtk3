@@ -104,8 +104,8 @@ $checkradio_borders_color: if($variant == 'light', gtkmix(black,$checkradio_bg_c
 $titlebutton_normal: if($variant == 'light', gtkmix(black, $headerbar_bg_color, 7.7%), gtkmix(white, $headerbar_bg_color, 10%));
 $titlebutton_normal_hover: if($variant == 'light', gtkmix(black, $headerbar_bg_color, 12%), gtkmix(white, $headerbar_bg_color, 15%));
 $titlebutton_normal_active: if($variant == 'light', gtkmix(black, $headerbar_bg_color, 24%), gtkmix(white, $headerbar_bg_color, 30%));
-$titlebutton_backdrop: if($variant == 'light', gtkshade($bg_color, 0.96), gtkshade($bg_color, 1.32));
-$titlebutton_backdrop_hover: if($variant == 'light', gtkshade($bg_color, 0.94), gtkshade($bg_color, 1.46));
+$titlebutton_backdrop: if($variant == 'light', gtkshade($headerbar_backdrop_color, 0.96), gtkshade($headerbar_backdrop_color, 1.32));
+$titlebutton_backdrop_hover: if($variant == 'light', gtkshade($headerbar_backdrop_color, 0.94), gtkshade($headerbar_backdrop_color, 1.46));
 
 // Other colors from libadwaita
 $border_color: gtkalpha(currentColor, .15); // not the same as borderS-color

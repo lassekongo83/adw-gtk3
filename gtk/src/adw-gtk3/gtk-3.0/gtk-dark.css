@@ -715,9 +715,9 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 
 .default-decoration.titlebar:not(headerbar) button.titlebutton:active, headerbar.default-decoration button.titlebutton:hover:active, headerbar.default-decoration button.titlebutton:active { background-color: mix(white,@headerbar_bg_color,0.7); }
 
-.default-decoration.titlebar:not(headerbar) button.titlebutton:backdrop, headerbar.default-decoration button.titlebutton:backdrop { background: shade(@window_bg_color,1.32); }
+.default-decoration.titlebar:not(headerbar) button.titlebutton:backdrop, headerbar.default-decoration button.titlebutton:backdrop { background: shade(@headerbar_backdrop_color,1.32); }
 
-.default-decoration.titlebar:not(headerbar) button.titlebutton:backdrop:hover, headerbar.default-decoration button.titlebutton:backdrop:hover { background: shade(@window_bg_color,1.46); }
+.default-decoration.titlebar:not(headerbar) button.titlebutton:backdrop:hover, headerbar.default-decoration button.titlebutton:backdrop:hover { background: shade(@headerbar_backdrop_color,1.46); }
 
 .titlebar:not(headerbar) separator.titlebutton, headerbar separator.titlebutton { opacity: 0; }
 
@@ -2055,9 +2055,9 @@ button.titlebutton:not(.appmenu):hover { background-color: mix(white,@headerbar_
 
 button.titlebutton:not(.appmenu):hover:active { background-color: mix(white,@headerbar_bg_color,0.7); }
 
-button.titlebutton:not(.appmenu):backdrop { background-color: shade(@window_bg_color,1.32); }
+button.titlebutton:not(.appmenu):backdrop { background-color: shade(@headerbar_backdrop_color,1.32); }
 
-button.titlebutton:not(.appmenu):backdrop:hover { background-color: shade(@window_bg_color,1.46); }
+button.titlebutton:not(.appmenu):backdrop:hover { background-color: shade(@headerbar_backdrop_color,1.46); }
 
 button.titlebutton:backdrop { -gtk-icon-shadow: none; }
 
@@ -2397,9 +2397,9 @@ list.view.frame, list.view.frame:backdrop { background-color: @card_bg_color; }
 
 .ssd .titlebar.default-decoration button.titlebutton:hover:active, .ssd .titlebar.default-decoration button.titlebutton:active { background-color: mix(white,@headerbar_bg_color,0.7); }
 
-.ssd .titlebar.default-decoration button.titlebutton:backdrop { background: shade(@window_bg_color,1.32); }
+.ssd .titlebar.default-decoration button.titlebutton:backdrop { background: shade(@headerbar_backdrop_color,1.32); }
 
-.ssd .titlebar.default-decoration button.titlebutton:backdrop:hover { background: shade(@window_bg_color,1.46); }
+.ssd .titlebar.default-decoration button.titlebutton:backdrop:hover { background: shade(@headerbar_backdrop_color,1.46); }
 
 .default-decoration .title { color: @headerbar_fg_color; }
 
