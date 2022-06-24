@@ -13,20 +13,20 @@
       border-radius: $button_radius;
       border: none;
       padding-right: 6px;
-      @include button(normal, $headerbar_color, $headerbar_fg_color);
+      @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
 
       &:backdrop {
-        @include button(backdrop, $bg_color, $backdrop_fg_color);
+        @include button(backdrop, $headerbar_backdrop_color, $backdrop_fg_color);
       }
     }
 
     .nautilus-path-bar {
       border-radius: $button_radius;
-      @include button(normal, $headerbar_color, $headerbar_fg_color);
+      @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
       min-height: 34px;
 
       &:backdrop {
-        @include button(backdrop, $bg_color, $backdrop_fg_color);
+        @include button(backdrop, $headerbar_backdrop_color, $backdrop_fg_color);
       }
 
       button:not(.titlebutton) {
@@ -55,14 +55,14 @@
         }
 
         &.toggle.popup {
-          @include button(normal, $headerbar_color, $headerbar_fg_color);
+          @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
           border-radius: 0 $button-radius $button-radius 0;
           border-left: 1px solid $border_color;
           image { color: $headerbar_fg_color; }
 
-          &:hover { @include button(hover, $headerbar_color, $headerbar_fg_color); }
+          &:hover { @include button(hover, $headerbar_bg_color, $headerbar_fg_color); }
 
-          &:checked { @include button(active, $headerbar_color, $headerbar_fg_color); }
+          &:checked { @include button(active, $headerbar_bg_color, $headerbar_fg_color); }
 
           &:backdrop {
             @include button(backdrop, $bg_color, $backdrop_fg_color);
@@ -276,7 +276,7 @@ list.tweak-categories separator.horizontal {
 // Guake
 // Fix bugged transparent headerbar background
 window#guake-terminal notebook header {
-  background: $headerbar_color;
+  background: $headerbar_bg_color;
 }
 
 // XFCE4
@@ -519,7 +519,7 @@ window.background.chromium {
 }
 @if $variant == 'dark' {
   #MozillaGtkWidget {
-    &.background { background-color: $headerbar_color; }
+    &.background { background-color: $headerbar_bg_color; }
 
     > widget {
       border { border-color: $borders_color; }

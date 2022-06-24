@@ -325,10 +325,10 @@ viewswitcher {
       &:hover:not(:backdrop) {
         background-image: none;
         @if $variant == 'light' {
-          @include button(normal, gtkmix(white, $headerbar_color, 28%), $headerbar_fg_color);
+          @include button(normal, gtkmix(white, $headerbar_bg_color, 28%), $headerbar_fg_color);
         }
         @else {
-          @include button(normal, gtkmix(black, $headerbar_color, 13%), $headerbar_fg_color);
+          @include button(normal, gtkmix(black, $headerbar_bg_color, 13%), $headerbar_fg_color);
         }
       }
 
@@ -344,10 +344,10 @@ viewswitcher {
 
       &:hover:backdrop {
         @if $variant == 'light' {
-          @include button(backdrop, gtkmix(white, $bg_color, 70%), $backdrop_fg_color);
+          @include button(backdrop, gtkmix(white, $headerbar_backdrop_color, 70%), $backdrop_fg_color);
         }
         @else {
-          @include button(backdrop, gtkmix(black, $bg_color, 10%), $backdrop_fg_color);
+          @include button(backdrop, gtkmix(black, $headerbar_backdrop_color, 10%), $backdrop_fg_color);
         }
         background-image: none;
       }

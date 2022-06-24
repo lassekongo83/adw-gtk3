@@ -22,7 +22,7 @@ $_switch_margin: if($_sizevariant=='default', 9px, 7px);
 * {
   padding: 0;
   -GtkToolButton-icon-spacing: 4;
-  -GtkTextView-error-underline-color: $error_color;
+  -GtkTextView-error-underline-color: $error_bg_color;
 
   // The size for scrollbars. The slider is 2px smaller, but we keep it
   // up so that the whole area is sensitive to button presses for the
@@ -202,9 +202,9 @@ label {
   }
 
   &.error {
-    color: $error_color;
-    &:disabled { color: gtkalpha($error_color,0.5); }
-    &:disabled:backdrop { color: gtkalpha($error_color,0.4); }
+    color: $error_bg_color;
+    &:disabled { color: gtkalpha($error_bg_color,0.5); }
+    &:disabled:backdrop { color: gtkalpha($error_bg_color,0.4); }
   }
 }
 
@@ -348,8 +348,8 @@ entry {
     selection { @extend %selected_items; }
 
     // entry error and warning style
-    @each $e_type, $e_color in (error, $error_color),
-                               (warning, $warning_color) {
+    @each $e_type, $e_color in (error, $error_bg_color),
+                               (warning, $warning_bg_color) {
       &.#{$e_type} {
         color: $e_color;
         border-color: entry_focus_border($e_color);
@@ -409,7 +409,7 @@ entry {
 
   .linked:not(.vertical) > &:focus.error + &,
   .linked:not(.vertical) > &:focus.error + button,
-  .linked:not(.vertical) > &:focus.error + combobox > box > button.combo { border-left-color: entry_focus_border($error_color); }
+  .linked:not(.vertical) > &:focus.error + combobox > box > button.combo { border-left-color: entry_focus_border($error_bg_color); }
 
   .linked:not(.vertical) > &:drop(active) + &,
   .linked:not(.vertical) > &:drop(active) + button,
@@ -438,7 +438,7 @@ entry {
     + entry:focus:not(:only-child) { border-top-color: entry_focus_border(); }
 
     + %entry:focus.error:not(:only-child),
-    + entry:focus.error:not(:only-child) { border-top-color: entry_focus_border($error_color); }
+    + entry:focus.error:not(:only-child) { border-top-color: entry_focus_border($error_bg_color); }
 
     + %entry:drop(active):not(:only-child),
     + entry:drop(active):not(:only-child) { border-top-color: $drop_target_color; }
@@ -456,7 +456,7 @@ entry {
       + %entry,
       + entry,
       + button,
-      + combobox > box > button.combo { border-top-color: entry_focus_border($error_color); }
+      + combobox > box > button.combo { border-top-color: entry_focus_border($error_bg_color); }
     }
 
     &:drop(active):not(:only-child) {
@@ -467,7 +467,7 @@ entry {
     }
   }
 
-  &.error { color: $error_color; }
+  &.error { color: $error_bg_color; }
 }
 
 treeview entry {
@@ -768,7 +768,7 @@ button {
 
   // Suggested and Destructive Action buttons
   @each $b_type, $b_color in (suggested-action, $suggested_bg_color),
-                             (destructive-action, $destructive_color) {
+                             (destructive-action, $destructive_bg_color) {
     &.#{$b_type} {
       @include button(normal, $b_color, white);
 
@@ -1573,10 +1573,8 @@ headerbar {
 
   &:backdrop {
     border-color: $backdrop_borders_color;
-    background-color: $bg_color;
+    background-color: $headerbar_backdrop_color;
     background-image: none;
-    //box-shadow: inset 0 1px $top_hilight;
-
     transition: $backdrop_transition;
   }
 
@@ -1885,7 +1883,7 @@ headerbar { // headerbar border rounding
 
 window.devel {
   headerbar.titlebar:not(.selection-mode) {
-    $c: $headerbar_color;
+    $c: $headerbar_bg_color;
     $gradient: cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
                linear-gradient(to right, transparent 65%, gtkalpha($selected_bg_color, 0.2)),
                linear-gradient(to top, gtkmix(black, $c, 3%), $c 3px, gtkmix(white, $c, 6%));
@@ -1898,8 +1896,8 @@ window.devel {
     background: $bg_color $gradient;
 
     &:backdrop {
-      background: $bg_color cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
-                  image($bg_color); // background-color would flash
+      background: $headerbar_backdrop_color cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
+                  image($headerbar_backdrop_color); // background-color would flash
     }
   }
 }
@@ -3780,10 +3778,10 @@ levelbar {
     &:last-child { border-radius: 0 8px 8px 0; }
 
     &.low {
-      border-color: if($variant == 'light', gtkshade($warning_color, 0.8), $warning_color);
-      background-color: $warning_color;
+      border-color: if($variant == 'light', gtkshade($warning_bg_color, 0.8), $warning_bg_color);
+      background-color: $warning_bg_color;
 
-      &:backdrop { border-color: $warning_color; };
+      &:backdrop { border-color: $warning_bg_color; };
     }
 
     &.high,
@@ -3795,10 +3793,10 @@ levelbar {
     }
 
     &.full {
-      border-color: if($variant == 'light', gtkshade($success_color, 0.8), $success_color);
-      background-color: $success_color;
+      border-color: if($variant == 'light', gtkshade($success_bg_color, 0.8), $success_bg_color);
+      background-color: $success_bg_color;
 
-      &:backdrop { border-color: $success_color; };
+      &:backdrop { border-color: $success_bg_color; };
     }
 
     &.empty {
@@ -4098,10 +4096,10 @@ messagedialog { // Message Dialog styling
       }
 
       &.destructive-action {
-        background-color: $destructive_color;
+        background-color: $destructive_bg_color;
         color: $selected_fg_color;
-        &:hover { @include button(hover, $destructive_color, white); }
-        &:active, &:checked { @include button(active, $destructive_color, white); }
+        &:hover { @include button(hover, $destructive_bg_color, white); }
+        &:active, &:checked { @include button(active, $destructive_bg_color, white); }
       }
 
       &:first-child {
@@ -4403,8 +4401,8 @@ infobar {
 
   @each $i_type, $i_color in (info, $selected_bg_color),
                              (question, $selected_bg_color),
-                             (warning, $warning_color),
-                             (error, $error_color) {
+                             (warning, $warning_bg_color),
+                             (error, $error_bg_color) {
     &.#{$i_type} > revealer > box {
       background-color: gtkmix($i_color, $bg_color, 30%);
       color: $fg_color;
@@ -4738,7 +4736,7 @@ decoration {
     border: solid 1px $borders_color;
     border-radius: 0;
     box-shadow: inset 0 0 0 5px $borders_color,
-                inset 0 0 0 4px $headerbar_color,
+                inset 0 0 0 4px $headerbar_bg_color,
                 inset 0 0 0 1px $borders_color;
 
     &:backdrop { box-shadow: inset 0 0 0 3px $backdrop_bg_color; }

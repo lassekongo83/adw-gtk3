@@ -2,52 +2,52 @@
 
 // Trying to mimic the headerbar button colors from the libadwaita theme when used in gtk4-widget-factory
 %colored_buttons {
-  @include button(normal, $headerbar_color, $headerbar_fg_color);
-  &:backdrop { @include button(backdrop, $bg_color, $backdrop_fg_color); }
+  @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
+  &:backdrop { @include button(backdrop, $headerbar_backdrop_color, $backdrop_fg_color); }
 
   &:hover {
     @if $variant == 'light' {
-      @include button(hover, gtkmix(black, $headerbar_color, 0.3%), $headerbar_fg_color);
+      @include button(hover, gtkmix(black, $headerbar_bg_color, 0.3%), $headerbar_fg_color);
     }
     @else {
-      @include button(hover, gtkmix(black, $headerbar_color, 0.7%), $headerbar_fg_color);
+      @include button(hover, gtkmix(black, $headerbar_bg_color, 0.7%), $headerbar_fg_color);
     }
     &:backdrop {
       @if $variant == 'light' {
-        @include button(backdrop, gtkmix(black, $bg_color, 2.7%), $backdrop_fg_color);
+        @include button(backdrop, gtkmix(black, $headerbar_backdrop_color, 2.7%), $backdrop_fg_color);
       }
       @else {
-        @include button(backdrop, gtkmix(white, $bg_color, 3%), $backdrop_fg_color);
+        @include button(backdrop, gtkmix(white, $headerbar_backdrop_color, 3%), $backdrop_fg_color);
       }
     }
   }
 
   &:active, &:checked {
     @if $variant == 'light' {
-      @include button(active, gtkmix(white, $headerbar_color, 1.7%), $headerbar_fg_color);
+      @include button(active, gtkmix(white, $headerbar_bg_color, 1.7%), $headerbar_fg_color);
       &:hover {
-        @include button(active, gtkmix(black, $headerbar_color, 0.3%), $headerbar_fg_color);
+        @include button(active, gtkmix(black, $headerbar_bg_color, 0.3%), $headerbar_fg_color);
       }
     }
     @else {
-      @include button(active, gtkmix(white, $headerbar_color, 0.3%), $headerbar_fg_color);
+      @include button(active, gtkmix(white, $headerbar_bg_color, 0.3%), $headerbar_fg_color);
       &:hover {
-        @include button(active, gtkmix(white, $headerbar_color, 1%), $headerbar_fg_color);
+        @include button(active, gtkmix(white, $headerbar_bg_color, 1%), $headerbar_fg_color);
       }
     }
-    &:backdrop { @include button(normal, $bg_color, $backdrop_fg_color); }
+    &:backdrop { @include button(normal, $headerbar_backdrop_color, $backdrop_fg_color); }
   }
 
   &:disabled {
-    @include button(insensitive, $headerbar_color, $insensitive_fg_color);
+    @include button(insensitive, $headerbar_bg_color, $insensitive_fg_color);
   }
 
   &:backdrop:disabled {
-    @include button(backdrop-insensitive, $bg_color, $backdrop_insensitive_color);
+    @include button(backdrop-insensitive, $headerbar_backdrop_color, $backdrop_insensitive_color);
   }
 
   &.default:not(:backdrop):not(.suggested-action):not(.destructive-action) {
-    @include button(normal, $headerbar_color, $headerbar_fg_color);
+    @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
   }
 
   &.flat:not(:hover):not(:active) { @include button(undecorated); }
@@ -60,32 +60,32 @@
   // The normal state is set where it's needed. Usually undecorated.
   &:hover {
     @if $variant == 'light' {
-      @include button(normal, gtkmix(white, $headerbar_color, 28%), $headerbar_fg_color);
+      @include button(normal, gtkmix(white, $headerbar_bg_color, 28%), $headerbar_fg_color);
     }
     @else {
-      @include button(normal, gtkmix(black, $headerbar_color, 13%), $headerbar_fg_color);
+      @include button(normal, gtkmix(black, $headerbar_bg_color, 13%), $headerbar_fg_color);
     }
     &:backdrop {
       @if $variant == 'light' {
-        @include button(backdrop, gtkmix(white, $bg_color, 70%), $backdrop_fg_color);
+        @include button(backdrop, gtkmix(white, $headerbar_backdrop_color, 70%), $backdrop_fg_color);
       }
       @else {
-        @include button(backdrop, gtkmix(black, $bg_color, 10%), $backdrop_fg_color);
+        @include button(backdrop, gtkmix(black, $headerbar_backdrop_color, 10%), $backdrop_fg_color);
       }
     }
   }
 
   &:active, &:checked {
     @if $variant == 'light' {
-      @include button(normal, $headerbar_color, $headerbar_fg_color);
+      @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
       &:hover {
-        @include button(normal, gtkmix(black, $headerbar_color, 2.7%), $headerbar_fg_color);
+        @include button(normal, gtkmix(black, $headerbar_bg_color, 2.7%), $headerbar_fg_color);
       }
     }
     @else {
-      @include button(normal, $headerbar_color, $headerbar_fg_color);
+      @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
       &:hover {
-        @include button(normal, gtkmix(white, $headerbar_color, 3.7%), $headerbar_fg_color);
+        @include button(normal, gtkmix(white, $headerbar_bg_color, 3.7%), $headerbar_fg_color);
       }
     }
     &:backdrop {
@@ -94,7 +94,7 @@
   }
 
   &.default:not(:backdrop):not(.suggested-action):not(.destructive-action) {
-    @include button(normal, $headerbar_color, $fg_color);
+    @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
   }
 
   &.flat:not(:hover):not(:active) { @include button(undecorated); }
@@ -118,27 +118,27 @@
   }
 
   &:disabled {
-    @include button(insensitive, $headerbar_color, $fg_color);
+    @include button(insensitive, $headerbar_bg_color, $fg_color);
     &:backdrop { @include button(backdrop-insensitive, $bg_color, $backdrop_insensitive_color); }
   }
 }
 
 %destructive_buttons {
-  @include button(normal, $destructive_color, white);
+  @include button(normal, $destructive_bg_color, $destructive_fg_color);
   &:hover {
-    @include button(normal, $destructive_color, white);
+    @include button(normal, $destructive_bg_color, $destructive_fg_color);
   }
 
   &:active, &:checked {
-    @include button(active, gtkalpha($destructive_color, 0.5), white);
+    @include button(active, gtkalpha($destructive_bg_color, 0.5), $destructive_fg_color);
   }
 
   &:backdrop, &:backdrop:hover {
-    @include button(backdrop, gtkalpha($destructive_color, 0.5), white);
+    @include button(backdrop, gtkalpha($destructive_bg_color, 0.5), $destructive_fg_color);
   }
 
   &:disabled {
-    @include button(insensitive, $headerbar_color, $fg_color);
+    @include button(insensitive, $headerbar_bg_color, $fg_color);
     &:backdrop { @include button(backdrop-insensitive, $bg_color, $backdrop_insensitive_color); }
   }
 }
@@ -205,10 +205,16 @@ headerbar, .titlebar {
   // Entries
   entry {
     min-height: 32px; // Evens out the height for the top and bottom borders which adds 2px
-    @include button(normal, $headerbar_color, $headerbar_fg_color);
-    &:backdrop { @include button(backdrop, $bg_color, $backdrop_text_color); }
-    &:disabled { @include button(insensitive, $headerbar_color, $insensitive_fg_color); }
-    &:disabled:backdrop { @include button(insensitive, $bg_color, $backdrop_insensitive_color); }
+    @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
+    &:backdrop {
+      @include button(backdrop, $headerbar_backdrop_color, $backdrop_text_color);
+    }
+    &:disabled {
+      @include button(insensitive, $headerbar_bg_color, $insensitive_fg_color);
+    }
+    &:disabled:backdrop {
+      @include button(insensitive, $headerbar_backdrop_color, $backdrop_insensitive_color);
+    }
 
     image { // icons inside the entry
       &.left { margin-right: 6px; }
@@ -216,7 +222,7 @@ headerbar, .titlebar {
 
       // entry icons colors
       color: gtkmix($fg_color, $base_color, 80%);
-      &:hover { color: $fg_color; }
+      &:hover { color: $headerbar_fg_color; }
       &:active { color: $selected_bg_color; }
       &:backdrop { color: gtkmix($backdrop_fg_color, $backdrop_base_color, 80%); }
     }
@@ -224,8 +230,8 @@ headerbar, .titlebar {
     selection { @extend %selected_items; }
 
     // entry error and warning style
-    @each $e_type, $e_color in (error, $error_color),
-                               (warning, $warning_color) {
+    @each $e_type, $e_color in (error, $error_bg_color),
+                               (warning, $warning_bg_color) {
       &.#{$e_type} {
         color: $e_color;
         border-color: entry_focus_border($e_color);
@@ -319,10 +325,10 @@ list.view.frame {
 
 popover.background {
   button {
-    @include button(normal, $popover_bg_color, $fg_color);
+    @include button(normal, $popover_bg_color, $popover_fg_color);
     &.flat:not(:hover):not(:active) { @include button(undecorated); }
-    &:hover { @include button(hover, $popover_bg_color, $fg_color); }
-    &:active, &:checked { @include button(active, $popover_bg_color, $fg_color); }
+    &:hover { @include button(hover, $popover_bg_color, $popover_fg_color); }
+    &:active, &:checked { @include button(active, $popover_bg_color, $popover_fg_color); }
     &:disabled { @include button(insensitive, $popover_bg_color, $insensitive_fg_color); }
     &:backdrop { @include button(backdrop, $popover_bg_color, $backdrop_fg_color); }
     &:backdrop:disabled { @include button(backdrop-insensitive, $popover_bg_color, $backdrop_fg_color); }
@@ -331,7 +337,7 @@ popover.background {
     &.destructive-action { @extend %destructive_buttons; }
   }
   entry {
-    @include button(normal, $popover_bg_color, $text_color);
+    @include button(normal, $popover_bg_color, $popover_fg_color);
     &:disabled { @include button(insensitive, $popover_bg_color, $insensitive_fg_color); }
     &:backdrop { @include button(backdrop, $popover_bg_color, $backdrop_text_color); }
     &:backdrop:disabled { @include button(backdrop-insensitive, $popover_bg_color, $backdrop_fg_color); }

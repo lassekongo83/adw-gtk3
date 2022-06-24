@@ -366,7 +366,7 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   }
 }
 
-@mixin headerbar_fill($c:$headerbar_color, $hc:$top_hilight, $ov: none) {
+@mixin headerbar_fill($c:$headerbar_bg_color, $hc:$top_hilight, $ov: none) {
 //
 // headerbar fill
 //

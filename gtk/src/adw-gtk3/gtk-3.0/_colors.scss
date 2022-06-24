@@ -11,6 +11,9 @@ $accent_fg_color: gtkcolor(accent_fg_color);
 $accent_color: gtkcolor(accent_color);
 $headerbar_bg_color: gtkcolor(headerbar_bg_color);
 $headerbar_fg_color: gtkcolor(headerbar_fg_color);
+$headerbar_backdrop_color: gtkcolor(headerbar_backdrop_color);
+$card_bg_color: gtkcolor(card_bg_color);
+$card_fg_color: gtkcolor(card_fg_color);
 
 $base_color: $view_bg_color;
 $text_color: $view_fg_color;
@@ -27,7 +30,6 @@ $link_color: if($variant == 'light', gtkmix(black, $selected_bg_color, 10%), gtk
 $link_visited_color: if($variant == 'light', gtkmix(black, $selected_bg_color, 20%), gtkmix(white, $selected_bg_color, 10%));
 $top_hilight: $borders_edge;
 $dark_fill: gtkmix($borders_color, $bg_color, 50%);
-$headerbar_color: $headerbar_bg_color;
 $popover_bg_color: gtkcolor(popover_bg_color);
 $popover_fg_color: gtkcolor(popover_fg_color);
 $popover_hover_color: gtkalpha(currentColor, .07); //if($variant == 'light', gtkshade($menu_color, 0.92), gtkshade($menu_color, 1.36));
@@ -38,10 +40,18 @@ $scrollbar_slider_color: gtkalpha(currentColor, .2);
 $scrollbar_slider_hover_color: gtkalpha(currentColor, .4);
 $scrollbar_slider_active_color: gtkalpha(currentColor, .6);
 
-$warning_color: if($variant == 'dark', #cd9309, $yellow_5);
-$error_color: if($variant == 'dark', $red_4, $red_3);
-$success_color: if($variant == 'dark', $green_5, $green_4);
-$destructive_color: if($variant == 'dark', $red_4, $red_3);
+$warning_bg_color: gtkcolor(warning_bg_color);
+$warning_fg_color: gtkcolor(warning_fg_color);
+$warning_color: gtkcolor(warning_color);
+$error_bg_color: gtkcolor(error_bg_color);
+$error_fg_color: gtkcolor(error_fg_color);
+$error_color: gtkcolor(error_color);
+$success_bg_color: gtkcolor(success_bg_color);
+$success_fg_color: gtkcolor(success_fg_color);
+$success_color: gtkcolor(success_color);
+$destructive_bg_color: gtkcolor(destructive_bg_color);
+$destructive_fg_color: gtkcolor(destructive_fg_color);
+$destructive_color: gtkcolor(destructive_color);
 
 $osd_fg_color: transparentize(white, .1);
 $osd_text_color: white;
@@ -50,7 +60,7 @@ $osd_insensitive_bg_color: transparentize(black, 0.35);
 $osd_insensitive_fg_color: gtkmix($osd_fg_color, opacify($osd_bg_color, 1), 50%);
 $osd_borders_color: transparentize(black, 0.1);
 
-$sidebar_bg_color: $bg_color; //mix($bg_color, $base_color, 50%);
+$sidebar_bg_color: $bg_color;
 $base_hover_color: gtkalpha($fg_color, 0.05);
 
 $tooltip_borders_color: transparentize(white, 0.9);
@@ -91,9 +101,9 @@ $checkradio_borders_color: if($variant == 'light', gtkmix(black,$checkradio_bg_c
 // Custom colors
 
 // titlebuttons
-$titlebutton_normal: if($variant == 'light', gtkmix(black, $headerbar_color, 7.7%), gtkmix(white, $headerbar_color, 10%));
-$titlebutton_normal_hover: if($variant == 'light', gtkmix(black, $headerbar_color, 12%), gtkmix(white, $headerbar_color, 15%));
-$titlebutton_normal_active: if($variant == 'light', gtkmix(black, $headerbar_color, 24%), gtkmix(white, $headerbar_color, 30%));
+$titlebutton_normal: if($variant == 'light', gtkmix(black, $headerbar_bg_color, 7.7%), gtkmix(white, $headerbar_bg_color, 10%));
+$titlebutton_normal_hover: if($variant == 'light', gtkmix(black, $headerbar_bg_color, 12%), gtkmix(white, $headerbar_bg_color, 15%));
+$titlebutton_normal_active: if($variant == 'light', gtkmix(black, $headerbar_bg_color, 24%), gtkmix(white, $headerbar_bg_color, 30%));
 $titlebutton_backdrop: if($variant == 'light', gtkshade($bg_color, 0.96), gtkshade($bg_color, 1.32));
 $titlebutton_backdrop_hover: if($variant == 'light', gtkshade($bg_color, 0.94), gtkshade($bg_color, 1.46));
 
@@ -117,10 +127,6 @@ $fill_color: $selected_bg_color;
 $fill_text_color: $selected_fg_color;
 
 $headerbar_border: if($variant == 'light', gtkshade($bg_color, 0.828), gtkmix(white, $bg_color, 19.7%));
-
-// "Cards" or content list views
-$card_bg_color: gtkcolor(card_bg_color); //if($variant == 'light', $base_color, gtkmix(white, $bg_color, 8%));
-$card_fg_color: gtkcolor(card_fg_color); //if($variant == 'light', $fg_color, white);
 
 // Notebook and tabs
 $notebook_color: $base_color;
