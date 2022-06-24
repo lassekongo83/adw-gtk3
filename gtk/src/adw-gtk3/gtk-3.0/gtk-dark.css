@@ -3109,26 +3109,6 @@ XfdesktopIconView.view .rubberband { border-radius: 0; }
 
 .nemo-window toolbar.horizontal.primary-toolbar .linked button { margin-right: 0; }
 
-.nemo-window toolbar.horizontal.primary-toolbar button { color: @window_fg_color; outline-color: alpha(@window_fg_color,0.3); background-color: mix(white,@window_bg_color,0.903); }
-
-.nemo-window toolbar.horizontal.primary-toolbar button:hover { color: @window_fg_color; outline-color: alpha(@window_fg_color,0.3); background-color: mix(white,@window_bg_color,0.85); box-shadow: none; }
-
-.nemo-window toolbar.horizontal.primary-toolbar button:active, .nemo-window toolbar.horizontal.primary-toolbar button:checked { color: @window_fg_color; outline-color: alpha(@window_fg_color,0.3); background-color: mix(white,@window_bg_color,0.703); box-shadow: none; text-shadow: none; -gtk-icon-shadow: none; }
-
-.nemo-window toolbar.horizontal.primary-toolbar button:active:hover, .nemo-window toolbar.horizontal.primary-toolbar button:checked:hover { background-color: mix(white,@window_bg_color,0.653); }
-
-.nemo-window toolbar.horizontal.primary-toolbar button:disabled { color: mix(@window_fg_color,@window_bg_color,0.5); background-color: mix(white,@window_bg_color,0.947); text-shadow: none; -gtk-icon-shadow: none; box-shadow: none; }
-
-.nemo-window toolbar.horizontal.primary-toolbar button:disabled:active, .nemo-window toolbar.horizontal.primary-toolbar button:disabled:checked { color: mix(@window_fg_color,@window_bg_color,0.5); background-color: mix(white,@window_bg_color,0.85); box-shadow: none; }
-
-.nemo-window toolbar.horizontal.primary-toolbar button:backdrop { color: mix(@window_fg_color,@window_bg_color,0.5); background-color: mix(white,@window_bg_color,0.947); text-shadow: none; -gtk-icon-shadow: none; }
-
-.nemo-window toolbar.horizontal.primary-toolbar button:backdrop:active, .nemo-window toolbar.horizontal.primary-toolbar button:backdrop:checked { color: mix(@window_fg_color,@window_bg_color,0.5); background-color: mix(white,@window_bg_color,0.85); }
-
-.nemo-window toolbar.horizontal.primary-toolbar button:backdrop:disabled { color: mix(mix(@window_fg_color,@window_bg_color,0.5),@window_bg_color,0.5); background-color: mix(white,@window_bg_color,0.947); text-shadow: none; -gtk-icon-shadow: none; }
-
-.nemo-window toolbar.horizontal.primary-toolbar button:backdrop:disabled:active, .nemo-window toolbar.horizontal.primary-toolbar button:backdrop:disabled:checked { color: mix(@window_fg_color,@window_bg_color,0.5); background-color: mix(white,@window_bg_color,0.85); }
-
 #dialog-action_area3 { margin: 5px; }
 
 window.background.chromium { background-color: mix(white,@window_bg_color,0.9); }

@@ -469,24 +469,6 @@ $panel_transition_duration: 250ms;
       // link linked buttons
       margin-right: 0;
     }
-
-    button {
-      // return non-flat buttons
-      @each $state,
-      $t in ("", "normal"),
-      (":hover", "hover"),
-      (":active, &:checked", "active"),
-      (":disabled", "insensitive"),
-      (":disabled:active, &:disabled:checked", "insensitive-active"),
-      (":backdrop", "backdrop"),
-      (":backdrop:active, &:backdrop:checked", 'backdrop-active'),
-      (":backdrop:disabled", 'backdrop-insensitive'),
-      (":backdrop:disabled:active, &:backdrop:disabled:checked", 'backdrop-insensitive-active') {
-        &#{$state} {
-          @include button($t);
-        }
-      }
-    }
   }
 }
 
