@@ -4711,6 +4711,8 @@ decoration {
   $_ssd_wm_border_backdrop: if($variant=='light', transparentize(black, 0.8), gtkshade($borders_color, 0.7));
   .ssd & { box-shadow: 0 0 0 1px $_ssd_wm_border; }
   .ssd &:backdrop { box-shadow: 0 0 0 1px $_ssd_wm_border_backdrop; }
+  .ssd.maximized &,
+  .ssd.maximized &:backdrop { box-shadow: none; }
 
   .csd.popup & {
     border-radius: $menu_radius;
