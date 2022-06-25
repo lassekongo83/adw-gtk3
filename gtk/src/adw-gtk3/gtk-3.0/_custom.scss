@@ -3,39 +3,43 @@
 // Trying to mimic the headerbar button colors from the libadwaita theme when used in gtk4-widget-factory
 %colored_buttons {
   @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
-  &:backdrop { @include button(backdrop, $headerbar_backdrop_color, $backdrop_fg_color); }
+  &:backdrop {
+    @include button(backdrop, gtkmix(currentColor, $headerbar_backdrop_color, 3%), $backdrop_fg_color);
+  }
 
   &:hover {
     @if $variant == 'light' {
-      @include button(hover, gtkmix(black, $headerbar_bg_color, 0.3%), $headerbar_fg_color);
+      @include button(hover, gtkmix(currentColor, $headerbar_bg_color, 0.3%), $headerbar_fg_color);
     }
     @else {
-      @include button(hover, gtkmix(black, $headerbar_bg_color, 0.7%), $headerbar_fg_color);
+      @include button(hover, gtkmix(currentColor, $headerbar_bg_color, 0.7%), $headerbar_fg_color);
     }
     &:backdrop {
-      @if $variant == 'light' {
-        @include button(backdrop, gtkmix(black, $headerbar_backdrop_color, 2.7%), $backdrop_fg_color);
-      }
-      @else {
-        @include button(backdrop, gtkmix(white, $headerbar_backdrop_color, 3%), $backdrop_fg_color);
-      }
+      @include button(backdrop, gtkmix(currentColor, $headerbar_backdrop_color, 12%), $backdrop_fg_color);
     }
   }
 
   &:active, &:checked {
     @if $variant == 'light' {
-      @include button(active, gtkmix(white, $headerbar_bg_color, 1.7%), $headerbar_fg_color);
+      @include button(active, $headerbar_bg_color, $headerbar_fg_color);
       &:hover {
-        @include button(active, gtkmix(black, $headerbar_bg_color, 0.3%), $headerbar_fg_color);
+        @include button(active, gtkmix(currentColor, $headerbar_bg_color, 0.3%), $headerbar_fg_color);
       }
     }
     @else {
-      @include button(active, gtkmix(white, $headerbar_bg_color, 0.3%), $headerbar_fg_color);
+      @include button(active, gtkmix(currentColor, $headerbar_bg_color, 0.3%), $headerbar_fg_color);
       &:hover {
-        @include button(active, gtkmix(white, $headerbar_bg_color, 1%), $headerbar_fg_color);
+        @include button(active, gtkmix(currentColor, $headerbar_bg_color, 1%), $headerbar_fg_color);
       }
     }
-    &:backdrop { @include button(normal, $headerbar_backdrop_color, $backdrop_fg_color); }
+    &:backdrop {
+      @if $variant == 'light' {
+        @include button(normal, gtkmix(currentColor, $headerbar_backdrop_color, 12%), $backdrop_fg_color);
+      }
+      @else {
+        @include button(normal, gtkmix(currentColor, $headerbar_backdrop_color, 11%), $backdrop_fg_color);
+      }
+    }
   }
 
   &:disabled {
@@ -59,19 +63,10 @@
 %headerbar_buttons {
   // The normal state is set where it's needed. Usually undecorated.
   &:hover {
-    @if $variant == 'light' {
-      @include button(normal, gtkmix(white, $headerbar_bg_color, 28%), $headerbar_fg_color);
-    }
-    @else {
-      @include button(normal, gtkmix(black, $headerbar_bg_color, 13%), $headerbar_fg_color);
-    }
+    @include button(normal, gtkmix(currentColor, $headerbar_bg_color, -3%), $headerbar_fg_color);
+
     &:backdrop {
-      @if $variant == 'light' {
-        @include button(backdrop, gtkmix(white, $headerbar_backdrop_color, 70%), $backdrop_fg_color);
-      }
-      @else {
-        @include button(backdrop, gtkmix(black, $headerbar_backdrop_color, 10%), $backdrop_fg_color);
-      }
+      @include button(backdrop, gtkmix(currentColor, $headerbar_backdrop_color, -1%), $backdrop_fg_color);
     }
   }
 
@@ -79,13 +74,13 @@
     @if $variant == 'light' {
       @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
       &:hover {
-        @include button(normal, gtkmix(black, $headerbar_bg_color, 2.7%), $headerbar_fg_color);
+        @include button(normal, gtkmix(currentColor, $headerbar_bg_color, 3%), $headerbar_fg_color);
       }
     }
     @else {
       @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
       &:hover {
-        @include button(normal, gtkmix(white, $headerbar_bg_color, 3.7%), $headerbar_fg_color);
+        @include button(normal, gtkmix(currentColor, $headerbar_bg_color, 3.7%), $headerbar_fg_color);
       }
     }
     &:backdrop {

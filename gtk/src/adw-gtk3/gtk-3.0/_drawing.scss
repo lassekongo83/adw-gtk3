@@ -46,8 +46,8 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   $_blank_edge: if($edge == none, none, 0 1px transparentize($edge, 1));
   $_entry_edge: if($edge == none, none, _widget_edge($edge));
 
-  $entry_normal: if($variant == 'light', gtkmix(black, $bg_color, 8%), gtkmix(white, $bg_color, 9.7%));
-  $entry_disabled: if($variant == 'light', gtkmix(black, $bg_color, 4.3%), gtkmix(white, $bg_color, 5.3%));
+  $entry_normal: if($variant == 'light', gtkmix(currentColor, $bg_color, 8%), gtkmix(currentColor, $bg_color, 9.7%));
+  $entry_disabled: gtkmix(currentColor, $bg_color, 10%);
   $entry_backdrop: $entry_disabled;
   $entry_backdrop_disabled: $entry_disabled;
 
@@ -146,12 +146,12 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   $_blank_edge: if($edge == none, none, _widget_edge(transparentize($edge,1)));
   $_button_shadow: 0 1px 2px transparentize($shadow_color, 0.03);
 
-  $button_normal: if($variant == 'light', gtkmix(black, $c, 8%), gtkmix(white, $c, 9.7%));
-  $button_hover: if($variant == 'light', gtkmix(black, $c, 11.7%), gtkmix(white, $c, 15%));
-  $button_active: if($variant == 'light', gtkmix(black, $c, 24%), gtkmix(white, $c, 29.7%));
-  $button_active_hover: if($variant == 'light', gtkmix(black, $c, 28%), gtkmix(white, $c, 34.7%));
-  $button_disabled: if($variant == 'light', gtkmix(black, $c, 4.3%), gtkmix(white, $c, 5.3%));
-  $button_disabled_active: if($variant == 'light', gtkmix(black, $c, 12%), gtkmix(white, $c, 15%));
+  $button_normal: if($variant == 'light', gtkmix(currentColor, $c, 10%), gtkmix(currentColor, $c, 9.7%));
+  $button_hover: if($variant == 'light', gtkmix(currentColor, $c, 14.7%), gtkmix(currentColor, $c, 15%));
+  $button_active: if($variant == 'light', gtkmix(currentColor, $c, 30%), gtkmix(currentColor, $c, 29.7%));
+  $button_active_hover: if($variant == 'light', gtkmix(currentColor, $c, 35%), gtkmix(currentColor, $c, 34.7%));
+  $button_disabled: gtkmix(currentColor, $c, 10%);
+  $button_disabled_active: gtkmix(currentColor, $c, 30%);
   $button_backdrop: $button_disabled;
   $button_backdrop_active: $button_disabled_active;
 

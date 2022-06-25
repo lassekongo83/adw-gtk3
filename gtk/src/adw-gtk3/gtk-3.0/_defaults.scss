@@ -33,7 +33,7 @@
 
 // Window
 @define-color window_bg_color #{if($variant == 'light', #fafafa, #242424)};
-@define-color window_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
+@define-color window_fg_color #{if($variant == 'light', #323232, white)}; // adw-gtk3 light theme note: replacing transparentize(black, .2) with equal static color
 
 // Views - e.g. text view or tree view
 @define-color view_bg_color #{if($variant == 'light', #ffffff, #1e1e1e)};
@@ -41,7 +41,7 @@
 
 // Header bar, search bar, tab bar
 @define-color headerbar_bg_color #{if($variant == 'light', #ebebeb, #303030)};
-@define-color headerbar_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
+@define-color headerbar_fg_color #{if($variant == 'light', #2f2f2f, white)}; // adw-gtk3 light theme note: replacing transparentize(black, .2) with equal static color
 @define-color headerbar_border_color #{if($variant == 'light', transparentize(black, .2), white)};
 @define-color headerbar_backdrop_color @window_bg_color;
 @define-color headerbar_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};

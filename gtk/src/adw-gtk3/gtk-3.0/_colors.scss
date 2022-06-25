@@ -23,7 +23,7 @@ $fg_color: $window_fg_color;
 $selected_fg_color: $accent_fg_color;
 $selected_bg_color: $accent_bg_color;
 $selected_borders_color: if($variant== 'light', gtkmix(black, $selected_bg_color, 15%), gtkmix(black, $selected_bg_color, 30%));
-$borders_color: if($variant == 'light', gtkmix(black, $bg_color, 11.7%), gtkmix(white, $bg_color, 15%));
+$borders_color: if($variant == 'light', gtkmix(currentColor, $bg_color, 14.7%), gtkmix(currentColor, $bg_color, 15%));
 $alt_borders_color: if($variant == 'light', gtkmix(black, $bg_color, 24%), gtkmix(black, $bg_color, 18%));
 $borders_edge: if($variant == 'light', gtkalpha(white, 0.5), gtkalpha($fg_color, 0.07));
 $link_color: if($variant == 'light', gtkmix(black, $selected_bg_color, 10%), gtkmix(white, $selected_bg_color, 20%));
@@ -32,8 +32,8 @@ $top_hilight: $borders_edge;
 $dark_fill: gtkmix($borders_color, $bg_color, 50%);
 $popover_bg_color: gtkcolor(popover_bg_color);
 $popover_fg_color: gtkcolor(popover_fg_color);
-$popover_hover_color: gtkalpha(currentColor, .07); //if($variant == 'light', gtkshade($menu_color, 0.92), gtkshade($menu_color, 1.36));
-$menu_color: $popover_bg_color; //if($variant == 'light', $base_color, gtkmix(white, $bg_color, 9.3%));
+$popover_hover_color: gtkalpha(currentColor, .07);
+$menu_color: $popover_bg_color;
 
 $scrollbar_bg_color: $base_color;
 $scrollbar_slider_color: gtkalpha(currentColor, .2);
@@ -80,7 +80,7 @@ $backdrop_bg_color: $bg_color;
 $backdrop_fg_color: gtkmix($fg_color, $backdrop_bg_color, 50%);
 $backdrop_insensitive_color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 50%);
 $backdrop_selected_fg_color: if($variant == 'light', $backdrop_base_color, $backdrop_text_color);
-$backdrop_borders_color: if($variant == 'light', gtkmix(black, $bg_color, 7.7%), gtkmix(white, $bg_color, 13.3%));
+$backdrop_borders_color: if($variant == 'light', gtkmix(currentColor, $bg_color, 19%), gtkmix(currentColor, $bg_color, 27%));
 $backdrop_dark_fill: gtkmix($backdrop_borders_color, $backdrop_bg_color, 70%);
 $backdrop_sidebar_bg_color: $backdrop_base_color;
 
@@ -101,23 +101,23 @@ $checkradio_borders_color: if($variant == 'light', gtkmix(black,$checkradio_bg_c
 // Custom colors
 
 // titlebuttons
-$titlebutton_normal: if($variant == 'light', gtkmix(black, $headerbar_bg_color, 7.7%), gtkmix(white, $headerbar_bg_color, 10%));
-$titlebutton_normal_hover: if($variant == 'light', gtkmix(black, $headerbar_bg_color, 12%), gtkmix(white, $headerbar_bg_color, 15%));
-$titlebutton_normal_active: if($variant == 'light', gtkmix(black, $headerbar_bg_color, 24%), gtkmix(white, $headerbar_bg_color, 30%));
-$titlebutton_backdrop: if($variant == 'light', gtkshade($headerbar_backdrop_color, 0.96), gtkshade($headerbar_backdrop_color, 1.32));
-$titlebutton_backdrop_hover: if($variant == 'light', gtkshade($headerbar_backdrop_color, 0.94), gtkshade($headerbar_backdrop_color, 1.46));
+$titlebutton_normal: gtkalpha(currentColor, .1);
+$titlebutton_normal_hover: gtkalpha(currentColor, .15);
+$titlebutton_normal_active: gtkalpha(currentColor, .3);
+$titlebutton_backdrop: gtkalpha(currentColor, .1);
+$titlebutton_backdrop_hover: gtkalpha(currentColor, .15);
 
 // Other colors from libadwaita
 $border_color: gtkalpha(currentColor, .15); // not the same as borderS-color
 
-$view_hover_color: gtkalpha(currentColor, .07); //if($variant == 'light', darken($base_color, 7%), lighten($base_color, 7%));
-$view_active_color: gtkalpha(currentColor, .16); //if($variant == 'light', darken($base_color, 16%), lighten($base_color, 16%));
-$view_selected_color: gtkalpha(currentColor, .1); //if($variant == 'light', darken($base_color, 10%), lighten($base_color, 10%));
-$view_selected_hover_color:gtkalpha(currentColor, .13); //if($variant == 'light', darken($base_color, 13%), lighten($base_color, 13%));
-$view_selected_active_color: gtkalpha(currentColor, .19); //if($variant == 'light', darken($base_color, 19%), lighten($base_color, 19%));
+$view_hover_color: gtkalpha(currentColor, .07);
+$view_active_color: gtkalpha(currentColor, .16);
+$view_selected_color: gtkalpha(currentColor, .1);
+$view_selected_hover_color: gtkalpha(currentColor, .13);
+$view_selected_active_color: gtkalpha(currentColor, .19);
 
-$trough_color: gtkalpha(currentColor, .15); //if($variant == 'light', gtkmix(black, $bg_color, 15.3%), gtkmix(white, $bg_color, 17.3%)); //gtkalpha(currentColor, .15);
-$trough_hover_color: gtkalpha(currentColor, .2); //if($variant == 'light', gtkmix(black, $bg_color, 20.7%), gtkmix(white, $bg_color, 23.3%)); //gtkalpha(currentColor, .2);
+$trough_color: gtkalpha(currentColor, .15);
+$trough_hover_color: gtkalpha(currentColor, .2);
 $trough_active_color: gtkalpha(currentColor, .25);
 
 $slider_color: gtkmix(white, $base_color, 80%);
@@ -126,14 +126,14 @@ $slider_hover_color: white;
 $fill_color: $selected_bg_color;
 $fill_text_color: $selected_fg_color;
 
-$headerbar_border: if($variant == 'light', gtkshade($bg_color, 0.828), gtkmix(white, $bg_color, 19.7%));
+$headerbar_border: gtkmix(currentColor, $headerbar_bg_color, 15.3%);
 
 // Notebook and tabs
 $notebook_color: $base_color;
-$tab_color: if($variant == 'light', gtkshade($bg_color, 0.902), gtkshade($bg_color, 1.07));
-$tab_color_hover: if($variant == 'light', gtkmix(black, $bg_color, 11.7%), gtkmix(white, $bg_color, 3.7%));
-$tab_color_active: if($variant == 'light', gtkmix(black, $bg_color, 6%), gtkmix(white, $bg_color, 5.7%));
+$tab_color: if($variant == 'light', gtkmix(currentColor, $bg_color, 12%), gtkmix(currentColor, $bg_color, 1%));
+$tab_color_hover: if($variant == 'light', gtkmix(currentColor, $bg_color, 14.7%), gtkmix(currentColor, $bg_color, 3.7%));
+$tab_color_active: if($variant == 'light', gtkmix(currentColor, $bg_color, 7.7%), gtkmix(currentColor, $bg_color, 5.7%));
 $tab_color_active_hover: if($variant == 'light', gtkshade($tab_color_active, 0.971), gtkshade($tab_color_active, 1.11));
-$tab_color_backdrop: if($variant == 'light', gtkshade($bg_color, 0.96), gtkmix(black, $bg_color, 21%));
-$tab_color_backdrop_hover: if($variant == 'light', gtkmix(black, $bg_color, 6.7%), gtkshade($bg_color, 0.96));
+$tab_color_backdrop: if($variant == 'light', gtkmix(currentColor, $bg_color, 10%), gtkmix(currentColor, $bg_color, -7%));
+$tab_color_backdrop_hover: if($variant == 'light', gtkmix(currentColor, $bg_color, 16%), gtkmix(currentColor, $bg_color, -1.7%));
 $tab_color_backdrop_active: $bg_color;
