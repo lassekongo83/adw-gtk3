@@ -1,17 +1,29 @@
+<div align="center">
+
 # adw-gtk3
-The default theme from [libadwaita](https://gnome.pages.gitlab.gnome.org/libadwaita/) ported to GTK-3.
+An unofficial GTK3 port of [libadwaita](https://gnome.pages.gitlab.gnome.org/libadwaita/).
 
-Note that this is not a 100% accurate port.
+<sup>*Keep in mind that this port does not aim to be a 100% look-a-like of libadwaita. There are some limitations to what GTK3 can do.*</sup>
 
-![adw-gtk3](screenshot.png?raw=true)
+| Light theme | Dark theme |
+|:-----------:|:----------:|
+| ![adw-gtk3-light](preview-light.png?raw=true) | ![adw-gtk3-dark](preview-dark.png?raw=true) |
+
+<sup>*Wallpapers: [here](https://imgur.com/a/Bcw5L) and [here](https://i.imgur.com/bb6B3tL.jpg)*</sup>
+
+</div>
+
+<div align="center">
 
 ## How to install
 
-### Tarball
-Go to the [releases](https://github.com/lassekongo83/adw-gtk3/releases) section and download the latest `tar.xz` file.
+</div>
 
-* Install for the current user only: Extract the file to `~/.local/share/themes/`
-* Install for all users: Extract the file to `/usr/share/themes/`
+### Tarball
+1. Go to the [releases](https://github.com/lassekongo83/adw-gtk3/releases) section and download the latest `tar.xz` file.
+2. Extract the file to `~/.local/share/themes/` (or `~/.themes/` if you use Fedora Silverblue).
+
+If you need to use applications with admin privileges it's recommended to extract the file to `/usr/share/themes`
 
 You can then enable adw-gtk3 in the application `gnome-tweaks`.
 
@@ -28,7 +40,7 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita' && gsettings set o
 ```
 
 ### Other install options
-These packages are maintained by contributors. It is recommended to install the flatpak versions if you use flatpak applications and the snapcraft version if you use snap applications.
+These are maintained by contributors. It is recommended to install the flatpak versions if you use flatpak applications and the snapcraft version if you use snap applications.
 
 * **Flatpak:** `flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark`
 * **Snapcraft:** https://snapcraft.io/adw-gtk3-theme
@@ -46,13 +58,27 @@ This will install the latest version from the main branch. Use this install meth
 
 See [CONTRIBUTING.md](https://github.com/lassekongo83/adw-gtk3/blob/main/CONTRIBUTING.md) for the instructions.
 
+<div align="center">
+
 ## Customizing
-Adw-gtk3 supports some customization with named colors. See: [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
+
+![adw-gtk3-customized](preview-customized.png?raw=true)
+
+<sup>*Wallpaper: [here](https://i.imgur.com/ZbyNlmh.png) | Customization: [Peninsula-dark](https://github.com/lassekongo83/adw-colors/blob/main/themes/Peninsula-dark/gtk.css)*</sup>
+
+</div>
+
+Adw-gtk3 and libadwaita support some customization with GTK named colors. See [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
 
 ### GTK-4
-If you want to style GTK-4 apps with libadwaita see: [gtk4.md](https://github.com/lassekongo83/adw-gtk3/blob/main/gtk4.md)
+If you want to style GTK-4 apps with libadwaita see [this page](https://github.com/lassekongo83/adw-gtk3/blob/main/gtk4.md) for more info.
+
+<div align="center">
 
 ## How to uninstall the theme(s)
+
+</div>
+
 To be safe from any crashes or weirdness, change the theme to another one before running the command(s) below.
 
 - For a global install: `sudo rm -r /usr/share/themes/adw-gtk3*`
