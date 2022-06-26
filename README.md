@@ -45,6 +45,7 @@ These are maintained by contributors. It is recommended to install the flatpak v
 * **Flatpak:** `flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark`
 * **Snapcraft:** https://snapcraft.io/adw-gtk3-theme
 * **AUR:** https://aur.archlinux.org/packages/adw-gtk3-git/
+* **Manjaro**: `pamac install adw-gtk3`
 * **Fedora copr:**
 ```bash
 dnf copr enable nickavem/adw-gtk3
