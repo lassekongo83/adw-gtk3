@@ -70,8 +70,15 @@ See [CONTRIBUTING.md](https://github.com/lassekongo83/adw-gtk3/blob/main/CONTRIB
 
 Adw-gtk3 and libadwaita support some customization with GTK named colors. See [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
 
-### GTK-4
-If you want to style GTK-4 apps with libadwaita see [this page](https://github.com/lassekongo83/adw-gtk3/blob/main/gtk4.md) for more info.
+<div align="center">
+
+## For more consistency
+
+</div>
+
+- **GTK4:** [Info on how to extract libadwaita from source.](https://github.com/lassekongo83/adw-gtk3/blob/main/gtk4.md).
+- **Kvantum:** https://github.com/GabePoel/KvLibadwaita
+- **Firefox:** https://github.com/rafaelmardojai/firefox-gnome-theme
 
 <div align="center">
 
