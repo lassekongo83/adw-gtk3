@@ -626,6 +626,18 @@ terminal-window notebook > header {
   }
 }
 
+terminal-window notebook {
+  scrollbar {
+    slider {
+      // Fix for Ubuntu
+      // avoids scrollbar protruding from the terminal window on wayland session
+      // workaround for https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1720651
+      margin: 0;
+      border-width: 3px;
+    }
+  }
+}
+
 // GNOME Console/kgx
 // FIXME: Does not work for some unknown reason
 //.terminal-window {
