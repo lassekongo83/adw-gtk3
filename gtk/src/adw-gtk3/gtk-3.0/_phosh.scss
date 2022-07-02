@@ -88,9 +88,9 @@ phosh-top-panel {
   font: 15px Cantarell;
 }
 
-.phosh-panel-btn {
+button.phosh-panel-btn {
   border-radius: 0;
-  background-color: $phosh_bg_color;
+  &, &:hover, &:active, &:focus:active { background: $phosh_bg_color; }
 }
 
 #top-bar {
