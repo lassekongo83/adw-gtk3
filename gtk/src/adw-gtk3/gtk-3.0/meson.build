@@ -31,6 +31,7 @@ gtk3_scss_dependencies = [
   '_libhandy.scss',
   '_granite.scss',
   '_apps.scss',
+  '_phosh.scss',
 ]
 
 # Generate .css files and install
