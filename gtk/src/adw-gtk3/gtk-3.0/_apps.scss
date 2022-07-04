@@ -582,10 +582,51 @@ terminal-window notebook {
   }
 }
 
-// GNOME Console/kgx
-// FIXME: Does not work for some unknown reason
-//.terminal-window {
-//  &.root {}
-//  &.remote {}
-//}
+// Mate stuff
+
+// Caja
+window.background.caja-navigation-window #Toolbar {
+  border-bottom: 1px solid $borders_color;
+
+  &:backdrop { background-color: $backdrop_bg_color; }
+}
+
+.caja-pathbar button {
+  min-width: 24px;
+  border-radius: 0;
+  border-right-width: 0;
+  margin-right: -3px;
+
+  &.slider-button:nth-child(odd) {
+    border-radius: $button_radius 0px 0px $button_radius;
+  }
+  &.slider-button:nth-child(even) {
+    border-radius: 0 $button_radius $button_radius 0;
+    border-right-width: 1px;
+  }
+}
+
+.caja-side-pane .frame {
+  border-right: 0;
+}
+.caja-notebook .view {
+  &, &.frame {
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+.caja-navigation-window,
+.caja-desktop-window {
+  widget.view widget.entry {
+    background: gtkmix(currentColor, $bg_color, 5%);
+    color: $fg_color;
+    border-color: $borders_color;
+  
+    &:selected {
+      background: $selected_bg_color;
+      color: $selected_fg_color;
+    }
+  }
+}
 
