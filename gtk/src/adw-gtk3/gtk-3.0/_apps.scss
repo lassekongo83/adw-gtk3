@@ -139,7 +139,7 @@
     .view {
       &:selected {
         background-color: $view_selected_color;
-        color: $fg_color;
+        color: $text_color;
         &:hover { background-color: $view_selected_hover_color; }
       }
       &:hover {
