@@ -410,6 +410,7 @@ $panel_transition_duration: 250ms;
 // * Nemo *
 // ********
 
+%desktop-canvas-item,
 .nemo-desktop.nemo-canvas-item {
   color: $selected_fg_color;
   text-shadow: 1px 1px 2px transparentize(black, 0.2);
@@ -650,7 +651,10 @@ terminal-window notebook {
 window.background.caja-navigation-window #Toolbar {
   border-bottom: 1px solid $borders_color;
 
-  &:backdrop { background-color: $backdrop_bg_color; }
+  &:backdrop {
+    background-color: $backdrop_bg_color;
+    border-color: $backdrop_borders_color;
+  }
 }
 
 .caja-pathbar button {
@@ -671,11 +675,16 @@ window.background.caja-navigation-window #Toolbar {
 .caja-side-pane .frame {
   border-right: 0;
 }
-.caja-notebook .view {
-  &, &.frame {
+.caja-notebook {
+  .view, .view.frame, .frame {
     border-left: 0;
     border-right: 0;
   }
+}
+
+// Gets rid of fat separator on backdrop
+.caja-side-pane + separator + box:backdrop {
+  background: $backdrop_bg_color;
 }
 
 .caja-navigation-window,
@@ -692,3 +701,7 @@ window.background.caja-navigation-window #Toolbar {
   }
 }
 
+// desktop mode
+.caja-desktop.caja-canvas-item {
+  @extend %desktop-canvas-item;
+}
