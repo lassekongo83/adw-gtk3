@@ -133,6 +133,20 @@
   .nautilus-canvas-item { border-radius: 0px; }
 
   .nautilus-canvas-item.label-text { border-radius: $button_radius; }
+
+  // Use grey color for selected row in list view
+  .nautilus-list-view {
+    .view {
+      &:selected {
+        background-color: $view_selected_color;
+        color: $fg_color;
+        &:hover { background-color: $view_selected_hover_color; }
+      }
+      &:hover {
+        background-color: $view_hover_color;
+      }
+    }
+  }
 }
 
 // Floating status bar
