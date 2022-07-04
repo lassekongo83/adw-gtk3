@@ -134,7 +134,7 @@
 
   .nautilus-canvas-item.label-text { border-radius: $button_radius; }
 
-  // Use grey color for selected row in list view
+  // List view
   .nautilus-list-view {
     .view {
       &:selected {
@@ -146,6 +146,10 @@
         background-color: $view_hover_color;
       }
     }
+  }
+
+  .nautilus-list-view .view:not(:drop(active)) {
+    border-bottom: 1px solid $bg_color;
   }
 }
 
