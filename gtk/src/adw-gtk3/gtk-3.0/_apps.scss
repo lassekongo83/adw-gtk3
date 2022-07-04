@@ -1,6 +1,9 @@
 // 3rd party application styles
 
-// Nautilus
+// ************
+// * Nautilus *
+// ************
+
 .nautilus-window {
   // Without this nautilus iconview grabs the bg_color
   notebook,
@@ -192,7 +195,10 @@ $disk_space_free: #eeeeec;
   color: shade($disk_space_free, 0.7);
 }
 
-// Gedit
+// *********
+// * Gedit *
+// *********
+
 .gedit-search-slider {
   // gives gedit search entry some padding and a border
   // otherwise it's right under the headerbar
@@ -246,13 +252,19 @@ $disk_space_free: #eeeeec;
   }
 }
 
-// gnome-tweaks
+// ****************
+// * gnome-tweaks *
+// ****************
+
 list.tweak-categories separator.horizontal {
   background: transparent;
   margin: 2px 0;
 }
 
-// GNOME Todo
+// **************
+// * gnome-todo *
+// **************
+
 .org-gnome-Todo {
   taskrow.activatable.new-task-row button.popup.toggle {
     border-radius: 0px;
@@ -273,13 +285,19 @@ list.tweak-categories separator.horizontal {
   }
 }
 
-// Guake
+// *********
+// * Guake *
+// *********
+
 // Fix bugged transparent headerbar background
 window#guake-terminal notebook header {
   background: $headerbar_bg_color;
 }
 
-// XFCE4
+// *********
+// * XFCE4 *
+// *********
+
 XfdesktopIconView.view {
   background: transparent;
   color: $osd_fg_color;
@@ -295,6 +313,7 @@ XfdesktopIconView.view {
   }
 }
 
+// Xfce4 panel
 $panel_bg_color: #000;
 $panel_fg_color: if($variant == 'light', gtkmix(white, $bg_color, 10%), gtkmix(black, $fg_color, 5%));
 $panel_transition_duration: 250ms;
@@ -369,7 +388,10 @@ $panel_transition_duration: 250ms;
   }
 }
 
-// Nemo
+// ********
+// * Nemo *
+// ********
+
 .nemo-desktop.nemo-canvas-item {
   color: $selected_fg_color;
   text-shadow: 1px 1px 2px transparentize(black, 0.2);
@@ -472,12 +494,18 @@ $panel_transition_duration: 250ms;
   }
 }
 
-// USB Creator GTK
+// *******************
+// * USB Creator GTK *
+// *******************
+
 #dialog-action_area3 {
   margin: 5px;
 }
 
-// Chromium
+// ************
+// * Chromium *
+// ************
+
 window.background.chromium {
   background-color: if($variant == 'light', $bg_color, gtkmix(white, $bg_color, 10%));
 
@@ -492,12 +520,18 @@ window.background.chromium {
   }
 }
 
-// GNOME Calendar
+// ******************
+// * gnome-calendar *
+// ******************
+
 .org-gnome-Calendar {
   .titlebar .text-button { @extend %colored_buttons; }
 }
 
-// Firefox
+// ***********
+// * Firefox *
+// ***********
+
 #MozillaGtkWidget.background {
   button { font-weight: initial; }
 
@@ -527,7 +561,10 @@ window.background.chromium {
   }
 }
 
-// GNOME Web / Epiphany
+// ************************
+// * Epiphany / GNOME Web *
+// ************************
+
 // https://github.com/lassekongo83/adw-gtk3/issues/59
 button .download_progress trough { min-height: 2px; }
 
@@ -549,7 +586,10 @@ dzlsuggestionpopover > revealer > box > elastic > scrolledwindow > viewport > li
   image { color: $selected_fg_color; }
 }
 
-// GNOME Builder
+// ***********
+// * Builder *
+// ***********
+
 .org-gnome-Builder {
   .dzlmenubuttonitem {
     font-weight: normal;
@@ -557,7 +597,10 @@ dzlsuggestionpopover > revealer > box > elastic > scrolledwindow > viewport > li
   }
 }
 
-// GNOME Terminal
+// ******************
+// * gnome-terminal *
+// ******************
+
 terminal-window notebook > header {
   &.top,
   &.bottom {
@@ -582,9 +625,10 @@ terminal-window notebook {
   }
 }
 
-// Mate stuff
+// ********
+// * Caja *
+// ********
 
-// Caja
 window.background.caja-navigation-window #Toolbar {
   border-bottom: 1px solid $borders_color;
 
@@ -592,7 +636,7 @@ window.background.caja-navigation-window #Toolbar {
 }
 
 .caja-pathbar button {
-  min-width: 24px;
+  min-width: 32px;
   border-radius: 0;
   border-right-width: 0;
   margin-right: -3px;
