@@ -140,6 +140,29 @@
 
 // headerbar stuff
 headerbar, .titlebar {
+
+  // Text colors for gtk named color support (except backdrop and disabled)
+  &:not(.selection-mode) {
+    &,
+    entry,
+    button:not(.suggested-action):not(.destructive-action) {
+      color: $headerbar_fg_color;
+    }
+
+    &:backdrop,
+    entry:backdrop,
+    button:not(.suggested-action):not(.destructive-action):backdrop {
+      color: $backdrop_fg_color;
+    }
+
+    entry:disabled,
+    button:not(.suggested-action):not(.destructive-action):disabled {
+      color: $insensitive_fg_color;
+    }
+
+    switch image { color: transparent; }
+  }
+
   button:not(.titlebutton) {
     &, &:backdrop { @include button(undecorated); }
     @extend %headerbar_buttons;
