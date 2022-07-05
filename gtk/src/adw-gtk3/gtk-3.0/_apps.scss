@@ -526,16 +526,22 @@ $panel_transition_duration: 250ms;
 // ************
 
 window.background.chromium {
-  background-color: if($variant == 'light', $bg_color, gtkmix(white, $bg_color, 10%));
+  background-color: $bg_color;
+
+  headerbar.titlebar {
+    //FIXME Need to style this in incognito, but don't know of any class
+    background-color: $headerbar_bg_color;
+  }
 
   entry,
   > button {
-    border-color: if($variant == 'light', gtkmix(black, $bg_color, 27%), gtkmix(white, $bg_color, 27%));
-    background-color: if($variant == 'light', gtkmix(black, $bg_color, 20%), gtkmix(white, $bg_color, 21%));
+    border-color: $borders_color;
   }
 
-  textview.view { 
-    background-color: $base_color;
+  > textview.view {
+    color: $text_color;
+    // Same as entries everywhere else in the theme
+    background-color: if($variant == 'light', gtkmix(currentColor, $bg_color, 8%), gtkmix(currentColor, $bg_color, 9.7%));
   }
 }
 
