@@ -457,3 +457,8 @@ popover.background {
     padding-right: 16px;
   }
 }
+
+// Mimic libadwaita popover padding
+popover.menu > stack {
+  margin: -6px;
+}
