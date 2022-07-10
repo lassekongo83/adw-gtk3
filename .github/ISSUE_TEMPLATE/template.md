@@ -25,9 +25,8 @@ about: Use this template to report issues with the theme
 
 <!-- Fill in the brackets [ ] with an x if it's correct [x] -->
 
-- [ ] I installed the theme from the tarball.
-- [ ] I installed the theme from git.
-- [ ] I installed the theme from AUR.
+- [ ] I installed the theme from the tar.xz file.
+- [ ] I installed the theme from git with ninja-build.
 - [ ] I installed the theme from elsewhere. (Where?)
 - [ ] The theme is the latest available version/git commit.
 - [ ] I've installed the light flatpak theme: `org.gtk.Gtk3theme.adw-gtk3`
