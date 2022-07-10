@@ -2226,7 +2226,7 @@ menu,
 
     &:hover {
       color: if($variant == 'light', $fg_color, $selected_fg_color);
-      background-color: $view_selected_hover_color; //if($variant == 'light', $view_selected_hover_color, $popover_hover_color);
+      background-color: $view_selected_hover_color;
     }
 
     &:disabled {

@@ -711,3 +711,16 @@ window.background.caja-navigation-window #Toolbar {
 .caja-desktop.caja-canvas-item {
   @extend %desktop-canvas-item;
 }
+
+// ************
+// * GNU Cash *
+// ************
+
+#gnc-id-main-window {
+  // https://github.com/lassekongo83/adw-gtk3/issues/148
+  treeview.view:not(:selected) {
+    &:hover {
+      background-color: gtkmix(currentColor, $base_color, 7%);
+    }
+  }
+}
