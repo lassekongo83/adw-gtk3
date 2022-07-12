@@ -69,7 +69,7 @@ See [CONTRIBUTING.md](https://github.com/lassekongo83/adw-gtk3/blob/main/CONTRIB
 
 </div>
 
-Adw-gtk3 and libadwaita support some customization with GTK named colors. See [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
+Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
 
 <div align="center">
 
