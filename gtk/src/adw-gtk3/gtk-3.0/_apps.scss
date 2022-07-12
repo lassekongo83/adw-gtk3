@@ -119,8 +119,7 @@
                 0px 0px 0px 1px gtkalpha($borders_color, 0.5),
                 0px 2px 0px 0px gtkalpha($borders_color, 0.5);
     border-radius: 2px;
-    // Background for thumbnails with transparent areas.
-    background: url('assets/Checkerboard.png') repeat;
+    @extend %checkerboard;
   }
 
    // https://github.com/lassekongo83/adw-gtk3/issues/89
