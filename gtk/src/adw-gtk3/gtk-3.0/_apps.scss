@@ -527,6 +527,12 @@ $panel_transition_duration: 250ms;
 window.background.chromium {
   background-color: if($variant == 'light', $bg_color, gtkmix(currentColor, $bg_color, 10%));
 
+  // If there was/is an incognito class then https://github.com/lassekongo83/adw-gtk3/issues/147
+  // could be fixed, so disabled for now until a better solution is found.
+  //headerbar.titlebar button.titlebutton {
+  //  color: white;
+  //}
+
   entry,
   > button {
     border-color: gtkmix(currentColor, $bg_color, 27%);

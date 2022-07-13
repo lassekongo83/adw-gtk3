@@ -164,20 +164,25 @@ headerbar, .titlebar {
   // Text colors for gtk named color support (except backdrop and disabled)
   &:not(.selection-mode) {
     &,
-    entry,
-    button:not(.suggested-action):not(.destructive-action) {
+    entry {
       color: $headerbar_fg_color;
     }
 
     &:backdrop,
-    entry:backdrop,
-    button:not(.suggested-action):not(.destructive-action):backdrop {
+    entry:backdrop {
       color: $backdrop_fg_color;
     }
 
-    entry:disabled,
-    button:not(.suggested-action):not(.destructive-action):disabled {
+    entry:disabled {
       color: $insensitive_fg_color;
+    }
+
+    button {
+      &:not(.suggested-action):not(.destructive-action) {
+        color: $headerbar_fg_color;
+        &:backdrop { color: $backdrop_fg_color; }
+        &:disabled { color: $insensitive_fg_color; }
+      }
     }
 
     switch image { color: transparent; }
@@ -189,8 +194,8 @@ headerbar, .titlebar {
   }
 
   // Text buttons
-  button.text-button:not(.suggested-action):not(.destructive-action):not(:disabled) {
-    @extend %colored_buttons;
+  button.text-button {
+    &:not(.suggested-action):not(.destructive-action):not(:disabled) { @extend %colored_buttons; }
   }
 
   // Linked button borders
@@ -237,7 +242,9 @@ headerbar, .titlebar {
   // Selection mode
   &.selection-mode {
     button,
-    button.text-button:not(.suggested-action):not(.destructive-action):not(:disabled) { @extend %suggested_buttons; }
+    button.text-button:not(.suggested-action):not(.destructive-action):not(:disabled) {
+      @extend %suggested_buttons;
+    }
   }
 
   // Entries
@@ -326,7 +333,7 @@ headerbar, .titlebar {
   // better animation when switching from backdrop
   &:not(:backdrop) {
     transition: 200ms ease-in;
-    transition-property: background-color, background-image, box-shadow, border-color, color;
+    transition-property: background-color, background-image, box-shadow, border-color, color, text-shadow;
   }
 
   // Balance out the titlebutton margin
