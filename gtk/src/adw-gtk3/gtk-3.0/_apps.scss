@@ -274,6 +274,11 @@ list.tweak-categories separator.horizontal {
   margin: 2px 0;
 }
 
+.tweak-group .tweak list {
+  border-radius: $menu_radius;
+  border: 1px solid $borders_color;
+}
+
 // **************
 // * gnome-todo *
 // **************
