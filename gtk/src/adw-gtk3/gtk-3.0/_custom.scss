@@ -332,7 +332,7 @@ headerbar, .titlebar {
 
   // better animation when switching from backdrop
   &:not(:backdrop) {
-    transition: 200ms ease-in;
+    transition: 50ms ease-in;
     transition-property: background-color, background-image, box-shadow, border-color, color, text-shadow;
   }
 
