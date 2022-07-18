@@ -486,6 +486,14 @@ popover.background {
     padding-left: 16px;
     padding-right: 16px;
   }
+
+  modelbutton.flat,
+  .menuitem.button.flat {
+    color: $popover_fg_color;
+    &:disabled label {
+      color: gtkalpha($popover_fg_color, .5);
+    }
+  }
 }
 
 // Mimic libadwaita popover padding
