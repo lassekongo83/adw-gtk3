@@ -275,7 +275,7 @@ list.tweak-categories separator.horizontal {
 }
 
 .tweak-group .tweak list {
-  border-radius: $menu_radius;
+  border-radius: $card_radius;
   border: 1px solid $borders_color;
 }
 
@@ -718,8 +718,8 @@ window.background.caja-navigation-window #Toolbar {
 
 #gnc-id-main-window {
   // https://github.com/lassekongo83/adw-gtk3/issues/148
-  treeview.view:not(:selected) {
-    &:hover {
+  treeview.view {
+    &:not(:selected):hover {
       background-color: gtkmix(currentColor, $base_color, 7%);
     }
   }
