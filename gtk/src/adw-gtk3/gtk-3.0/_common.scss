@@ -2721,6 +2721,7 @@ scrollbar {
 
   // slider
   slider {
+    color: $fg_color;
     min-width: $_slider_width;
     min-height: $_slider_width;
     margin: -1px;
@@ -4400,9 +4401,9 @@ infobar {
   border-style: none;
 
   @each $i_type, $i_color in (info, $selected_bg_color),
-                             (question, $selected_bg_color),
-                             (warning, $warning_bg_color),
-                             (error, $error_bg_color) {
+                                      (question, $selected_bg_color),
+                                      (warning, $warning_bg_color),
+                                      (error, $error_bg_color) {
     &.#{$i_type} > revealer > box {
       background-color: gtkmix($i_color, $bg_color, 30%);
       color: $fg_color;
