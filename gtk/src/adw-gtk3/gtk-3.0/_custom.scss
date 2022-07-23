@@ -203,18 +203,8 @@ headerbar, .titlebar {
   .linked button:not(:only-child),
   & > .stack-switcher.linked > button:not(:only-child) {
     @extend %linked;
-    &, &:hover, &:not(:backdrop), &:not(:disabled) {
-      &:not(:first-child) { border-left-color: $border_color; }
-      &:not(:last-child) { border-right-color: $border_color; }
-    }
-    &:active, &:checked {
-      &:not(:first-child) { border-left-color: $border_color; }
-      &:not(:last-child) { border-right-color: $border_color; }
-    }
-    &:backdrop {
-      &:not(:first-child) { border-left-color: $border_color; }
-      &:not(:last-child) { border-right-color: $border_color; }
-    }
+    &:not(:first-child) { border-left-color: $border_color; }
+    &:not(:last-child) { border-right-color: $border_color; }
     &:first-child { border-left-color: transparent; }
     &:last-child { border-right-color: transparent; }
 
@@ -389,6 +379,12 @@ popover.background {
     &:disabled { @include button(insensitive, $popover_bg_color, $insensitive_fg_color); }
     &:backdrop { @include button(backdrop, $popover_bg_color, $backdrop_text_color); }
     &:backdrop:disabled { @include button(backdrop-insensitive, $popover_bg_color, $backdrop_fg_color); }
+  }
+
+  .linked.raised button,
+  .linked button {
+    &:not(:only-child):not(:first-child) { border-left-color: $borders_color; }
+    &:not(:only-child):not(:last-child) { border-right-color: $borders_color; }
   }
 }
 
