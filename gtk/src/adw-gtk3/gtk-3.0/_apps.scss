@@ -332,8 +332,10 @@ XfdesktopIconView.view {
 }
 
 // Xfce4 panel
-$panel_bg_color: #000;
-$panel_fg_color: if($variant == 'light', gtkmix(white, $bg_color, 10%), gtkmix(black, $fg_color, 5%));
+@define-color panel_bg_color black;
+@define-color panel_fg_color white;
+$panel_bg_color: gtkcolor(panel_bg_color);
+$panel_fg_color: gtkcolor(panel_fg_color);
 $panel_transition_duration: 250ms;
 .xfce4-panel.background {
   border: none; 
