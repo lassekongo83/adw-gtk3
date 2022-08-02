@@ -74,7 +74,7 @@ $insensitive_borders_color: $borders_color;
 
 //colors for the backdrop state, derived from the main colors.
 $backdrop_base_color: $bg_color;
-$backdrop_text_color: gtkmix($text_color, $backdrop_base_color, 80%);
+$backdrop_text_color: gtkmix($text_color, $backdrop_base_color, 50%);
 $backdrop_bg_color: $bg_color;
 $backdrop_fg_color: gtkmix($fg_color, $backdrop_bg_color, 50%);
 $backdrop_insensitive_color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 50%);
