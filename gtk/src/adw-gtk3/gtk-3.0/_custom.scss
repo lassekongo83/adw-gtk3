@@ -231,9 +231,13 @@ headerbar, .titlebar {
 
   // Selection mode
   &.selection-mode {
-    button,
-    button.text-button:not(.suggested-action):not(.destructive-action):not(:disabled) {
-      @extend %suggested_buttons;
+    button {
+      &, &.text-button:not(.suggested-action):not(.destructive-action):not(:disabled) {
+        @extend %suggested_buttons;
+      }
+      &:hover:backdrop {
+        @include button(backdrop, gtkalpha($suggested_bg_color, 0.5), white);
+      }
     }
   }
 
