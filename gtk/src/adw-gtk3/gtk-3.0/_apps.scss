@@ -19,7 +19,7 @@
       @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
 
       &:backdrop {
-        @include button(backdrop, $headerbar_backdrop_color, $backdrop_fg_color);
+        @include button(backdrop, $headerbar_backdrop_color, $backdrop_disabled_headerbar_fg);
       }
     }
 
@@ -29,7 +29,7 @@
       min-height: 34px;
 
       &:backdrop {
-        @include button(backdrop, $headerbar_backdrop_color, $backdrop_fg_color);
+        @include button(backdrop, $headerbar_backdrop_color, $backdrop_disabled_headerbar_fg);
       }
 
       button:not(.titlebutton) {
@@ -52,7 +52,7 @@
             @include button(active, $bg_color, $headerbar_fg_color);
             * { opacity: 1; }
             &:backdrop {
-              @include button(backdrop-active, $headerbar_backdrop_color, $backdrop_fg_color);
+              @include button(backdrop-active, $headerbar_backdrop_color, $backdrop_disabled_headerbar_fg);
             }
           }
         }
@@ -68,8 +68,8 @@
           &:checked { @include button(active, $headerbar_bg_color, $headerbar_fg_color); }
 
           &:backdrop {
-            @include button(backdrop, $headerbar_backdrop_color, $backdrop_fg_color);
-            &:hover { @include button(normal, $headerbar_backdrop_color, $backdrop_fg_color); }
+            @include button(backdrop, $headerbar_backdrop_color, $backdrop_disabled_headerbar_fg);
+            &:hover { @include button(normal, $headerbar_backdrop_color, $backdrop_disabled_headerbar_fg); }
             border-left: 1px solid $border_color;
           }
         }
