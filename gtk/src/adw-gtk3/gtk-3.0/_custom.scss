@@ -499,6 +499,9 @@ popover.background {
     &:disabled label {
       color: gtkmix($popover_fg_color, $popover_bg_color, 50%);
     }
+    &:backdrop:hover {
+      background-color: $view_hover_color;
+    }
   }
 }
 
