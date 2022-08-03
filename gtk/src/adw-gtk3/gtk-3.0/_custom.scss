@@ -24,7 +24,7 @@
 %colored_buttons {
   @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
   &:backdrop {
-    @include button(backdrop, gtkmix(currentColor, $headerbar_backdrop_color, 3%), $backdrop_disabled_headerbar_fg);
+    @include button(backdrop, gtkmix(currentColor, $headerbar_backdrop_color, 3%), $backdrop_headerbar_fg);
   }
 
   &:hover {
@@ -35,7 +35,7 @@
       @include button(hover, gtkmix(currentColor, $headerbar_bg_color, 0.7%), $headerbar_fg_color);
     }
     &:backdrop {
-      @include button(backdrop, gtkmix(currentColor, $headerbar_backdrop_color, 12%), $backdrop_disabled_headerbar_fg);
+      @include button(backdrop, gtkmix(currentColor, $headerbar_backdrop_color, 12%), $backdrop_headerbar_fg);
     }
   }
 
@@ -54,10 +54,10 @@
     }
     &:backdrop {
       @if $variant == 'light' {
-        @include button(normal, gtkmix(currentColor, $headerbar_backdrop_color, 12%), $backdrop_disabled_headerbar_fg);
+        @include button(normal, gtkmix(currentColor, $headerbar_backdrop_color, 12%), $backdrop_headerbar_fg);
       }
       @else {
-        @include button(normal, gtkmix(currentColor, $headerbar_backdrop_color, 11%), $backdrop_disabled_headerbar_fg);
+        @include button(normal, gtkmix(currentColor, $headerbar_backdrop_color, 11%), $backdrop_headerbar_fg);
       }
     }
   }
@@ -67,7 +67,7 @@
   }
 
   &:backdrop:disabled {
-    @include button(backdrop-insensitive, $headerbar_backdrop_color, $backdrop_disabled_headerbar_fg);
+    @include button(backdrop-insensitive, $headerbar_backdrop_color, $backdrop_headerbar_fg);
   }
 
   &.default:not(:backdrop):not(.suggested-action):not(.destructive-action) {
@@ -86,7 +86,7 @@
     @include button(normal, gtkmix(currentColor, $headerbar_bg_color, -3%), $headerbar_fg_color);
 
     &:backdrop {
-      @include button(backdrop, gtkmix(currentColor, $headerbar_backdrop_color, -1%), $backdrop_disabled_headerbar_fg);
+      @include button(backdrop, gtkmix(currentColor, $headerbar_backdrop_color, -1%), $backdrop_headerbar_fg);
     }
   }
 
@@ -104,7 +104,7 @@
       }
     }
     &:backdrop {
-      @include button(backdrop, $headerbar_backdrop_color, $backdrop_disabled_headerbar_fg);
+      @include button(backdrop, $headerbar_backdrop_color, $backdrop_headerbar_fg);
     }
   }
 
@@ -180,7 +180,7 @@ headerbar, .titlebar {
     button {
       &:not(.suggested-action):not(.destructive-action) {
         color: $headerbar_fg_color;
-        &:backdrop { color: $backdrop_disabled_headerbar_fg; }
+        &:backdrop { color: $backdrop_headerbar_fg; }
         &:disabled { color: $disabled_headerbar_fg; }
       }
     }
@@ -246,13 +246,13 @@ headerbar, .titlebar {
     min-height: 32px; // Evens out the height for the top and bottom borders which adds 2px
     @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
     &:backdrop {
-      @include button(backdrop, $headerbar_backdrop_color, $backdrop_disabled_headerbar_fg);
+      @include button(backdrop, $headerbar_backdrop_color, $backdrop_headerbar_fg);
     }
     &:disabled {
       @include button(insensitive, $headerbar_bg_color, $disabled_headerbar_fg);
     }
     &:disabled:backdrop {
-      @include button(insensitive, $headerbar_backdrop_color, $backdrop_disabled_headerbar_fg);
+      @include button(insensitive, $headerbar_backdrop_color, $backdrop_headerbar_fg);
     }
 
     image { // icons inside the entry

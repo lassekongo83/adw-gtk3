@@ -99,7 +99,7 @@ $checkradio_borders_color: if($variant == 'light', gtkmix(black,$checkradio_bg_c
 
 // Custom colors
 $disabled_headerbar_fg: gtkmix($headerbar_fg_color, $headerbar_bg_color, 50%);
-$backdrop_disabled_headerbar_fg: gtkmix($headerbar_fg_color, $headerbar_backdrop_color, 50%);
+$backdrop_headerbar_fg: gtkmix($headerbar_fg_color, $headerbar_backdrop_color, 50%);
 
 // titlebuttons
 $titlebutton_normal: gtkalpha(currentColor, .1);
