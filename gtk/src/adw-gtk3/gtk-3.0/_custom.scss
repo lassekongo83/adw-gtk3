@@ -463,7 +463,7 @@ list.view.frame {
 
 .default-decoration .title {
   color: $headerbar_fg_color;
-  &:backdrop { color: $backdrop_fg_color; }
+  &:backdrop { color: $backdrop_headerbar_fg; }
 }
 
 // Tree views
