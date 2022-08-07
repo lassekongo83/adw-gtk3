@@ -791,3 +791,11 @@ geary-conversation-viewer#conversation_viewer {
   border-radius: 0;
   margin:0;
 }
+
+// ************
+// * Inkscape *
+// ************
+
+#DialogNotebook treeview.view:hover {
+  background-color: gtkalpha($selected_bg_color, .5);
+}
