@@ -1,7 +1,20 @@
-This theme is a GTK-3 theme. Some apps use GTK-4 but not libadwaita. If you want these apps to use the libadwaita theme you'll have to extract it from source. On Fedora 36+ this can be done with the following:
-
+This theme is a GTK-3 theme. Some apps use GTK-4 but not libadwaita. If you want these apps to use the libadwaita theme you'll have to extract it from source. First you will need to install dependencies, on Fedora 36+ this can be done with the following:
 ```bash
 sudo dnf install git vala gobject-introspection-devel sassc meson gtk4-devel cmake ninja-build
+```
+
+on ubuntu 22.04+ or debian 12+:
+```bash
+sudo apt install git libvala-dev gobject-introspection sassc meson libgtk-4-dev cmake ninja-build valac gettext
+```
+
+on Arch and Arch based distros:
+```bash
+sudo pacman -S git vala gobject-introspection sassc meson gtk4 cmake ninja
+```
+
+Next build libadwaita
+```bash
 git clone https://gitlab.gnome.org/GNOME/libadwaita.git
 cd libadwaita
 meson . _build
