@@ -4063,7 +4063,8 @@ messagedialog { // Message Dialog styling
   .titlebar {
     min-height: 20px;
     background-image: none;
-    background-color: $bg_color;
+    background-color: $dialog_bg_color;
+    color: $dialog_fg_color;
     border-style: none;
     border-top-left-radius: $window_radius;
     border-top-right-radius: $window_radius;
@@ -4073,6 +4074,8 @@ messagedialog { // Message Dialog styling
     &.background {
       border-bottom-left-radius: $window_radius;
       border-bottom-right-radius: $window_radius;
+      background-color: $dialog_bg_color;
+      color: $dialog_fg_color;
     }
 
     .dialog-action-area button {
@@ -4081,26 +4084,27 @@ messagedialog { // Message Dialog styling
       border-bottom-style: none;
       border-radius: 0;
       -gtk-outline-radius: 0;
-      background-color: $bg_color;
+      background-color: $dialog_bg_color;
+      color: $dialog_fg_color;
       border-top: 1px solid $border_color;
       border-left: 1px solid $border_color;
 
-      &:hover { @include button(hover); }
+      &:hover { @include button(hover, $dialog_bg_color, $dialog_fg_color); }
 
-      &:active { @include button(active); }
+      &:active { @include button(active, $dialog_bg_color, $dialog_fg_color); }
 
       &.suggested-action {
         background-color: $suggested_bg_color;
         color: $selected_fg_color;
-        &:hover { @include button(hover, $suggested_bg_color, white); }
-        &:active, &:checked { @include button(active, $suggested_bg_color, white); }
+        &:hover { @include button(hover, $suggested_bg_color, $selected_fg_color); }
+        &:active, &:checked { @include button(active, $suggested_bg_color, $selected_fg_color); }
       }
 
       &.destructive-action {
         background-color: $destructive_bg_color;
-        color: $selected_fg_color;
-        &:hover { @include button(hover, $destructive_bg_color, white); }
-        &:active, &:checked { @include button(active, $destructive_bg_color, white); }
+        color: $destructive_fg_color;
+        &:hover { @include button(hover, $destructive_bg_color, $destructive_fg_color); }
+        &:active, &:checked { @include button(active, $destructive_bg_color, $destructive_fg_color); }
       }
 
       &:first-child {

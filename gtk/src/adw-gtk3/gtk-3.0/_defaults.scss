@@ -51,6 +51,10 @@
 @define-color card_fg_color #{if($variant == 'light', #323232, white)};
 @define-color card_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
 
+// Dialogs
+@define-color dialog_bg_color #{if($variant == 'light', #fafafa, #383838)};
+@define-color dialog_fg_color #{if($variant == 'light', #323232, white)};
+
 // Popovers
 @define-color popover_bg_color #{if($variant == 'light', #ffffff, #383838)};
 @define-color popover_fg_color #{if($variant == 'light', #323232, white)};
