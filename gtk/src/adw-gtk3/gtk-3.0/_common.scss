@@ -1184,10 +1184,10 @@ list row button.image-button:not(.flat) {
 
     *:selected & { color: gtkmix($selected_fg_color, $link_color, 80%); }
   }
+  
+  &:backdrop { &:backdrop:hover, &:backdrop:hover:selected, & { color: gtkalpha($link_color, 0.9); }}
 
   &:disabled, &:disabled:backdrop { color: gtkalpha(gtkmix(white,black,50%), 0.8); } //gtkalpha(desaturate($link_color, 100%), 0.8);
-
-  &:backdrop { &:backdrop:hover, &:backdrop:hover:selected, & { color: gtkalpha($link_color, 0.9); }}
 
   @at-root %link_selected,
   &:selected,
@@ -1201,6 +1201,7 @@ button:visited {
   @extend %link;
 
   text-shadow: none;
+  font-weight: 400;
 
   &:hover,
   &:active,
