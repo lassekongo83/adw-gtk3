@@ -3742,6 +3742,8 @@ levelbar {
   &.horizontal {
     block {
       min-height: 8px;
+    	&:first-child { border-radius: 8px 0 0 8px; }
+   	&:last-child { border-radius: 0 8px 8px 0; }
     }
 
     &.discrete block {
@@ -3753,6 +3755,8 @@ levelbar {
   &.vertical {
     block {
       min-width: 8px;
+    	&:first-child { border-radius: 8px 8px 0 0; }
+   	&:last-child { border-radius: 0 0 8px 8px; }
     }
 
     &.discrete block {
@@ -3775,8 +3779,12 @@ levelbar {
   block {
     border: 0px solid;
     border-radius: 0;
-    &:first-child { border-radius: 8px 0 0 8px; }
-    &:last-child { border-radius: 0 8px 8px 0; }
+    &.horizontal {
+	}
+    &.vertical {
+   	&:first-child { border-radius: 8px 0 0 8px; }
+    	&:last-child { border-radius: 0 8px 8px 0; }
+    }
 
     &.low {
       border-color: if($variant == 'light', gtkshade($warning_bg_color, 0.8), $warning_bg_color);
