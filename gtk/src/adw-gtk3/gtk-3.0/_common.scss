@@ -4060,10 +4060,10 @@ calendar {
 // * Dialogs *
 // ***********
 messagedialog { // Message Dialog styling
-  .titlebar {
+  .titlebar, .titlebar:backdrop {
     min-height: 20px;
     background-image: none;
-    background-color: $dialog_bg_color;
+    background: $dialog_bg_color;
     color: $dialog_fg_color;
     border-style: none;
     border-top-left-radius: $window_radius;
