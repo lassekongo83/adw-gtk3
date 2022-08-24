@@ -122,9 +122,10 @@ $view_selected_color: gtkalpha(currentColor, .1);
 $view_selected_hover_color: gtkalpha(currentColor, .13);
 $view_selected_active_color: gtkalpha(currentColor, .19);
 
-$trough_color: gtkalpha(currentColor, .15);
-$trough_hover_color: gtkalpha(currentColor, .2);
-$trough_active_color: gtkalpha(currentColor, .25);
+$trough_color: gtkalpha($text_color, .15);
+
+$switch_color: gtkalpha(currentColor, .15);
+$switch_hover_color: gtkalpha(currentColor, .2);
 
 $slider_color: gtkmix(white, $base_color, 80%);
 $slider_hover_color: white;
