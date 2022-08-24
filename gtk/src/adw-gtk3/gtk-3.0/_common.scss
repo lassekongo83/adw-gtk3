@@ -3108,16 +3108,18 @@ radio {
     margin: 0; // this is a workaround for a menu check/radio size allocation issue
     padding: 0;
 
-    &, &:checked, &:indeterminate {
+    &, &:not(:checked), &:checked, &:indeterminate {
       &, &:hover, &:disabled { //FIXME use button reset mixin
         min-height: 14px;
         min-width: 14px;
+        padding: 1px;
         background-image: none;
         background-color: transparent;
         box-shadow: none;
         -gtk-icon-shadow: none;
         color: inherit;
-        border-color: currentColor;
+        border-width: 1px;
+        border-color: if($variant=='light', gtkmix(currentColor, transparent, 40%), gtkmix(currentColor, transparent, 60%));
       }
     }
   }
@@ -3131,7 +3133,16 @@ check {
                                       -gtk-recolor(url("assets/check-symbolic.symbolic.png"))); }
 
   &:indeterminate { -gtk-icon-source: image(-gtk-recolor(url("assets/dash-symbolic.svg")),
-                                            -gtk-recolor(url("assets/dash-symbolic.symbolic.png"))); }
+                                            -gtk-recolor(url("assets/dash-symbolic.symbolic.png")));
+  }
+  
+  menu menuitem & {
+    &, &:checked, &:indeterminate {
+      &, &:hover, &:disabled { 
+        border: none;
+      }
+    }
+  }
 }
 
 %radio,
