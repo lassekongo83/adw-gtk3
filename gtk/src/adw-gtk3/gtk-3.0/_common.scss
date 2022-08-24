@@ -1255,9 +1255,9 @@ spinbutton {
       padding-bottom: 0;
       padding-top: 0;
       color: gtkmix($fg_color, $base_color, 90%);
-      background-image: none;
+      background-color: transparent;
       border-style: none none none solid;
-      border-color: $borders_color;
+      border-color: $spinbutton_borders_color;
       border-radius: 0;
       box-shadow: none;
 
@@ -1265,23 +1265,25 @@ spinbutton {
 
       &:hover {
         @include button(hover);
+        background-color: gtkalpha(currentColor, 0.1);
       }
 
       &:disabled {
         //color: transparentize($insensitive_fg_color, 0.7);
-        //background-color: transparent;
         @include button(insensitive);
+        background-color: transparent;
       }
 
       &:active {
         @include button(active);
+        background-color: gtkalpha(currentColor, 0.15);
         //box-shadow: inset 0 2px 3px -1px transparentize(black, 0.8);
       }
 
       &:backdrop {
         @include button(backdrop);
         //color: mix($backdrop_fg_color, $backdrop_base_color, 90%);
-        //background-color: transparent;
+        background-color: transparent;
         border-color: gtkalpha($backdrop_borders_color, 0.3);
         transition: $backdrop_transition;
       }
@@ -1289,7 +1291,7 @@ spinbutton {
       &:backdrop:disabled {
         @include button(insensitive);
         //color: transparentize($backdrop_insensitive_color,0.7);
-        //background-color: transparent;
+        background-color: transparent;
         //background-image: none;
         border-style: none none none solid; // It is needed or it gets overridden
 
@@ -2896,6 +2898,9 @@ switch {
       background-image: image(gtkalpha(currentColor, .1));
       &:active { background-image: image(transparentize(black, .8)); }
     }
+    &:disabled {
+      background-color: gtkalpha($checkradio_bg_color, 0.5);
+    }
   }
 
   &:disabled {
@@ -2917,6 +2922,9 @@ switch {
       //border-color: if($variant == 'light', $checkradio_borders_color,
       //                                      $selected_borders_color);
       background-color: gtkalpha($checkradio_bg_color, 0.5);
+      &:disabled {
+        background-color: gtkalpha($checkradio_bg_color, 0.3);
+      }
     }
 
     &:disabled {
@@ -2945,19 +2953,19 @@ switch {
   &:checked > slider { background-color: $slider_hover_color; }
 
   &:disabled slider {
-    background-color: $slider_color;
+    background-color: gtkmix($base_color, $slider_color, 50%);
     box-shadow: none;
   }
 
   &:backdrop {
     slider {
       transition: $backdrop_transition;
-      background-color: $slider_color;
+      background-color: gtkmix($base_color, $slider_color, 30%);
     }
 
-    &:checked > slider { background-color: $slider_hover_color; }
+    &:checked > slider { background-color: gtkmix($base_color, $slider_color, 30%); }
 
-    &:disabled slider { background-color: $slider_color; }
+    &:disabled slider { background-color: gtkmix($base_color, $slider_color, 60%); }
   }
 
   row:selected & {
@@ -3787,12 +3795,6 @@ levelbar {
   block {
     border: 0px solid;
     border-radius: 0;
-    &.horizontal {
-	}
-    &.vertical {
-   	&:first-child { border-radius: 8px 0 0 8px; }
-    	&:last-child { border-radius: 0 8px 8px 0; }
-    }
 
     &.low {
       border-color: if($variant == 'light', gtkshade($warning_bg_color, 0.8), $warning_bg_color);

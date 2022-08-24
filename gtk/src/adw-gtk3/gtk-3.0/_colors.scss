@@ -41,6 +41,7 @@ $selected_bg_color: $accent_bg_color;
 $selected_borders_color: if($variant== 'light', gtkmix(black, $selected_bg_color, 15%), gtkmix(black, $selected_bg_color, 30%));
 $borders_color: if($variant == 'light', gtkmix(currentColor, $bg_color, 14.7%), gtkmix(currentColor, $bg_color, 15%));
 $alt_borders_color: if($variant == 'light', gtkmix(black, $bg_color, 24%), gtkmix(black, $bg_color, 18%));
+$spinbutton_borders_color: gtkalpha(currentColor, 0.15);
 $borders_edge: if($variant == 'light', gtkalpha(white, 0.5), gtkalpha($fg_color, 0.07));
 $link_color: if($variant == 'light', gtkmix(black, $selected_bg_color, 10%), gtkmix(white, $selected_bg_color, 20%));
 $link_visited_color: if($variant == 'light', gtkmix(black, $selected_bg_color, 20%), gtkmix(white, $selected_bg_color, 10%));
