@@ -2173,6 +2173,7 @@ menubar,
   &:backdrop { background-color: $backdrop_bg_color; }
 
   > menuitem {
+    border-radius: $button_radius;
     min-height: 16px;
     padding: 4px 8px;
 
@@ -2185,7 +2186,7 @@ menubar,
     }
 
     &:hover { //Seems like it :hover even with keyboard focus
-      color: $link_color;
+      background-color: gtkmix(currentColor, $base_color, 12.5%);
     }
 
     &:disabled {
