@@ -516,7 +516,7 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
     }
     background-image: image(gtkmix($c, $base_color, 70%));
     color: gtkmix($tc, $base_color, 70%);
-    color: $tc;
+    //color: $tc;
   }
 
   @if $t==backdrop-insensitive {

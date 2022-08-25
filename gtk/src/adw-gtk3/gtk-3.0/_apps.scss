@@ -230,11 +230,6 @@ $disk_space_free: #eeeeec;
   padding: 4px 8px;
   border-radius: 0 0 $button_radius $button_radius;
 
-  &:backdrop {
-    background-color: $backdrop_bg_color;
-    border-color: $backdrop_borders_color;
-  }
-
   button {
     padding-top: 7px;
     padding-bottom: 7px;
@@ -454,10 +449,6 @@ $panel_transition_duration: 250ms;
       // use sidebar bg color
       background-image: image($sidebar_bg_color);
       border-radius: 0; // get rid of weird radius on selected rows
-
-      &:backdrop {
-        background-image: image($backdrop_sidebar_bg_color);
-      }
 
       &:selected {
         background: $selected_bg_color;

@@ -461,8 +461,6 @@ list.content {
   //            0 1px 3px 1px transparentize(black, .93),
   //            0 2px 6px 2px transparentize(black, .97);
 
-  &:backdrop { color: $backdrop_fg_color; }
-
   // Nested rows background
   // FIXME, bring this closer to libadwaita
   list.nested > row:not(:active) {
@@ -533,10 +531,6 @@ button.list-button:not(:active):not(:checked):not(:hover) {
 // HdyStatusPage
 statuspage > scrolledwindow > viewport > box > clamp > box > .icon {
   color: gtkalpha($fg_color, 0.5);
-
-  &:backdrop {
-    color: gtkalpha($backdrop_fg_color, 0.5);
-  }
 }
 
 statuspage > scrolledwindow > viewport > box {
