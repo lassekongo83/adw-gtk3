@@ -3771,7 +3771,7 @@ levelbar {
       margin: 0 1px;
       min-width: 32px;
       &:first-child { border-radius: 8px 0 0 8px; }
-   	&:last-child { border-radius: 0 8px 8px 0; }
+      &:last-child { border-radius: 0 8px 8px 0; }
     }
   }
 
@@ -3787,8 +3787,8 @@ levelbar {
     &.discrete block {
       margin: 1px 0;
       min-height: 32px;
-    	&:first-child { border-radius: 8px 8px 0 0; }
-   	&:last-child { border-radius: 0 0 8px 8px; }
+      &:first-child { border-radius: 8px 8px 0 0; }
+      &:last-child { border-radius: 0 0 8px 8px; }
     }
   }
 
