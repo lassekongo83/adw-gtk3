@@ -318,10 +318,41 @@ headerbar, .titlebar {
   }
   .linked entry ~ .image-button { @extend %colored_buttons; }
 
-  // disabled switches
-  switch:disabled {
-    background-color: gtkshade($backdrop_dark_fill, 0.96);
-    &:backdrop { background-color: $backdrop_dark_fill; }
+  // switches
+  switch {
+    &:backdrop {
+      color: $backdrop_fg_color;
+      border-color: $backdrop_borders_color;
+      background-color: $backdrop_dark_fill;
+      text-shadow: none;
+      transition: $backdrop_transition;
+
+      &:checked {
+        @if $variant == 'light' { color: $backdrop_bg_color; }
+        background-color: gtkalpha($checkradio_bg_color, 0.5);
+        &:disabled {
+          background-color: gtkalpha($checkradio_bg_color, 0.3);
+        }
+      }
+
+      &:disabled {
+        @include button(insensitive);
+      }
+
+      slider {
+        transition: $backdrop_transition;
+        background-color: gtkmix($base_color, $slider_color, 30%);
+      }
+
+      &:checked > slider { background-color: gtkmix($base_color, $slider_color, 30%); }
+
+      &:disabled slider { background-color: gtkmix($base_color, $slider_color, 60%); }
+    }
+
+    &:disabled {
+      background-color: gtkshade($backdrop_dark_fill, 0.96);
+      &:backdrop { background-color: $backdrop_dark_fill; }
+    }
   }
 
   // better animation when switching from backdrop

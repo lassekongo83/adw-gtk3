@@ -183,7 +183,7 @@ label {
     button & { color: inherit; }
 
     &:backdrop {
-      color: $backdrop_insensitive_color;
+      color: $insensitive_fg_color;
 
       button & { color: inherit; }
     }
@@ -2263,10 +2263,6 @@ notebook {
     border-width: 0px;
     background-color: $bg_color;
 
-    &:backdrop {
-      border-color: $backdrop_borders_color;
-    }
-
     &.top { box-shadow: inset 0 -1px $borders_color; }
     &.bottom { box-shadow: inset 0 1px $borders_color; }
     &.left { box-shadow: inset -1px 0 $borders_color; }
@@ -2446,7 +2442,7 @@ notebook {
       }
 
       &:backdrop {
-        color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
+        //color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
 
         &.reorderable-page {
           border-color: transparent;
@@ -2469,7 +2465,7 @@ notebook {
       }
 
       &:backdrop:checked {
-        color: $backdrop_fg_color;
+        //color: $backdrop_fg_color;
 
         &.reorderable-page {
           border-color: $border_color;
@@ -2569,7 +2565,7 @@ notebook {
   > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
     background-color: $notebook_color;
 
-    &:backdrop { background-color: $backdrop_base_color; }
+    //&:backdrop { background-color: $backdrop_base_color; }
   }
 }
 
@@ -2774,28 +2770,6 @@ switch {
     text-shadow: none;
   }
 
-  &:backdrop {
-    color: $backdrop_fg_color;
-    border-color: $backdrop_borders_color;
-    background-color: $backdrop_dark_fill;
-    text-shadow: none;
-    transition: $backdrop_transition;
-
-    &:checked {
-      @if $variant == 'light' { color: $backdrop_bg_color; }
-      //border-color: if($variant == 'light', $checkradio_borders_color,
-      //                                      $selected_borders_color);
-      background-color: gtkalpha($checkradio_bg_color, 0.5);
-      &:disabled {
-        background-color: gtkalpha($checkradio_bg_color, 0.3);
-      }
-    }
-
-    &:disabled {
-      @include button(insensitive);
-    }
-  }
-
   slider {
     margin: 0px;
     min-width: 20px;
@@ -2819,17 +2793,6 @@ switch {
   &:disabled slider {
     background-color: gtkmix($base_color, $slider_color, 50%);
     box-shadow: none;
-  }
-
-  &:backdrop {
-    slider {
-      transition: $backdrop_transition;
-      background-color: gtkmix($base_color, $slider_color, 30%);
-    }
-
-    &:checked > slider { background-color: gtkmix($base_color, $slider_color, 30%); }
-
-    &:disabled slider { background-color: gtkmix($base_color, $slider_color, 60%); }
   }
 
   row:selected & {
