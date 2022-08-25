@@ -500,18 +500,31 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
 
   @if $t==insensitive {
     box-shadow: none;
-    color: gtkalpha($tc, 0.7);
-    border-color: if($variant == 'light', gtkmix(white, $_border_color, 5%), gtkmix(black, $_border_color, 5%));
+    background-image: image(gtkmix($c, $base_color, 50%));
+    color: gtkmix($tc, $base_color, 70%);
+    &:not(:checked) {
+      border-color: gtkmix($base_color, $_border_color, 30%);
+    }
+    &:checked, &:indeterminate {
+      border-color: gtkmix($c, $base_color, 50%);
+    }
   }
 
   @if $t==backdrop {
-    background-image: image($c);
-    box-shadow: none;
+    &:checked, &:indeterminate {
+      border-color: gtkmix($c, $base_color, 70%);
+    }
+    background-image: image(gtkmix($c, $base_color, 70%));
+    color: gtkmix($tc, $base_color, 70%);
     color: $tc;
   }
 
   @if $t==backdrop-insensitive {
+    &:checked, &:indeterminate {
+      border-color: gtkmix($c, $base_color, 50%);
+    }
+    background-image: image(gtkalpha($c, 0.5));
     box-shadow: none;
-    color: gtkalpha($tc, 0.7);
+    color: gtkmix($tc, $base_color, 70%);
   }
 }
