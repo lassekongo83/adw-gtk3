@@ -150,7 +150,7 @@
   // https://github.com/lassekongo83/adw-gtk3/issues/160
   entry.search > * {
     margin: 5px;
-    &:not(image), &:backdrop:not(image) {
+    &:not(image), &:backdrop:not(image), :not(.csd.background) {
       color: $selected_fg_color;
       background-color: $suggested_bg_color;
     }
