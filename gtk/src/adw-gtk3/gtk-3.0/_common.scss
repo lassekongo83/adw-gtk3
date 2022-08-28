@@ -2442,9 +2442,8 @@ notebook {
       }
 
       &:backdrop {
-        //color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
-
         &.reorderable-page {
+          color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
           border-color: transparent;
           background-color: $tab_color_backdrop;
           box-shadow: inset -1px -1px $border_color;
@@ -2465,9 +2464,8 @@ notebook {
       }
 
       &:backdrop:checked {
-        //color: $backdrop_fg_color;
-
         &.reorderable-page {
+          color: $backdrop_fg_color;
           border-color: $border_color;
           box-shadow: inset -1px -1px $border_color;
           background-color: $tab_color_backdrop_active;
