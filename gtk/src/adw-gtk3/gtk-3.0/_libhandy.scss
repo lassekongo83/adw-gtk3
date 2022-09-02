@@ -448,57 +448,66 @@ list.content {
     border-radius: $card_radius;
   }
 
-  background-color: $card_bg_color;
+  background-color: transparent; //$card_bg_color;
   color: $card_fg_color;
   border-radius: $card_radius;
 
-  // This is one thing that can't be the same as libadwaita becuase ...
-  border: 1px solid $borders_color;
-
-  // ... these shadows aren't always possible with GTK3.
-
-  //box-shadow: 0 0 0 1px transparentize(black, 0.97),
-  //            0 1px 3px 1px transparentize(black, .93),
-  //            0 2px 6px 2px transparentize(black, .97);
-
   // Nested rows background
-  // FIXME, bring this closer to libadwaita
-  list.nested > row:not(:active) {
-    border: 1px solid $borders_color;
-    &:not(:hover):not(:selected),
-    &:hover:not(.activatable):not(:selected) {
-      background-color: hdymix($bg_color, $card_bg_color, 0.5);
+  list.nested row {
+    border: none;
+  }
+
+  row.expander {
+    padding: 0px;
+
+    list.nested {
+      background-color: gtkalpha($card_shade_color, .5);
+      color: inherit;
+      border-radius: 0;
+      border: none;
     }
 
-    &:hover.activatable:not(:selected) {
-      background-color: hdymix($fg_color, $card_bg_color, 0.954);
+    list.nested > row {
+      //border-bottom: 1px solid $card_shade_color;
+
+      &:not(:selected).activatable {
+        &:hover {
+          background-color: gtkalpha(currentColor, .03);
+        }
+
+        &:active {
+          background-color: gtkalpha(currentColor, .08);
+        }
+      }
     }
   }
 
   > row {
+    background-color: $card_bg_color;
+    color: $card_fg_color;
     margin: 0;
     padding: 2px;
     transition: 200ms $ease-out-quad;
-    // Add space around expanded rows
-    &.expander:checked:not(:first-child),
-    &.expander:checked + row {
-      margin-top: 6px;
-    }
 
     &:not(:last-child) {
-      border-bottom: 1px solid $border_color;
+      border-bottom: 1px solid $borders_color;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
 
     &:not(:first-child):not(:last-child) {
       border-radius: 0;
+      border-left: 1px solid $borders_color;
+      border-right: 1px solid $borders_color;
       -gtk-outline-radius: 0;
     }
 
     &:first-child {
       border-top-left-radius: $card_radius;
       border-top-right-radius: $card_radius;
+      border-top: 1px solid $borders_color;
+      border-left: 1px solid $borders_color;
+      border-right: 1px solid $borders_color;
       -gtk-outline-radius: $card_radius $card_radius 0 0;
     }
 
@@ -507,11 +516,14 @@ list.content {
       border-top-right-radius: 0;
       border-bottom-left-radius: $card_radius;
       border-bottom-right-radius: $card_radius;
+      border-bottom: 1px solid $borders_color;
+      border-left: 1px solid $borders_color;
+      border-right: 1px solid $borders_color;
       -gtk-outline-radius: 0 0 $card_radius $card_radius;
     }
 
     &:only-child {
-      border-bottom: none;
+      border: 1px solid $borders_color;
       border-radius: $card_radius;
       -gtk-outline-radius: $card_radius;
     }
