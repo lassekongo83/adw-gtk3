@@ -490,24 +490,24 @@ list.content {
     transition: 200ms $ease-out-quad;
 
     &:not(:last-child) {
-      border-bottom: 1px solid $borders_color;
+      border-bottom: 1px solid $border_color;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
 
     &:not(:first-child):not(:last-child) {
       border-radius: 0;
-      border-left: 1px solid $borders_color;
-      border-right: 1px solid $borders_color;
+      border-left: 1px solid $border_color;
+      border-right: 1px solid $border_color;
       -gtk-outline-radius: 0;
     }
 
     &:first-child {
       border-top-left-radius: $card_radius;
       border-top-right-radius: $card_radius;
-      border-top: 1px solid $borders_color;
-      border-left: 1px solid $borders_color;
-      border-right: 1px solid $borders_color;
+      border-top: 1px solid $border_color;
+      border-left: 1px solid $border_color;
+      border-right: 1px solid $border_color;
       -gtk-outline-radius: $card_radius $card_radius 0 0;
     }
 
@@ -516,28 +516,28 @@ list.content {
       border-top-right-radius: 0;
       border-bottom-left-radius: $card_radius;
       border-bottom-right-radius: $card_radius;
-      border-bottom: 1px solid $borders_color;
-      border-left: 1px solid $borders_color;
-      border-right: 1px solid $borders_color;
+      border-bottom: 1px solid $border_color;
+      border-left: 1px solid $border_color;
+      border-right: 1px solid $border_color;
       -gtk-outline-radius: 0 0 $card_radius $card_radius;
     }
 
     &:only-child {
-      border: 1px solid $borders_color;
+      border: 1px solid $border_color;
       border-radius: $card_radius;
       -gtk-outline-radius: $card_radius;
     }
 
     &:not(.expander):not(:active):hover.activatable:not(:selected),
     &.expander row.header:not(:active):hover.activatable:not(:selected) {
-      background-color: hdymix($fg_color, $card_bg_color, 0.954);
+      background-color: hdymix($card_fg_color, $card_bg_color, 0.954);
     }
   }
 }
 
 // List button
 button.list-button:not(:active):not(:checked):not(:hover) {
-  @include button(normal, $card_bg_color, $fg_color);
+  @include button(normal, $card_bg_color, $card_fg_color);
 }
 
 // HdyStatusPage
