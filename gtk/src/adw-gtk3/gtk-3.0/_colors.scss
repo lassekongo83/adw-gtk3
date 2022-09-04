@@ -11,6 +11,7 @@ $accent_fg_color: gtkcolor(accent_fg_color);
 $accent_color: gtkcolor(accent_color);
 $headerbar_bg_color: gtkcolor(headerbar_bg_color);
 $headerbar_fg_color: gtkcolor(headerbar_fg_color);
+$headerbar_border_color: gtkalpha(gtkcolor(headerbar_border_color), .15);
 $headerbar_backdrop_color: gtkcolor(headerbar_backdrop_color);
 $card_bg_color: gtkcolor(card_bg_color);
 $card_fg_color: gtkcolor(card_fg_color);
@@ -134,7 +135,7 @@ $slider_hover_color: white;
 $fill_color: $selected_bg_color;
 $fill_text_color: $selected_fg_color;
 
-$headerbar_border: gtkmix(currentColor, $headerbar_bg_color, 15.3%);
+//$headerbar_border: gtkmix(currentColor, $headerbar_bg_color, 15.3%);
 
 // Notebook and tabs
 $notebook_color: $base_color;

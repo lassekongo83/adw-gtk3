@@ -1500,13 +1500,13 @@ headerbar {
   min-height: $_headerbar_height;
   border-width: 0 0 1px;
   border-style: solid;
-  border-color: $headerbar_border;
+  border-color: $headerbar_border_color;
   border-radius: 0;
 
   @include headerbar_fill;
 
   &:backdrop {
-    border-color: $backdrop_borders_color;
+    //border-color: $backdrop_borders_color;
     background-color: $headerbar_backdrop_color;
     background-image: none;
     transition: $backdrop_transition;

@@ -466,8 +466,8 @@ list.view.frame {
   border-width: 0;
   padding: 0px 4px;
   min-height: 36px;
-  border-bottom: 1px solid $headerbar_border;
-  &:backdrop { border-color: $backdrop_borders_color; }
+  border-bottom: 1px solid $headerbar_border_color;
+  //&:backdrop { border-color: $backdrop_borders_color; }
 
   &.default-decoration button.titlebutton {
     background-color: $titlebutton_normal;
