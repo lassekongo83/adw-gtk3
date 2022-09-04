@@ -390,7 +390,7 @@ list.view.frame {
   }
 
   entry {
-    @include button(normal, $card_bg_color, $text_color);
+    @include button(normal, $card_bg_color, $card_fg_color);
     &:disabled {
       @include button(normal, $card_bg_color, $disabled_card_fg);
     }
