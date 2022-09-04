@@ -596,11 +596,11 @@ tabbar {
   .box {
     min-height: 30px;
     background: $tab_color;
-    border-bottom: 1px solid $borders_color;
+    border-bottom: 1px solid $border_color;
 
     &:backdrop {
+      color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
       background-color: $tab_color_backdrop;
-      border-color: $backdrop_borders_color;
     }
   }
 
@@ -624,20 +624,12 @@ tabbar {
     tabbox {
       &:dir(ltr) {
         padding-right: 1px;
-        box-shadow: inset -1px 0 $alt_borders_color;
-
-        &:backdrop {
-          box-shadow: inset -1px 0 $backdrop_borders_color;
-        }
+        box-shadow: inset -1px 0 $border_color;
       }
 
       &:dir(rtl) {
         padding-left: 1px;
-        box-shadow: inset 1px 0 $alt_borders_color;
-
-        &:backdrop {
-          box-shadow: inset 1px 0 $backdrop_borders_color;
-        }
+        box-shadow: inset 1px 0 $border_color;
       }
     }
   }
@@ -664,10 +656,11 @@ tabbar {
 
   tab {
     border-style: solid;
-    border-color: $borders_color;
+    border-color: $border_color;
     border-width: 0 1px 0 1px;
     transition: background 150ms ease-in-out;
     background-color: $tab_color;
+    color: $fg_color;
 
     &:checked {
       background-color: $tab_color_active;
@@ -678,7 +671,7 @@ tabbar {
     &:hover { background-color: $tab_color_hover; }
 
     &:backdrop {
-      border-color: $backdrop_borders_color;
+      color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
       background-color: $tab_color_backdrop;
 
       &:hover { background-color: $tab_color_backdrop_hover; }
