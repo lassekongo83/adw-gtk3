@@ -216,10 +216,26 @@ row.expander {
   background-color: transparent;
 
   list.nested > row {
-    background-color: hdyalpha($bg_color, 0.5);
-    border-color: hdyalpha($borders_color, 0.7);
-    border-style: solid;
-    border-width: 1px 0px 0px 0px;
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+
+    &:not(:selected).activatable {
+      &:hover {
+        background-color: gtkalpha(currentColor, .03);
+      }
+
+      &:active {
+        background-color: gtkalpha(currentColor, .08);
+      }
+    }
+  }
+
+  list.nested {
+    background-color: gtkalpha($card_shade_color, .5);
+    color: inherit;
+    border-radius: 0;
+    border-top: 1px solid $border_color;
   }
 
   // HdyExpanderRow arrow rotation
@@ -252,6 +268,75 @@ row.expander {
   & image.expander-row-arrow:disabled {
     color: $insensitive_fg_color;
   }
+}
+
+// Lists
+list.content {
+  list {
+    background-color: transparent;
+    border-radius: $card_radius;
+  }
+
+  background-color: transparent; //$card_bg_color;
+  color: $card_fg_color;
+  border-radius: $card_radius;
+
+  > row {
+    background-color: $card_bg_color;
+    color: $card_fg_color;
+    margin: 0;
+    //padding: 2px;
+    transition: 200ms $ease-out-quad;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $border_color;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+      border-left: 1px solid $border_color;
+      border-right: 1px solid $border_color;
+      -gtk-outline-radius: 0;
+    }
+
+    &:first-child {
+      border-top-left-radius: $card_radius;
+      border-top-right-radius: $card_radius;
+      border-top: 1px solid $border_color;
+      border-left: 1px solid $border_color;
+      border-right: 1px solid $border_color;
+      -gtk-outline-radius: $card_radius $card_radius 0 0;
+    }
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: $card_radius;
+      border-bottom-right-radius: $card_radius;
+      border-bottom: 1px solid $border_color;
+      border-left: 1px solid $border_color;
+      border-right: 1px solid $border_color;
+      -gtk-outline-radius: 0 0 $card_radius $card_radius;
+    }
+
+    &:only-child {
+      border: 1px solid $border_color;
+      border-radius: $card_radius;
+      -gtk-outline-radius: $card_radius;
+    }
+
+    &:not(.expander):not(:active):hover.activatable:not(:selected),
+    &.expander row.header:not(:active):hover.activatable:not(:selected) {
+      background-color: hdymix($card_fg_color, $card_bg_color, 0.954);
+    }
+  }
+}
+
+// List button
+button.list-button:not(:active):not(:checked):not(:hover) {
+  @include button(normal, $card_bg_color, $card_fg_color);
 }
 
 // HdyKeypad
@@ -439,105 +524,6 @@ viewswitcherbar actionbar > revealer > box {
 viewswitchertitle viewswitcher {
   margin-left: 12px;
   margin-right: 12px;
-}
-
-// Lists
-list.content {
-  list {
-    background-color: transparent;
-    border-radius: $card_radius;
-  }
-
-  background-color: transparent; //$card_bg_color;
-  color: $card_fg_color;
-  border-radius: $card_radius;
-
-  // Nested rows background
-  list.nested row {
-    border: none;
-  }
-
-  row.expander {
-    padding: 0px;
-
-    list.nested {
-      background-color: gtkalpha($card_shade_color, .5);
-      color: inherit;
-      border-radius: 0;
-      border: none;
-    }
-
-    list.nested > row {
-      //border-bottom: 1px solid $card_shade_color;
-
-      &:not(:selected).activatable {
-        &:hover {
-          background-color: gtkalpha(currentColor, .03);
-        }
-
-        &:active {
-          background-color: gtkalpha(currentColor, .08);
-        }
-      }
-    }
-  }
-
-  > row {
-    background-color: $card_bg_color;
-    color: $card_fg_color;
-    margin: 0;
-    padding: 2px;
-    transition: 200ms $ease-out-quad;
-
-    &:not(:last-child) {
-      border-bottom: 1px solid $border_color;
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    &:not(:first-child):not(:last-child) {
-      border-radius: 0;
-      border-left: 1px solid $border_color;
-      border-right: 1px solid $border_color;
-      -gtk-outline-radius: 0;
-    }
-
-    &:first-child {
-      border-top-left-radius: $card_radius;
-      border-top-right-radius: $card_radius;
-      border-top: 1px solid $border_color;
-      border-left: 1px solid $border_color;
-      border-right: 1px solid $border_color;
-      -gtk-outline-radius: $card_radius $card_radius 0 0;
-    }
-
-    &:last-child {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      border-bottom-left-radius: $card_radius;
-      border-bottom-right-radius: $card_radius;
-      border-bottom: 1px solid $border_color;
-      border-left: 1px solid $border_color;
-      border-right: 1px solid $border_color;
-      -gtk-outline-radius: 0 0 $card_radius $card_radius;
-    }
-
-    &:only-child {
-      border: 1px solid $border_color;
-      border-radius: $card_radius;
-      -gtk-outline-radius: $card_radius;
-    }
-
-    &:not(.expander):not(:active):hover.activatable:not(:selected),
-    &.expander row.header:not(:active):hover.activatable:not(:selected) {
-      background-color: hdymix($card_fg_color, $card_bg_color, 0.954);
-    }
-  }
-}
-
-// List button
-button.list-button:not(:active):not(:checked):not(:hover) {
-  @include button(normal, $card_bg_color, $card_fg_color);
 }
 
 // HdyStatusPage
