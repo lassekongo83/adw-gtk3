@@ -48,7 +48,7 @@
 
 // Cards, boxed lists
 @define-color card_bg_color #{if($variant == 'light', #ffffff, transparentize(white, .92))};
-@define-color card_fg_color #{if($variant == 'light', #323232, white)};
+@define-color card_fg_color #{if($variant == 'light', #333333, white)};
 @define-color card_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
 
 // Dialogs
@@ -57,7 +57,7 @@
 
 // Popovers
 @define-color popover_bg_color #{if($variant == 'light', #ffffff, #383838)};
-@define-color popover_fg_color #{if($variant == 'light', #323232, white)};
+@define-color popover_fg_color #{if($variant == 'light', #333333, white)};
 
 // Miscellaneous
 @define-color shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
