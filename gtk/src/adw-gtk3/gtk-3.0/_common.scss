@@ -1500,7 +1500,7 @@ headerbar {
   min-height: $_headerbar_height;
   border-width: 0 0 1px;
   border-style: solid;
-  border-color: $headerbar_border_color;
+  border-color: $headerbar_shade_color;
   border-radius: 0;
 
   @include headerbar_fill;
