@@ -3902,8 +3902,8 @@ messagedialog { // Message Dialog styling
     background: $dialog_bg_color;
     color: $dialog_fg_color;
     border-style: none;
-    border-top-left-radius: $window_radius;
-    border-top-right-radius: $window_radius;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
   }
 
   &.csd { // rounded bottom border styling for csd version
@@ -3925,22 +3925,32 @@ messagedialog { // Message Dialog styling
       border-top: 1px solid $border_color;
       border-left: 1px solid $border_color;
 
-      &:hover { @include button(hover, $dialog_bg_color, $dialog_fg_color); }
+      &:hover {
+        background: $view_hover_color;
+      }
 
-      &:active { @include button(active, $dialog_bg_color, $dialog_fg_color); }
+      &:active {
+        background: $view_active_color;
+      }
 
       &.suggested-action {
-        background-color: $suggested_bg_color;
-        color: $selected_fg_color;
-        &:hover { @include button(hover, $suggested_bg_color, $selected_fg_color); }
-        &:active, &:checked { @include button(active, $suggested_bg_color, $selected_fg_color); }
+        color: $accent_color;
       }
 
       &.destructive-action {
-        background-color: $destructive_bg_color;
-        color: $destructive_fg_color;
-        &:hover { @include button(hover, $destructive_bg_color, $destructive_fg_color); }
-        &:active, &:checked { @include button(active, $destructive_bg_color, $destructive_fg_color); }
+        color: $destructive_color;
+      }
+
+      &:checked {
+        background: $view_selected_color;
+
+        &:hover {
+          background: $view_selected_hover_color;
+        }
+
+        &:active {
+          background: $view_selected_active_color;
+        }
       }
 
       &:first-child {
