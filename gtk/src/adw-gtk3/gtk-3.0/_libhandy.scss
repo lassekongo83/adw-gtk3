@@ -216,26 +216,10 @@ row.expander {
   background-color: transparent;
 
   list.nested > row {
-    background-color: transparent;
-    border-radius: 0;
-    border: none;
-
-    &:not(:selected).activatable {
-      &:hover {
-        background-color: gtkalpha(currentColor, .03);
-      }
-
-      &:active {
-        background-color: gtkalpha(currentColor, .08);
-      }
-    }
-  }
-
-  list.nested {
-    background-color: gtkalpha($card_shade_color, .5);
-    color: inherit;
-    border-radius: 0;
-    border-top: 1px solid $border_color;
+    background-color: hdyalpha($bg_color, 0.5);
+    border-color: hdyalpha($borders_color, 0.7);
+    border-style: solid;
+    border-width: 1px 0px 0px 0px;
   }
 
   // HdyExpanderRow arrow rotation
@@ -268,75 +252,6 @@ row.expander {
   & image.expander-row-arrow:disabled {
     color: $insensitive_fg_color;
   }
-}
-
-// Lists
-list.content {
-  list {
-    background-color: transparent;
-    border-radius: $card_radius;
-  }
-
-  background-color: transparent; //$card_bg_color;
-  color: $card_fg_color;
-  border-radius: $card_radius;
-
-  > row {
-    background-color: $card_bg_color;
-    color: $card_fg_color;
-    margin: 0;
-    //padding: 2px;
-    transition: 200ms $ease-out-quad;
-
-    &:not(:last-child) {
-      border-bottom: 1px solid $border_color;
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    &:not(:first-child):not(:last-child) {
-      border-radius: 0;
-      border-left: 1px solid $border_color;
-      border-right: 1px solid $border_color;
-      -gtk-outline-radius: 0;
-    }
-
-    &:first-child {
-      border-top-left-radius: $card_radius;
-      border-top-right-radius: $card_radius;
-      border-top: 1px solid $border_color;
-      border-left: 1px solid $border_color;
-      border-right: 1px solid $border_color;
-      -gtk-outline-radius: $card_radius $card_radius 0 0;
-    }
-
-    &:last-child {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      border-bottom-left-radius: $card_radius;
-      border-bottom-right-radius: $card_radius;
-      border-bottom: 1px solid $border_color;
-      border-left: 1px solid $border_color;
-      border-right: 1px solid $border_color;
-      -gtk-outline-radius: 0 0 $card_radius $card_radius;
-    }
-
-    &:only-child {
-      border: 1px solid $border_color;
-      border-radius: $card_radius;
-      -gtk-outline-radius: $card_radius;
-    }
-
-    &:not(.expander):not(:active):hover.activatable:not(:selected),
-    &.expander row.header:not(:active):hover.activatable:not(:selected) {
-      background-color: hdymix($card_fg_color, $card_bg_color, 0.954);
-    }
-  }
-}
-
-// List button
-button.list-button:not(:active):not(:checked):not(:hover) {
-  @include button(normal, $card_bg_color, $card_fg_color);
 }
 
 // HdyKeypad
@@ -526,9 +441,102 @@ viewswitchertitle viewswitcher {
   margin-right: 12px;
 }
 
+// Lists
+list.content {
+  list {
+    background-color: transparent;
+    border-radius: $card_radius;
+  }
+
+  background-color: $card_bg_color;
+  color: $card_fg_color;
+  border-radius: $card_radius;
+
+  // This is one thing that can't be the same as libadwaita becuase ...
+  border: 1px solid $borders_color;
+
+  // ... these shadows aren't always possible with GTK3.
+
+  //box-shadow: 0 0 0 1px transparentize(black, 0.97),
+  //            0 1px 3px 1px transparentize(black, .93),
+  //            0 2px 6px 2px transparentize(black, .97);
+
+  &:backdrop { color: $backdrop_fg_color; }
+
+  // Nested rows background
+  // FIXME, bring this closer to libadwaita
+  list.nested > row:not(:active) {
+    border: 1px solid $borders_color;
+    &:not(:hover):not(:selected),
+    &:hover:not(.activatable):not(:selected) {
+      background-color: hdymix($bg_color, $card_bg_color, 0.5);
+    }
+
+    &:hover.activatable:not(:selected) {
+      background-color: hdymix($fg_color, $card_bg_color, 0.954);
+    }
+  }
+
+  > row {
+    margin: 0;
+    padding: 2px;
+    transition: 200ms $ease-out-quad;
+    // Add space around expanded rows
+    &.expander:checked:not(:first-child),
+    &.expander:checked + row {
+      margin-top: 6px;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $border_color;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+      -gtk-outline-radius: 0;
+    }
+
+    &:first-child {
+      border-top-left-radius: $card_radius;
+      border-top-right-radius: $card_radius;
+      -gtk-outline-radius: $card_radius $card_radius 0 0;
+    }
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: $card_radius;
+      border-bottom-right-radius: $card_radius;
+      -gtk-outline-radius: 0 0 $card_radius $card_radius;
+    }
+
+    &:only-child {
+      border-bottom: none;
+      border-radius: $card_radius;
+      -gtk-outline-radius: $card_radius;
+    }
+
+    &:not(.expander):not(:active):hover.activatable:not(:selected),
+    &.expander row.header:not(:active):hover.activatable:not(:selected) {
+      background-color: hdymix($fg_color, $card_bg_color, 0.954);
+    }
+  }
+}
+
+// List button
+button.list-button:not(:active):not(:checked):not(:hover) {
+  @include button(normal, $card_bg_color, $fg_color);
+}
+
 // HdyStatusPage
 statuspage > scrolledwindow > viewport > box > clamp > box > .icon {
   color: gtkalpha($fg_color, 0.5);
+
+  &:backdrop {
+    color: gtkalpha($backdrop_fg_color, 0.5);
+  }
 }
 
 statuspage > scrolledwindow > viewport > box {
@@ -594,13 +602,13 @@ row {
 
 tabbar {
   .box {
-    min-height: 30px;
-    background: $tab_color;
-    border-bottom: 1px solid $border_color;
+    min-height: 38px;
+    background: $headerbar_bg_color;
+    border-bottom: 1px solid $borders_color;
 
     &:backdrop {
-      color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
-      background-color: $tab_color_backdrop;
+      background-color: $headerbar_backdrop_color;
+      border-color: $backdrop_borders_color;
     }
   }
 
@@ -624,12 +632,20 @@ tabbar {
     tabbox {
       &:dir(ltr) {
         padding-right: 1px;
-        box-shadow: inset -1px 0 $border_color;
+        box-shadow: inset -1px 0 $alt_borders_color;
+
+        &:backdrop {
+          box-shadow: inset -1px 0 $backdrop_borders_color;
+        }
       }
 
       &:dir(rtl) {
         padding-left: 1px;
-        box-shadow: inset 1px 0 $border_color;
+        box-shadow: inset 1px 0 $alt_borders_color;
+
+        &:backdrop {
+          box-shadow: inset 1px 0 $backdrop_borders_color;
+        }
       }
     }
   }
@@ -655,28 +671,43 @@ tabbar {
   }
 
   tab {
-    border-style: solid;
-    border-color: $border_color;
-    border-width: 0 1px 0 1px;
-    transition: background 150ms ease-in-out;
-    background-color: $tab_color;
-    color: $fg_color;
+    border-style: none;
+    border-color: transparent;
+    border-width: 0;
+    border-radius: $button_radius;
+    margin: 4px 0;
+    margin-left: 1px;
+    transition: background-color 150ms ease-in-out;
+    background-image: if($variant == 'light', url('assets/tab-border.png'), url('assets/tab-border-dark.png'));
+    background-position: left;
+    background-repeat: no-repeat;
+    background-color: $headerbar_bg_color;
+    + tab:checked { background-image: none; }
 
-    &:checked {
-      background-color: $tab_color_active;
+    &:checked, &:backdrop:checked {
+      background-color: $view_selected_color;
+      margin-right: 1px;
 
-      &:hover { background-color: $tab_color_active_hover; }
+      &:hover { background-color: $view_selected_hover_color; }
+
+      &, + tab { background-image: none; }
     }
 
-    &:hover { background-color: $tab_color_hover; }
+    &:hover {
+      background-color: $view_hover_color;
+      &, + tab { background-image: none; }
+    }
 
     &:backdrop {
-      color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
-      background-color: $tab_color_backdrop;
-
-      &:hover { background-color: $tab_color_backdrop_hover; }
-      &:checked { background-color: $tab_color_backdrop_active; }
+      border-color: $backdrop_borders_color;
+      background-color: $headerbar_backdrop_color;
     }
+  }
+
+  arrow.down + tab,
+  tab:first-child {
+    background-image: none;
+    border: none;
   }
 
   .start-action,
