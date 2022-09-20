@@ -7,7 +7,7 @@
    viewBox="0 0 52.916665 52.916668"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    sodipodi:docname="assets.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,16 +24,18 @@
      inkscape:document-units="px"
      showgrid="false"
      inkscape:zoom="11.313708"
-     inkscape:cx="192.86337"
-     inkscape:cy="182.0358"
+     inkscape:cx="192.90758"
+     inkscape:cy="17.545088"
      inkscape:window-width="1920"
-     inkscape:window-height="910"
+     inkscape:window-height="916"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
      units="px"
-     width="200px">
+     width="200px"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1">
     <inkscape:grid
        type="xygrid"
        id="grid181" />
@@ -451,5 +453,21 @@
          style="fill:#d2d2d2;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.280359;stroke-opacity:1"
          d="m 33.427574,19.82803 c -1.456882,0.01471 -2.641589,1.19935 -2.656294,2.656153 l -0.0027,0.262962 c 0,0 -0.002,0.289012 0.198265,0.76061 0.0075,0.01769 0.01499,0.03549 0.02308,0.05369 0.01095,0.02488 0.02196,0.04968 0.03366,0.07413 0.007,0.01479 0.01477,0.02988 0.02215,0.04497 0.306267,0.62692 0.951094,1.508648 2.311979,2.453994 l -5e-5,0.005 c 0.0011,-7.97e-4 0.0021,-10e-4 0.0031,-0.002 0.0011,7.74e-4 0.0021,9.72e-4 0.0031,0.002 l 4.9e-5,-0.005 c 1.295401,-0.911099 1.958662,-1.753317 2.299109,-2.376772 0.08643,-0.147084 0.158832,-0.302798 0.216295,-0.465914 0.0088,-0.02511 0.01782,-0.05032 0.02593,-0.07575 0.113053,-0.327476 0.116713,-0.521909 0.116713,-0.521909 l 0.0061,-6.2e-5 0.0027,-0.262962 c 0.01471,-1.456803 -1.146327,-2.617771 -2.60321,-2.603066 z" />
     </g>
+    <rect
+       style="fill:#ffffff;fill-opacity:0.15;stroke-width:0.402912;stroke-linecap:round"
+       id="tab-border-dark"
+       width="0.26458332"
+       height="6.8791685"
+       x="52.652084"
+       y="0"
+       ry="2.9374649e-17" />
+    <rect
+       style="fill:#000000;fill-opacity:0.12;stroke-width:0.402912;stroke-linecap:round"
+       id="tab-border-light"
+       width="0.26458332"
+       height="6.8791685"
+       x="52.122917"
+       y="0"
+       ry="2.9374649e-17" />
   </g>
 </svg>
