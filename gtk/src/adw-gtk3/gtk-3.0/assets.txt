@@ -18,3 +18,5 @@ slider-horz-scale-has-marks-above-dark
 slider-horz-scale-has-marks-above-insensitive-dark
 slider-vert-scale-has-marks-above-dark
 slider-vert-scale-has-marks-above-insensitive-dark
+tab-border-light
+tab-border-dark

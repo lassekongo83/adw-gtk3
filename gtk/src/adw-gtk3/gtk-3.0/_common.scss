@@ -2259,28 +2259,30 @@ popover.background {
 notebook {
   > header {
     padding: 0px;
-    border-color: $borders_color;
+    border-color: $border_color;
     border-width: 0px;
-    background-color: $bg_color;
+    background-color: $headerbar_bg_color;
 
-    &.top { box-shadow: inset 0 -1px $borders_color; }
-    &.bottom { box-shadow: inset 0 1px $borders_color; }
-    &.left { box-shadow: inset -1px 0 $borders_color; }
-    &.right { box-shadow: inset 1px 0 $borders_color; }
+    &.top { box-shadow: inset 0 -1px $border_color; }
+    &.bottom { box-shadow: inset 0 1px $border_color; }
+    &.left { box-shadow: inset -1px 0 $border_color; }
+    &.right { box-shadow: inset 1px 0 $border_color; }
 
-    tabs { margin: 0px; }
-
-    $tab_legacy_hover: if($variant == 'light', gtkshade($bg_color, 0.942), gtkshade($bg_color, 1.42));
+    tabs {
+      margin: 0px;
+      background-color: $bg_color; // For legacy tabs
+    }
 
     &.top {
       border-bottom-style: solid;
       > tabs {
         margin-bottom: 0px;
+        box-shadow: inset 0 -1px $border_color;
         > tab {
           &:not(.reorderable-page):hover {
-            box-shadow: inset 0 -4px $borders_color;
+            box-shadow: inset 0 -4px $border_color;
             &:not(:checked) {
-              background-color: $tab_legacy_hover;
+              background-color: $view_hover_color;
             }
           }
           &:not(.reorderable-page):checked {
@@ -2294,11 +2296,12 @@ notebook {
       border-top-style: solid;
       > tabs {
         margin-top: 0px;
+        box-shadow: inset 0 1px $border_color;
         > tab {
           &:not(.reorderable-page):hover {
-            box-shadow: inset 0 4px $borders_color;
+            box-shadow: inset 0 4px $border_color;
             &:not(:checked) {
-              background-color: $tab_legacy_hover;
+              background-color: $view_hover_color;
             }
           }
           &:not(.reorderable-page):checked {
@@ -2312,11 +2315,12 @@ notebook {
       border-right-style: solid;
       > tabs {
         margin-right: 0px;
+        box-shadow: inset -1px 0 $border_color;
         > tab {
           &:not(.reorderable-page):hover {
-            box-shadow: inset -4px 0 $borders_color;
+            box-shadow: inset -4px 0 $border_color;
             &:not(:checked) {
-              background-color: $tab_legacy_hover;
+              background-color: $view_hover_color;
             }
           }
           &:not(.reorderable-page):checked {
@@ -2330,11 +2334,12 @@ notebook {
       border-left-style: solid;
       > tabs {
         margin-left: 0px;
+        box-shadow: inset 1px 0 $border_color;
         > tab {
           &:not(.reorderable-page):hover {
-            box-shadow: inset 4px 0 $borders_color;
+            box-shadow: inset 4px 0 $border_color;
             &:not(:checked) {
-              background-color: $tab_legacy_hover;
+              background-color: $view_hover_color;
             }
           }
           &:not(.reorderable-page):checked {
@@ -2410,6 +2415,14 @@ notebook {
       &:disabled { @include button(undecorated); }
     }
 
+    // No border on the first tab
+    arrow.down + tab,
+    tab:first-child {
+      &.reorderable-page {
+        background-image: none;
+      }
+    }
+
     tab {
       min-height: 30px;
       min-width: 30px;
@@ -2424,51 +2437,76 @@ notebook {
       border-color: transparent; //
 
       &.reorderable-page {
-        background-color: $tab_color;
-        box-shadow: inset -1px -1px $border_color;
-        border: none;
+        -gtk-outline-radius: $button_radius + 2;
+        outline-width: 2px;
+        outline-style: solid;
+        outline-color: entry_focus_border();
+
+        min-height: 37px;
+        padding: 4px 0 0 0;
+        box-shadow: inset 0 -1px $headerbar_shade_color;
+        color: $headerbar_fg_color;
+
+        background-color: $headerbar_bg_color;
+        background-image: if($variant == 'light',
+                              -gtk-scaled(
+                                url('assets/tab-border-light.png'),
+                                url('assets/tab-border-light@2.png')
+                              ),
+                              -gtk-scaled(
+                                url('assets/tab-border-dark.png'),
+                                url('assets/tab-border-dark@2.png')
+                              )
+                            );
+
+        background-position: left;
+        background-repeat: no-repeat;
+
+        > box {
+          // A rather ugly hack to get spacing between the tabs
+          margin: 0 3px;
+          padding-right: 8px;
+          border-radius: $button_radius;
+
+          button {
+            // The button will get elongated otherwise.
+            // One downside is that it looks smaller than libadwaita/libhandy
+            // and also slightly increases the height of the tabbar, but just by 1-2px.
+            margin: 8px 0;
+          }
+        }
       }
 
       &:hover {
         color: $fg_color;
 
         &.reorderable-page {
-          border-color: $border_color;
-          background-color: $tab_color_hover;
-          box-shadow: inset -1px -1px $border_color;
-          transition: background 150ms ease-in-out;
-          &:backdrop { background-color: $tab_color_backdrop_hover; }
+          > box {
+            background-color: $view_hover_color;
+            transition: background-color 150ms ease-in-out;
+          }
+          &, + tab { background-image: none; }
         }
       }
 
       &:backdrop {
         &.reorderable-page {
-          color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
-          border-color: transparent;
-          background-color: $tab_color_backdrop;
-          box-shadow: inset -1px -1px $border_color;
+          color: gtkmix($headerbar_fg_color, $headerbar_backdrop_color, 50%);
+          background-color: $headerbar_backdrop_color;
         }
       }
 
       &:checked {
         color: $fg_color;
-        &.reorderable-page {
-          border-width: 0;
-          border-color: $border_color;
-          background-color: $tab_color_active;
-          box-shadow: inset -1px -1px $border_color;
-          &:hover {
-            background-color: $tab_color_active_hover;
-          }
-        }
-      }
 
-      &:backdrop:checked {
         &.reorderable-page {
-          color: $backdrop_fg_color;
-          border-color: $border_color;
-          box-shadow: inset -1px -1px $border_color;
-          background-color: $tab_color_backdrop_active;
+          > box {
+            background-color: $view_selected_color;
+          }
+          &:hover {
+            > box { background-color: $view_selected_hover_color; }
+          }
+          &, + tab { background-image: none; }
         }
       }
 
@@ -4809,4 +4847,3 @@ popover.emoji-completion contents row box {
 popover.emoji-completion .emoji:hover {
   background: $view_hover_color;
 }
-
