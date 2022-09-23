@@ -594,13 +594,13 @@ row {
 
 tabbar {
   .box {
-    min-height: 30px;
-    background: $tab_color;
-    border-bottom: 1px solid $border_color;
+    min-height: 38px;
+    background: $headerbar_bg_color;
+    border-bottom: 1px solid $headerbar_shade_color;
 
     &:backdrop {
-      color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
-      background-color: $tab_color_backdrop;
+      color: gtkmix($headerbar_fg_color, $headerbar_backdrop_color, 50%);
+      background-color: $headerbar_backdrop_color;
     }
   }
 
@@ -655,40 +655,50 @@ tabbar {
   }
 
   tab {
-    border-style: solid;
-    border-color: $border_color;
-    border-width: 0 1px 0 1px;
-    transition: background 150ms ease-in-out;
-    background-color: $tab_color;
-    color: $fg_color;
+    margin: 4px 3px;
+    border-style: none;
+    border-radius: $button_radius;
+    transition: background-color 150ms ease-in-out;
 
-    &:checked {
-      background-color: $tab_color_active;
+    background-image: if($variant == 'light',
+                          -gtk-scaled(
+                            url('assets/tab-border-light.png'),
+                            url('assets/tab-border-light@2.png')
+                          ),
+                          -gtk-scaled(
+                            url('assets/tab-border-dark.png'),
+                            url('assets/tab-border-dark@2.png')
+                          )
+                        );
 
-      &:hover { background-color: $tab_color_active_hover; }
+    background-position: left;
+    background-repeat: no-repeat;
+
+    &:first-child { background-image: none; }
+
+    &:hover {
+      background-color: $view_hover_color;
+      &, + tab { background-image: none; }
     }
 
-    &:hover { background-color: $tab_color_hover; }
+    &:checked {
+      background-color: $view_selected_color;
+      &, + tab { background-image: none; }
 
-    &:backdrop {
-      color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
-      background-color: $tab_color_backdrop;
-
-      &:hover { background-color: $tab_color_backdrop_hover; }
-      &:checked { background-color: $tab_color_backdrop_active; }
+      &:hover { background-color: $view_selected_hover_color; }
     }
   }
 
   .start-action,
   .end-action {
-    background: $tab_color;
-    border-color: $alt_borders_color;
+    background-color: $headerbar_bg_color;
+    border-color: transparent;
     border-style: solid;
-    transition: background 150ms ease-in-out;
+    transition: background-color 150ms ease-in-out;
 
     &:backdrop {
-      border-color: $backdrop_borders_color;
-      background-color: $backdrop_dark_fill;
+      border-color: transparent;
+      background-color: $headerbar_backdrop_color;
     }
 
     button {
@@ -878,3 +888,4 @@ tabbar .tab-indicator:not(.clickable) {
     -GtkWidget-window-dragging: true;
   }
 }
+

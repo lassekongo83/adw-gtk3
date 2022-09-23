@@ -1,10 +1,146 @@
 // 3rd party application styles
 
+// TABS
+// Due to the likelyhood of breakage on some apps we'll make these app specific instead of global
+// The downside is that not all apps will be able to use these tabs
+%libadwaita_tabs {
+  notebook {
+    > header {
+      background-color: $headerbar_bg_color;
+      border-bottom: 1px solid $headerbar_shade_color;
+      box-shadow: none;
+
+      &:backdrop {
+        background-color: $headerbar_backdrop_color;
+        box-shadow: none;
+      }
+    }
+
+    arrow.down + tab,
+    tab:first-child {
+      &.reorderable-page {
+        background-image: none;
+        box-shadow: none;
+      }
+    }
+
+    tab {
+      &.reorderable-page {
+        -gtk-outline-radius: $button_radius + 2;
+        outline-width: 2px;
+        outline-style: solid;
+        outline-color: entry_focus_border();
+
+        min-height: 37px;
+        padding: 4px 0 0 0;
+        box-shadow: none;
+        border: none;
+        color: $headerbar_fg_color;
+
+        background-color: $headerbar_bg_color;
+        background-image: if($variant == 'light',
+                              -gtk-scaled(
+                                url('assets/tab-border-light.png'),
+                                url('assets/tab-border-light@2.png')
+                              ),
+                              -gtk-scaled(
+                                url('assets/tab-border-dark.png'),
+                                url('assets/tab-border-dark@2.png')
+                              )
+                            );
+
+        background-position: left;
+        background-repeat: no-repeat;
+
+        &:backdrop { box-shadow: none; }
+
+        > box {
+          // A rather ugly hack to get spacing between the tabs
+          margin: 0 3px 3px 3px;
+          padding-right: 8px;
+          border-radius: $button_radius;
+
+          > label { padding-left: 8px; }
+
+          button {
+            // The button will get elongated otherwise.
+            // One downside is that it looks smaller than libadwaita/libhandy
+            // and also slightly increases the height of the tabbar, but just by 1-2px.
+            margin: 8px 0;
+          }
+        }
+      }
+
+      &:hover {
+        &.reorderable-page {
+          color: $headerbar_fg_color;
+          background-color: transparent;
+          box-shadow: none;
+          border: none;
+
+          > box {
+            background-color: $view_hover_color;
+            transition: background-color 150ms ease-in-out;
+          }
+
+          &, + tab { background-image: none; }
+
+          &:backdrop {
+            background-color: transparent;
+            box-shadow: none;
+          }
+        }
+      }
+
+      &:backdrop {
+        &.reorderable-page {
+          color: gtkmix($headerbar_fg_color, $headerbar_backdrop_color, 50%);
+          background-color: transparent;
+          box-shadow: none;
+          border: none;
+        }
+      }
+
+      &:checked {
+        &.reorderable-page {
+          color: $headerbar_fg_color;
+          background-color: transparent;
+          box-shadow: none;
+          border: none;
+
+          > box {
+            background-color: $view_selected_color;
+            transition: background-color 150ms ease-in-out;
+          }
+
+          &:hover, &:active {
+            box-shadow: none;
+            background-color: transparent;
+
+            > box { background-color: $view_selected_hover_color; }
+
+            &:backdrop { box-shadow: none; }
+          }
+
+          &, + tab { background-image: none; }
+
+          &:backdrop {
+            background-color: transparent;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}
+
 // ************
 // * Nautilus *
 // ************
 
 .nautilus-window {
+  @extend %libadwaita_tabs;
+
   // Without this nautilus iconview grabs the bg_color
   notebook,
   notebook > stack:not(:only-child),
@@ -220,6 +356,8 @@ $disk_space_free: #eeeeec;
 // *********
 // * Gedit *
 // *********
+
+.org-gnome-gedit { @extend %libadwaita_tabs; }
 
 .gedit-search-slider {
   // gives gedit search entry some padding and a border
@@ -439,6 +577,8 @@ $panel_transition_duration: 250ms;
 }
 
 .nemo-window {
+  @extend %libadwaita_tabs;
+
   .sidebar {
     scrolledwindow.frame.nemo-places-sidebar {
       // get rid of double border in sidebar

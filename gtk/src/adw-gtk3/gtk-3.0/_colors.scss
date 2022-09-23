@@ -136,8 +136,6 @@ $slider_hover_color: white;
 $fill_color: $selected_bg_color;
 $fill_text_color: $selected_fg_color;
 
-//$headerbar_border: gtkmix(currentColor, $headerbar_bg_color, 15.3%);
-
 // Notebook and tabs
 $notebook_color: $base_color;
 $tab_color: if($variant == 'light', gtkmix(currentColor, $bg_color, 12%), gtkmix(currentColor, $bg_color, 1%));

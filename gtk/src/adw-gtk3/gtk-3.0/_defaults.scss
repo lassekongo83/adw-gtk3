@@ -59,6 +59,10 @@
 @define-color popover_bg_color #{if($variant == 'light', #ffffff, #383838)};
 @define-color popover_fg_color #{if($variant == 'light', #333333, white)};
 
+// Thumbnails
+@define-color thumbnail_bg_color #{if($variant == 'light', #ffffff, #383838)};
+@define-color thumbnail_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
+
 // Miscellaneous
 @define-color shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
 @define-color scrollbar_outline_color #{if($variant == 'light', white, transparentize(black, .5))};
