@@ -594,13 +594,13 @@ row {
 
 tabbar {
   .box {
-    min-height: 38px;
-    background: $headerbar_bg_color;
-    border-bottom: 1px solid $headerbar_shade_color;
+    min-height: 30px;
+    background: $tab_color;
+    border-bottom: 1px solid $border_color;
 
     &:backdrop {
-      color: gtkmix($headerbar_fg_color, $headerbar_backdrop_color, 50%);
-      background-color: $headerbar_backdrop_color;
+      color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
+      background-color: $tab_color_backdrop;
     }
   }
 
@@ -655,37 +655,27 @@ tabbar {
   }
 
   tab {
-    margin: 4px 3px;
-    border-style: none;
-    border-radius: $button_radius;
-    transition: background-color 150ms ease-in-out;
-
-    background-image: if($variant == 'light',
-                          -gtk-scaled(
-                            url('assets/tab-border-light.png'),
-                            url('assets/tab-border-light@2.png')
-                          ),
-                          -gtk-scaled(
-                            url('assets/tab-border-dark.png'),
-                            url('assets/tab-border-dark@2.png')
-                          )
-                        );
-
-    background-position: left;
-    background-repeat: no-repeat;
-
-    &:first-child { background-image: none; }
-
-    &:hover {
-      background-color: $view_hover_color;
-      &, + tab { background-image: none; }
-    }
+    border-style: solid;
+    border-color: $border_color;
+    border-width: 0 1px 0 1px;
+    transition: background 150ms ease-in-out;
+    background-color: $tab_color;
+    color: $fg_color;
 
     &:checked {
-      background-color: $view_selected_color;
-      &, + tab { background-image: none; }
+      background-color: $tab_color_active;
 
-      &:hover { background-color: $view_selected_hover_color; }
+      &:hover { background-color: $tab_color_active_hover; }
+    }
+
+    &:hover { background-color: $tab_color_hover; }
+
+    &:backdrop {
+      color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
+      background-color: $tab_color_backdrop;
+
+      &:hover { background-color: $tab_color_backdrop_hover; }
+      &:checked { background-color: $tab_color_backdrop_active; }
     }
   }
 
