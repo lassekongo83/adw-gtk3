@@ -3,7 +3,7 @@ $asset_suffix: if($variant=='dark', '-dark', '');
 $backdrop_transition: 200ms ease-out;
 $button_transition: all 200ms $ease-out-quad;
 $button_radius: 6px;
-$menu_radius: 6px;
+$menu_radius: 8px;
 $window_radius: $button_radius + 6;
 $popover_radius: $window_radius;
 $card_radius: $button_radius + 6;
@@ -2078,8 +2078,9 @@ menubar,
     // remove padding and rounding from menubar submenus
     menu {
       &:dir(rtl), &:dir(ltr) { // specificity bump
-        border-radius: 0;
-        padding: 0;
+        border-radius: $menu_radius;
+        padding: 6px;
+        menuitem { border-radius: $button_radius; }
       }
     }
 
@@ -2094,7 +2095,7 @@ menubar,
   }
 
   // remove padding and rounding from menubar submenu decoration
-  .csd.popup decoration {border-radius:0;}
+  .csd.popup decoration { border-radius: $menu_radius; }
 }
 
 // Needed to make the border-radius of menus work
@@ -2106,7 +2107,7 @@ menu,
 %menu,
 .context-menu {
   margin: 4px; // see https://bugzilla.gnome.org/show_bug.cgi?id=591258
-  padding: 4px 0px;
+  padding: 6px;
   background-color: $menu_color;
   border: 1px solid $borders_color; // adds borders in a non composited env
 
@@ -2122,6 +2123,7 @@ menu,
     padding: 4px 6px;
     text-shadow: none;
     font-weight: normal;
+    border-radius: $button_radius;
 
     &:hover {
       color: if($variant == 'light', $fg_color, $selected_fg_color);
