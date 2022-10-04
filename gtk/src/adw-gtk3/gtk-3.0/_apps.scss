@@ -577,8 +577,6 @@ $panel_transition_duration: 250ms;
 }
 
 .nemo-window {
-  @extend %libadwaita_tabs;
-
   .sidebar {
     scrolledwindow.frame.nemo-places-sidebar {
       // get rid of double border in sidebar
