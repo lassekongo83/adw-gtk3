@@ -80,7 +80,7 @@ Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors
 - **GTK4:** [Info on how to extract libadwaita from source.](https://github.com/lassekongo83/adw-gtk3/blob/main/gtk4.md)
 - **Kvantum:** https://github.com/GabePoel/KvLibadwaita
 - **Firefox:** https://github.com/rafaelmardojai/firefox-gnome-theme
-
+- **Steam:** https://github.com/tkashkin/Adwaita-for-Steam
 <div align="center">
 
 ## How to uninstall the theme(s)
