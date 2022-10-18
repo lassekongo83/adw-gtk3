@@ -2436,7 +2436,8 @@ notebook {
         &.reorderable-page {
           border-color: $border_color;
           background-color: $tab_color_hover;
-          box-shadow: inset -1px -1px $border_color;
+          box-shadow: inset -1px -1px $border_color,
+                      inset 0 -4px $border_color;
           transition: background-color 150ms ease-in-out;
           &:backdrop { background-color: $tab_color_backdrop_hover; }
         }
@@ -2457,7 +2458,8 @@ notebook {
           border-width: 0;
           border-color: $border_color;
           background-color: $tab_color_active;
-          box-shadow: inset -1px -1px $border_color;
+          box-shadow: inset -1px -1px $border_color,
+                      inset 0 -4px $selected_bg_color;
           &:hover {
             background-color: $tab_color_active_hover;
           }
@@ -2468,7 +2470,8 @@ notebook {
         &.reorderable-page {
           color: $backdrop_fg_color;
           border-color: $border_color;
-          box-shadow: inset -1px -1px $border_color;
+          box-shadow: inset -1px -1px $border_color,
+                      inset 0 -4px gtkalpha($selected_bg_color, .5);
           background-color: $tab_color_backdrop_active;
         }
       }
