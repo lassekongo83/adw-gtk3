@@ -37,7 +37,7 @@
 
 // Views - e.g. text view or tree view
 @define-color view_bg_color #{if($variant == 'light', #ffffff, #1e1e1e)};
-@define-color view_fg_color #{if($variant == 'light', #000000, #ffffff)};
+@define-color view_fg_color #{if($variant == 'light', #333333, white)};
 
 // Header bar, search bar, tab bar
 @define-color headerbar_bg_color #{if($variant == 'light', #ebebeb, #303030)};
