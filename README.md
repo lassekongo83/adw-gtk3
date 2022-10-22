@@ -38,6 +38,7 @@ gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings
 # Revert to GNOME's default theme
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita' && gsettings set org.gnome.desktop.interface color-scheme 'default'
 ```
+**Make sure to log out and log into GNOME session.**
 
 ### Other install options
 These are maintained by contributors. It is recommended to install the flatpak versions if you use flatpak applications and the snapcraft version if you use snap applications.
