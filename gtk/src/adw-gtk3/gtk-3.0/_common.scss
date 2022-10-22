@@ -2111,6 +2111,8 @@ menu,
   background-color: $menu_color;
   border: 1px solid $borders_color; // adds borders in a non composited env
 
+  separator { margin: 6px 0; }
+
   .csd & {
     border: none; // axes borders in a composited env
     border-radius: $menu_radius;
@@ -2250,7 +2252,7 @@ popover.background {
     &.osd { @extend %osd; }
   }
 
-  separator { margin: 3px; }
+  separator { margin: 6px 3px; }
 
   list separator { margin: 0px; }
 }
