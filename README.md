@@ -3,7 +3,7 @@
 # adw-gtk3
 An unofficial GTK3 port of [libadwaita](https://gnome.pages.gitlab.gnome.org/libadwaita/).
 
-<sup>*Keep in mind that this port does not aim to be a 100% look-a-like of libadwaita. There are some limitations to what GTK3 can do.*</sup>
+<sup>*This port does not claim to be a 100% look-a-like of libadwaita. There are some limitations to what GTK3 can do.*</sup>
 
 | Light theme | Dark theme |
 |:-----------:|:----------:|
@@ -21,28 +21,27 @@ An unofficial GTK3 port of [libadwaita](https://gnome.pages.gitlab.gnome.org/lib
 
 ### Tarball
 1. Go to the [releases](https://github.com/lassekongo83/adw-gtk3/releases) section and download the latest `tar.xz` file.
-2. Extract the file to `~/.local/share/themes/` (or `~/.themes/` if you use Fedora Silverblue).
+2. Extract the file to `~/.local/share/themes/` (or `/usr/share/themes` if you want to install it for all users.)
 
-If you need to use applications with admin privileges it's recommended to extract the file to `/usr/share/themes`
+3. If you use flatpak applications it's recommended to install the flatpak themes. From a terminal run: `flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark`
 
-You can then enable adw-gtk3 in the application `gnome-tweaks`.
+You can then enable adw-gtk3 in the application `gnome-tweaks`. (Some applications may require a relog.)
 
 **If you use the dark theme** you'll also need to enable the dark appearance in `gnome-control-center`.
 
-Alternatively you can set the theme in the terminal:
+Alternatively you can set the theme with your terminal:
 ```bash
-# adw-gtk3 light
+# Change the theme to adw-gtk3 light
 gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3' && gsettings set org.gnome.desktop.interface color-scheme 'default'
-# adw-gtk3 dark
+# Change the theme to adw-gtk3-dark
 gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 # Revert to GNOME's default theme
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita' && gsettings set org.gnome.desktop.interface color-scheme 'default'
 ```
 
-### Other install options
-These are maintained by contributors. It is recommended to install the flatpak versions if you use flatpak applications and the snapcraft version if you use snap applications.
+### Other installation options
+These are maintained by contributors.
 
-* **Flatpak:** `flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark`
 * **Snapcraft:** https://snapcraft.io/adw-gtk3-theme
 * **AUR:** https://aur.archlinux.org/packages/adw-gtk3-git/
 * **Manjaro**: `pamac install adw-gtk3`
@@ -55,7 +54,7 @@ dnf install adw-gtk3
 Thanks to [@dusansimic](https://github.com/dusansimic) (Flatpak, AUR), [@kuroehanako](https://github.com/kuroehanako) (Snapcraft), [@nickavem](https://github.com/nickavem) (Fedora copr) for the help.
 
 ### Installation from source
-This will install the latest version from the main branch. Use this install method if you want to contribute and help testing the theme.
+This will install the latest version from the main branch. Use this installation method if you want to contribute and help testing the theme.
 
 See [CONTRIBUTING.md](https://github.com/lassekongo83/adw-gtk3/blob/main/CONTRIBUTING.md) for the instructions.
 
@@ -87,9 +86,7 @@ Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors
 
 </div>
 
-To be safe from any crashes or weirdness, change the theme to another one before running the command(s) below.
-
-- For a global install: `sudo rm -r /usr/share/themes/adw-gtk3*`
-- For a local install: `rm -r ~/.local/share/themes/adw-gtk3*`
+- For a local installation: `rm -r ~/.local/share/themes/adw-gtk3*`
+- For a global installation: `sudo rm -r /usr/share/themes/adw-gtk3*`
 
 Flatpak: `flatpak uninstall org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark`
