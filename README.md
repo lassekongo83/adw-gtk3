@@ -23,7 +23,10 @@ An unofficial GTK3 port of [libadwaita](https://gnome.pages.gitlab.gnome.org/lib
 1. Go to the [releases](https://github.com/lassekongo83/adw-gtk3/releases) section and download the latest `tar.xz` file.
 2. Extract the file to `~/.local/share/themes/` (or `/usr/share/themes` if you want to install it for all users.)
 
-3. If you use flatpak applications it's recommended to install the flatpak themes. From a terminal run: `flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark`
+3. If you use flatpak applications it's recommended to install the flatpak themes. From a terminal run:
+```bash
+flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+```
 
 You can then enable adw-gtk3 in the application `gnome-tweaks`. (Some applications may require a relog.)
 
