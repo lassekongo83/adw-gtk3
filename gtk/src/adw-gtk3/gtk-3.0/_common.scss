@@ -2128,7 +2128,7 @@ menu,
     border-radius: $button_radius;
 
     &:hover {
-      color: if($variant == 'light', $fg_color, $selected_fg_color);
+      color: $fg_color;
       background-color: $view_selected_hover_color;
     }
 
