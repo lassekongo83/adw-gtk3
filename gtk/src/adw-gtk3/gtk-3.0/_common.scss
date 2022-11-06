@@ -2066,7 +2066,6 @@ menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
   padding: 0px;
-  box-shadow: inset 0 -1px $border_color;
 
   &:backdrop { background-color: $backdrop_bg_color; }
 
