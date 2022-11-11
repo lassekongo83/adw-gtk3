@@ -1,5 +1,10 @@
 # Ignore Backup Copies from Text Editor
 *~
+*.swp
 
 # Ignore meson build directory
 build
+target
+releases
+
+debian/control
