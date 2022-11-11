@@ -1,6 +1,7 @@
 name: Build and release workflow
 
 on:
+  workflow_dispatch: # on button click
   push:
 #    branches: [ "main" ]
 
