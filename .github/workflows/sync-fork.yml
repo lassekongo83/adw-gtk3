@@ -9,6 +9,7 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    steps:
     - name: Sync latest commits from upstream repo
       uses: dabreadman/sync-upstream-repo@v1.0.0.b
       with:
