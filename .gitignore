@@ -3,3 +3,8 @@
 
 # Ignore meson build directory
 build
+
+*.swp
+target
+releases
+debian/control

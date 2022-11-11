@@ -1,0 +1,28 @@
+### Commented entries have reasonable defaults.
+### Uncomment to edit them.
+# Source: <source package name; defaults to package name>
+Section: misc
+Priority: optional
+Homepage: https://github.com/lassekongo83/adw-gtk3
+Standards-Version: 3.9.2
+
+Package: adwaita-gtk3-gtk4-theme
+Version: __VERSION__
+Maintainer: Ronny Rentner <debian.code@ronny-rentner.de>
+# Pre-Depends: <comma-separated list of packages>
+# Depends: <comma-separated list of packages>
+# Recommends: <comma-separated list of packages>
+# Suggests: <comma-separated list of packages>
+# Provides: <comma-separated list of packages>
+# Replaces: <comma-separated list of packages>
+# Architecture: all
+# Multi-Arch: <one of: foreign|same|allowed>
+# Copyright: <copyright file; defaults to GPL2>
+# Changelog: <changelog file; defaults to a generic changelog>
+Readme: /dev/null
+# Extra-Files: <comma-separated list of additional files for the doc directory>
+# Links: <pair of space-separated paths; First is path symlink points at, second is filename of link>
+#  <more pairs, if there's more than one file to include. Notice the starting space>
+Description: Adwaita GTK3 + GTK4 theme
+ This theme resembles Adwaita styles for GTK3 and GTK4 to achieve unified looks across all GTK applications in Gnome.
+Files:

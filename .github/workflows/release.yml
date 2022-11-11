@@ -1,0 +1,55 @@
+name: Build and release workflow
+
+on:
+  workflow_dispatch: # on button click
+  push:
+#    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+
+    steps:
+    - name: Get current date
+      id: date
+      run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+
+    - name: Install dependencies
+      run: >
+        sudo apt-get install -y
+        ninja-build git meson sassc libvala-dev gobject-introspection libgtk-4-dev cmake valac gettext
+        equivs
+        alien
+
+    - name: Build package
+      run: make
+
+    - name: List artifacts
+      run: ls -Rl releases target
+
+    - name: Store release directory as artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-artifacts
+        path: ./releases
+
+    - name: Release
+      if: github.ref == 'refs/heads/main'
+      uses: ncipollo/release-action@v1
+      with:
+        name: ${{ github.event.repository.name }}-${{ steps.date.outputs.date }}
+        artifacts: "releases/*.tgz,releases/*.deb"
+        tag: nightly-${{ steps.date.outputs.date }}
+        prerelease: false
+        omitBody: true
+        artifactErrorsFailBuild: true
+        allowUpdates: true
+        replacesArtifacts: true

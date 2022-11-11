@@ -1,0 +1,29 @@
+name: Sync fork with upstream
+
+on:
+  workflow_dispatch: # on button click
+  schedule:
+  - cron: '30 1 * * *' # every day at 1:30 minutes
+
+env:
+  UPSTREAM_URL: https://github.com/lassekongo83/adw-gtk3.git
+  UPSTREAM_BRANCH: main
+
+jobs:
+  sync:
+    if: github.repository == 'ronny-rentner/adwaita-gtk3-gtk4-theme'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+        fetch-depth: 0
+    - name: Show branch
+      run: echo "Syncing fork from $UPSTREAM_URL/$UPSTREAM_BRANCH to $GITHUB_REF"
+    - name: Sync latest commits from upstream repo
+      run: |
+        git remote add upstream $UPSTREAM_URL
+        git fetch upstream $UPSTREAM_BRANCH
+        git rebase --autosquash --autostash upstream/$UPSTREAM_BRANCH
+        git push --force origin ${GITHUB_REF#refs/heads/}
