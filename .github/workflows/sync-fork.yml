@@ -1,17 +1,16 @@
 name: Sync fork with upstream
 
-
 on:
   workflow_dispatch: # on button click
-  schedule:
-    - cron: '*/30 * * * *' # every 30 minutes
+#  schedule:
+#    - cron: '*/30 * * * *' # every 30 minutes
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
     - name: Sync latest commits from upstream repo
-      uses: dabreadman/sync-upstream-repo@v1.0.0.b
+      run: "${GITHUB_WORKSPACE}/.github/scripts/sync-fork.sh lassekongo83/adw-gtk3 main:synctest"
       with:
         # URL of gitHub public upstream repo
         upstream_repo: "https://github.com/lassekongo83/adw-gtk3.git"
