@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Sync latest commits from upstream repo
-      run: "${GITHUB_WORKSPACE}/.github/scripts/sync-fork.sh lassekongo83/adw-gtk3 main:synctest"
+      run: |
+        ls -la
+        ls -la ${GITHUB_WORKSPACE}
+        ${GITHUB_WORKSPACE}/.github/scripts/sync-fork.sh lassekongo83/adw-gtk3 main:synctest
       env:
         # URL of gitHub public upstream repo
         upstream_repo: "https://github.com/lassekongo83/adw-gtk3.git"
