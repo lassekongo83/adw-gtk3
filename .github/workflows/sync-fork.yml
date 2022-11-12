@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: Sync latest commits from upstream repo
       run: "${GITHUB_WORKSPACE}/.github/scripts/sync-fork.sh lassekongo83/adw-gtk3 main:synctest"
-      with:
+      env:
         # URL of gitHub public upstream repo
         upstream_repo: "https://github.com/lassekongo83/adw-gtk3.git"
         # Branch to merge from upstream (defaults to downstream branch)
