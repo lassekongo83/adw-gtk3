@@ -2618,13 +2618,16 @@ scrollbar {
 
   &.fine-tune {
     slider {
-      transition: none;
-      min-width: $_fine-tune_slider_border+1;
-      min-height: $_fine-tune_slider_border+1;
+      &, &:hover, &:active {
+        background-color: gtkalpha($accent_color, .6);
+      }
+      //transition: none;
+      //min-width: $_fine-tune_slider_border+1;
+      //min-height: $_fine-tune_slider_border+1;
     }
 
-    &.horizontal slider { border-width: $_fine-tune_slider_border 4px; }
-    &.vertical slider { border-width: 4px $_fine-tune_slider_border; }
+    //&.horizontal slider { border-width: $_fine-tune_slider_border 4px; }
+    //&.vertical slider { border-width: 4px $_fine-tune_slider_border; }
   }
 
   &.overlay-indicator {
