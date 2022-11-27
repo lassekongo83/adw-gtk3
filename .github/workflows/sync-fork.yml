@@ -23,6 +23,9 @@ jobs:
       run: echo "Syncing fork from $UPSTREAM_URL/$UPSTREAM_BRANCH to $GITHUB_REF"
     - name: Sync latest commits from upstream repo
       run: |
+        git config --global --add safe.directory .
+        git config user.name github-actions
+        git config user.email github-actions@github.com
         git remote add upstream $UPSTREAM_URL
         git fetch upstream $UPSTREAM_BRANCH
         git rebase --autosquash --autostash upstream/$UPSTREAM_BRANCH
