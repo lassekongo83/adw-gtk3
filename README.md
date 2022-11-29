@@ -48,7 +48,7 @@ These are maintained by contributors.
 * **Snapcraft:** https://snapcraft.io/adw-gtk3-theme
 * **AUR:** https://aur.archlinux.org/packages/adw-gtk3-git/
 * **Manjaro**: `pamac install adw-gtk3`
-* **Fedora copr:**
+* **Fedora copr:** ([Instructions for Fedora Silverblue](https://github.com/lassekongo83/adw-gtk3/issues/194))
 ```bash
 dnf copr enable nickavem/adw-gtk3
 dnf install adw-gtk3
@@ -84,6 +84,7 @@ Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors
 - **Firefox:** https://github.com/rafaelmardojai/firefox-gnome-theme
 - **Steam:** https://github.com/tkashkin/Adwaita-for-Steam
 - **VSCode:** https://github.com/piousdeer/vscode-adwaita
+- **Discord:** https://github.com/GeopJr/DNOME
 <div align="center">
 
 ## How to uninstall the theme(s)
