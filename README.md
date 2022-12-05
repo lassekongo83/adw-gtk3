@@ -85,6 +85,7 @@ Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors
 - **Steam:** https://github.com/tkashkin/Adwaita-for-Steam
 - **VSCode:** https://github.com/piousdeer/vscode-adwaita
 - **Discord:** https://github.com/GeopJr/DNOME
+- **Obsidian:** https://github.com/birneee/obsidian-adwaita-theme
 <div align="center">
 
 ## How to uninstall the theme(s)
