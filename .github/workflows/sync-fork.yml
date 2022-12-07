@@ -19,12 +19,17 @@ jobs:
       with:
         submodules: recursive
         fetch-depth: 0
-        persist-credentials: false
     - name: Show branch
       run: echo "Syncing fork from $UPSTREAM_URL/$UPSTREAM_BRANCH to $GITHUB_REF"
     - name: Sync latest commits from upstream repo
+      id: sync
       run: |
         git remote add upstream $UPSTREAM_URL
         git fetch upstream $UPSTREAM_BRANCH
         git rebase --autosquash --autostash upstream/$UPSTREAM_BRANCH
         git push --force origin ${GITHUB_REF#refs/heads/}
+        git config --local --add safe.directory .
+        git push --porcelain --force origin ${GITHUB_REF#refs/heads/} | grep '\[up to date\]'
+    - name: Build and release workflow
+      uses: .github/workflows/release.yml
+>>>>>>> 4222183 (Test: Release after sync)
