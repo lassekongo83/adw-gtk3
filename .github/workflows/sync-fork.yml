@@ -19,6 +19,7 @@ jobs:
       with:
         submodules: recursive
         fetch-depth: 0
+        persist-credentials: false
     - name: Show branch
       run: echo "Syncing fork from $UPSTREAM_URL/$UPSTREAM_BRANCH to $GITHUB_REF"
     - name: Sync latest commits from upstream repo
