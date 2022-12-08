@@ -21,6 +21,10 @@ meson . _build
 ninja -C _build
 ```
 
+> **NOTE:** As of 8/12/2022, a build dependency update in libadwaita (gtk4 >= 4.9.1) results in the build failing on Fedora 37 and Ubuntu 22.04. To fix this issue, you will need to checkout to a commit that doesn't have this dependency update, the latest one being commit `983f1312`.
+> 
+> To resolve this issue, from within the repo, run `git checkout 983f1312`. and run the last two commands from above again.
+
 1. Copy all the CSS files in `_build/src/stylesheet/` to `~/.local/share/themes/adw-gtk3/gtk-4.0` (or `adw-gtk3-dark/gtk-4.0`).
 2. Rename `base.css` to `gtk.css`.
 3. Open `gtk.css` in a text editor and at the top add the line: `@import 'defaults-light.css';` (or `@import 'defaults-dark.css';` depending on your color theme preference). Save and exit.
