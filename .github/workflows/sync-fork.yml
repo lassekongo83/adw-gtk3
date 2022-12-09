@@ -32,6 +32,6 @@ jobs:
         git push --porcelain --force origin ${GITHUB_REF#refs/heads/} | grep '\[up to date\]' && echo "release=yes" >> $GITHUB_OUTPUT
   release:
       needs: sync
-      if: ${{steps.sync.outputs.release == 'yes'}}
+      if: ${{ success() }}
       uses: ./.github/workflows/release.yml
       secrets: inherit
