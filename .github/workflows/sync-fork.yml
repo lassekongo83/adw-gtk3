@@ -30,6 +30,8 @@ jobs:
         git push --force origin ${GITHUB_REF#refs/heads/}
         git config --local --add safe.directory .
         git push --porcelain --force origin ${GITHUB_REF#refs/heads/} | grep '\[up to date\]' && echo "release=yes" >> $GITHUB_OUTPUT
+    - name: List
+      run: ls -Rl .
     - name: Build and release workflow
       if: steps.sync.outputs.release == 'yes'
       uses: ./.github/workflows/release.yml
