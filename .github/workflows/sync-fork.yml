@@ -32,5 +32,4 @@ jobs:
         git push --porcelain --force origin ${GITHUB_REF#refs/heads/} | grep '\[up to date\]' && echo "release=yes" >> $GITHUB_OUTPUT
     - name: Build and release workflow
       if: steps.sync.outputs.release == 'yes'
-      uses: .github/workflows/release.yml
->>>>>>> 4222183 (Test: Release after sync)
+      uses: ./.github/workflows/release.yml
