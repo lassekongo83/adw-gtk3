@@ -119,17 +119,17 @@
 }
 
 %suggested_buttons {
-  @include button(normal, $suggested_bg_color, white);
+  @include button(normal, $suggested_bg_color, $accent_fg_color);
   &:hover {
-    @include button(hover, $suggested_bg_color, white);
+    @include button(hover, $suggested_bg_color, $accent_fg_color);
   }
 
   &:active, &:checked {
-    @include button(active, gtkalpha($suggested_bg_color, 0.5), white);
+    @include button(active, gtkalpha($suggested_bg_color, 0.5), $accent_fg_color);
   }
 
   &:backdrop, &:backdrop:hover {
-    @include button(backdrop, gtkalpha($suggested_bg_color, 0.5), white);
+    @include button(backdrop, gtkalpha($suggested_bg_color, 0.5), $accent_fg_color);
   }
 
   &:disabled {
@@ -236,7 +236,7 @@ headerbar, .titlebar {
         @extend %suggested_buttons;
       }
       &:hover:backdrop {
-        @include button(backdrop, gtkalpha($suggested_bg_color, 0.5), white);
+        @include button(backdrop, gtkalpha($suggested_bg_color, 0.5), $accent_fg_color);
       }
     }
   }
