@@ -890,3 +890,7 @@ tabbar .tab-indicator:not(.clickable) {
   }
 }
 
+// Heading text usually found above some hdy lists (gnome web)
+.heading.h4 {
+  color: $window_fg_color;
+}
