@@ -4644,7 +4644,7 @@ headerbar.selection-mode button.titlebutton,
 
     @at-root %selected_items_backdrop,
     &:backdrop {
-      color: $backdrop_selected_fg_color;
+      color: $selected_fg_color;
 
       &:disabled { color: gtkmix($backdrop_selected_fg_color, $selected_bg_color, 30%); }
     }
