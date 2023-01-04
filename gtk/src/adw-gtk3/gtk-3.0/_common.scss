@@ -3766,8 +3766,8 @@ separator {
 // * Lists *
 // *********
 list {
-  color: $card_fg_color;
-  background-color: $card_bg_color;
+  color: $view_fg_color;
+  background-color: $view_bg_color;
   border-color: $card_shade_color;
 
   row { padding: 2px; }
