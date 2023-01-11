@@ -478,7 +478,7 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   // possible $t values:
   // normal, hover, active, insensitive, backdrop, backdrop-insensitive
 
-  $_border_color: if($variant == 'light', if($c==$checkradio_bg_color, $c, $alt_borders_color), if($c==$checkradio_bg_color, $c, $borders_color));
+  $_border_color: if($c==$checkradio_bg_color, $c, $trough_color);
   $_dim_border_color: gtkalpha($_border_color, if($variant == 'light', 0.7, 0.3));
 
   @if $t==normal  {
@@ -490,8 +490,8 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   }
 
   @if $t==hover {
-    background-image: image($c);
-    &:not(:checked) { border-color: if($variant == 'light', gtkmix(black, $_border_color, 5%), gtkmix(white, $_border_color, 5%)); }
+    //background-image: image($c);
+    &:not(:checked):not(:inconsistent) { border-color: $trough_hover_color; }
   }
 
   @if $t==active {
@@ -499,32 +499,10 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   }
 
   @if $t==insensitive {
+    // FIXME: Background color looks bad when using gtkalpha
     box-shadow: none;
-    background-image: image(gtkmix($c, $base_color, 50%));
-    color: gtkmix($tc, $base_color, 70%);
-    &:not(:checked) {
-      border-color: gtkmix($base_color, $_border_color, 30%);
-    }
-    &:checked, &:indeterminate {
-      border-color: gtkmix($c, $base_color, 50%);
-    }
-  }
-
-  @if $t==backdrop {
-    &:checked, &:indeterminate {
-      border-color: gtkmix($c, $base_color, 70%);
-    }
-    background-image: image(gtkmix($c, $base_color, 70%));
-    color: gtkmix($tc, $base_color, 70%);
-    //color: $tc;
-  }
-
-  @if $t==backdrop-insensitive {
-    &:checked, &:indeterminate {
-      border-color: gtkmix($c, $base_color, 50%);
-    }
-    background-image: image(gtkalpha($c, 0.5));
-    box-shadow: none;
-    color: gtkmix($tc, $base_color, 70%);
+    background-image: image($c);
+    color: gtkalpha($tc, $disabled_opacity);
+    border-color: $_border_color;
   }
 }
