@@ -357,7 +357,7 @@ $disk_space_free: #eeeeec;
 // * Gedit *
 // *********
 
-.org-gnome-gedit { @extend %libadwaita_tabs; }
+.org-gnome-gedit, .gedit-side-panel-paned { @extend %libadwaita_tabs; }
 
 .gedit-search-slider {
   // gives gedit search entry some padding and a border
