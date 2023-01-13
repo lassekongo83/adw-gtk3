@@ -543,7 +543,7 @@ $panel_transition_duration: 250ms;
         @include button(normal, $menu_color, $text_color);
         &:disabled {
           @include button(insensitive);
-          border-color: gtkalpha($borders_color, 0.5);
+          border-color: gtkalpha($borders_color, $disabled_opacity);
         }
       }
     }

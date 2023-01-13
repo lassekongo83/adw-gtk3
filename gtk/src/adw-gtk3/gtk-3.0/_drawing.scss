@@ -479,7 +479,6 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   // normal, hover, active, insensitive, backdrop, backdrop-insensitive
 
   $_border_color: if($c==$checkradio_bg_color, $c, $trough_color);
-  $_dim_border_color: gtkalpha($_border_color, if($variant == 'light', 0.7, 0.3));
 
   @if $t==normal  {
     background-clip: if($checked, border-box, padding-box);
@@ -490,7 +489,6 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   }
 
   @if $t==hover {
-    //background-image: image($c);
     &:not(:checked):not(:inconsistent) { border-color: $trough_hover_color; }
   }
 
