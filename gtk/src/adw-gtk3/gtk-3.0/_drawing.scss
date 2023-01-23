@@ -489,7 +489,7 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   }
 
   @if $t==hover {
-    &:not(:checked):not(:inconsistent) { border-color: $trough_hover_color; }
+    &:not(:checked):not(:indeterminate) { border-color: $trough_hover_color; }
   }
 
   @if $t==active {
