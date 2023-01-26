@@ -32,18 +32,12 @@ body:
   - type: textarea
     attributes:
       label: Description
-      description: Provide a clear and concise description of the issue.
-    validations:
-      required: true
-
-  - type: textarea
-    attributes:
-      label: Screenshot(s)
-      description: |
+      description: | 
+        Provide a clear and concise description of the issue.
         Screenshot(s) are good to have for hard-to-describe visual issues.
         Post **LINKS** instead of inline images for screenshots containing **ADULT MATERIAL**.
     validations:
-      required: false
+      required: true
 
   - type: input
     attributes:
