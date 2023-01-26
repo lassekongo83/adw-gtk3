@@ -12,9 +12,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        It is a good idea to make sure the issue is not on your end. Here is a checklist of common issues you can follow.
-    attributes:
-      value: |
+        ### Checklist to make sure the issue is not on your end
+
         1. Make sure you don't have multiple versions of the theme installed. Only one version should be installed in either `~/.local/share/themes` or `/usr/share/themes` or `~/.themes`
         2. The flatpak theme is installed `org.gtk.Gtk3theme.adw-gtk3` and `org.gtk.Gtk3theme.adw-gtk3-dark`
         3. The file `~/.config/gtk-3.0/gtk.css` exists and is not empty. (Backup and remove.)
