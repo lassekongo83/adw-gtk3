@@ -1,0 +1,66 @@
+name: Adw-gtk3 issue template
+description: Use this template to report issues with the theme.
+body:
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      description: To rule out invalid issues, confirm and check each one of the checkboxes.
+      options:
+        - label: I performed a [cursory search of the issue tracker](https://github.com/lassekongo83/adw-gtk3/issues?q=is%3Aissue) to avoid opening a duplicate issue.
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        It is a good idea to make sure the issue is not on your end. Here is a checklist of common issues you can follow.
+    attributes:
+      value: |
+        1. Make sure you don't have multiple versions of the theme installed. Only one version should be installed in either `~/.local/share/themes` or `/usr/share/themes` or `~/.themes`
+        2. The flatpak theme is installed `org.gtk.Gtk3theme.adw-gtk3` and `org.gtk.Gtk3theme.adw-gtk3-dark`
+        3. The file `~/.config/gtk-3.0/gtk.css` exists and is not empty. (Backup and remove.)
+        4. You have logged out and in again.
+        5. You have created a new user profile without any modifications except adw-gtk3.
+        6. If using the dark theme. You have enabled adw-gtk3-dark in gnome-tweaks AND set the appearance to dark in gnome-control-center.
+        7. The application you're having an issue with is a gtk3 app.
+
+  - type: checkboxes
+    attributes:
+      label: Checklist
+      options:
+        - label: I have checked the list above and made sure the issue was not on my end.
+          required: false
+
+  - type: textarea
+    attributes:
+      label: Description
+      description: Provide a clear and concise description of the issue.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Screenshot(s)
+      description: |
+        Screenshot(s) are good to have for hard-to-describe visual issues.
+        Post **LINKS** instead of inline images for screenshots containing **ADULT MATERIAL**.
+    validations:
+      required: false
+
+  - type: input
+    attributes:
+      label: OS and version [e.g Fedora 37]
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: GNOME version
+    validations:
+      required: false
+
+  - type: input
+    attributes:
+      label: Application name and version (If the issue is with an app.)
+    validations:
+      required: false
+
