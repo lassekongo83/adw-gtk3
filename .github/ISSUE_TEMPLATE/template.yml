@@ -53,7 +53,9 @@ body:
 
   - type: input
     attributes:
-      label: Adw-gtk3 version. Also specify your installation source. [e.g tar.xz, AUR, git main branch]
+      label: Adw-gtk3 version.
+       description: |
+        Also specify your installation source. [e.g tar.xz, AUR, git main branch]
     validations:
       required: true
 
