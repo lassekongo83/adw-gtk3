@@ -20,7 +20,7 @@ body:
         4. You have logged out and in again.
         5. You have created a new user profile without any modifications except adw-gtk3.
         6. If using the dark theme. You have enabled adw-gtk3-dark in gnome-tweaks AND set the appearance to dark in gnome-control-center.
-        7. The application you're having an issue with is a gtk3 app.
+        7. You have checked that the application you're having an issue with is an actual GTK3 app. (Some apps are GTK4, QT, or another toolkit.)
 
   - type: checkboxes
     attributes:
