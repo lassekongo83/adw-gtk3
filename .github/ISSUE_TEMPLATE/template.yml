@@ -25,7 +25,7 @@ body:
           required: false
         - label: The app I'm having an issue with is an actual GTK3 app and is not coded using another toolkit like GTK2, GTK4, QT, etc.
           required: false
-          - label: I have created a new user profile without any modifications except adw-gtk3.
+        - label: I have created a new user profile without any modifications except adw-gtk3.
           required: false
 
   - type: textarea
