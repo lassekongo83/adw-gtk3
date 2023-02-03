@@ -15,7 +15,7 @@ body:
       options:
         - label: I have made sure that I do not have multiple versions of the theme installed. Only one version should be installed in either `~/.local/share/themes` or `/usr/share/themes` or `~/.themes`
           required: true
-        - label: The file `~/.config/gtk-3.0/gtk.css` exists and is not empty. (Backup and remove.)
+        - label: The file `~/.config/gtk-3.0/gtk.css` does not exist. (If it does, backup and remove it.)
           required: true
         - label: I have logged out and in again.
           required: true
