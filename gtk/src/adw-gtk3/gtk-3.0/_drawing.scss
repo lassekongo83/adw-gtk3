@@ -160,7 +160,7 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   // normal button
   //
     color: $tc;
-    outline-color: gtkalpha($tc, 0.3);
+    outline-color: gtkmix(currentColor, $button_normal, 30%);
     background-color: $button_normal;
   }
 
@@ -169,7 +169,7 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   // hovered button
   //
     color: $tc;
-    outline-color: gtkalpha($tc, 0.3);
+    outline-color: gtkmix(currentColor, $button_hover, 30%);
     background-color: $button_hover;
     box-shadow: none;
   }
@@ -193,7 +193,7 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   // pushed button
   //
     color: $tc;
-    outline-color: gtkalpha($tc, 0.3);
+    outline-color: gtkmix(currentColor, $button_active, 30%);
     background-color: $button_active;
     box-shadow: none;
 
