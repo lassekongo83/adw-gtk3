@@ -13,7 +13,7 @@ body:
     attributes:
       label: Checklist to make sure the issue is not on your end
       options:
-        - label: I have made sure that I do not have multiple versions of the theme installed. Only one version should be installed in either `~/.local/share/themes` or `/usr/share/themes` or `~/.themes`
+        - label: I have made sure that I do not have multiple versions of the theme installed. Only one version should be installed in either ~/.local/share/themes or /usr/share/themes or ~/.themes
           required: true
         - label: The file `~/.config/gtk-3.0/gtk.css` exists and is not empty. (Backup and remove.)
           required: true
@@ -21,7 +21,7 @@ body:
           required: true
         - label: Dark theme only. I have enabled adw-gtk3-dark in gnome-tweaks AND set the appearance to dark in gnome-control-center.
           required: false
-        - label: The flatpak theme is installed `org.gtk.Gtk3theme.adw-gtk3` and `org.gtk.Gtk3theme.adw-gtk3-dark`
+        - label: The flatpak theme is installed org.gtk.Gtk3theme.adw-gtk3 and org.gtk.Gtk3theme.adw-gtk3-dark
           required: false
         - label: The app I'm having an issue with is an actual GTK3 app and is not coded using another toolkit like GTK2, GTK4, QT, etc.
           required: false
