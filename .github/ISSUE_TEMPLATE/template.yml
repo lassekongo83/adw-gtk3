@@ -9,24 +9,23 @@ body:
         - label: I performed a [cursory search of the issue tracker](https://github.com/lassekongo83/adw-gtk3/issues?q=is%3Aissue) to avoid opening a duplicate issue.
           required: true
 
-  - type: markdown
-    attributes:
-      value: |
-        ### Checklist to make sure the issue is not on your end
-
-        1. Make sure you don't have multiple versions of the theme installed. Only one version should be installed in either `~/.local/share/themes` or `/usr/share/themes` or `~/.themes`
-        2. The flatpak theme is installed `org.gtk.Gtk3theme.adw-gtk3` and `org.gtk.Gtk3theme.adw-gtk3-dark`
-        3. The file `~/.config/gtk-3.0/gtk.css` exists and is not empty. (Backup and remove.)
-        4. You have logged out and in again.
-        5. You have created a new user profile without any modifications except adw-gtk3.
-        6. If using the dark theme. You have enabled adw-gtk3-dark in gnome-tweaks AND set the appearance to dark in gnome-control-center.
-        7. You have checked that the application you're having an issue with is an actual GTK3 app. (Some apps are GTK4, QT, or another toolkit.)
-
   - type: checkboxes
     attributes:
-      label: Checklist
+      label: Checklist to make sure the issue is not on your end
       options:
-        - label: I have checked the list above and made sure the issue was not on my end.
+        - label: I have made sure that I do not have multiple versions of the theme installed. Only one version should be installed in either `~/.local/share/themes` or `/usr/share/themes` or `~/.themes`
+          required: true
+        - label: The file `~/.config/gtk-3.0/gtk.css` exists and is not empty. (Backup and remove.)
+          required: true
+        - label: I have logged out and in again.
+          required: true
+        - label: Dark theme only. I have enabled adw-gtk3-dark in gnome-tweaks AND set the appearance to dark in gnome-control-center.
+          required: false
+        - label: The flatpak theme is installed `org.gtk.Gtk3theme.adw-gtk3` and `org.gtk.Gtk3theme.adw-gtk3-dark`
+          required: false
+        - label: The app I'm having an issue with is an actual GTK3 app and is not coded using another toolkit like GTK2, GTK4, QT, etc.
+          required: false
+          - label: I have created a new user profile without any modifications except adw-gtk3.
           required: false
 
   - type: textarea
