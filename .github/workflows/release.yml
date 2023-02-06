@@ -2,6 +2,7 @@ name: Build and release workflow
 
 on:
   workflow_dispatch: # on button click
+  workflow_call: # allow reuse from other workflows
   push:
 #    branches: [ "main" ]
 

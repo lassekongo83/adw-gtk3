@@ -22,11 +22,16 @@ jobs:
     - name: Show branch
       run: echo "Syncing fork from $UPSTREAM_URL/$UPSTREAM_BRANCH to $GITHUB_REF"
     - name: Sync latest commits from upstream repo
+      id: sync
       run: |
-        git config --global --add safe.directory .
-        git config user.name github-actions
-        git config user.email github-actions@github.com
         git remote add upstream $UPSTREAM_URL
         git fetch upstream $UPSTREAM_BRANCH
         git rebase --autosquash --autostash upstream/$UPSTREAM_BRANCH
         git push --force origin ${GITHUB_REF#refs/heads/}
+        git config --local --add safe.directory .
+        git push --porcelain --force origin ${GITHUB_REF#refs/heads/} | grep '\[up to date\]' && echo "release=yes" >> $GITHUB_OUTPUT
+  release:
+      needs: sync
+      if: ${{ success() && needs.sync.outputs.release == 'yes' }}
+      uses: ./.github/workflows/release.yml
+      secrets: inherit
