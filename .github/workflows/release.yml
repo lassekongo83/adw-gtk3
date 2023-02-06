@@ -23,9 +23,12 @@ jobs:
       with:
         submodules: recursive
 
+    - name: Update package manager
+      run:
+        sudo apt-get update
+
     - name: Install dependencies
       run: >
-        sudo apt-get update
         sudo apt-get install -y
         ninja-build git meson sassc libvala-dev gobject-introspection libgtk-4-dev cmake valac gettext
         equivs
