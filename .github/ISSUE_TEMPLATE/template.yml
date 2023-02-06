@@ -1,0 +1,64 @@
+name: Adw-gtk3 issue template
+description: Use this template to report issues with the theme.
+body:
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      description: To rule out invalid issues, confirm and check each one of the checkboxes.
+      options:
+        - label: I performed a [cursory search of the issue tracker](https://github.com/lassekongo83/adw-gtk3/issues?q=is%3Aissue) to avoid opening a duplicate issue.
+          required: true
+
+  - type: checkboxes
+    attributes:
+      label: Checklist to make sure the issue is not on your end
+      options:
+        - label: I have made sure that I do not have multiple versions of the theme installed. Only one version should be installed in either `~/.local/share/themes` or `/usr/share/themes` or `~/.themes`
+          required: true
+        - label: The file `~/.config/gtk-3.0/gtk.css` does not exist. (If it does, backup and remove it.)
+          required: true
+        - label: I have logged out and in again.
+          required: true
+        - label: Dark theme only. I have enabled adw-gtk3-dark in `gnome-tweaks` AND set the appearance to dark in `gnome-control-center`
+          required: false
+        - label: The flatpak theme is installed `org.gtk.Gtk3theme.adw-gtk3` and `org.gtk.Gtk3theme.adw-gtk3-dark`
+          required: false
+        - label: The app I'm having an issue with is an actual GTK3 app and is not coded using another toolkit like GTK2, GTK4, QT, etc.
+          required: false
+        - label: I have created a new user profile without any modifications except adw-gtk3.
+          required: false
+
+  - type: textarea
+    attributes:
+      label: Description
+      description: | 
+        Provide a clear and concise description of the issue.
+        Screenshot(s) are good to have for hard-to-describe visual issues.
+        Post **LINKS** instead of inline images for screenshots containing **ADULT MATERIAL**.
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: OS and version [e.g Fedora 37]
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Adw-gtk3 version. Also specify your installation source. [e.g tar.xz, AUR, git main branch]
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: GNOME version
+    validations:
+      required: false
+
+  - type: input
+    attributes:
+      label: Application name and version (If the issue is with an app.)
+    validations:
+      required: false
+

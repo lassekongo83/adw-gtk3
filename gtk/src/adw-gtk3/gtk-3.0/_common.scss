@@ -7,6 +7,7 @@ $menu_radius: 8px;
 $window_radius: $button_radius + 6;
 $popover_radius: $window_radius;
 $card_radius: $button_radius + 6;
+$disabled_opacity: 0.5;
 
 // Optional compact sizes for buttons, headerbar and headerbar widgets
 $_sizevariant: 'default'; //compact otherwise
@@ -197,8 +198,8 @@ label {
 
   &.error {
     color: $error_bg_color;
-    &:disabled { color: gtkalpha($error_bg_color,0.5); }
-    &:disabled:backdrop { color: gtkalpha($error_bg_color,0.4); }
+    &:disabled { color: gtkalpha($error_bg_color, $disabled_opacity); }
+    &:disabled:backdrop { color: gtkalpha($error_bg_color, 0.4); }
   }
 }
 
@@ -251,7 +252,7 @@ spinner {
     opacity: 1;
     animation: spin 1s linear infinite;
 
-    &:disabled { opacity: 0.5; }
+    &:disabled { opacity: $disabled_opacity; }
   }
 }
 
@@ -1277,7 +1278,7 @@ spinbutton {
         @include button(undecorated);
 
         color: $osd_insensitive_fg_color;
-        border-color: gtkalpha(opacify($osd_borders_color, 1), 0.5);
+        border-color: gtkalpha(opacify($osd_borders_color, 1), $disabled_opacity);
         -gtk-icon-shadow: none;
         box-shadow: none;
       }
@@ -2760,12 +2761,14 @@ switch {
   &:checked {
     color: $selected_fg_color;
     background-color: $checkradio_bg_color;
+
     &:hover {
       background-image: image(gtkalpha(currentColor, .1));
       &:active { background-image: image(transparentize(black, .8)); }
     }
+
     &:disabled {
-      background-color: gtkalpha($checkradio_bg_color, 0.5);
+      background-color: gtkalpha($checkradio_bg_color, $disabled_opacity);
     }
   }
 
@@ -2865,7 +2868,6 @@ radio {
   margin: 0 4px;
 
   &:only-child { margin: 0; }
-  //box-shadow: inset 0 0 0 2px $switch_color;
 
   popover & { // when in a popover add more space between the label and the check, reset the other side margin.
               // See https://bugzilla.gnome.org/show_bug.cgi?id=779570 for details.
@@ -2888,14 +2890,12 @@ radio {
 
   & {
     // for unchecked
-    $_c: if($variant=='light', white, $bg_color);
+    $_c: transparent; //if($variant=='light', white, $bg_color);
 
     @each $state, $t in ("", "normal"),
                         (":hover", "hover"),
                         (":active", "active"),
-                        (":disabled", "insensitive"),
-                        (":backdrop", "backdrop"),
-                        (":backdrop:disabled", 'backdrop-insensitive') {
+                        (":disabled", "insensitive") {
       &#{$state} {
         @include check($t, $_c);
       }
@@ -2909,9 +2909,7 @@ radio {
         @each $state, $t in ("", "normal"),
                             (":hover", "hover"),
                             (":active", "active"),
-                            (":disabled", "insensitive"),
-                            (":backdrop", "backdrop"),
-                            (":backdrop:disabled", 'backdrop-insensitive') {
+                            (":disabled", "insensitive") {
           &#{$state} {
             @include check($t, $checkradio_bg_color, $checkradio_fg_color, $checked: true);
           }
@@ -2920,8 +2918,6 @@ radio {
     }
   }
 
-  //&:backdrop { transition: $backdrop_transition; }
-  
   @if $variant == 'light' {
     // the borders of the light variant versions of checks and radios are too similar in luminosity to the selected background
     // color, hence we need special casing.
@@ -2989,23 +2985,6 @@ radio {
                                             -gtk-recolor(url("assets/dash-symbolic.symbolic.png"))); }
 }
 
-// ANIMATION:
-// this is made with those pretty convoluted transitions, since checks and radios have to animate only on state changes,
-// the transformation is set on the active state and it get reset on the checked state.
-radio:not(:indeterminate):not(:checked):active:not(:backdrop) { -gtk-icon-transform: scale(0); }
-
-check:not(:indeterminate):not(:checked):active:not(:backdrop) { -gtk-icon-transform: translate(6px, -3px) rotate(-45deg) scaleY(0.2) rotate(45deg) scaleX(0); }
-
-radio,
-check {
-  &:active { -gtk-icon-transform: scale(0, 1); } // should tackle the indeterminate state, untested
-
-  &:checked:not(:backdrop), &:indeterminate:not(:backdrop) {
-    -gtk-icon-transform: unset;
-    transition: 400ms;
-  }
-}
-
 menu menuitem {
   radio,
   check {
@@ -3034,15 +3013,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
   border-radius: $button_radius;
   background-color: $trough_color;
 
-  &:disabled { background-color: gtkalpha($trough_color, 0.5); }
-
-  &:backdrop {
-    background-color: gtkalpha($trough_color, 0.5);
-    border-color: $backdrop_borders_color;
-    transition: $backdrop_transition;
-
-    &:disabled { background-color: gtkalpha($trough_color, 0.25); }
-  }
+  &:disabled { background-color: gtkalpha($trough_color, $disabled_opacity); }
 
   // ...on selected list rows
   row:selected & { &:disabled, & { border-color: $selected_borders_color; }}
@@ -3064,14 +3035,6 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
   &:disabled {
     background-color: gtkmix($fill_color, $base_color, 50%);
     border-color: transparent;
-  }
-
-  &:backdrop {
-    border-color: if($variant=='light', $progress_bg_color,
-                                        $progress_border_color);
-    &:disabled {
-      border-color: transparent;
-    }
   }
 
   // ...on selected list rows
@@ -3766,9 +3729,9 @@ separator {
 // * Lists *
 // *********
 list {
-  color: $text_color;
-  background-color: $base_color;
-  border-color: $borders_color;
+  color: $view_fg_color;
+  background-color: $view_bg_color;
+  border-color: $card_shade_color;
 
   row { padding: 2px; }
 }
@@ -4384,8 +4347,6 @@ colorswatch {
       color: white;
 
       &:hover { border-color: if($variant == 'light', transparentize(black, 0.2), $borders_color); }
-
-      &:backdrop { color: transparentize(white, 0.5); }
     }
   }
 
@@ -4396,8 +4357,6 @@ colorswatch {
       color: black;
 
       &:hover { border-color: if($variant == 'light', transparentize(black, 0.5), $borders_color); }
-
-      &:backdrop { color: transparentize(black, 0.5); }
     }
   }
 
@@ -4424,11 +4383,6 @@ colorswatch {
       box-shadow: inset 0 1px transparentize(white, 0.6),
                   inset 0 -1px transparentize(black, 0.8);
     }
-
-    &:backdrop, &:backdrop:hover {
-      border-color: if($variant == 'light', transparentize(black, 0.7), $borders_color);
-      box-shadow: none;
-    }
   }
 
   &#add-color-button {
@@ -4440,13 +4394,11 @@ colorswatch {
       @include button(normal);
 
       &:hover { @include button(hover); }
-
-      &:backdrop { @include button(backdrop); }
     }
   }
 
   &:disabled {
-    opacity: 0.5;
+    opacity: $disabled_opacity;
 
     overlay {
       border-color: transparentize(black, 0.4);
@@ -4644,7 +4596,7 @@ headerbar.selection-mode button.titlebutton,
 
     @at-root %selected_items_backdrop,
     &:backdrop {
-      color: $backdrop_selected_fg_color;
+      color: $selected_fg_color;
 
       &:disabled { color: gtkmix($backdrop_selected_fg_color, $selected_bg_color, 30%); }
     }
