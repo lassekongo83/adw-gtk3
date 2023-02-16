@@ -66,3 +66,6 @@
 // Miscellaneous
 @define-color shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
 @define-color scrollbar_outline_color #{if($variant == 'light', white, transparentize(black, .5))};
+
+// adw-gtk3 specific
+@define-color incognito_bg_color #{if($variant == 'light', #d7e3f0, #1c2438)};

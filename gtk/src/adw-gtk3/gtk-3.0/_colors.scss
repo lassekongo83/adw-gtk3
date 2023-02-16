@@ -108,6 +108,7 @@ $disabled_headerbar_fg: gtkmix($headerbar_fg_color, $headerbar_bg_color, 50%);
 $backdrop_headerbar_fg: gtkmix($headerbar_fg_color, $headerbar_backdrop_color, 50%);
 $disabled_card_fg: gtkmix($card_fg_color, $card_bg_color, 50%);
 $disabled_popover_fg: gtkmix($popover_fg_color, $popover_bg_color, 50%);
+$incognito_bg_color: gtkcolor(incognito_bg_color); // adw-gtk3 specific, for gnome web
 
 // titlebuttons
 $titlebutton_normal: gtkalpha(currentColor, .1);
