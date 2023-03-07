@@ -709,6 +709,7 @@ window.background.chromium {
 
   // https://github.com/lassekongo83/adw-gtk3/issues/130
   menuitem {
+    border-radius: 0;
     check,
     radio {
       min-height: 12px;
