@@ -21,11 +21,11 @@
 // Levelbars, entries, labels and infobars. These don't need text colors
 @define-color success_bg_color #{if($variant == 'dark', "@green_5", "@green_4")};
 @define-color success_fg_color white;
-@define-color success_color #{if($variant == 'dark', "@green_1", "@green_5")};
+@define-color success_color #{if($variant == 'dark', "@green_1", #1b8553)};
 
 @define-color warning_bg_color #{if($variant == 'dark', #cd9309, "@yellow_5")};
 @define-color warning_fg_color #{transparentize(black, .2)};
-@define-color warning_color #{if($variant == 'dark', "@yellow_2", #ae7b03)};
+@define-color warning_color #{if($variant == 'dark', "@yellow_2", #9c6e03)};
 
 @define-color error_bg_color #{if($variant == 'dark', "@red_4", "@red_3")};
 @define-color error_fg_color white;
