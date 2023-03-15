@@ -2066,9 +2066,13 @@ treeview.view {
 menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
-  padding: 0px;
+  padding-bottom: 1px;
+  box-shadow: inset 0 -1px $headerbar_shade_color;
+  background-color: $headerbar_bg_color;
+  color: $headerbar_fg_color;
+  margin-top: -1px;
 
-  &:backdrop { background-color: $backdrop_bg_color; }
+  &:backdrop { background-color: $headerbar_backdrop_color; }
 
   > menuitem {
     border-radius: $button_radius;
@@ -2085,7 +2089,7 @@ menubar,
     }
 
     &:hover { //Seems like it :hover even with keyboard focus
-      background-color: gtkmix(currentColor, $base_color, 12.5%);
+      background-color: $selected_color;
     }
 
     &:disabled {
