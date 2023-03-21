@@ -3750,30 +3750,30 @@ row {
   &.activatable {
     &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
 
-    &:hover { background-color: $view_hover_color; }
+    &:hover { background-color: $hover_color; }
 
-    &:active { background-color: $view_active_color; }
+    &:active { background-color: $active_color; }
 
     &:backdrop:hover { background-color: transparent; }
 
     &:selected {
       color: $fg_color;
-      &:active { background-color: $view_selected_active_color; }
+      &:active { background-color: $selected_active_color; }
 
       &.has-open-popup,
       &:hover {
-        background-color: $view_selected_hover_color;
+        background-color: $selected_hover_color;
         color: $fg_color;
       }
 
       &:backdrop {
-        background-color: $view_hover_color;
+        background-color: $hover_color;
         color: $fg_color;
       }
     }
   }
 
-  &:selected { background-color: $view_selected_color; }
+  &:selected { background-color: $selected_color; }
 }
 
 // *********************
