@@ -4739,7 +4739,7 @@ button.emoji-section {
 
   &:backdrop:not(:checked) { border-color: transparent; }
   &:hover { border-color: if($variant == 'light', $borders_color, gtkalpha($fg_color, .1)); }
-  &:checked { border-color: $selected_bg_color; }
+  &:checked { border-color: $selected_color; }
 
   label {
     padding: 0;
@@ -4754,10 +4754,15 @@ button.emoji-section {
 popover.emoji-picker .emoji {
   font-size: x-large;
   padding: 6px;
+  border-radius: $button_radius;
 
+  :focus,
   :hover {
-    background: $selected_bg_color;
-    border-radius: 6px;
+    background: $hover_color;
+  }
+
+  :active {
+    background: $active_color;
   }
 }
 
