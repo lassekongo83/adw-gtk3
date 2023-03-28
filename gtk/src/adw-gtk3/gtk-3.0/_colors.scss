@@ -36,7 +36,7 @@ $destructive_color: gtkcolor(destructive_color);
 
 $base_color: $view_bg_color;
 $text_color: $view_fg_color;
-$caret_color: if($variant == 'light', gtksahde($text_color, 1.05), gtkshade($text_color, 0.97));
+$caret_color: if($variant == 'light', gtkshade($text_color, 1.05), gtkshade($text_color, 0.97));
 $bg_color: $window_bg_color;
 $fg_color: $window_fg_color;
 
