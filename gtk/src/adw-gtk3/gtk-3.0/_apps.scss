@@ -458,6 +458,12 @@ window#guake-terminal notebook header {
 // * XFCE4 *
 // *********
 
+.XfceHeading {
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+}
+
 XfdesktopIconView.view {
   background: transparent;
   color: $osd_fg_color;
@@ -487,7 +493,20 @@ $panel_transition_duration: 250ms;
 
   .tasklist button,
   #actions-button,
-  #clock-button { margin: 2px; }
+  #clock-button { margin: 0 1px; }
+
+  &.horizontal .tasklist {
+    button {
+      margin: 0 1px;
+      label { padding-right: 3px; }
+    }
+  }
+  &.vertical .tasklist {
+    button {
+      margin: 1px 0;
+      label { padding-bottom: 3px; }
+    }
+  }
 
   .tasklist image {
     //-gtk-icon-transform: scale(0); margin: -10px; // Removes the icon
@@ -508,6 +527,7 @@ $panel_transition_duration: 250ms;
     min-width: 12px;
     border-radius: 24px;
     color: $panel_fg_color;
+    transition-duration: $panel_transition_duration;
     @include button(undecorated);
 
     &:disabled {
@@ -532,6 +552,13 @@ $panel_transition_duration: 250ms;
         color: gtkalpha($panel_fg_color, 0.2);
       }
     }
+
+    &:drop(active) {
+      color: $drop_target_color;
+      border-color: $drop_target_color;
+      box-shadow: inset 0 0 0 1px $drop_target_color;
+    }
+
     entry { caret-color: $text_color; }
     menu {
       -gtk-icon-effect: none;
@@ -547,6 +574,55 @@ $panel_transition_duration: 250ms;
         }
       }
     }
+  }
+
+  progressbar {
+    margin: 0;
+
+    &.horizontal {
+      trough {
+        min-height: 6px;
+        padding: 0;
+      }
+      progress { min-height: 4px; }
+    }
+
+    &.vertical {
+      trough {
+        min-width: 6px;
+        padding: 0;
+      }
+      progress { min-width: 4px; }
+    }
+
+    progress { border-radius: 0px; }
+
+    trough {
+      background: gtkshade($panel_bg_color, 0.7);
+      border-radius: 0px;
+      border-color: gtkshade($panel_bg_color, 0.4);
+    }
+  }
+}
+
+// Workspace switcher
+wnck-pager {
+  background-color: gtkalpha($panel_fg_color, 0.1);
+  &:selected { background-color: gtkshade($selected_bg_color, 0.88); }
+  &:hover { background-color: $selected_bg_color; }
+}
+
+// Xfwm4's alt-tab dialog, aka "tabwin"
+#xfwm-tabwin {
+  padding: 12px;
+  border-radius: $window_radius;
+  // Set the application icon- and preview-size
+  -XfwmTabwinWidget-icon-size: 64px;
+  -XfwmTabwinWidget-preview-size: 128px;
+
+  .tabwin-app-grid button {
+    min-width: 96px;
+    min-height: 96px;
   }
 }
 
