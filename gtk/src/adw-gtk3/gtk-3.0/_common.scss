@@ -104,6 +104,7 @@ $_switch_margin: if($_sizevariant=='default', 9px, 7px);
 .view,
 %view {
   color: $text_color;
+  caret-color: $caret_color;
   background-color: $base_color;
 
   &:disabled {
@@ -4743,7 +4744,6 @@ button.emoji-section {
 
   label {
     padding: 0;
-
     opacity: 0.55;
   }
 
