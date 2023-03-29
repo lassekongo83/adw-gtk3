@@ -459,6 +459,7 @@ window#guake-terminal notebook header {
 // *********
 
 .XfceHeading {
+  background-color: $base_color;
   margin: 0;
   padding: 0;
   border-width: 0;
@@ -624,6 +625,21 @@ wnck-pager {
     min-width: 96px;
     min-height: 96px;
   }
+}
+
+// Whisker menu
+window#whiskermenu-window {
+  button { transition: none; }
+}
+
+#whiskermenu-button {
+  transition: none;
+}
+
+// XfceNotifyWindow
+#XfceNotifyWindow {
+  border-radius: $menu_radius;
+  background-color: $base_color;
 }
 
 // ********
