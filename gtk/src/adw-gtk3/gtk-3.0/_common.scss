@@ -2067,13 +2067,9 @@ treeview.view {
 menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
-  padding-bottom: 1px;
-  box-shadow: inset 0 -1px $headerbar_shade_color;
-  background-color: $headerbar_bg_color;
-  color: $headerbar_fg_color;
-  margin-top: -1px;
+  padding: 0;
 
-  &:backdrop { background-color: $headerbar_backdrop_color; }
+  &:backdrop { background-color: $backdrop_bg_color; }
 
   > menuitem {
     border-radius: $button_radius;
