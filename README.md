@@ -88,6 +88,7 @@ Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors
 - **VSCode:** https://github.com/piousdeer/vscode-adwaita
 - **Discord:** https://github.com/GeopJr/DNOME
 - **Obsidian:** https://github.com/birneee/obsidian-adwaita-theme
+- **xfwm4:** https://github.com/FabianOvrWrt/adw-xfwm4
 <div align="center">
 
 ## How to uninstall the theme(s)
@@ -98,3 +99,7 @@ Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors
 - For a global installation: `sudo rm -r /usr/share/themes/adw-gtk3*`
 
 Flatpak: `flatpak uninstall org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark`
+
+## Credits
+- Libadwaita source: https://gitlab.gnome.org/GNOME/libadwaita
+- Adw-gtk3 contributors: https://github.com/lassekongo83/adw-gtk3/graphs/contributors

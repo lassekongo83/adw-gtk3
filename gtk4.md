@@ -1,3 +1,5 @@
+NOTE: Adw-gtk3 now includes a copy of libadwaita. So these steps should no logner be necessary. Except for: `flatpak override --filesystem=~/.local/share/themes` if you use flatpak apps.
+
 This theme is a GTK-3 theme. Some apps use GTK-4 but not libadwaita. If you want these apps to use the libadwaita theme you'll have to extract it from source. First you will need to install dependencies, on Fedora 36+ this can be done with the following:
 ```bash
 sudo dnf install git vala gobject-introspection-devel sassc meson gtk4-devel cmake ninja-build
@@ -17,7 +19,7 @@ Next build libadwaita
 ```bash
 git clone https://gitlab.gnome.org/GNOME/libadwaita.git
 cd libadwaita
-meson . _build
+meson setup . _build
 ninja -C _build
 ```
 
