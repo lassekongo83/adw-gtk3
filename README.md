@@ -100,6 +100,11 @@ Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors
 
 Flatpak: `flatpak uninstall org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark`
 
+<div align="center">
+
 ## Credits
+
+</div>
+
 - Libadwaita source: https://gitlab.gnome.org/GNOME/libadwaita
 - Adw-gtk3 contributors: https://github.com/lassekongo83/adw-gtk3/graphs/contributors
