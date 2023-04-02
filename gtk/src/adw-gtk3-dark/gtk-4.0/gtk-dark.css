@@ -1,0 +1,38 @@
+/* GTK NAMED COLORS ---------------- use responsibly! */
+@define-color accent_bg_color @blue_3;
+@define-color accent_fg_color white;
+@define-color accent_color #78aeed;
+@define-color destructive_bg_color @red_4;
+@define-color destructive_fg_color white;
+@define-color destructive_color #ff7b63;
+@define-color success_bg_color @green_5;
+@define-color success_fg_color white;
+@define-color success_color @green_1;
+@define-color warning_bg_color #cd9309;
+@define-color warning_fg_color rgba(0, 0, 0, 0.8);
+@define-color warning_color @yellow_2;
+@define-color error_bg_color @red_4;
+@define-color error_fg_color white;
+@define-color error_color #ff7b63;
+@define-color window_bg_color #242424;
+@define-color window_fg_color white;
+@define-color view_bg_color #1e1e1e;
+@define-color view_fg_color white;
+@define-color headerbar_bg_color #303030;
+@define-color headerbar_fg_color white;
+@define-color headerbar_border_color white;
+@define-color headerbar_backdrop_color @window_bg_color;
+@define-color headerbar_shade_color rgba(0, 0, 0, 0.36);
+@define-color card_bg_color rgba(255, 255, 255, 0.08);
+@define-color card_fg_color white;
+@define-color card_shade_color rgba(0, 0, 0, 0.36);
+@define-color dialog_bg_color #383838;
+@define-color dialog_fg_color white;
+@define-color popover_bg_color #383838;
+@define-color popover_fg_color white;
+@define-color thumbnail_bg_color #383838;
+@define-color thumbnail_fg_color white;
+@define-color shade_color rgba(0, 0, 0, 0.36);
+@define-color scrollbar_outline_color rgba(0, 0, 0, 0.5);
+
+@import '../gtk-3.0/libadwaita.css';
