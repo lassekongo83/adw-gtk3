@@ -686,6 +686,7 @@ window#whiskermenu-window {
 
       &:not(:selected) {
         &:not(:backdrop):hover {
+          $base_hover_color: gtkalpha($fg_color, 0.05);
           background-image: image($base_hover_color);
         }
       }

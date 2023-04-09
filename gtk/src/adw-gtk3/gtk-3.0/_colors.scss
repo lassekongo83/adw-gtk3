@@ -67,7 +67,6 @@ $osd_insensitive_fg_color: gtkmix($osd_fg_color, opacify($osd_bg_color, 1), 50%)
 $osd_borders_color: transparentize(black, 0.1);
 
 $sidebar_bg_color: $bg_color;
-$base_hover_color: gtkalpha($fg_color, 0.05);
 
 $tooltip_borders_color: transparentize(white, 0.9);
 $shadow_color: transparentize(black, 0.9);
@@ -127,8 +126,8 @@ $selected_color: gtkalpha(currentColor, .1);
 $selected_hover_color: gtkalpha(currentColor, .13);
 $selected_active_color: gtkalpha(currentColor, .19);
 
-$view_hover_color: gtkalpha(currentColor, .07);
-$view_active_color: gtkalpha(currentColor, .16);
+$view_hover_color: gtkalpha(currentColor, .04);
+$view_active_color: gtkalpha(currentColor, .08);
 $view_selected_color: gtkalpha(currentColor, .25);
 $view_selected_hover_color: gtkalpha(currentColor, .32);
 $view_selected_active_color: gtkalpha(currentColor, .39);
