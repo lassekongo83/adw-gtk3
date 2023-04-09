@@ -239,13 +239,13 @@ button.card:hover { background-image: image(alpha(currentColor,0.04)); }
 
 button.card.keyboard-activating, button.card:active { background-image: image(alpha(currentColor,0.08)); }
 
-button.card:checked { background-color: @card_bg_color; background-image: image(alpha(@accent_bg_color,0.15)); }
+button.card:checked { background-color: @card_bg_color; background-image: image(alpha(@accent_bg_color,0.25)); }
 
-button.card:checked:hover { background-image: image(alpha(@accent_bg_color,0.2)); }
+button.card:checked:hover { background-image: image(alpha(@accent_bg_color,0.32)); }
 
-button.card:checked.keyboard-activating, button.card:checked:active { background-image: image(alpha(@accent_bg_color,0.25)); }
+button.card:checked.keyboard-activating, button.card:checked:active { background-image: image(alpha(@accent_bg_color,0.39)); }
 
-button.card:checked.has-open-popup { background-image: image(alpha(@accent_bg_color,0.2)); }
+button.card:checked.has-open-popup { background-image: image(alpha(@accent_bg_color,0.32)); }
 
 button.card:drop(active) { color: @accent_bg_color; box-shadow: inset 0 0 0 1px @accent_bg_color; }
 
@@ -771,13 +771,15 @@ filechooser pathbar button > box { border-spacing: 4px; }
 
 filechooser pathbar button > box > label { padding-left: 2px; padding-right: 2px; }
 
+filechooser gridview { padding: 15px; }
+
 filechooser gridview ~ undershoot.top { box-shadow: inset 0 1px alpha(currentColor,0.15); }
 
-filechooser gridview > child { border-radius: 12px; padding: 12px; margin: 12px; }
+filechooser gridview > child { border-radius: 12px; padding: 6px 12px; margin: 3px; }
 
 filechooser gridview > child filethumbnail image { filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.3)); }
 
-filechooser gridview > child box { border-spacing: 4px; }
+filechooser gridview > child box { border-spacing: 6px; }
 
 headerbar { min-height: 47px; background-color: @headerbar_bg_color; color: @headerbar_fg_color; box-shadow: inset 0 -1px @headerbar_shade_color, inset 1px 0 alpha(@headerbar_border_color,0.15), inset -1px 0 alpha(@headerbar_border_color,0.15); margin-left: -1px; margin-right: -1px; }
 
@@ -1047,13 +1049,13 @@ row.activatable:active { background-color: alpha(currentColor,0.08); }
 
 row.activatable.has-open-popup { background-color: alpha(currentColor,0.04); }
 
-row.activatable:selected:hover { background-color: alpha(@accent_bg_color,0.2); }
+row.activatable:selected:hover { background-color: alpha(@accent_bg_color,0.32); }
 
-row.activatable:selected:active { background-color: alpha(@accent_bg_color,0.25); }
+row.activatable:selected:active { background-color: alpha(@accent_bg_color,0.39); }
 
-row.activatable:selected.has-open-popup { background-color: alpha(@accent_bg_color,0.2); }
+row.activatable:selected.has-open-popup { background-color: alpha(@accent_bg_color,0.32); }
 
-row:selected { background-color: alpha(@accent_bg_color,0.15); }
+row:selected { background-color: alpha(@accent_bg_color,0.25); }
 
 /******************************************************* Rich Lists                                          * Large list usually containing lots of widgets       * https://gitlab.gnome.org/GNOME/gtk/-/issues/3073    * */
 .rich-list { /* rich lists usually containing other widgets than just labels/text */ }
@@ -2069,7 +2071,7 @@ flap > shadow.down, leaflet > shadow.down { background-image: linear-gradient(to
 
 .view:disabled, textview > text:disabled, iconview:disabled { color: alpha(currentColor,0.5); background-color: mix(@window_bg_color,@view_bg_color,0.4); }
 
-.view:selected:focus, .view:selected, textview > text:selected, iconview:selected { background-color: alpha(@accent_bg_color,0.15); border-radius: 6px; }
+.view:selected:focus, .view:selected, textview > text:selected, iconview:selected { background-color: alpha(@accent_bg_color,0.25); border-radius: 6px; }
 
 textview { caret-color: currentColor; }
 
@@ -2087,15 +2089,15 @@ flowbox > flowboxchild, gridview > child { outline: 0 solid transparent; outline
 
 flowbox > flowboxchild:focus:focus-visible, gridview > child:focus:focus-visible { outline-color: alpha(@accent_color,0.5); outline-width: 2px; outline-offset: -2px; }
 
-flowbox > flowboxchild:selected, gridview > child:selected { background-color: alpha(@accent_bg_color,0.15); }
+flowbox > flowboxchild:selected, gridview > child:selected { background-color: alpha(@accent_bg_color,0.25); }
 
 gridview > child.activatable:hover { background-color: alpha(currentColor,0.04); }
 
 gridview > child.activatable:active { background-color: alpha(currentColor,0.08); }
 
-gridview > child.activatable:selected:hover { background-color: alpha(@accent_bg_color,0.2); }
+gridview > child.activatable:selected:hover { background-color: alpha(@accent_bg_color,0.32); }
 
-gridview > child.activatable:selected:active { background-color: alpha(@accent_bg_color,0.25); }
+gridview > child.activatable:selected:active { background-color: alpha(@accent_bg_color,0.39); }
 
 viewswitcher { margin: 0; }
 
