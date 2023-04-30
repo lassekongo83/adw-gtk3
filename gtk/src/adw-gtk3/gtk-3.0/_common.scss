@@ -114,7 +114,8 @@ $_switch_margin: if($_sizevariant=='default', 9px, 7px);
 
   &:selected {
     &:focus, & {
-      @extend %selected_items;
+      //@extend %selected_items;
+      background-color: $view_selected_color;
 
       border-radius: $button_radius;
     }
@@ -1064,9 +1065,12 @@ modelbutton.flat,
 
   @extend %undecorated_button;
 
-  &:hover { background-color: $view_selected_color; }
+  &:hover { background-color: $hover_color; }
 
-  &:selected { @extend %selected_items; }
+  &:selected {
+    //@extend %selected_items;
+    background-color: $selected_color;
+  }
 }
 
 modelbutton.flat arrow {
@@ -1934,13 +1938,13 @@ treeview.view {
 
     &:hover { color: $text_color; }
 
-    &:selected {
-      color: gtkmix($selected_fg_color, $selected_bg_color, 70%);
+    //&:selected {
+      //color: gtkmix($selected_fg_color, $selected_bg_color, 70%);
 
-      &:hover { color: $selected_fg_color; }
+      //&:hover { color: $selected_fg_color; }
 
-      &:backdrop { color: gtkmix($backdrop_selected_fg_color, $selected_bg_color, 70%); }
-    }
+      //&:backdrop { color: gtkmix($backdrop_selected_fg_color, $selected_bg_color, 70%); }
+    //}
 
     &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
   }
@@ -2130,7 +2134,7 @@ menu,
 
     &:hover {
       color: $fg_color;
-      background-color: $view_selected_hover_color;
+      background-color: $selected_hover_color;
     }
 
     &:disabled {
@@ -4587,19 +4591,21 @@ headerbar.selection-mode button.titlebutton,
 // catch all extend :)
 
 %selected_items {
-  background-color: $selected_bg_color;
+  background-color: $view_selected_color;
 
   @at-root %nobg_selected_items, & {
-    color: $selected_fg_color;
+    color: $fg_color; //$selected_fg_color;
 
     @at-root %selected_items_disabled,
-    &:disabled { color: gtkmix($selected_fg_color, $selected_bg_color, 50%); }
+    &:disabled {
+      //color: gtkmix($selected_fg_color, $selected_bg_color, 50%);
+    }
 
     @at-root %selected_items_backdrop,
     &:backdrop {
-      color: $selected_fg_color;
+      //color: $selected_fg_color;
 
-      &:disabled { color: gtkmix($backdrop_selected_fg_color, $selected_bg_color, 30%); }
+      //&:disabled { color: gtkmix($backdrop_selected_fg_color, $selected_bg_color, 30%); }
     }
   }
 }
