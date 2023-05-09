@@ -820,6 +820,18 @@ window.background.chromium {
   }
 }
 
+// Make sure text selection is somewhat visible on websites with various backgrounds
+// in both chromium and firefox
+window.background.chromium,
+#MozillaGtkWidget.background {
+  selection {
+    &:focus, & {
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
+    }
+  }
+}
+
 // ************************
 // * Epiphany / GNOME Web *
 // ************************
