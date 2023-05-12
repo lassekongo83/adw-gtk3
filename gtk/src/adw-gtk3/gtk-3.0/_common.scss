@@ -1065,7 +1065,7 @@ modelbutton.flat,
 
   @extend %undecorated_button;
 
-  &:hover { background-color: $hover_color; }
+  &:hover { background-color: $selected_color; }
 
   &:selected {
     //@extend %selected_items;
@@ -2134,7 +2134,7 @@ menu,
 
     &:hover {
       color: $fg_color;
-      background-color: $hover_color;
+      background-color: $selected_color;
     }
 
     &:disabled {
