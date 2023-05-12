@@ -1327,13 +1327,15 @@ spinbutton {
     }
 
     %top_button {
+      border-color: $spinbutton_borders_color;
       border-radius: $button_radius $button_radius 0 0;
-      border-style: solid solid none solid;
+      border-style: none none solid none;
     }
 
     %bottom_button {
+      border-color: $spinbutton_borders_color;
       border-radius: 0 0 $button_radius $button_radius;
-      border-style: none solid solid solid;
+      border-style: solid none none none;
     }
   }
 
