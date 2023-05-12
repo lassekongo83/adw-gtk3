@@ -1003,7 +1003,7 @@ toolbar.inline-toolbar toolbutton {
 %linked_vertical_middle {
   border-top-color: $border_color;
   border-bottom-color: $border_color;
-  border-style: solid solid none solid;
+  border-style: solid none none none;
   border-radius: 0;
   -gtk-outline-radius: 0;
 }
