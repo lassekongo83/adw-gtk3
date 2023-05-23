@@ -116,6 +116,8 @@ $titlebutton_backdrop: gtkalpha(currentColor, .1);
 $titlebutton_backdrop_hover: gtkalpha(currentColor, .15);
 
 // Other colors from libadwaita
+$focus_border_opacity: 0.5;
+$focus_border_color: gtkalpha($accent_color, $focus_border_opacity);
 $border_color: gtkalpha(currentColor, .15); // not the same as borderS-color
 
 $hover_color: gtkalpha(currentColor, .07);
