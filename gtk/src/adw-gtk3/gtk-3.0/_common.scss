@@ -3971,7 +3971,7 @@ filechooserbutton:drop(active) {
 // ***********
 .sidebar {
   border-style: none;
-  background-color: $sidebar_bg_color;
+  background-color: $bg_color;
 
   &:not(separator) {
     @at-root %sidebar_left,

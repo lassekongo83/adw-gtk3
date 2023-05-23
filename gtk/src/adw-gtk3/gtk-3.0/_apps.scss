@@ -677,7 +677,7 @@ window#whiskermenu-window {
 
     viewport.frame box.vertical treeview.view.places-treeview {
       // use sidebar bg color
-      background-image: image($sidebar_bg_color);
+      background-image: image($bg_color);
       border-radius: 0; // get rid of weird radius on selected rows
 
       &:selected {

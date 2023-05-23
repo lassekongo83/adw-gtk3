@@ -66,8 +66,6 @@ $osd_insensitive_bg_color: transparentize(black, 0.35);
 $osd_insensitive_fg_color: gtkmix($osd_fg_color, opacify($osd_bg_color, 1), 50%);
 $osd_borders_color: transparentize(black, 0.1);
 
-$sidebar_bg_color: $bg_color;
-
 $tooltip_borders_color: transparentize(white, 0.9);
 $shadow_color: transparentize(black, 0.9);
 
