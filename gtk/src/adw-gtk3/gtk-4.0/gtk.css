@@ -36,3 +36,4 @@
 @define-color scrollbar_outline_color white;
 
 @import '../gtk-3.0/libadwaita.css';
+@import '../gtk-3.0/libadwaita-tweaks.css';

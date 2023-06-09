@@ -51,3 +51,4 @@ endforeach
 # Provide a copy of libadwaita as is.
 # In the gtk3 directory so we don't have duplicate the assets.
 install_data(['libadwaita.css'], install_dir: gtk3_dir)
+install_data(['libadwaita-tweaks.css'], install_dir: gtk3_dir)
