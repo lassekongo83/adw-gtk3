@@ -800,7 +800,16 @@ window.background.chromium {
     }
   }
 
+  // https://github.com/lassekongo83/adw-gtk3/issues/234
+  check,
+  radio {
+    padding: 0;
+    min-height: 12px;
+    min-width: 12px;
+  }
+
   // https://github.com/lassekongo83/adw-gtk3/issues/130
+  // Kept around for ESR users. menuitem does not work on 114+.
   menuitem {
     border-radius: 0;
     check,
