@@ -561,6 +561,10 @@ button {
     border-radius: $button_radius;
     transition: $button_transition;
     font-weight: bold;
+    outline-style: solid;
+    outline-offset: -2px;
+    outline-width: 2px;
+    -gtk-outline-radius: $button-radius - 2;
 
     @include button(normal);
 
