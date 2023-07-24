@@ -79,7 +79,7 @@
           border: none;
 
           > box {
-            background-color: $view_hover_color;
+            background-color: $hover_color;
             transition: background-color 150ms ease-in-out;
           }
 
@@ -109,7 +109,7 @@
           border: none;
 
           > box {
-            background-color: $view_selected_color;
+            background-color: $selected_color;
             transition: background-color 150ms ease-in-out;
           }
 
@@ -117,7 +117,7 @@
             box-shadow: none;
             background-color: transparent;
 
-            > box { background-color: $view_selected_hover_color; }
+            > box { background-color: $selected_hover_color; }
 
             &:backdrop { box-shadow: none; }
           }
