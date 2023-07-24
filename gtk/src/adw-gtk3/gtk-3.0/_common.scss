@@ -3982,7 +3982,12 @@ filechooserbutton:drop(active) {
 // ***********
 .sidebar {
   border-style: none;
-  background-color: $bg_color;
+  background-color: $sidebar_bg_color;
+  color: $sidebar_fg_color;
+
+  &:backdrop {
+    background-color: $sidebar_backdrop_color;
+  }
 
   &:not(separator) {
     @at-root %sidebar_left,
@@ -4007,7 +4012,7 @@ filechooserbutton:drop(active) {
 
   row {
     border-radius: $button_radius;
-    &:backdrop { color: $fg_color; }
+    &:backdrop { color: $sidebar_fg_color; }
   }
   row, separator {
     margin: 0 4px;
