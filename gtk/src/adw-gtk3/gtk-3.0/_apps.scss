@@ -1093,3 +1093,33 @@ geary-conversation-viewer#conversation_viewer {
 #DialogNotebook treeview.view:hover {
   background-color: gtkalpha($selected_bg_color, .5);
 }
+
+// **********
+// * Budgie *
+// **********
+
+.budgie-panel {
+  button {
+    min-height: 16px;
+    min-width: 16px;
+    padding: 0;
+    border-radius: 0;
+
+    &.flat.launcher {
+      padding: 0;
+    }
+  }
+
+  &.horizontal button,
+  #tasklist-button {
+    padding: 0 4px;
+  }
+
+  &.vertical button {
+    padding: 4px 0;
+  }
+
+  &.vertical #tasklist-button {
+    min-height: 32px;
+  }
+}
