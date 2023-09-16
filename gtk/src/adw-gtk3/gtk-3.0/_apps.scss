@@ -1085,7 +1085,11 @@ geary-conversation-viewer#conversation_viewer {
 
 .geary-folder-popover-list-row {
   border-radius: 0;
-  margin:0;
+  margin: 0;
+}
+
+.geary-folder {
+  &, &:backdrop { background-color: $window_bg_color; }
 }
 
 // ************
