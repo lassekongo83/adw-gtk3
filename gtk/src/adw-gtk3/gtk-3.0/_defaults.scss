@@ -48,9 +48,9 @@
 @define-color headerbar_darker_shade_color #{if($variant == 'light', transparentize(black, .88), transparentize(black, .1))};
 
 // Split pane views
-@define-color sidebar_bg_color #{if($variant == 'light', #ebebeb, #303030)};
+@define-color sidebar_bg_color @window_bg_color;
 @define-color sidebar_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
-@define-color sidebar_backdrop_color #{if($variant == 'light', #f2f2f2, #2a2a2a)};
+@define-color sidebar_backdrop_color @window_bg_color;
 @define-color sidebar_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
 
 // Cards, boxed lists
