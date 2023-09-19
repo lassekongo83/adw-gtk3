@@ -773,8 +773,12 @@ window.background.chromium {
     background-color: gtkmix(currentColor, $bg_color, 20%);
   }
 
-  textview.view { 
+  textview.view {
     background-color: $base_color;
+  }
+
+  menuitem {
+    border-radius: 0;
   }
 }
 
