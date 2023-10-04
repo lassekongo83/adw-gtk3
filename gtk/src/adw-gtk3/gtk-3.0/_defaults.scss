@@ -40,11 +40,11 @@
 @define-color view_fg_color #{if($variant == 'light', #333333, white)};
 
 // Header bar, search bar, tab bar
-@define-color headerbar_bg_color #{if($variant == 'light', #ebebeb, #303030)};
+@define-color headerbar_bg_color #{if($variant == 'light', #ffffff, #303030)};
 @define-color headerbar_fg_color #{if($variant == 'light', #2f2f2f, white)}; // adw-gtk3 light theme note: replacing transparentize(black, .2) with equal static color
 @define-color headerbar_border_color #{if($variant == 'light', transparentize(black, .2), white)};
 @define-color headerbar_backdrop_color @window_bg_color;
-@define-color headerbar_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
+@define-color headerbar_shade_color #{if($variant == 'light', transparentize(black, .88), transparentize(black, .64))};
 @define-color headerbar_darker_shade_color #{if($variant == 'light', transparentize(black, .88), transparentize(black, .1))};
 
 // Split pane views
