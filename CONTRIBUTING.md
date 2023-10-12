@@ -11,7 +11,7 @@ Other distros may have named the above packages differently.
 
 When the above requirements are installed, simply run these commands:
 ```bash
-git clone https://github.com/lassekongo83/adw-gtk3.git
+git clone --branch libadwaita-1-3 https://github.com/lassekongo83/adw-gtk3.git
 cd adw-gtk3
 meson setup -Dprefix="${HOME}/.local" build
 ninja -C build install
