@@ -411,6 +411,43 @@ $disk_space_free: #eeeeec;
 // * gnome-tweaks *
 // ****************
 
+.titlebar.tweak-titlebar-left {
+  background-image: none;
+  background-color: $sidebar_bg_color;
+  border-bottom-color: transparent;
+  &:backdrop {
+    background-color: $sidebar_backdrop_color;
+  }
+
+  button {
+    background-color: transparent;
+    &:hover { background-color: $titlebutton_normal_hover; }
+    &:hover:active, &:active, &:hover:checked, &:checked  { background-color: $titlebutton_normal_active; }
+    &:backdrop { background: $titlebutton_backdrop; }
+    &:backdrop:hover { background: $titlebutton_backdrop_hover; }
+  }
+}
+
+.titlebar.tweak-titlebar-right {
+  background-image: none;
+  background-color: $bg_color;
+  border-bottom-color: transparent;
+}
+
+.navigation-sidebar {
+  background-color: $sidebar_bg_color;
+  &:backdrop {
+    background-color: $sidebar_backdrop_color;
+  }
+
+  separator.horizontal {
+    margin: 2px 0;
+    padding: 0;
+    background-color: transparent;
+  }
+}
+
+// legacy stuff
 list.tweak-categories separator.horizontal {
   background: transparent;
   margin: 2px 0;

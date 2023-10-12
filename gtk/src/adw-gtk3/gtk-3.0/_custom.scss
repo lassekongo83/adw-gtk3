@@ -159,9 +159,11 @@
 }
 
 // headerbar stuff
-headerbar, .titlebar {
+headerbar {
   box-shadow: 0 1px if($variant == 'light', gtkalpha($headerbar_shade_color, .3), gtkalpha($headerbar_shade_color, .1));
+}
 
+headerbar, .titlebar {
   // Text colors for gtk named color support (except backdrop and disabled)
   &:not(.selection-mode) {
     &,
