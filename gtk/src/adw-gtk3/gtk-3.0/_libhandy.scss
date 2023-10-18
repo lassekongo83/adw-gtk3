@@ -678,15 +678,15 @@ tabbar {
     &:first-child { background-image: none; }
 
     &:hover {
-      background-color: $view_hover_color;
+      background-color: $hover_color;
       &, + tab { background-image: none; }
     }
 
     &:checked {
-      background-color: $view_selected_color;
+      background-color: $selected_color;
       &, + tab { background-image: none; }
 
-      &:hover { background-color: $view_selected_hover_color; }
+      &:hover { background-color: $selected_hover_color; }
     }
   }
 

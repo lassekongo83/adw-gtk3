@@ -1149,7 +1149,7 @@ geary-conversation-viewer#conversation_viewer {
       background-color: transparent;
       &:hover { background-color: $titlebutton_normal_hover; }
       &:hover:active, &:active, &:hover:checked, &:checked  { background-color: $titlebutton_normal_active; }
-      &:backdrop { background: $titlebutton_backdrop; }
+      &:backdrop { background: transparent; }
       &:backdrop:hover { background: $titlebutton_backdrop_hover; }
     }
   }
@@ -1157,11 +1157,31 @@ geary-conversation-viewer#conversation_viewer {
   &:not(:first-child) > .titlebar {
     border-bottom: transparent;
     box-shadow: none;
+    &:backdrop {
+      background-image: none;
+      background-color: $headerbar_bg_color;
+    }
   }
 }
 
 .geary-main-window separator.sidebar {
   background-color: $borders_color;
+}
+
+.geary-main-window .titlebar .image-button {
+  padding: 0 6px;
+}
+
+.geary-folder {
+  .sidebar.view {
+    &:selected {
+      background-color: $selected_color;
+      &:hover { background-color: $selected_hover_color; }
+    }
+    &:hover {
+      background-color: $hover_color;
+    }
+  }
 }
 
 // ************
