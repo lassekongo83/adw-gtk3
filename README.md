@@ -30,17 +30,24 @@ An unofficial GTK3 port of [libadwaita](https://gnome.pages.gitlab.gnome.org/lib
 flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 ```
 
+**Note:** [Flatpak GTK4 applications can't be styled by the theme.](https://github.com/lassekongo83/adw-gtk3/issues/235)
+
 You can then enable adw-gtk3 in the application `gnome-tweaks`. (Some applications may require a relog.)
 
 **If you use the dark theme** you'll also need to enable the dark appearance in `gnome-control-center`.
 
 Alternatively you can set the theme with your terminal:
+
+Change the theme to adw-gtk3 light:
 ```bash
-# Change the theme to adw-gtk3 light
 gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3' && gsettings set org.gnome.desktop.interface color-scheme 'default'
-# Change the theme to adw-gtk3-dark
+```
+Change the theme to adw-gtk3-dark:
+```bash
 gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-# Revert to GNOME's default theme
+```
+Revert to GNOME's default theme:
+```bash
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita' && gsettings set org.gnome.desktop.interface color-scheme 'default'
 ```
 
