@@ -1878,8 +1878,6 @@ filechooser .path-bar.linked > button {
 // * Tree Views *
 // **************
 
-$_treeview_borders_color: $border_color;
-
 treeview.view {
   @at-root * {
     -GtkTreeView-horizontal-separator: 4;
@@ -2011,7 +2009,7 @@ treeview.view {
       color: $_column_header_color;
       background-color: $base_color;
       font-weight: bold;
-      font-size: small;
+      font-size: smaller;
       text-shadow: none;
       box-shadow: none;
 
@@ -2053,10 +2051,11 @@ treeview.view {
 %column_header_button {
   padding: 0 6px;
   background-image: none;
-  border-style: none solid solid none;
-  border-color: $_treeview_borders_color;
+  border-style: none;
   border-radius: 0;
   text-shadow: none;
+  &:hover { @include button(hover); }
+  &:active { @include button(active); }
 
   &:disabled {
     border-color: $bg_color;
