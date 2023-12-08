@@ -1159,7 +1159,7 @@ geary-conversation-viewer#conversation_viewer {
     box-shadow: none;
     &:backdrop {
       background-image: none;
-      background-color: $headerbar_bg_color;
+      background-color: $new_title_bg_color;
     }
   }
 }
