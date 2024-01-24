@@ -1,0 +1,51 @@
+name: Update GTK4 theme
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install sassc
+      run: sudo apt-get update && sudo apt-get -y install sassc
+
+    - name: Clone libadwaita and compile scss
+      run: |
+        git clone -b libadwaita-1-4 --single-branch https://gitlab.gnome.org/GNOME/libadwaita.git
+        cd libadwaita/src/stylesheet
+        sassc -a -M -t compact base.scss libadwaita.css
+        sassc -a -M -t compact defaults-light.scss gtk.css
+        sassc -a -M -t compact defaults-dark.scss gtk-dark.css
+
+    - name: Copy css files
+      run: |
+        pwd
+        cp libadwaita/src/stylesheet/libadwaita.css $GITHUB_WORKSPACE/gtk/src/adw-gtk3/gtk-3.0/libadwaita.css
+        cp libadwaita/src/stylesheet/gtk.css $GITHUB_WORKSPACE/gtk/src/adw-gtk3/gtk-4.0/gtk.css
+        cp libadwaita/src/stylesheet/gtk-dark.css $GITHUB_WORKSPACE/gtk/src/adw-gtk3/gtk-4.0/gtk-dark.css
+        cp libadwaita/src/stylesheet/gtk-dark.css $GITHUB_WORKSPACE/gtk/src/adw-gtk3-dark/gtk-4.0/gtk.css
+        cp libadwaita/src/stylesheet/gtk-dark.css $GITHUB_WORKSPACE/gtk/src/adw-gtk3-dark/gtk-4.0/gtk-dark.css
+
+    - name: Add libadwaita to the gtk.css files
+      run: |
+        echo "@import '../gtk-3.0/libadwaita.css';" >> ./gtk/src/adw-gtk3/gtk-4.0/gtk.css
+        echo "@import '../gtk-3.0/libadwaita-tweaks.css';" >> ./gtk/src/adw-gtk3/gtk-4.0/gtk.css
+        echo "@import '../gtk-3.0/libadwaita.css';" >> ./gtk/src/adw-gtk3/gtk-4.0/gtk-dark.css
+        echo "@import '../gtk-3.0/libadwaita-tweaks.css';" >> ./gtk/src/adw-gtk3/gtk-4.0/gtk-dark.css
+        echo "@import '../gtk-3.0/libadwaita.css';" >> ./gtk/src/adw-gtk3-dark/gtk-4.0/gtk.css
+        echo "@import '../gtk-3.0/libadwaita-tweaks.css';" >> ./gtk/src/adw-gtk3-dark/gtk-4.0/gtk.css
+        echo "@import '../gtk-3.0/libadwaita.css';" >> ./gtk/src/adw-gtk3-dark/gtk-4.0/gtk-dark.css
+        echo "@import '../gtk-3.0/libadwaita-tweaks.css';" >> ./gtk/src/adw-gtk3-dark/gtk-4.0/gtk-dark.css
+
+    - name: Commit changes
+      run: |
+        git config user.name "GitHub-Actions"
+        git config user.email "<>"
+        git add gtk/src
+        git commit -m "Update gtk4 theme"
+        git push
