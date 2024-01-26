@@ -35,9 +35,9 @@ jobs:
       run: |
         meson setup -Dprefix="/home/runner/work/${{ github.repository }}/build" build
         ninja -C build install
-        cd /home/runner/work/lassekongo83/test-repo/build/share/themes
+        cd /home/runner/work/lassekongo83/adw-gtk3/build/share/themes
         tar -cJf adw-gtk3.tar.xz adw-gtk3 adw-gtk3-dark
-        mv /home/runner/work/lassekongo83/test-repo/build/share/themes/adw-gtk3.tar.xz /home/runner/work/lassekongo83/test-repo/build/share/themes/adw-gtk3v${{ env.version }}.tar.xz
+        mv /home/runner/work/lassekongo83/adw-gtk3/build/share/themes/adw-gtk3.tar.xz /home/runner/work/lassekongo83/adw-gtk3/build/share/themes/adw-gtk3v${{ env.version }}.tar.xz
 
     - name: Get previous release version
       id: prev_release
@@ -56,11 +56,11 @@ jobs:
         tag_name: v${{ env.version }}
         name: adw-gtk3 v${{ env.version }}
         body: >
-          Full Changelog: https://github.com/lassekongo83/test-repo/compare/${{ env.prev_version }}...v${{ env.version }}
+          Full Changelog: https://github.com/lassekongo83/adw-gtk3/compare/${{ env.prev_version }}...v${{ env.version }}
         draft: false
         prerelease: false
         files: |
-          /home/runner/work/lassekongo83/test-repo/build/share/themes/adw-gtk3v${{ env.version }}.tar.xz
+          /home/runner/work/lassekongo83/adw-gtk3/build/share/themes/adw-gtk3v${{ env.version }}.tar.xz
 
     - name: Commit and push
       run: |
