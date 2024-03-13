@@ -20,6 +20,7 @@ $card_fg_color: gtkcolor(card_fg_color);
 $card_shade_color: gtkcolor(card_shade_color);
 $popover_bg_color: gtkcolor(popover_bg_color);
 $popover_fg_color: gtkcolor(popover_fg_color);
+$popover_shade_color: gtkcolor(popover_shade_color);
 $dialog_bg_color: gtkcolor(dialog_bg_color);
 $dialog_fg_color: gtkcolor(dialog_fg_color);
 $warning_bg_color: gtkcolor(warning_bg_color);
@@ -37,6 +38,7 @@ $destructive_color: gtkcolor(destructive_color);
 $sidebar_bg_color: gtkcolor(sidebar_bg_color);
 $sidebar_fg_color: gtkcolor(sidebar_fg_color);
 $sidebar_backdrop_color: gtkcolor(sidebar_backdrop_color);
+$sidebar_border_color: gtkcolor(sidebar_border_color);
 $sidebar_shade_color: gtkcolor(sidebar_shade_color);
 
 $base_color: $view_bg_color;

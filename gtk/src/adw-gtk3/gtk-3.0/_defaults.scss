@@ -51,7 +51,8 @@
 @define-color sidebar_bg_color #{if($variant == 'light', #ebebeb, #303030)};
 @define-color sidebar_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
 @define-color sidebar_backdrop_color #{if($variant == 'light', #f2f2f2, #2a2a2a)};
-@define-color sidebar_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
+@define-color sidebar_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .75))};
+@define-color sidebar_border_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
 
 // Cards, boxed lists
 @define-color card_bg_color #{if($variant == 'light', #ffffff, transparentize(white, .92))};
@@ -65,13 +66,14 @@
 // Popovers
 @define-color popover_bg_color #{if($variant == 'light', #ffffff, #383838)};
 @define-color popover_fg_color #{if($variant == 'light', #333333, white)};
+@define-color popover_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .75))};
 
 // Thumbnails
 @define-color thumbnail_bg_color #{if($variant == 'light', #ffffff, #383838)};
 @define-color thumbnail_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
 
 // Miscellaneous
-@define-color shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
+@define-color shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .75))};
 @define-color scrollbar_outline_color #{if($variant == 'light', white, transparentize(black, .5))};
 
 // adw-gtk3 specific
