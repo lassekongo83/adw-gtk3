@@ -58,8 +58,9 @@ These are maintained by contributors.
 * **Snapcraft:** https://snapcraft.io/adw-gtk3-theme
 * **AUR:** https://aur.archlinux.org/packages/adw-gtk3-git/
 * **Manjaro**: `pamac install adw-gtk3`
+* **Debian**: https://gitlab.com/julianfairfax/package-repo#how-to-add-repository-for-debian-based-linux-distributions
 
-Thanks to [@dusansimic](https://github.com/dusansimic) (Flatpak, AUR), [@solopasha](https://github.com/solopasha) (Fedora), [@kuroehanako](https://github.com/kuroehanako) (Snapcraft) for the help.
+Thanks to [@dusansimic](https://github.com/dusansimic) (Flatpak, AUR), [@solopasha](https://github.com/solopasha) (Fedora), [@kuroehanako](https://github.com/kuroehanako) (Snapcraft), [@julianfairfax](https://github.com/julianfairfax) for the help.
 
 ### Installation from source
 This will install the latest version from the main branch. Use this installation method if you want to contribute and help testing the theme.
