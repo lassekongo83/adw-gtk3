@@ -16,7 +16,7 @@ jobs:
 
     - name: Clone libadwaita and compile scss
       run: |
-        git clone -b libadwaita-1-4 --single-branch https://gitlab.gnome.org/GNOME/libadwaita.git
+        git clone -b libadwaita-1-5 --single-branch https://gitlab.gnome.org/GNOME/libadwaita.git
         cd libadwaita/src/stylesheet
         sassc -a -M -t compact base.scss libadwaita.css
         sassc -a -M -t compact defaults-light.scss gtk.css
