@@ -85,6 +85,7 @@ Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors
 </div>
 
 - **GTK4:** [Info on how to extract libadwaita from source.](https://github.com/lassekongo83/adw-gtk3/blob/main/gtk4.md)
+- **GTK2:** https://github.com/eylles/adw-gtk2-colorizer
 - **Kvantum:** https://github.com/GabePoel/KvLibadwaita
 - **Firefox:** https://github.com/rafaelmardojai/firefox-gnome-theme
 - **Steam:** https://github.com/tkashkin/Adwaita-for-Steam
