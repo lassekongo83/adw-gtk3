@@ -139,7 +139,7 @@
 // ************
 
 .nautilus-window {
-  @extend %libadwaita_tabs;
+  //@extend %libadwaita_tabs;
 
   // Without this nautilus iconview grabs the bg_color
   notebook,
@@ -357,7 +357,15 @@ $disk_space_free: #eeeeec;
 // * Gedit *
 // *********
 
-.org-gnome-gedit, .gedit-side-panel-paned { @extend %libadwaita_tabs; }
+//.org-gnome-gedit, .gedit-side-panel-paned { @extend %libadwaita_tabs; }
+
+.org-gnome-gedit, .gedit-side-panel-paned {
+  notebook > header {
+    background-color: $headerbar_bg_color;
+    &:backdrop { background-color: $headerbar_backdrop_color; }
+    box-shadow: inset 0 -1px $headerbar_shade_color;
+  }
+}
 
 .gedit-search-slider {
   // gives gedit search entry some padding and a border

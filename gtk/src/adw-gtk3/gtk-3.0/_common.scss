@@ -2289,12 +2289,14 @@ notebook {
           padding: 2px 8px;
           border-radius: $button_radius;
           transition: $button_transition;
+          background-color: transparent;
 
           &:hover {
-            @include button(hover);
+            background-color: $hover_color;
           }
           &:checked {
-            @include button(normal);
+            background-color: $selected_color;
+            &:hover { background-color: $selected_hover_color; }
           }
         }
       }
@@ -2380,9 +2382,18 @@ notebook {
       border-color: transparent; //
 
       &.reorderable-page {
-        background-color: $tab_color;
-        box-shadow: none;
-        border: none;
+        -gtk-outline-radius: $button_radius + 2;
+        outline-width: 2px;
+        outline-style: solid;
+        outline-color: entry_focus_border();
+
+        &:hover {
+          background-color: $hover_color;
+        }
+        &:checked {
+          background-color: $selected_color;
+          &:hover { background-color: $selected_hover_color; }
+        }
       }
 
       // colors the button like the label, overridden otherwise
@@ -2434,7 +2445,7 @@ notebook {
           margin-right: 4px;
 
           &.reorderable-page {
-            border-style: none solid;
+            border-style: none;
             margin-left: 0px;
             margin-right: 0px;
           }
