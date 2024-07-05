@@ -2267,88 +2267,34 @@ popover.background {
 // *************
 // * Notebooks *
 // *************
+window.background:not(.solid-csd):not(.csd) > notebook > header { border: 0; } // For libreoffice. No idea why.
+
 notebook {
+  &, &.frame { border: none; }
+
   > header {
-    padding: 0px;
-    border-color: $border_color;
-    border-width: 0px;
+    padding: 6px;
+    border: none;
     background-color: $bg_color;
     box-shadow: none;
-
-    &.top { box-shadow: inset 0 -1px $border_color; }
-    &.bottom { box-shadow: inset 0 1px $border_color; }
-    &.left { box-shadow: inset -1px 0 $border_color; }
-    &.right { box-shadow: inset 1px 0 $border_color; }
+    border-color: transparent;
 
     tabs { margin: 0px; }
 
-    &.top {
+    &.top, &.bottom, &.left, &.right {
       border-bottom-style: solid;
       > tabs {
         margin-bottom: 0px;
         > tab {
-          &:not(.reorderable-page):hover {
-            box-shadow: inset 0 -4px $border_color;
-            &:not(:checked) {
-              background-color: $view_hover_color;
-            }
-          }
-          &:not(.reorderable-page):checked {
-            box-shadow: inset 0 -4px $selected_bg_color;
-          }
-        }
-      }
-    }
+          padding: 2px 8px;
+          border-radius: $button_radius;
+          transition: $button_transition;
 
-    &.bottom {
-      border-top-style: solid;
-      > tabs {
-        margin-top: 0px;
-        > tab {
-          &:not(.reorderable-page):hover {
-            box-shadow: inset 0 4px $border_color;
-            &:not(:checked) {
-              background-color: $view_hover_color;
-            }
+          &:hover {
+            @include button(hover);
           }
-          &:not(.reorderable-page):checked {
-            box-shadow: inset 0 4px $selected_bg_color;
-          }
-        }
-      }
-    }
-
-    &.left {
-      border-right-style: solid;
-      > tabs {
-        margin-right: 0px;
-        > tab {
-          &:not(.reorderable-page):hover {
-            box-shadow: inset -4px 0 $border_color;
-            &:not(:checked) {
-              background-color: $view_hover_color;
-            }
-          }
-          &:not(.reorderable-page):checked {
-            box-shadow: inset -4px 0 $selected_bg_color;
-          }
-        }
-      }
-    }
-
-    &.right {
-      border-left-style: solid;
-      > tabs {
-        margin-left: 0px;
-        > tab {
-          &:not(.reorderable-page):hover {
-            box-shadow: inset 4px 0 $border_color;
-            &:not(:checked) {
-              background-color: $view_hover_color;
-            }
-          }
-          &:not(.reorderable-page):checked {
-            box-shadow: inset 4px 0 $selected_bg_color;
+          &:checked {
+            @include button(normal);
           }
         }
       }
@@ -2435,54 +2381,8 @@ notebook {
 
       &.reorderable-page {
         background-color: $tab_color;
-        box-shadow: inset -1px -1px $border_color;
+        box-shadow: none;
         border: none;
-      }
-
-      &:hover {
-        color: $fg_color;
-
-        &.reorderable-page {
-          border-color: $border_color;
-          background-color: $tab_color_hover;
-          box-shadow: inset -1px -1px $border_color,
-                      inset 0 -4px $border_color;
-          transition: background-color 150ms ease-in-out;
-          &:backdrop { background-color: $tab_color_backdrop_hover; }
-        }
-      }
-
-      &:backdrop {
-        &.reorderable-page {
-          color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
-          border-color: transparent;
-          background-color: $tab_color_backdrop;
-          box-shadow: inset -1px -1px $border_color;
-        }
-      }
-
-      &:checked {
-        color: $fg_color;
-        &.reorderable-page {
-          border-width: 0;
-          border-color: $border_color;
-          background-color: $tab_color_active;
-          box-shadow: inset -1px -1px $border_color,
-                      inset 0 -4px $selected_bg_color;
-          &:hover {
-            background-color: $tab_color_active_hover;
-          }
-        }
-      }
-
-      &:backdrop:checked {
-        &.reorderable-page {
-          color: $backdrop_fg_color;
-          border-color: $border_color;
-          box-shadow: inset -1px -1px $border_color,
-                      inset 0 -4px gtkalpha($selected_bg_color, .5);
-          background-color: $tab_color_backdrop_active;
-        }
       }
 
       // colors the button like the label, overridden otherwise
@@ -2574,7 +2474,8 @@ notebook {
   }
 
   > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
-    background-color: $notebook_color;
+    //background-color: $notebook_color;
+    background-color: $bg_color;
 
     //&:backdrop { background-color: $backdrop_base_color; }
   }
@@ -4796,4 +4697,3 @@ popover.emoji-completion contents row box {
 popover.emoji-completion .emoji:hover {
   background: $view_hover_color;
 }
-
