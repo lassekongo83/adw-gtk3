@@ -2267,7 +2267,11 @@ popover.background {
 // *************
 // * Notebooks *
 // *************
-window.background:not(.solid-csd):not(.csd) > notebook > header { border: 0; } // For libreoffice. No idea why.
+window.background:not(.solid-csd):not(.csd) > notebook > header {
+  // For libreoffice. No idea why.
+  border: 0;
+  tab { margin: 0; }
+}
 
 notebook {
   &, &.frame { border: none; }
@@ -2384,6 +2388,7 @@ notebook {
       &.reorderable-page {
         -gtk-outline-radius: $button_radius + 2;
         outline-width: 2px;
+        outline-offset: -2px;
         outline-style: solid;
         outline-color: entry_focus_border();
 
