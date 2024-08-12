@@ -55,7 +55,7 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita' && gsettings set o
 These are maintained by contributors.
 
 * **Fedora:** `dnf install adw-gtk3-theme`
-* **AUR:** https://aur.archlinux.org/packages/adw-gtk3-git/
+* **Arch:** `pacman -S adw-gtk-theme`
 * **Manjaro**: `pamac install adw-gtk3`
 * **Debian**: https://gitlab.com/julianfairfax/package-repo#how-to-add-repository-for-debian-based-linux-distributions
 
