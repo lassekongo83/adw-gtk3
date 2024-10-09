@@ -78,6 +78,8 @@ See [CONTRIBUTING.md](https://github.com/lassekongo83/adw-gtk3/blob/main/CONTRIB
 
 Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
 
+Note: GTK3 doesn't support the accent color feature introduced in GNOME 47. Only libadwaita does.
+
 <div align="center">
 
 ## For more consistency
