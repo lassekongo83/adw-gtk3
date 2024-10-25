@@ -30,33 +30,36 @@ An unofficial GTK3 port of [libadwaita](https://gnome.pages.gitlab.gnome.org/lib
 flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 ```
 
+**Note:** [Flatpak GTK4 applications can't be styled by the theme.](https://github.com/lassekongo83/adw-gtk3/issues/235)
+
 You can then enable adw-gtk3 in the application `gnome-tweaks`. (Some applications may require a relog.)
 
 **If you use the dark theme** you'll also need to enable the dark appearance in `gnome-control-center`.
 
 Alternatively you can set the theme with your terminal:
+
+Change the theme to adw-gtk3 light:
 ```bash
-# Change the theme to adw-gtk3 light
 gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3' && gsettings set org.gnome.desktop.interface color-scheme 'default'
-# Change the theme to adw-gtk3-dark
+```
+Change the theme to adw-gtk3-dark:
+```bash
 gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-# Revert to GNOME's default theme
+```
+Revert to GNOME's default theme:
+```bash
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita' && gsettings set org.gnome.desktop.interface color-scheme 'default'
 ```
 
 ### Other installation options
 These are maintained by contributors.
 
-* **Snapcraft:** https://snapcraft.io/adw-gtk3-theme
-* **AUR:** https://aur.archlinux.org/packages/adw-gtk3-git/
+* **Fedora:** `dnf install adw-gtk3-theme`
+* **Arch:** `pacman -S adw-gtk-theme`
 * **Manjaro**: `pamac install adw-gtk3`
-* **Fedora copr:** ([Instructions for Fedora Silverblue](https://github.com/lassekongo83/adw-gtk3/issues/194))
-```bash
-dnf copr enable nickavem/adw-gtk3
-dnf install adw-gtk3
-```
+* **Debian**: https://gitlab.com/julianfairfax/package-repo#how-to-add-repository-for-debian-based-linux-distributions
 
-Thanks to [@dusansimic](https://github.com/dusansimic) (Flatpak, AUR), [@kuroehanako](https://github.com/kuroehanako) (Snapcraft), [@nickavem](https://github.com/nickavem) (Fedora copr) for the help.
+Thanks to [@dusansimic](https://github.com/dusansimic) (Flatpak, AUR), [@solopasha](https://github.com/solopasha) (Fedora), [@julianfairfax](https://github.com/julianfairfax) for the help.
 
 ### Installation from source
 This will install the latest version from the main branch. Use this installation method if you want to contribute and help testing the theme.
@@ -73,7 +76,9 @@ See [CONTRIBUTING.md](https://github.com/lassekongo83/adw-gtk3/blob/main/CONTRIB
 
 </div>
 
-Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors](https://github.com/lassekongo83/adw-colors) for more info. You can also use the application [Gradience](https://github.com/GradienceTeam/Gradience) to easily change colors.
+Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
+
+Note: GTK3 doesn't support the accent color feature introduced in GNOME 47. Only libadwaita does.
 
 <div align="center">
 
@@ -82,12 +87,14 @@ Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors
 </div>
 
 - **GTK4:** [Info on how to extract libadwaita from source.](https://github.com/lassekongo83/adw-gtk3/blob/main/gtk4.md)
+- **GTK2:** https://github.com/eylles/adw-gtk2-colorizer
 - **Kvantum:** https://github.com/GabePoel/KvLibadwaita
 - **Firefox:** https://github.com/rafaelmardojai/firefox-gnome-theme
 - **Steam:** https://github.com/tkashkin/Adwaita-for-Steam
 - **VSCode:** https://github.com/piousdeer/vscode-adwaita
 - **Discord:** https://github.com/GeopJr/DNOME
 - **Obsidian:** https://github.com/birneee/obsidian-adwaita-theme
+- **xfwm4:** https://github.com/FabianOvrWrt/adw-xfwm4
 <div align="center">
 
 ## How to uninstall the theme(s)
@@ -98,3 +105,12 @@ Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors
 - For a global installation: `sudo rm -r /usr/share/themes/adw-gtk3*`
 
 Flatpak: `flatpak uninstall org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark`
+
+<div align="center">
+
+## Credits
+
+</div>
+
+- Libadwaita source: https://gitlab.gnome.org/GNOME/libadwaita
+- Adw-gtk3 contributors: https://github.com/lassekongo83/adw-gtk3/graphs/contributors

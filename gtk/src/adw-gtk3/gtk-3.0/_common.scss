@@ -104,6 +104,7 @@ $_switch_margin: if($_sizevariant=='default', 9px, 7px);
 .view,
 %view {
   color: $text_color;
+  caret-color: $caret_color;
   background-color: $base_color;
 
   &:disabled {
@@ -113,7 +114,8 @@ $_switch_margin: if($_sizevariant=='default', 9px, 7px);
 
   &:selected {
     &:focus, & {
-      @extend %selected_items;
+      //@extend %selected_items;
+      background-color: $view_selected_color;
 
       border-radius: $button_radius;
     }
@@ -209,16 +211,6 @@ label {
 }
 
 assistant {
-  .sidebar {
-    background-color: $base_color;
-    border-top: 1px solid $borders_color;
-
-    &:backdrop {
-      background-color: $backdrop_base_color;
-      border-color: $backdrop_borders_color;
-    }
-  }
-
   &.csd .sidebar { border-top-style: none; }
 
   .sidebar label { padding: 6px 12px; }
@@ -559,6 +551,10 @@ button {
     border-radius: $button_radius;
     transition: $button_transition;
     font-weight: bold;
+    outline-style: solid;
+    outline-offset: -2px;
+    outline-width: 2px;
+    -gtk-outline-radius: $button-radius - 2;
 
     @include button(normal);
 
@@ -1001,7 +997,7 @@ toolbar.inline-toolbar toolbutton {
 %linked_vertical_middle {
   border-top-color: $border_color;
   border-bottom-color: $border_color;
-  border-style: solid solid none solid;
+  border-style: solid none none none;
   border-radius: 0;
   -gtk-outline-radius: 0;
 }
@@ -1063,9 +1059,12 @@ modelbutton.flat,
 
   @extend %undecorated_button;
 
-  &:hover { background-color: $view_selected_color; }
+  &:hover { background-color: $selected_color; }
 
-  &:selected { @extend %selected_items; }
+  &:selected {
+    //@extend %selected_items;
+    background-color: $selected_color;
+  }
 }
 
 modelbutton.flat arrow {
@@ -1100,13 +1099,20 @@ button.color {
 }
 
 // list buttons
-// tone down as per new designs, see issue #1473, #1748
 list row button.image-button:not(.flat) {
   @extend %undecorated_button;
-  border: 1px solid gtkalpha($borders_color, .5);
-  &:hover { @include button(hover); }
-  &:active,
-  &:checked { @include button(active); }
+  //border: 1px solid gtkalpha($borders_color, .5);
+  &:hover {
+    background-color: $view_hover_color;
+  }
+  &:active {
+    background-color: $view_active_color;
+  }
+  &:checked {
+    background-color: $view_selected_color;
+    &:hover { background-color: $view_selected_hover_color; }
+    &:active { background-color: $view_selected_active_color; }
+  }
 }
 
 // *********
@@ -1322,13 +1328,15 @@ spinbutton {
     }
 
     %top_button {
+      border-color: $spinbutton_borders_color;
       border-radius: $button_radius $button_radius 0 0;
-      border-style: solid solid none solid;
+      border-style: none none solid none;
     }
 
     %bottom_button {
+      border-color: $spinbutton_borders_color;
       border-radius: 0 0 $button_radius $button_radius;
-      border-style: none solid solid solid;
+      border-style: solid none none none;
     }
   }
 
@@ -1870,8 +1878,6 @@ filechooser .path-bar.linked > button {
 // * Tree Views *
 // **************
 
-$_treeview_borders_color: $border_color;
-
 treeview.view {
   @at-root * {
     -GtkTreeView-horizontal-separator: 4;
@@ -1933,13 +1939,13 @@ treeview.view {
 
     &:hover { color: $text_color; }
 
-    &:selected {
-      color: gtkmix($selected_fg_color, $selected_bg_color, 70%);
+    //&:selected {
+      //color: gtkmix($selected_fg_color, $selected_bg_color, 70%);
 
-      &:hover { color: $selected_fg_color; }
+      //&:hover { color: $selected_fg_color; }
 
-      &:backdrop { color: gtkmix($backdrop_selected_fg_color, $selected_bg_color, 70%); }
-    }
+      //&:backdrop { color: gtkmix($backdrop_selected_fg_color, $selected_bg_color, 70%); }
+    //}
 
     &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
   }
@@ -2003,7 +2009,7 @@ treeview.view {
       color: $_column_header_color;
       background-color: $base_color;
       font-weight: bold;
-      font-size: small;
+      font-size: smaller;
       text-shadow: none;
       box-shadow: none;
 
@@ -2045,10 +2051,11 @@ treeview.view {
 %column_header_button {
   padding: 0 6px;
   background-image: none;
-  border-style: none solid solid none;
-  border-color: $_treeview_borders_color;
+  border-style: none;
   border-radius: 0;
   text-shadow: none;
+  &:hover { @include button(hover); }
+  &:active { @include button(active); }
 
   &:disabled {
     border-color: $bg_color;
@@ -2066,7 +2073,7 @@ treeview.view {
 menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
-  padding: 0px;
+  padding: 0;
 
   &:backdrop { background-color: $backdrop_bg_color; }
 
@@ -2085,7 +2092,7 @@ menubar,
     }
 
     &:hover { //Seems like it :hover even with keyboard focus
-      background-color: gtkmix(currentColor, $base_color, 12.5%);
+      background-color: $selected_color;
     }
 
     &:disabled {
@@ -2129,7 +2136,7 @@ menu,
 
     &:hover {
       color: $fg_color;
-      background-color: $view_selected_hover_color;
+      background-color: $selected_color;
     }
 
     &:disabled {
@@ -2260,88 +2267,40 @@ popover.background {
 // *************
 // * Notebooks *
 // *************
+window.background:not(.solid-csd):not(.csd) > notebook > header {
+  // For libreoffice. No idea why.
+  border: 0;
+  tab { margin: 0; }
+}
+
 notebook {
+  &, &.frame { border: none; }
+
   > header {
-    padding: 0px;
-    border-color: $border_color;
-    border-width: 0px;
+    padding: 6px;
+    border: none;
     background-color: $bg_color;
     box-shadow: none;
-
-    &.top { box-shadow: inset 0 -1px $border_color; }
-    &.bottom { box-shadow: inset 0 1px $border_color; }
-    &.left { box-shadow: inset -1px 0 $border_color; }
-    &.right { box-shadow: inset 1px 0 $border_color; }
+    border-color: transparent;
 
     tabs { margin: 0px; }
 
-    &.top {
+    &.top, &.bottom, &.left, &.right {
       border-bottom-style: solid;
       > tabs {
         margin-bottom: 0px;
         > tab {
-          &:not(.reorderable-page):hover {
-            box-shadow: inset 0 -4px $border_color;
-            &:not(:checked) {
-              background-color: $view_hover_color;
-            }
-          }
-          &:not(.reorderable-page):checked {
-            box-shadow: inset 0 -4px $selected_bg_color;
-          }
-        }
-      }
-    }
+          padding: 2px 8px;
+          border-radius: $button_radius;
+          transition: $button_transition;
+          background-color: transparent;
 
-    &.bottom {
-      border-top-style: solid;
-      > tabs {
-        margin-top: 0px;
-        > tab {
-          &:not(.reorderable-page):hover {
-            box-shadow: inset 0 4px $border_color;
-            &:not(:checked) {
-              background-color: $view_hover_color;
-            }
+          &:hover {
+            background-color: $hover_color;
           }
-          &:not(.reorderable-page):checked {
-            box-shadow: inset 0 4px $selected_bg_color;
-          }
-        }
-      }
-    }
-
-    &.left {
-      border-right-style: solid;
-      > tabs {
-        margin-right: 0px;
-        > tab {
-          &:not(.reorderable-page):hover {
-            box-shadow: inset -4px 0 $border_color;
-            &:not(:checked) {
-              background-color: $view_hover_color;
-            }
-          }
-          &:not(.reorderable-page):checked {
-            box-shadow: inset -4px 0 $selected_bg_color;
-          }
-        }
-      }
-    }
-
-    &.right {
-      border-left-style: solid;
-      > tabs {
-        margin-left: 0px;
-        > tab {
-          &:not(.reorderable-page):hover {
-            box-shadow: inset 4px 0 $border_color;
-            &:not(:checked) {
-              background-color: $view_hover_color;
-            }
-          }
-          &:not(.reorderable-page):checked {
-            box-shadow: inset 4px 0 $selected_bg_color;
+          &:checked {
+            background-color: $selected_color;
+            &:hover { background-color: $selected_hover_color; }
           }
         }
       }
@@ -2427,54 +2386,18 @@ notebook {
       border-color: transparent; //
 
       &.reorderable-page {
-        background-color: $tab_color;
-        box-shadow: inset -1px -1px $border_color;
-        border: none;
-      }
+        -gtk-outline-radius: $button_radius + 2;
+        outline-width: 2px;
+        outline-offset: -2px;
+        outline-style: solid;
+        outline-color: entry_focus_border();
 
-      &:hover {
-        color: $fg_color;
-
-        &.reorderable-page {
-          border-color: $border_color;
-          background-color: $tab_color_hover;
-          box-shadow: inset -1px -1px $border_color,
-                      inset 0 -4px $border_color;
-          transition: background-color 150ms ease-in-out;
-          &:backdrop { background-color: $tab_color_backdrop_hover; }
+        &:hover {
+          background-color: $hover_color;
         }
-      }
-
-      &:backdrop {
-        &.reorderable-page {
-          color: gtkmix($backdrop_fg_color, $backdrop_bg_color, 60%);
-          border-color: transparent;
-          background-color: $tab_color_backdrop;
-          box-shadow: inset -1px -1px $border_color;
-        }
-      }
-
-      &:checked {
-        color: $fg_color;
-        &.reorderable-page {
-          border-width: 0;
-          border-color: $border_color;
-          background-color: $tab_color_active;
-          box-shadow: inset -1px -1px $border_color,
-                      inset 0 -4px $selected_bg_color;
-          &:hover {
-            background-color: $tab_color_active_hover;
-          }
-        }
-      }
-
-      &:backdrop:checked {
-        &.reorderable-page {
-          color: $backdrop_fg_color;
-          border-color: $border_color;
-          box-shadow: inset -1px -1px $border_color,
-                      inset 0 -4px gtkalpha($selected_bg_color, .5);
-          background-color: $tab_color_backdrop_active;
+        &:checked {
+          background-color: $selected_color;
+          &:hover { background-color: $selected_hover_color; }
         }
       }
 
@@ -2527,7 +2450,7 @@ notebook {
           margin-right: 4px;
 
           &.reorderable-page {
-            border-style: none solid;
+            border-style: none;
             margin-left: 0px;
             margin-right: 0px;
           }
@@ -2567,7 +2490,8 @@ notebook {
   }
 
   > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
-    background-color: $notebook_color;
+    //background-color: $notebook_color;
+    background-color: $bg_color;
 
     //&:backdrop { background-color: $backdrop_base_color; }
   }
@@ -2749,7 +2673,7 @@ switch {
   outline-offset: -4px;
 
   // similar to the .scale
-  padding: 2px;
+  padding: 3px;
   border-radius: 14px;
   color: $fg_color;
   background-color: $switch_color;
@@ -3643,6 +3567,8 @@ printdialog {
     border: 1px solid $borders_color;
     background: white;
     padding: 0;
+    border-radius: 0;
+    box-shadow: none;
 
     &:backdrop {
       color: $backdrop_fg_color;
@@ -3733,7 +3659,14 @@ list {
   background-color: $view_bg_color;
   border-color: $card_shade_color;
 
-  row { padding: 2px; }
+  row {
+    padding: 2px;
+    outline-color: $focus_border_color;
+    outline-style: solid;
+    outline-offset: -3px;
+    outline-width: 2px;
+    -gtk-outline-radius: $button-radius;
+  }
 }
 
 row {
@@ -3746,30 +3679,30 @@ row {
   &.activatable {
     &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
 
-    &:hover { background-color: $view_hover_color; }
+    &:hover { background-color: $hover_color; }
 
-    &:active { background-color: $view_active_color; }
+    &:active { background-color: $active_color; }
 
     &:backdrop:hover { background-color: transparent; }
 
     &:selected {
       color: $fg_color;
-      &:active { background-color: $view_selected_active_color; }
+      &:active { background-color: $selected_active_color; }
 
       &.has-open-popup,
       &:hover {
-        background-color: $view_selected_hover_color;
+        background-color: $selected_hover_color;
         color: $fg_color;
       }
 
       &:backdrop {
-        background-color: $view_hover_color;
+        background-color: $hover_color;
         color: $fg_color;
       }
     }
   }
 
-  &:selected { background-color: $view_selected_color; }
+  &:selected { background-color: $selected_color; }
 }
 
 // *********************
@@ -3958,20 +3891,25 @@ filechooserbutton:drop(active) {
 .sidebar {
   border-style: none;
   background-color: $sidebar_bg_color;
+  color: $sidebar_fg_color;
+
+  &:backdrop {
+    background-color: $sidebar_backdrop_color;
+  }
 
   &:not(separator) {
     @at-root %sidebar_left,
     &:dir(ltr),
     &.left,
     &.left:dir(rtl) {
-      border-right: 1px solid $borders_color;
+      border-right: 1px solid $sidebar_border_color;
       border-left-style: none;
     }
 
     @at-root %sidebar_right,
     &:dir(rtl),
     &.right {
-      border-left: 1px solid $borders_color;
+      border-left: 1px solid $sidebar_border_color;
       border-right-style: none;
     }
   }
@@ -3982,7 +3920,7 @@ filechooserbutton:drop(active) {
 
   row {
     border-radius: $button_radius;
-    &:backdrop { color: $fg_color; }
+    &:backdrop { color: $sidebar_fg_color; }
   }
   row, separator {
     margin: 0 4px;
@@ -4016,7 +3954,7 @@ stacksidebar {
 }
 
 separator.sidebar {
-  background-color: $borders_color;
+  background-color: $sidebar_border_color;
   //margin: 0 4px;
 
   &.selection-mode,
@@ -4586,19 +4524,21 @@ headerbar.selection-mode button.titlebutton,
 // catch all extend :)
 
 %selected_items {
-  background-color: $selected_bg_color;
+  background-color: $view_selected_color;
 
   @at-root %nobg_selected_items, & {
-    color: $selected_fg_color;
+    color: $fg_color; //$selected_fg_color;
 
     @at-root %selected_items_disabled,
-    &:disabled { color: gtkmix($selected_fg_color, $selected_bg_color, 50%); }
+    &:disabled {
+      //color: gtkmix($selected_fg_color, $selected_bg_color, 50%);
+    }
 
     @at-root %selected_items_backdrop,
     &:backdrop {
-      color: $selected_fg_color;
+      //color: $selected_fg_color;
 
-      &:disabled { color: gtkmix($backdrop_selected_fg_color, $selected_bg_color, 30%); }
+      //&:disabled { color: gtkmix($backdrop_selected_fg_color, $selected_bg_color, 30%); }
     }
   }
 }
@@ -4735,11 +4675,10 @@ button.emoji-section {
 
   &:backdrop:not(:checked) { border-color: transparent; }
   &:hover { border-color: if($variant == 'light', $borders_color, gtkalpha($fg_color, .1)); }
-  &:checked { border-color: $selected_bg_color; }
+  &:checked { border-color: $selected_color; }
 
   label {
     padding: 0;
-
     opacity: 0.55;
   }
 
@@ -4750,10 +4689,15 @@ button.emoji-section {
 popover.emoji-picker .emoji {
   font-size: x-large;
   padding: 6px;
+  border-radius: $button_radius;
 
+  :focus,
   :hover {
-    background: $selected_bg_color;
-    border-radius: 6px;
+    background: $hover_color;
+  }
+
+  :active {
+    background: $active_color;
   }
 }
 
@@ -4769,4 +4713,3 @@ popover.emoji-completion contents row box {
 popover.emoji-completion .emoji:hover {
   background: $view_hover_color;
 }
-

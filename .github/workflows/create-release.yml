@@ -1,0 +1,71 @@
+name: Create release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update && sudo apt-get -y install ninja-build sassc
+        sudo pip3 install meson
+
+    - name: Update version
+      id: update_version
+      run: |
+        VERSION=$(cat version)
+        MAJOR=$(echo $VERSION | cut -d'.' -f1)
+        MINOR=$(echo $VERSION | cut -d'.' -f2)
+        if (( MINOR >= 10 )); then
+          MAJOR=$((MAJOR + 1))
+          MINOR=0
+        else
+          MINOR=$((MINOR + 1))
+        fi
+        echo "$MAJOR.$MINOR" > version
+        echo "version=$MAJOR.$MINOR" >> $GITHUB_ENV
+
+    - name: Build theme
+      run: |
+        meson setup -Dprefix="/home/runner/work/${{ github.repository }}/build" build
+        ninja -C build install
+        cd /home/runner/work/lassekongo83/adw-gtk3/build/share/themes
+        tar -cJf adw-gtk3.tar.xz adw-gtk3 adw-gtk3-dark
+        mv /home/runner/work/lassekongo83/adw-gtk3/build/share/themes/adw-gtk3.tar.xz /home/runner/work/lassekongo83/adw-gtk3/build/share/themes/adw-gtk3v${{ env.version }}.tar.xz
+
+    - name: Get previous release version
+      id: prev_release
+      run: |
+        PREV_VERSION=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+        https://api.github.com/repos/${{ github.repository }}/releases/latest \
+        | jq -r '.tag_name')
+        echo "prev_version=$PREV_VERSION" >> $GITHUB_ENV
+
+    - name: Create and Upload Release
+      id: create_release
+      uses: softprops/action-gh-release@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ env.version }}
+        name: adw-gtk3 v${{ env.version }}
+        body: >
+          Full Changelog: https://github.com/lassekongo83/adw-gtk3/compare/${{ env.prev_version }}...v${{ env.version }}
+        draft: false
+        prerelease: false
+        files: |
+          /home/runner/work/lassekongo83/adw-gtk3/build/share/themes/adw-gtk3v${{ env.version }}.tar.xz
+
+    - name: Commit and push
+      run: |
+        git config user.name "GitHub-Actions"
+        git config user.email "<>"
+        git add version
+        git commit -m "Bump version to ${{ env.version }}"
+        git push

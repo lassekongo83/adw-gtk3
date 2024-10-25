@@ -79,7 +79,7 @@
           border: none;
 
           > box {
-            background-color: $view_hover_color;
+            background-color: $hover_color;
             transition: background-color 150ms ease-in-out;
           }
 
@@ -109,7 +109,7 @@
           border: none;
 
           > box {
-            background-color: $view_selected_color;
+            background-color: $selected_color;
             transition: background-color 150ms ease-in-out;
           }
 
@@ -117,7 +117,7 @@
             box-shadow: none;
             background-color: transparent;
 
-            > box { background-color: $view_selected_hover_color; }
+            > box { background-color: $selected_hover_color; }
 
             &:backdrop { box-shadow: none; }
           }
@@ -139,7 +139,7 @@
 // ************
 
 .nautilus-window {
-  @extend %libadwaita_tabs;
+  //@extend %libadwaita_tabs;
 
   // Without this nautilus iconview grabs the bg_color
   notebook,
@@ -357,7 +357,15 @@ $disk_space_free: #eeeeec;
 // * Gedit *
 // *********
 
-.org-gnome-gedit, .gedit-side-panel-paned { @extend %libadwaita_tabs; }
+//.org-gnome-gedit, .gedit-side-panel-paned { @extend %libadwaita_tabs; }
+
+.org-gnome-gedit, .gedit-side-panel-paned {
+  notebook > header {
+    background-color: $headerbar_bg_color;
+    &:backdrop { background-color: $headerbar_backdrop_color; }
+    box-shadow: inset 0 -1px $headerbar_shade_color;
+  }
+}
 
 .gedit-search-slider {
   // gives gedit search entry some padding and a border
@@ -411,6 +419,43 @@ $disk_space_free: #eeeeec;
 // * gnome-tweaks *
 // ****************
 
+.titlebar.tweak-titlebar-left {
+  background-image: none;
+  background-color: $sidebar_bg_color;
+  border-bottom-color: transparent;
+  &:backdrop {
+    background-color: $sidebar_backdrop_color;
+  }
+
+  button {
+    background-color: transparent;
+    &:hover { background-color: $titlebutton_normal_hover; }
+    &:hover:active, &:active, &:hover:checked, &:checked  { background-color: $titlebutton_normal_active; }
+    &:backdrop { background: $titlebutton_backdrop; }
+    &:backdrop:hover { background: $titlebutton_backdrop_hover; }
+  }
+}
+
+.titlebar.tweak-titlebar-right {
+  background-image: none;
+  background-color: $bg_color;
+  border-bottom-color: transparent;
+}
+
+.navigation-sidebar {
+  background-color: $sidebar_bg_color;
+  &:backdrop {
+    background-color: $sidebar_backdrop_color;
+  }
+
+  separator.horizontal {
+    margin: 2px 0;
+    padding: 0;
+    background-color: transparent;
+  }
+}
+
+// legacy stuff
 list.tweak-categories separator.horizontal {
   background: transparent;
   margin: 2px 0;
@@ -458,6 +503,13 @@ window#guake-terminal notebook header {
 // * XFCE4 *
 // *********
 
+.XfceHeading {
+  background-color: $base_color;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+}
+
 XfdesktopIconView.view {
   background: transparent;
   color: $osd_fg_color;
@@ -487,7 +539,20 @@ $panel_transition_duration: 250ms;
 
   .tasklist button,
   #actions-button,
-  #clock-button { margin: 2px; }
+  #clock-button { margin: 0 1px; }
+
+  &.horizontal .tasklist {
+    button {
+      margin: 0 1px;
+      label { padding-right: 3px; }
+    }
+  }
+  &.vertical .tasklist {
+    button {
+      margin: 1px 0;
+      label { padding-bottom: 3px; }
+    }
+  }
 
   .tasklist image {
     //-gtk-icon-transform: scale(0); margin: -10px; // Removes the icon
@@ -508,6 +573,7 @@ $panel_transition_duration: 250ms;
     min-width: 12px;
     border-radius: 24px;
     color: $panel_fg_color;
+    transition-duration: $panel_transition_duration;
     @include button(undecorated);
 
     &:disabled {
@@ -532,6 +598,13 @@ $panel_transition_duration: 250ms;
         color: gtkalpha($panel_fg_color, 0.2);
       }
     }
+
+    &:drop(active) {
+      color: $drop_target_color;
+      border-color: $drop_target_color;
+      box-shadow: inset 0 0 0 1px $drop_target_color;
+    }
+
     entry { caret-color: $text_color; }
     menu {
       -gtk-icon-effect: none;
@@ -548,6 +621,70 @@ $panel_transition_duration: 250ms;
       }
     }
   }
+
+  progressbar {
+    margin: 0;
+
+    &.horizontal {
+      trough {
+        min-height: 6px;
+        padding: 0;
+      }
+      progress { min-height: 4px; }
+    }
+
+    &.vertical {
+      trough {
+        min-width: 6px;
+        padding: 0;
+      }
+      progress { min-width: 4px; }
+    }
+
+    progress { border-radius: 0px; }
+
+    trough {
+      background: gtkshade($panel_bg_color, 0.7);
+      border-radius: 0px;
+      border-color: gtkshade($panel_bg_color, 0.4);
+    }
+  }
+}
+
+// Workspace switcher
+wnck-pager {
+  background-color: gtkalpha($panel_fg_color, 0.1);
+  &:selected { background-color: gtkshade($selected_bg_color, 0.88); }
+  &:hover { background-color: $selected_bg_color; }
+}
+
+// Xfwm4's alt-tab dialog, aka "tabwin"
+#xfwm-tabwin {
+  padding: 12px;
+  border-radius: $window_radius;
+  // Set the application icon- and preview-size
+  -XfwmTabwinWidget-icon-size: 64px;
+  -XfwmTabwinWidget-preview-size: 128px;
+
+  .tabwin-app-grid button {
+    min-width: 96px;
+    min-height: 96px;
+  }
+}
+
+// Whisker menu
+window#whiskermenu-window {
+  button { transition: none; }
+}
+
+#whiskermenu-button {
+  transition: none;
+}
+
+// XfceNotifyWindow
+#XfceNotifyWindow {
+  border-radius: $menu_radius;
+  background-color: $base_color;
 }
 
 // ********
@@ -585,7 +722,7 @@ $panel_transition_duration: 250ms;
 
     viewport.frame box.vertical treeview.view.places-treeview {
       // use sidebar bg color
-      background-image: image($sidebar_bg_color);
+      background-image: image($bg_color);
       border-radius: 0; // get rid of weird radius on selected rows
 
       &:selected {
@@ -594,6 +731,7 @@ $panel_transition_duration: 250ms;
 
       &:not(:selected) {
         &:not(:backdrop):hover {
+          $base_hover_color: gtkalpha($fg_color, 0.05);
           background-image: image($base_hover_color);
         }
       }
@@ -680,8 +818,12 @@ window.background.chromium {
     background-color: gtkmix(currentColor, $bg_color, 20%);
   }
 
-  textview.view { 
+  textview.view {
     background-color: $base_color;
+  }
+
+  menuitem {
+    border-radius: 0;
   }
 }
 
@@ -707,8 +849,18 @@ window.background.chromium {
     }
   }
 
+  // https://github.com/lassekongo83/adw-gtk3/issues/234
+  check,
+  radio {
+    padding: 0;
+    min-height: 12px;
+    min-width: 12px;
+  }
+
   // https://github.com/lassekongo83/adw-gtk3/issues/130
+  // Kept around for ESR users. menuitem does not work on 114+.
   menuitem {
+    border-radius: 0;
     check,
     radio {
       min-height: 12px;
@@ -722,6 +874,18 @@ window.background.chromium {
 
     > widget {
       border { border-color: $borders_color; }
+    }
+  }
+}
+
+// Make sure text selection is somewhat visible on websites with various backgrounds
+// in both chromium and firefox
+window.background.chromium,
+#MozillaGtkWidget.background {
+  selection {
+    &:focus, & {
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
     }
   }
 }
@@ -749,6 +913,56 @@ dzlsuggestionpopover > revealer > box > elastic > scrolledwindow > viewport > li
     @extend .dim-label;
   }
   image { color: $selected_fg_color; }
+}
+
+.incognito-mode {
+  headerbar, headerbar.titlebar, .titlebar {
+    background: $incognito_bg_color;
+
+    &:backdrop {
+      background: gtkmix($incognito_bg_color, $bg_color, 50%);
+    }
+
+    button.image-button {
+      &:hover {
+        @include button(normal, gtkmix(currentColor, $incognito_bg_color, -3%), $headerbar_fg_color);
+
+        &:backdrop {
+          @include button(backdrop, gtkmix(currentColor, $incognito_bg_color, -1%), $backdrop_headerbar_fg);
+        }
+      }
+
+      &:active, &:checked {
+        @if $variant == 'light' {
+          @include button(normal, $incognito_bg_color, $headerbar_fg_color);
+          &:hover {
+            @include button(normal, gtkmix(currentColor, $incognito_bg_color, 3%), $headerbar_fg_color);
+          }
+        }
+        @else {
+          @include button(normal, $incognito_bg_color, $headerbar_fg_color);
+          &:hover {
+            @include button(normal, gtkmix(currentColor, $incognito_bg_color, 3.7%), $headerbar_fg_color);
+          }
+        }
+        &:backdrop {
+          @include button(backdrop, $incognito_bg_color, $backdrop_headerbar_fg);
+        }
+      }
+    }
+    entry {
+      @include button(normal, $incognito_bg_color, $headerbar_fg_color);
+      &:backdrop {
+        @include button(backdrop, $incognito_bg_color, $backdrop_headerbar_fg);
+      }
+      &:disabled {
+        @include button(insensitive, $incognito_bg_color, $disabled_headerbar_fg);
+      }
+      &:disabled:backdrop {
+        @include button(insensitive, $incognito_bg_color, $backdrop_headerbar_fg);
+      }
+    }
+  }
 }
 
 // ***********
@@ -865,6 +1079,8 @@ window.background.caja-navigation-window #Toolbar {
   }
 }
 
+gnc-id-sheet-list { background-color: $window_bg_color; }
+
 // *********
 // * Geary *
 // *********
@@ -918,7 +1134,62 @@ geary-conversation-viewer#conversation_viewer {
 
 .geary-folder-popover-list-row {
   border-radius: 0;
-  margin:0;
+  margin: 0;
+}
+
+// newer versions
+.geary-main-window leaflet > leaflet > box {
+  &:first-child {
+    background-color: $sidebar_bg_color;
+    &:backdrop { background-color: $sidebar_backdrop_color; }
+  }
+}
+
+.geary-main-window leaflet > box {
+  &:first-child > .titlebar {
+    background-color: $sidebar_bg_color;
+    background-image: none;
+    border-bottom: transparent;
+    box-shadow: none;
+    &:backdrop { background-color: $sidebar_backdrop_color; }
+
+    button {
+      background-color: transparent;
+      &:hover { background-color: $titlebutton_normal_hover; }
+      &:hover:active, &:active, &:hover:checked, &:checked  { background-color: $titlebutton_normal_active; }
+      &:backdrop { background: transparent; }
+      &:backdrop:hover { background: $titlebutton_backdrop_hover; }
+    }
+  }
+
+  &:not(:first-child) > .titlebar {
+    border-bottom: transparent;
+    box-shadow: none;
+    &:backdrop {
+      background-image: none;
+      background-color: $new_title_bg_color;
+    }
+  }
+}
+
+.geary-main-window separator.sidebar {
+  background-color: $borders_color;
+}
+
+.geary-main-window .titlebar .image-button {
+  padding: 0 6px;
+}
+
+.geary-folder {
+  .sidebar.view {
+    &:selected {
+      background-color: $selected_color;
+      &:hover { background-color: $selected_hover_color; }
+    }
+    &:hover {
+      background-color: $hover_color;
+    }
+  }
 }
 
 // ************
@@ -927,4 +1198,34 @@ geary-conversation-viewer#conversation_viewer {
 
 #DialogNotebook treeview.view:hover {
   background-color: gtkalpha($selected_bg_color, .5);
+}
+
+// **********
+// * Budgie *
+// **********
+
+.budgie-panel {
+  button {
+    min-height: 16px;
+    min-width: 16px;
+    padding: 0;
+    border-radius: 0;
+
+    &.flat.launcher {
+      padding: 0;
+    }
+  }
+
+  &.horizontal button,
+  #tasklist-button {
+    padding: 0 4px;
+  }
+
+  &.vertical button {
+    padding: 4px 0;
+  }
+
+  &.vertical #tasklist-button {
+    min-height: 32px;
+  }
 }
