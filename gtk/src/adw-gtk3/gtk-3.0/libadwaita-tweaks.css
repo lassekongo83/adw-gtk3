@@ -10,3 +10,19 @@ notebook > header {
   background-color: @headerbar_bg_color;
   border-color: mix(currentColor,@window_bg_color,0.85);
 }
+
+:root {
+  --accent-blue: #3584e4;
+  --accent-teal: #2190a4;
+  --accent-green: #3a944a;
+  --accent-yellow: #c88800;
+  --accent-orange: #ed5b00;
+  --accent-red: #e62d42;
+  --accent-pink: #d56199;
+  --accent-purple: #9141ac;
+  --accent-slate: #6f8396;
+
+  --accent-color: var(--accent-bg-color);
+  --accent-bg-color: var(--accent-blue);
+  --accent-fg-color: @accent_fg_color;
+}
