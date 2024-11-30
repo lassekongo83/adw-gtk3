@@ -69,6 +69,7 @@ See [CONTRIBUTING.md](https://github.com/lassekongo83/adw-gtk3/blob/main/CONTRIB
 <div align="center">
 
 ## Customizing
+If you want to change your accent color for most applications in GNOME 47 or later, then you can use the small cli program [accent-color-change](https://github.com/lassekongo83/adw-colors/tree/main/accent-color-change).
 
 ![adw-gtk3-customized](preview-customized.png?raw=true)
 
