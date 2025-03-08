@@ -21,7 +21,7 @@ body:
           required: true
         - label: Dark theme only. I have enabled adw-gtk3-dark in `gnome-tweaks` AND set the appearance to dark in `gnome-control-center`
           required: false
-        - label: The flatpak theme is installed `org.gtk.Gtk3theme.adw-gtk3` and `org.gtk.Gtk3theme.adw-gtk3-dark`
+        - label: The app I'm having an issue with is installed with flatpak. I've installed the theme in `~/.local/share/themes` and ran the command `sudo flatpak override --filesystem=xdg-data/themes`.
           required: false
         - label: The app I'm having an issue with is an actual GTK3 app and is not coded using another toolkit like GTK2, GTK4, QT, etc.
           required: false
