@@ -25,14 +25,22 @@ An unofficial GTK3 port of [libadwaita](https://gnome.pages.gitlab.gnome.org/lib
 
 **Note:** Do not extract it to multiple locations. Only use one path.
 
-3. If you use flatpak applications it's recommended to install the flatpak themes. From a terminal run:
+3. If you use flatpak applications it's recommended to use flatpak override. From a terminal run:
 ```bash
-flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+sudo flatpak override --filesystem=xdg-data/themes
 ```
 
-**Note:** [Flatpak GTK4 applications can't be styled by the theme.](https://github.com/lassekongo83/adw-gtk3/issues/235)
+**IMPORTANT:** If you previously used the outdated flatpak packages, then uninstall them with:
+```bash
+flatpak uninstall org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+```
 
-You can then enable adw-gtk3 in the application `gnome-tweaks`. (Some applications may require a relog.)
+Then prevent them from being automatically installed during updates:
+```bash
+sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+```
+
+4. You can then enable adw-gtk3 in the application `gnome-tweaks`. (Some applications may require a relog.)
 
 **If you use the dark theme** you'll also need to enable the dark appearance in `gnome-control-center`.
 
