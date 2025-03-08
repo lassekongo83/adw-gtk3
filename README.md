@@ -21,7 +21,7 @@ An unofficial GTK3 port of [libadwaita](https://gnome.pages.gitlab.gnome.org/lib
 
 ### Tarball
 1. Go to the [releases](https://github.com/lassekongo83/adw-gtk3/releases) section and download the latest `tar.xz` file.
-2. Extract the file to `~/.local/share/themes/` (or `/usr/share/themes` if you want to install it for all users.)
+2. Extract the file to `~/.local/share/themes/`
 
 **Note:** Do not extract it to multiple locations. Only use one path.
 
@@ -30,14 +30,11 @@ An unofficial GTK3 port of [libadwaita](https://gnome.pages.gitlab.gnome.org/lib
 sudo flatpak override --filesystem=xdg-data/themes
 ```
 
-**IMPORTANT:** If you previously used the outdated flatpak packages, then uninstall them with:
-```bash
-flatpak uninstall org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
-```
+To prevent outdated packages from flathub being installed, run: `sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3 && sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3-dark`
 
-Then prevent them from being automatically installed during updates:
+**IMPORTANT:** If you previously used the outdated flatpak packages, then uninstall them and prevent them from being installed with:
 ```bash
-sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+flatpak uninstall org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark && sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3 && sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3-dark
 ```
 
 4. You can then enable adw-gtk3 in the application `gnome-tweaks`. (Some applications may require a relog.)
