@@ -30,6 +30,8 @@ An unofficial GTK3 port of [libadwaita](https://gnome.pages.gitlab.gnome.org/lib
 sudo flatpak override --filesystem=xdg-data/themes
 ```
 
+**Note:** This requires that the theme is installed in `~/.local/share/themes/`. Installing the theme as root, with a package manager, or any other method is not supported when it comes to flatpak.
+
 To prevent outdated packages from flathub being installed, run: `sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3 && sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3-dark`
 
 **IMPORTANT:** If you previously used the outdated flatpak packages, then uninstall them and prevent them from being installed with:
