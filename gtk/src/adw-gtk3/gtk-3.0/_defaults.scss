@@ -32,49 +32,49 @@
 @define-color error_color #{if($variant == 'dark', #ff7b63, "@red_4")};
 
 // Window
-@define-color window_bg_color #{if($variant == 'light', #fafafa, #242424)};
-@define-color window_fg_color #{if($variant == 'light', #323232, white)}; // adw-gtk3 light theme note: replacing transparentize(black, .2) with equal static color
+@define-color window_bg_color #{if($variant == 'light', #fafafb, #222226)};
+@define-color window_fg_color #{if($variant == 'light', rgba(0,0,6,0.8), white)};
 
 // Views - e.g. text view or tree view
-@define-color view_bg_color #{if($variant == 'light', #ffffff, #1e1e1e)};
-@define-color view_fg_color #{if($variant == 'light', #333333, white)};
+@define-color view_bg_color #{if($variant == 'light', #ffffff, #1d1d20)};
+@define-color view_fg_color #{if($variant == 'light', rgba(0,0,6,0.8), white)};
 
 // Header bar, search bar, tab bar
-@define-color headerbar_bg_color #{if($variant == 'light', #ebebeb, #303030)};
-@define-color headerbar_fg_color #{if($variant == 'light', #2f2f2f, white)}; // adw-gtk3 light theme note: replacing transparentize(black, .2) with equal static color
-@define-color headerbar_border_color #{if($variant == 'light', transparentize(black, .2), white)};
+@define-color headerbar_bg_color #{if($variant == 'light', #ebebed, #2e2e32)};
+@define-color headerbar_fg_color #{if($variant == 'light', rgba(0,0,6,0.8), white)};
+@define-color headerbar_border_color #{if($variant == 'light', rgba(0,0,6,0.8), white)};
 @define-color headerbar_backdrop_color @window_bg_color;
-@define-color headerbar_shade_color #{if($variant == 'light', transparentize(black, .88), transparentize(black, .64))};
-@define-color headerbar_darker_shade_color #{if($variant == 'light', transparentize(black, .88), transparentize(black, .1))};
+@define-color headerbar_shade_color #{if($variant == 'light', rgba(0,0,6,0.12), rgba(0,0,6,0.36))};
+@define-color headerbar_darker_shade_color #{if($variant == 'light', rgba(0,0,6,0.12), rgba(0,0,6,0.9))};
 
 // Split pane views
-@define-color sidebar_bg_color #{if($variant == 'light', #ebebeb, #303030)};
-@define-color sidebar_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
-@define-color sidebar_backdrop_color #{if($variant == 'light', #f2f2f2, #2a2a2a)};
-@define-color sidebar_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .75))};
-@define-color sidebar_border_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
+@define-color sidebar_bg_color #{if($variant == 'light', #ebebed, #2e2e32)};
+@define-color sidebar_fg_color #{if($variant == 'light', rgba(0,0,6,0.8), white)};
+@define-color sidebar_backdrop_color #{if($variant == 'light', #f2f2f4, #28282c)};
+@define-color sidebar_shade_color #{if($variant == 'light', rgba(0,0,6,0.07), rgba(0,0,6,0.25))};
+@define-color sidebar_border_color #{if($variant == 'light', rgba(0,0,6,0.07), rgba(0,0,6,0.36))};
 
 // Cards, boxed lists
-@define-color card_bg_color #{if($variant == 'light', #ffffff, transparentize(white, .92))};
-@define-color card_fg_color #{if($variant == 'light', #333333, white)};
-@define-color card_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .64))};
+@define-color card_bg_color #{if($variant == 'light', #ffffff, rgba(255,255,255,0.08))};
+@define-color card_fg_color #{if($variant == 'light', rgba(0,0,6,0.8), white)};
+@define-color card_shade_color #{if($variant == 'light', rgba(0,0,6,0.07), rgba(0,0,6,0.36))};
 
 // Dialogs
-@define-color dialog_bg_color #{if($variant == 'light', #fafafa, #383838)};
-@define-color dialog_fg_color #{if($variant == 'light', #323232, white)};
+@define-color dialog_bg_color #{if($variant == 'light', #fafafb, #36363a)};
+@define-color dialog_fg_color #{if($variant == 'light', rgba(0,0,6,0.8), white)};
 
 // Popovers
-@define-color popover_bg_color #{if($variant == 'light', #ffffff, #383838)};
-@define-color popover_fg_color #{if($variant == 'light', #333333, white)};
-@define-color popover_shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .75))};
+@define-color popover_bg_color #{if($variant == 'light', #ffffff, #36363a)};
+@define-color popover_fg_color #{if($variant == 'light', rgba(0,0,6,0.8), white)};
+@define-color popover_shade_color #{if($variant == 'light', rgba(0,0,6,0.07), rgba(0,0,6,0.25))};
 
 // Thumbnails
-@define-color thumbnail_bg_color #{if($variant == 'light', #ffffff, #383838)};
-@define-color thumbnail_fg_color #{if($variant == 'light', transparentize(black, .2), white)};
+@define-color thumbnail_bg_color #{if($variant == 'light', #ffffff, #39393d)};
+@define-color thumbnail_fg_color #{if($variant == 'light', rgba(0,0,6,0.8), white)};
 
 // Miscellaneous
-@define-color shade_color #{if($variant == 'light', transparentize(black, .93), transparentize(black, .75))};
-@define-color scrollbar_outline_color #{if($variant == 'light', white, transparentize(black, .5))};
+@define-color shade_color #{if($variant == 'light', rgba(0,0,6,0.07), rgba(0,0,6,0.25))};
+@define-color scrollbar_outline_color #{if($variant == 'light', white, rgba(0,0,12,0.95))};
 
 // adw-gtk3 specific
 @define-color incognito_bg_color #{if($variant == 'light', #d7e3f0, #1c2438)};
