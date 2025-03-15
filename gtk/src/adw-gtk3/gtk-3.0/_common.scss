@@ -2,11 +2,13 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $asset_suffix: if($variant=='dark', '-dark', '');
 $backdrop_transition: 200ms ease-out;
 $button_transition: all 200ms $ease-out-quad;
-$button_radius: 6px;
-$menu_radius: 8px;
+$button_radius: 9px;
+$menu_radius: 9px;
 $window_radius: $button_radius + 6;
-$popover_radius: $window_radius;
-$card_radius: $button_radius + 6;
+$popover_radius: $menu_radius + 6;
+$card_radius: 12px;
+$dialog_radius: $button_radius + 6;
+$check_radius: 6px;
 $disabled_opacity: 0.5;
 
 // Optional compact sizes for buttons, headerbar and headerbar widgets
@@ -2880,7 +2882,7 @@ radio {
 
 %check,
 check {
-  border-radius: $button_radius;
+  border-radius: $check_radius;
 
   &:checked { -gtk-icon-source: image(-gtk-recolor(url("assets/check-symbolic.svg")),
                                       -gtk-recolor(url("assets/check-symbolic.symbolic.png"))); }
@@ -3806,14 +3808,14 @@ messagedialog { // Message Dialog styling
     background: $dialog_bg_color;
     color: $dialog_fg_color;
     border-style: none;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
+    border-top-left-radius: $dialog_radius;
+    border-top-right-radius: $dialog_radius;
   }
 
   &.csd { // rounded bottom border styling for csd version
     &.background {
-      border-bottom-left-radius: $window_radius;
-      border-bottom-right-radius: $window_radius;
+      border-bottom-left-radius: $dialog_radius;
+      border-bottom-right-radius: $dialog_radius;
       background-color: $dialog_bg_color;
       color: $dialog_fg_color;
     }
@@ -3859,13 +3861,13 @@ messagedialog { // Message Dialog styling
 
       &:first-child {
         border-left-style: none;
-        border-bottom-left-radius: $window_radius - 1;
-        -gtk-outline-bottom-left-radius: $window_radius - 1;
+        border-bottom-left-radius: $dialog_radius - 1;
+        -gtk-outline-bottom-left-radius: $dialog_radius - 1;
       }
 
       &:last-child {
-        border-bottom-right-radius: $window_radius - 1;
-        -gtk-outline-bottom-right-radius: $window_radius - 1;
+        border-bottom-right-radius: $dialog_radius - 1;
+        -gtk-outline-bottom-right-radius: $dialog_radius - 1;
       }
     }
   }
