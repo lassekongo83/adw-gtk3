@@ -549,6 +549,9 @@ window.background.chromium,
       color: $selected_fg_color;
     }
   }
+
+  // https://github.com/lassekongo83/adw-gtk3/issues/283
+  > * > * > * { border-top: 1px solid transparent; } // Probably not a good idea to use wildcards, but I can't find the name of the element
 }
 
 // ******************
