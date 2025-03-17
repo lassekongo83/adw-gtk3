@@ -552,9 +552,8 @@ window.background.chromium,
 }
 
 // https://github.com/lassekongo83/adw-gtk3/issues/283
-#MozillaGtkWidget.background {
-  // Probably not a good idea to use wildcards, but I can't find the name of the element
-  > * > * > * { border-top: 1px solid transparent; }
+#MozillaGtkWidget {
+  > widget > frame > border { border-top-color: transparent; }
 }
 
 // ******************
