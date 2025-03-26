@@ -96,6 +96,7 @@ Note: GTK3 doesn't support the accent color feature introduced in GNOME 47. Only
 
 - **GTK4:** [Info on how to extract libadwaita from source.](https://github.com/lassekongo83/adw-gtk3/blob/main/gtk4.md)
 - **GTK2:** https://github.com/eylles/adw-gtk2-colorizer
+- **Gimp 3:** https://github.com/dp0sk/adw-gimp3
 - **Kvantum:** https://github.com/GabePoel/KvLibadwaita
 - **Firefox:** https://github.com/rafaelmardojai/firefox-gnome-theme
 - **Steam:** https://github.com/tkashkin/Adwaita-for-Steam
