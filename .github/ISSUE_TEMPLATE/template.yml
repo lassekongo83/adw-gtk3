@@ -58,7 +58,7 @@ body:
 
   - type: input
     attributes:
-      label: Application name and version (If the issue is with an app.)
+      label: Application name and version (If the issue is with an app. Note that minor issues with single applications have a very low priority and may not be fixed.)
     validations:
       required: false
 
