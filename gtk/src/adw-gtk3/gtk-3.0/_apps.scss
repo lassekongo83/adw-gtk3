@@ -673,3 +673,14 @@ geary-conversation-viewer#conversation_viewer {
     min-height: 32px;
   }
 }
+
+// **************
+// Libre-Office *
+// **************
+
+// https://github.com/lassekongo83/adw-gtk3/issues/286
+toolbar.toolbar {
+  box:not(.linked) > button {
+    font-weight: normal;
+  }
+}
