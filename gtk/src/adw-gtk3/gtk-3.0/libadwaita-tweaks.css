@@ -25,4 +25,34 @@ notebook > header {
   --accent-color: var(--accent-bg-color);
   --accent-bg-color: var(--accent-blue);
   --accent-fg-color: @accent_fg_color;
+
+  --card-bg-color: @card_bg_color;
 }
+
+/* Chromium */
+.background.chromium {
+  background-color: color-mix(in srgb, currentColor 5%, @headerbar_bg_color);
+}
+
+.background.chromium windowcontrols > button {
+  background-color: color-mix(in srgb, currentColor 10%, transparent);
+  min-width: 24px;
+  padding: 0;
+  box-shadow: none;
+  margin: 0 4px; /* doesn't work on the far edges of the header-bar */
+}
+
+.background.chromium windowcontrols > button {
+  background-color: color-mix(in srgb, currentColor 10%, transparent);
+  border-radius: 100%;
+  transition: background 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.background.chromium windowcontrols > button:hover {
+  background-color: color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.background.chromium windowcontrols > button:active {
+  background-color: color-mix(in srgb, currentColor 30%, transparent);
+}
+

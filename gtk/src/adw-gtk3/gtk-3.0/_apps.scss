@@ -352,34 +352,6 @@ window#whiskermenu-window {
   }
 }
 
-// ************
-// * Chromium *
-// ************
-
-window.background.chromium {
-  background-color: if($variant == 'light', $bg_color, gtkmix(currentColor, $bg_color, 10%));
-
-  // If there was/is an incognito class then https://github.com/lassekongo83/adw-gtk3/issues/147
-  // could be fixed, so disabled for now until a better solution is found.
-  //headerbar.titlebar button.titlebutton {
-  //  color: white;
-  //}
-
-  entry,
-  > button {
-    border-color: gtkmix(currentColor, $bg_color, 27%);
-    background-color: gtkmix(currentColor, $bg_color, 20%);
-  }
-
-  textview.view {
-    background-color: $base_color;
-  }
-
-  menuitem {
-    border-radius: 0;
-  }
-}
-
 // ******************
 // * gnome-calendar *
 // ******************
@@ -404,8 +376,6 @@ window.background.chromium {
 }
 
 // Make sure text selection is somewhat visible on websites with various backgrounds
-// in both chromium and firefox
-window.background.chromium,
 #MozillaGtkWidget.background {
   selection {
     &:focus, & {
