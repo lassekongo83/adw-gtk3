@@ -34,6 +34,12 @@ notebook > header {
   background-color: color-mix(in srgb, currentColor 5%, @headerbar_bg_color);
 }
 
+.background.chromium selection,
+.background.chromium selection:focus {
+  background-color: var(--accent-bg-color);
+  color: var(--accent-fg-color);
+}
+
 .background.chromium windowcontrols > button {
   background-color: color-mix(in srgb, currentColor 10%, transparent);
   min-width: 24px;
