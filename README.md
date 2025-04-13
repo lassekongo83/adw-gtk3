@@ -25,19 +25,12 @@ An unofficial GTK3 port of [libadwaita](https://gnome.pages.gitlab.gnome.org/lib
 
 **Note:** Do not extract it to multiple locations. Only use one path.
 
-3. If you use flatpak applications it's recommended to use flatpak override. From a terminal run:
-```bash
-sudo flatpak override --filesystem=xdg-data/themes
-```
-
-**Note:** This requires that the theme is installed in `~/.local/share/themes/`. Installing the theme as root, with a package manager, or any other method is not supported when it comes to flatpak.
-
-To prevent outdated packages from flathub being installed, run: `sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3 && sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3-dark`
-
-**IMPORTANT:** If you previously used the outdated flatpak packages, then uninstall them and prevent them from being installed with:
-```bash
-flatpak uninstall org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark && sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3 && sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3-dark
-```
+3. If you use flatpak applications you have 2 options to use the theme (only choose one):
+    1. Install the themes from Flathub: `flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark`
+    2. Or you can use flatpak override. The benefit of using this option is that non-libadwaita GTK4 applications from Flathub will be styled. For this to work the theme must be installed in `~/.local/share/themes`. From a terminal run:
+    ```bash
+    sudo flatpak override --filesystem=xdg-data/themes && sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3 && sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3-dark
+    ```
 
 4. You can then enable adw-gtk3 in the application `gnome-tweaks`. (Some applications may require a relog.)
 
@@ -66,7 +59,7 @@ These are maintained by contributors.
 * **Manjaro**: `pamac install adw-gtk3`
 * **Debian**: https://gitlab.com/julianfairfax/package-repo#how-to-add-repository-for-debian-based-linux-distributions
 
-Thanks to [@dusansimic](https://github.com/dusansimic) (Flatpak, AUR), [@solopasha](https://github.com/solopasha) (Fedora), [@julianfairfax](https://github.com/julianfairfax) for the help.
+Thanks to [@Pryka](https://github.com/Pryka) (Flatpak), [@solopasha](https://github.com/solopasha) (Fedora), [@dusansimic](https://github.com/dusansimic) (AUR), [@julianfairfax](https://github.com/julianfairfax) for the help.
 
 ### Installation from source
 This will install the latest version from the main branch. Use this installation method if you want to contribute and help testing the theme.
