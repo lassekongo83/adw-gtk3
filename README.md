@@ -99,6 +99,7 @@ Note: GTK3 doesn't support the accent color feature introduced in GNOME 47. Only
 - **Gimp 3:** https://github.com/dp0sk/adw-gimp3
 - **Kvantum:** https://github.com/GabePoel/KvLibadwaita
 - **Firefox:** https://github.com/rafaelmardojai/firefox-gnome-theme
+- **Thunderbird:** https://github.com/rafaelmardojai/thunderbird-gnome-theme
 - **Steam:** https://github.com/tkashkin/Adwaita-for-Steam
 - **VSCode:** https://github.com/piousdeer/vscode-adwaita
 - **Discord:** https://github.com/GeopJr/DNOME
