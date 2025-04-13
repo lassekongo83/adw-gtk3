@@ -2269,11 +2269,6 @@ popover.background {
 // *************
 // * Notebooks *
 // *************
-window.background:not(.solid-csd):not(.csd) > notebook > header {
-  // For libreoffice. No idea why.
-  border: 0;
-  tab { margin: 0; }
-}
 
 notebook {
   &, &.frame { border: none; }

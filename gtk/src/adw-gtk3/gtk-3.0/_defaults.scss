@@ -24,7 +24,7 @@
 @define-color success_color #{if($variant == 'dark', "@green_1", #1b8553)};
 
 @define-color warning_bg_color #{if($variant == 'dark', #cd9309, "@yellow_5")};
-@define-color warning_fg_color #{transparentize(black, .2)};
+@define-color warning_fg_color rgba(0,0,0,0.8);
 @define-color warning_color #{if($variant == 'dark', "@yellow_2", #9c6e03)};
 
 @define-color error_bg_color #{if($variant == 'dark', "@red_4", "@red_3")};
@@ -45,7 +45,7 @@
 @define-color headerbar_border_color #{if($variant == 'light', rgba(0,0,6,0.8), white)};
 @define-color headerbar_backdrop_color @window_bg_color;
 @define-color headerbar_shade_color #{if($variant == 'light', rgba(0,0,6,0.12), rgba(0,0,6,0.36))};
-@define-color headerbar_darker_shade_color #{if($variant == 'light', rgba(0,0,6,0.12), rgba(0,0,6,0.9))};
+@define-color headerbar_darker_shade_color #{if($variant == 'light', rgba(0,0,6,0.12), rgba(0,0,12,0.9))};
 
 // Split pane views
 @define-color sidebar_bg_color #{if($variant == 'light', #ebebed, #2e2e32)};
