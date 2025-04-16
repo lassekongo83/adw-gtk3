@@ -2,14 +2,9 @@
   This file will fix some legacy widget styles that aren't styled in libadwaita
 */
 
+/* https://github.com/lassekongo83/adw-gtk3/issues/272 */
 @define-color accent_bg_color @blue_3;
 @define-color accent_fg_color white;
-
-/* add a bg color to notebook headers */
-notebook > header {
-  background-color: @headerbar_bg_color;
-  border-color: mix(currentColor,@window_bg_color,0.85);
-}
 
 :root {
   --accent-blue: #3584e4;
@@ -26,12 +21,19 @@ notebook > header {
   --accent-bg-color: var(--accent-blue);
   --accent-fg-color: @accent_fg_color;
 
-  --card-bg-color: @card_bg_color;
+  --window-bg-color: @window_bg_color;
+  --headerbar-bg-color: @headerbar_bg_color;
+}
+
+/* add a bg color to notebook headers */
+notebook > header {
+  background-color: var(--headerbar-bg-color);
+  border-color: mix(currentColor,var(--window-bg-color),0.85);
 }
 
 /* Chromium */
 .background.chromium {
-  background-color: color-mix(in srgb, currentColor 5%, @headerbar_bg_color);
+  background-color: color-mix(in srgb, currentColor 5%, var(--headerbar-bg-color));
 }
 
 .background.chromium selection,
