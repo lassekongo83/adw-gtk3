@@ -33,7 +33,7 @@ notebook > header {
 
 /* Chromium */
 .background.chromium {
-  background-color: color-mix(in srgb, currentColor 5%, var(--headerbar-bg-color));
+  background-color: var(--window-bg-color); /* Don't mix with currecntColor or any transparent text color */
 }
 
 .background.chromium selection,
