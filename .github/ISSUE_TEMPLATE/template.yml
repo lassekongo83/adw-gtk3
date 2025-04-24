@@ -21,7 +21,7 @@ body:
           required: true
         - label: By running the command `env` I've made sure that there is no environment variable called `GTK_THEME`
           required: false
-        - label: Dark theme not applied on some apps? Did you try to run: `gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'` ?
+        - label: Dark theme not applied on some apps? Did you try to run `gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'` ?
           required: false
 
   - type: textarea
