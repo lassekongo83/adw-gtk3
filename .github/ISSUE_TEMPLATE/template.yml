@@ -13,19 +13,15 @@ body:
     attributes:
       label: Checklist to make sure the issue is not on your end
       options:
-        - label: I have made sure that I do not have multiple versions of the theme installed. Only one version should be installed in either `~/.local/share/themes` or `/usr/share/themes` or `~/.themes`
+        - label: I have made sure that I do not have multiple versions of the theme installed. Only one version should be installed in either `~/.local/share/themes` or `/usr/share/themes`
           required: true
-        - label: The file `~/.config/gtk-3.0/gtk.css` does not exist. (If it does, backup and remove it.)
+        - label: The files `~/.config/gtk-3.0/gtk.css` and `~/.config/gtk-4.0/gtk.css` does not exist. (Backup and remove those files and restart any apps.)
           required: true
-        - label: I have logged out and in again.
+        - label: I've made sure that the issue is did not go away by restarting apps or by logging out and in again.
           required: true
-        - label: Dark theme only. I have enabled adw-gtk3-dark in `gnome-tweaks` AND set the appearance to dark in `gnome-control-center`
+        - label: By running the command `env` I've made sure that there is no environment variable called `GTK_THEME`
           required: false
-        - label: The app I'm having an issue with is installed with flatpak and `org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark` are installed.
-          required: false
-        - label: The app I'm having an issue with is an actual GTK3 app and is not coded using another toolkit like GTK2, GTK4, QT, etc.
-          required: false
-        - label: I have created a new user profile without any modifications except adw-gtk3.
+        - label: Dark theme not applied on some apps? Did you try to run: `gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'` ?
           required: false
 
   - type: textarea
@@ -40,15 +36,30 @@ body:
 
   - type: input
     attributes:
-      label: OS and version [e.g Fedora 37]
+      label: OS and version [e.g Fedora 42]
     validations:
       required: true
 
   - type: input
     attributes:
-      label: Adw-gtk3 version. Also specify your installation source. [e.g tar.xz, AUR, git main branch]
+      label: Adw-gtk3 version/commit.
     validations:
       required: true
+
+  - type: checkboxes
+    attributes:
+      label: Installation method
+      options:
+        - label: Tarball
+          required: false
+        - label: Repository
+          required: false
+        - label: Flatpak
+          required: false
+        - label: Source
+          required: false
+        - label: Other (Specify)
+          required: false
 
   - type: input
     attributes:
@@ -58,7 +69,7 @@ body:
 
   - type: input
     attributes:
-      label: Application name and version (If the issue is with an app. Note that minor issues with single applications have a very low priority and may not be fixed.)
+      label: Application name and version. (Note that minor issues with single applications have a very low priority.)
     validations:
       required: false
 
