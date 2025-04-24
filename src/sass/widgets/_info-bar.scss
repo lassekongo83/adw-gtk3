@@ -1,0 +1,45 @@
+@use '../modules' as *;
+
+infobar {
+  border-style: none;
+
+  @each $i_type, $i_color in (info, $accent_bg_color),
+                             (question, $accent_bg_color),
+                             (warning, $warning_bg_color),
+                             (error, $error_bg_color) {
+    &.#{$i_type} > revealer > box {
+      background-color: gtkmix($i_color, $window_bg_color, 30%);
+      color: $window_fg_color;
+      text-shadow: none;
+      &:backdrop { color: $backdrop_fg_color; }
+    }
+
+    &.#{$i_type} button {
+      background-color: gtkmix($i_color, $window_bg_color, 50%);
+      &:hover { background-color: gtkmix($i_color, $window_bg_color, 65%); }
+      &:checked, &:active { background-color: gtkmix($i_color, $window_bg_color, 80%); }
+      &:backdrop:not(:disabled), &:not(:disabled) {
+        label, & { color: $window_fg_color; }
+      }
+      &:disabled {
+        background-color: gtkmix($i_color, $window_bg_color, 40%);
+        label, & { color: gtkalpha(gtkmix($window_fg_color, $i_color, 70%), .6); }
+      }
+    }
+
+    &.action.#{$i_type}:hover > revealer > box {
+      background-color: gtkmix($i_color, $window_bg_color, 40%);
+      box-shadow: inset 0 -1px gtkmix($i_color, $window_bg_color, 70%);
+    }
+  }
+
+ .close {
+    min-width: 18px;
+    min-height: 18px;
+    padding: 4px;
+    border-radius: 50%;
+  }
+
+  selection { background-color: gtkshade($window_bg_color, 0.9); }
+  *:link { color: $link_color; }
+}

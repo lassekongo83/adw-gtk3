@@ -1,0 +1,82 @@
+@use '../modules' as *;
+
+levelbar {
+  &.horizontal {
+    block {
+      min-height: 8px;
+    }
+
+    &.continuous block { 
+      &:first-child, &:last-child { border-radius: 8px; }
+    }
+    
+    &.discrete block {
+      margin: 0 1px;
+      min-width: 32px;
+      &:first-child { border-radius: 8px 0 0 8px; }
+      &:last-child { border-radius: 0 8px 8px 0; }
+    }
+  }
+
+  &.vertical {
+    block {
+      min-width: 8px;
+    }
+    
+    &.continuous block { 
+      &:first-child, &:last-child { border-radius: 8px; }
+    }
+
+    &.discrete block {
+      margin: 1px 0;
+      min-height: 32px;
+      &:first-child { border-radius: 8px 8px 0 0; }
+      &:last-child { border-radius: 0 0 8px 8px; }
+    }
+  }
+
+  &:backdrop { transition: $backdrop_transition; }
+
+  trough {
+    border: 0px solid;
+    padding: 0; //2px;
+    border-radius: 8px;
+    background-color: $trough_color;
+
+    &:backdrop { background-color: $backdrop_dark_fill; }
+  }
+
+  block {
+    border: 0px solid;
+    border-radius: 0;
+
+    &.low {
+      border-color: if($variant == 'light', gtkshade($warning_bg_color, 0.8), $warning_bg_color);
+      background-color: $warning_bg_color;
+
+      &:backdrop { border-color: $warning_bg_color; };
+    }
+
+    &.high,
+    &:not(.empty) {
+      border-color: if($variant == 'light', gtkshade($progress_bg_color, 0.8), $progress_bg_color);
+      background-color: $progress_bg_color;
+
+      &:backdrop { border-color: $progress_bg_color; }
+    }
+
+    &.full {
+      border-color: if($variant == 'light', gtkshade($success_bg_color, 0.8), $success_bg_color);
+      background-color: $success_bg_color;
+
+      &:backdrop { border-color: $success_bg_color; };
+    }
+
+    &.empty {
+      background-color: transparent;
+      border-color: if($variant == 'light', gtkalpha($window_fg_color,0.2), gtkalpha($window_fg_color,0.1));
+
+      &:backdrop { border-color: gtkalpha($backdrop_fg_color,0.15); }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+@use '../modules' as *;
+@forward 'buttons';
+
+list {
+  color: $view_fg_color;
+  background-color: $view_bg_color;
+  border-color: $card_shade_color;
+
+  row {
+    padding: 2px;
+    outline-color: $focus_border_color;
+    outline-style: solid;
+    outline-offset: -3px;
+    outline-width: 2px;
+    -gtk-outline-radius: $button-radius;
+  }
+}
+
+row {
+  transition: all 150ms $ease-out-quad;
+
+  &:hover { transition: none; }
+
+  &:backdrop { transition: $backdrop_transition; }
+
+  &.activatable {
+    &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
+
+    &:hover { background-color: $hover_color; }
+
+    &:active { background-color: $active_color; }
+
+    &:backdrop:hover { background-color: transparent; }
+
+    &:selected {
+      color: $window_fg_color;
+      &:active { background-color: $selected_active_color; }
+
+      &.has-open-popup,
+      &:hover {
+        background-color: $selected_hover_color;
+        color: $window_fg_color;
+      }
+
+      &:backdrop {
+        background-color: $hover_color;
+        color: $window_fg_color;
+      }
+    }
+  }
+
+  &:selected { background-color: $selected_color; }
+}
+
+// Different button color on lists
+.content list,
+list.content,
+list.view.frame {
+  button, > row:not(:selected):hover button {
+    @include button(normal, $card_bg_color, $card_fg_color);
+    &.flat:not(:hover):not(:active) { @include button(undecorated); }
+    &:hover { @include button(hover, $card_bg_color, $card_fg_color); }
+    &:active, &:checked { @include button(active, $card_bg_color, $card_fg_color); }
+    &:disabled {
+      @include button(disabled, $card_bg_color, $card_fg_color);
+    }
+
+    &.suggested-action { @extend %suggested_buttons; }
+    &.destructive-action { @extend %destructive_buttons; }
+  }
+
+  entry {
+    @include button(normal, $card_bg_color, $card_fg_color);
+    &:disabled {
+      @include button(disabled, $card_bg_color, $card_fg_color);
+    }
+  }
+}
+
+// Fix wrong border-radius on hdy spinbutton entries
+list.content .horizontal spinbutton entry {
+  border-top-left-radius: $button_radius;
+  border-bottom-left-radius: $button_radius;
+}
+
+// Non "content" lists
+list.view.frame {
+  border-radius: $card_radius;
+  &, &:backdrop { background-color: $card_bg_color; }
+}

@@ -1,0 +1,145 @@
+@use '../modules' as *;
+
+menubar,
+.menubar {
+  -GtkWidget-window-dragging: true;
+  padding: 0;
+
+  &:backdrop { background-color: $backdrop_bg_color; }
+
+  > menuitem {
+    border-radius: $button_radius;
+    min-height: 16px;
+    padding: 4px 8px;
+
+    // remove padding and rounding from menubar submenus
+    menu {
+      &:dir(rtl), &:dir(ltr) { // specificity bump
+        border-radius: $menu_radius;
+        padding: 6px;
+        menuitem { border-radius: $button_radius; }
+      }
+    }
+
+    &:hover { //Seems like it :hover even with keyboard focus
+      background-color: $selected_color;
+    }
+
+    &:disabled {
+      color: $disabled_fg_color;
+      box-shadow: none;
+    }
+  }
+
+  // remove padding and rounding from menubar submenu decoration
+  .csd.popup decoration { border-radius: $menu_radius; }
+}
+
+// Needed to make the border-radius of menus work
+// otherwise the background bleeds out of the menu edges
+.background.popup { background-color: transparent; }
+
+menu,
+.menu,
+%menu,
+.context-menu {
+  margin: 4px; // see https://bugzilla.gnome.org/show_bug.cgi?id=591258
+  padding: 6px;
+  background-color: $popover_bg_color;
+  border: 1px solid $borders_color; // adds borders in a non composited env
+
+  separator { margin: 6px 0; }
+
+  .csd & {
+    border: none; // axes borders in a composited env
+    border-radius: $menu_radius;
+  }
+
+  menuitem,
+  %menuitem {
+    min-height: 16px;
+    min-width: 40px;
+    padding: 4px 6px;
+    text-shadow: none;
+    font-weight: normal;
+    border-radius: $button_radius;
+
+    &:hover {
+      color: $window_fg_color;
+      background-color: $selected_color;
+    }
+
+    &:disabled {
+      color: $disabled_fg_color;
+    }
+
+    // submenu indicators
+    arrow {
+      min-height: 16px;
+      min-width: 16px;
+
+      &:dir(ltr) {
+        -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+        margin-left: 10px;
+      }
+
+      &:dir(rtl) {
+        -gtk-icon-source:-gtk-icontheme('pan-end-symbolic-rtl');
+        margin-right: 10px;
+      }
+    }
+
+    // avoids labels color being overridden, see
+    // https://bugzilla.gnome.org/show_bug.cgi?id=767058
+    label { &:dir(rtl), &:dir(ltr) { color: inherit; }}
+  }
+
+  // overflow arrows
+  > arrow {
+    @include button(undecorated);
+
+    min-height: 16px;
+    min-width: 16px;
+    padding: 4px;
+    background-color: $popover_bg_color;
+    border-radius: 0;
+
+    &.top {
+      margin-top: -4px;
+      border-bottom: 1px solid gtkmix($window_fg_color, $view_bg_color, 10%);
+      border-top-right-radius: $menu_radius;
+      border-top-left-radius: $menu_radius;
+      -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
+    }
+
+    &.bottom {
+      margin-top: 8px;
+      margin-bottom: -12px;
+      border-top: 1px solid gtkmix($window_fg_color, $view_bg_color, 10%);
+      border-bottom-right-radius: $menu_radius;
+      border-bottom-left-radius: $menu_radius;
+      -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+    }
+
+    &:hover { background-color: gtkmix($window_fg_color, $view_bg_color, 10%); }
+
+    &:disabled {
+      color: transparent;
+      background-color: transparent;
+      border-color: transparent ;
+    }
+  }
+}
+
+menuitem {
+  accelerator { color: gtkalpha(currentColor,0.55); }
+
+  check,
+  radio {
+    min-height: 16px;
+    min-width: 16px;
+
+    &:dir(ltr) { margin-right: 7px; }
+    &:dir(rtl) { margin-left: 7px; }
+  }
+}

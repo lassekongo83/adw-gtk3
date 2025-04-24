@@ -1,0 +1,37 @@
+// Sass functions
+
+@use 'sass:color';
+@use 'sass:string';
+
+@function gtkalpha($c,$a) {
+  @return string.unquote("alpha(#{$c},#{$a})");
+}
+
+@function gtkmix($c1,$c2,$r) {
+  $ratio: calc(1 - $r / 100%); // match SCSS mix()
+  @return string.unquote("mix(#{$c1},#{$c2},#{$ratio})");
+}
+
+@function gtkshade($c,$s) {
+  @return string.unquote("shade(#{$c},#{$s})");
+}
+
+@function gtkcolor($c) {
+  @return string.unquote("@#{$c}");
+}
+
+@function transparentize($color, $amount) {
+  @return color.adjust($color, $alpha: -$amount);
+}
+
+@function opacify($color, $amount) {
+  @return color.adjust($color, $alpha: $amount);
+}
+
+@function darken($color, $amount) {
+  @return color.adjust($color, $lightness: -$amount);
+}
+
+@function lighten($color, $amount) {
+  @return color.adjust($color, $lightness: $amount);
+}

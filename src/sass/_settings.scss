@@ -1,0 +1,16 @@
+// This file contains the default variables and settings.
+$variant: null !default; // Defined in gtk.scss and gtk-dark.scss
+$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$asset_suffix: if($variant=='dark', '-dark', '');
+$backdrop_transition: 200ms ease-out;
+$button_transition: background 200ms $ease-out-quad,
+                    box-shadow 200ms $ease-out-quad;
+$button_radius: 9px;
+$menu_radius: 9px;
+$window_radius: calc($button_radius + 6px);
+$popover_radius: calc($menu_radius + 6px);
+$card_radius: 12px;
+$dialog_radius: calc($button_radius + 6px);
+$check_radius: 6px;
+$titlebutton_size: 24px;
+$disabled_opacity: 0.5;

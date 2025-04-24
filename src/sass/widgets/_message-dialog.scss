@@ -1,0 +1,76 @@
+@use '../modules' as *;
+@forward 'buttons';
+
+%dialog_buttons {
+  @include libadwaita-button(normal);
+  &:hover {
+    @include libadwaita-button(hover);
+  }
+  &:checked, &:active {
+    @include libadwaita-button(active);
+  }
+  &:backdrop {
+    @include libadwaita-button(backdrop);
+  }
+  &:disabled {
+    @include libadwaita-button(disabled);
+  }
+  &.text-button.destructive-action {
+    @extend %destructive_buttons;
+  }
+  &.text-button.suggested-action {
+    @extend %suggested_buttons;
+  }
+}
+
+messagedialog { // Message Dialog styling
+  .titlebar, .titlebar:backdrop {
+    min-height: 20px;
+    background-image: none;
+    background: $dialog_bg_color;
+    color: $dialog_fg_color;
+    border-style: none;
+    border-top-left-radius: $dialog_radius;
+    border-top-right-radius: $dialog_radius;
+  }
+
+  &.csd { // rounded bottom border styling for csd version
+    &.background {
+      border-bottom-left-radius: $dialog_radius;
+      border-bottom-right-radius: $dialog_radius;
+      background-color: $dialog_bg_color;
+      color: $dialog_fg_color;
+      button { @extend %dialog_buttons; }
+    }
+
+    .dialog-action-area {
+      margin: 0;
+      padding: 21px 24px 24px 24px;
+
+      button {
+        padding: 10px 20px; // labels are not vertically centered on message dialog, this is a workaround
+        margin: 0 10px;
+        border-radius: 12px;
+        -gtk-outline-radius: calc(12px - 2px);
+        border-left-style: none;
+        border-right-style: none;
+        border-color: transparent;
+
+        button { @extend %dialog_buttons; }
+      }
+    }
+  }
+}
+
+filechooser {
+  .dialog-action-box {
+    border-top: 1px solid $borders_color;
+  }
+
+  #pathbarbox { border-bottom: 1px solid $window_bg_color; }
+}
+
+filechooserbutton:drop(active) {
+  box-shadow: none;
+  border-color: transparent;
+}

@@ -1,0 +1,185 @@
+@use '../modules' as *;
+@forward 'views';
+
+treeview.view {
+  @at-root * {
+    -GtkTreeView-horizontal-separator: 4;
+    -GtkTreeView-grid-line-width: 1;
+    -GtkTreeView-grid-line-pattern: '';
+    -GtkTreeView-tree-line-width: 1;
+    -GtkTreeView-tree-line-pattern: '';
+    -GtkTreeView-expander-size: 16;
+  }
+
+  border-left-color: gtkmix($window_fg_color, $view_bg_color, 50%); // this is actually the tree lines color,
+  border-top-color: $window_bg_color;                         // while this is the grid lines color, better then nothing
+
+  rubberband { @extend rubberband; } // to avoid borders being overridden by the previously set props
+
+  &:selected {
+    &:focus, & {
+      border-radius: 0;
+
+      @extend %selected_items;
+    }
+
+    &:backdrop, & {
+      border-left-color: gtkmix($accent_fg_color, $accent_bg_color, 50%);
+      border-top-color: gtkalpha($window_fg_color, 0.1); // doesn't work unfortunatelly
+    }
+  }
+
+  &:disabled {
+    color: $disabled_fg_color;
+
+    &:selected {
+      color: gtkmix($accent_fg_color, $accent_bg_color, 40%);
+      &:backdrop { color: gtkmix($backdrop_selected_fg_color, $accent_bg_color, 30%); }
+    }
+  }
+
+  &.separator {
+    min-height: 2px;
+    color: $window_bg_color;
+  }
+
+  &:drop(active) {
+    border-style: solid none;
+    border-width: 1px;
+    border-color: $selected_borders_color;
+
+    &.after { border-top-style: none; }
+
+    &.before { border-bottom-style: none; }
+  }
+
+  &.expander {
+    -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+
+    &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
+
+    color: gtkmix($view_fg_color, $view_bg_color, 70%);
+
+    &:hover { color: $view_fg_color; }
+
+    &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
+  }
+
+  &.progressbar { // progress bar in treeviews
+    @if $variant == 'light' { color: $view_bg_color; }
+
+    background-color: $progress_bg_color;
+    background-image: image($progress_bg_color);
+    box-shadow: none;
+
+    &:selected {
+      &:focus, & {
+
+        @if $variant == 'light' {
+          color: $accent_bg_color;
+        }
+
+        @else { box-shadow: inset 0 1px transparentize(white, 0.95); }
+
+        background-image: image($view_bg_color);
+
+        &:backdrop {
+          @if $variant == 'light' {
+            color: $accent_bg_color;
+          }
+          background-color: $backdrop_base_color;
+        }
+      }
+    }
+
+    &:backdrop {
+      @if $variant == 'light' { color: $backdrop_base_color; }
+
+      @else { border-color: $backdrop_base_color; }
+      background-image: none;
+      box-shadow: none;
+    }
+  }
+
+  &.trough { // progress bar trough in treeviews
+    background-color: gtkalpha($window_fg_color,0.1);
+
+    &:selected {
+      &:focus, & {
+        background-color: if($variant == 'light',
+                             gtkalpha($accent_fg_color, 0.3),
+                             gtkmix(black, $accent_bg_color, 10%));
+
+      }
+    }
+  }
+
+  header {
+    button {
+      $_column_header_color: gtkmix($window_fg_color, $view_bg_color, 50%);
+
+      @extend %column_header_button;
+
+      color: $_column_header_color;
+      background-color: $view_bg_color;
+      font-weight: bold;
+      font-size: smaller;
+      text-shadow: none;
+      box-shadow: none;
+
+      &:hover {
+        @extend %column_header_button;
+
+        color: gtkmix($_column_header_color, $window_fg_color, 50%);
+        box-shadow: none;
+        transition: none; //I shouldn't need this
+      }
+
+      &:active {
+        @extend %column_header_button;
+
+        color: $window_fg_color;
+        transition: none; //I shouldn't need this
+      }
+    }
+  }
+
+  button.dnd,
+  header.button.dnd { // for treeview-like derive widgets
+    &:active, &:selected, &:hover, & {
+      padding: 0 6px;
+      color: $view_bg_color;
+      background-image: none;
+      background-color: $accent_bg_color;
+      border-style: none;
+      border-radius: 0;
+      box-shadow: inset 0 0 0 1px $view_bg_color;
+      text-shadow: none;
+      transition: none;
+    }
+  }
+
+  acceleditor > label { background-color: $accent_bg_color; } // see tests/testaccel to test
+}
+
+%column_header_button {
+  padding: 0 6px;
+  background-image: none;
+  border-style: none;
+  border-radius: 0;
+  text-shadow: none;
+  &:hover { background-color: $hover_color; }
+  &:active { background-color: $active_color; }
+
+  &:disabled {
+    border-color: $window_bg_color;
+    background-image: none;
+  }
+
+  &:last-child { &:backdrop, & { border-right-style: none; }}
+}
+
+// Misc junk
+treeview.view:not(:backdrop):not(:selected):hover {
+  background-color: $view_hover_color; // hover effect on treeview rows
+}

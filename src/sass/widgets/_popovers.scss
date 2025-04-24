@@ -1,0 +1,95 @@
+@use '../modules' as *;
+@forward '../common';
+@forward 'buttons';
+
+popover.background {
+  padding: 2px;
+  background-color: $popover_bg_color;
+  // Try to match libadwaita's shadow, except reduce it a bit due to limitations
+  box-shadow: 0 1px 5px 1px transparentize(black, .91),
+              0 2px 8px 3px transparentize(black, .95);
+
+  .csd &, & {
+    border: 1px solid $borders_color;
+    border-radius: $popover_radius;
+  }
+
+  .csd & {
+    $_popover_border: if($variant=='light', transparentize(black, .86), transparentize(black, .86));
+
+    background-clip: padding-box;
+    border-color: $_popover_border;
+  }
+
+  > list,
+  > .view,
+  > toolbar {
+    border-style: none;
+    background-color: transparent;
+  }
+
+  .csd &, & {
+    &.touch-selection,
+    &.magnifier {
+      @extend %osd;
+
+      border: 1px solid transparentize(white, 0.9);
+
+      button { @extend %osd_button };
+    }
+
+    &.osd { @extend %osd; }
+  }
+
+  separator { margin: 6px 0; }
+
+  list separator { margin: 0px; }
+}
+
+// Misc junk
+popover.background {
+  $disabled_popover_fg: gtkmix($popover_fg_color, $popover_bg_color, 50%);
+  button {
+    @include button(normal, $popover_bg_color, $popover_fg_color);
+    &.flat:not(:hover):not(:active) { @include button(undecorated); }
+    &:hover { @include button(hover, $popover_bg_color, $popover_fg_color); }
+    &:active, &:checked { @include button(active, $popover_bg_color, $popover_fg_color); }
+    &:disabled {
+      @include button(disabled, $popover_bg_color, $disabled_popover_fg);
+    }
+
+    &.suggested-action { @extend %suggested_buttons; }
+    &.destructive-action { @extend %destructive_buttons; }
+  }
+
+  entry {
+    @include button(normal, $popover_bg_color, $popover_fg_color);
+    &:disabled {
+      @include button(normal, $popover_bg_color, $disabled_popover_fg);
+    }
+  }
+}
+
+// Popover menuitems
+popover.background {
+  modelbutton.flat {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  modelbutton.flat,
+  .menuitem.button.flat {
+    color: $popover_fg_color;
+    &:disabled label {
+      color: gtkmix($popover_fg_color, $popover_bg_color, 50%);
+    }
+    &:backdrop:hover {
+      background-color: $view_hover_color;
+    }
+  }
+}
+
+// Mimic libadwaita popover padding
+popover.menu > stack {
+  margin: -6px;
+}

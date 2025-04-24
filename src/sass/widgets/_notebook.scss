@@ -1,0 +1,222 @@
+@use '../modules' as *;
+@forward 'buttons';
+
+notebook {
+  &, &.frame { border: none; }
+
+  > header {
+    padding: 6px;
+    border: none;
+    background-color: $window_bg_color;
+    box-shadow: none;
+    border-color: transparent;
+
+    tabs { margin: 0px; }
+
+    &.top, &.bottom, &.left, &.right {
+      border-bottom-style: solid;
+      > tabs {
+        margin-bottom: 0px;
+        > tab {
+          padding: 2px 8px;
+          border-radius: $button_radius;
+          transition: $button_transition;
+          background-color: transparent;
+
+          &:hover {
+            background-color: $hover_color;
+          }
+          &:checked {
+            background-color: $selected_color;
+            &:hover { background-color: $selected_hover_color; }
+          }
+        }
+      }
+    }
+
+    &.top > tabs > arrow {
+      @extend %notebook_vert_arrows;
+
+      border-top-style: none;
+    }
+
+    &.bottom > tabs > arrow {
+      @extend %notebook_vert_arrows;
+
+      border-bottom-style: none;
+    }
+
+    @at-root %notebook_vert_arrows {
+      margin-left: -5px;
+      margin-right: -5px;
+      padding-left: 4px;
+      padding-right: 4px;
+
+      &.down { -gtk-icon-source: -gtk-icontheme('pan-start-symbolic'); }
+
+      &.up { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic'); }
+    }
+
+    &.left > tabs > arrow {
+      @extend %notebook_horz_arrows;
+
+      border-left-style: none;
+    }
+
+    &.right > tabs > arrow {
+      @extend %notebook_horz_arrows;
+
+      border-right-style: none;
+    }
+
+    @at-root %notebook_horz_arrows {
+      margin-top: -5px;
+      margin-bottom: -5px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+
+      &.down { -gtk-icon-source: -gtk-icontheme('pan-up-symbolic'); }
+
+      &.up { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
+    }
+
+    > tabs > arrow {
+      @extend %button_basic;
+
+      @extend %button_basic_flat;
+
+      min-height: 16px;
+      min-width: 16px;
+      border-radius: 0;
+
+      &:hover:not(:active):not(:backdrop) {
+        background-clip: padding-box;
+        background-image: none;
+        background-color: transparentize(white, 0.7);
+        border-color: transparent;
+        box-shadow: none;
+      }
+
+      &:disabled { @include button(undecorated); }
+    }
+
+    tab {
+      min-height: 30px;
+      min-width: 30px;
+      padding: 3px 12px;
+
+      outline-offset: -5px;
+
+      color: $window_fg_color;
+      font-weight: normal;
+
+      border-width: 0px;         // for reorderable tabs
+      border-color: transparent; //
+
+      &.reorderable-page {
+        -gtk-outline-radius: calc($button_radius + 2px);
+        outline-width: 2px;
+        outline-offset: -2px;
+        outline-style: solid;
+        outline-color: entry_focus_border();
+
+        &:hover {
+          background-color: $hover_color;
+        }
+        &:checked {
+          background-color: $selected_color;
+          &:hover { background-color: $selected_hover_color; }
+        }
+      }
+
+      // colors the button like the label, overridden otherwise
+      button.flat {
+        padding: 0;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        min-width: 20px;
+        min-height: 20px;
+        border-radius: 100%;
+
+        &:hover {
+          color: currentColor;
+          background-color: gtkalpha(currentColor, .15);
+        }
+        &:active { background-color: gtkalpha(currentColor, .3); }
+
+        &, &:backdrop { color: gtkalpha(currentColor, 0.3); }
+
+        &:last-child {
+          margin-left: 4px;
+          margin-right: -4px;
+        }
+
+        &:first-child {
+          margin-left: -4px;
+          margin-right: 4px;
+        }
+      }
+    }
+
+    &.top,
+    &.bottom {
+      tabs {
+        padding-left: 0px;
+        padding-right: 0px;
+
+        &:not(:only-child) {
+          margin-left: 3px;
+          margin-right: 3px;
+
+          &:first-child { margin-left: -1px; }
+          &:last-child { margin-right: -1px; }
+        }
+
+        tab {
+          margin-left: 4px;
+          margin-right: 4px;
+
+          &.reorderable-page {
+            border-style: none;
+            margin-left: 0px;
+            margin-right: 0px;
+          }
+        }
+      }
+    }
+
+    &.left,
+    &.right {
+      tabs {
+        padding-top: 4px;
+        padding-bottom: 4px;
+
+        &:not(:only-child) {
+          margin-top: 3px;
+          margin-bottom: 3px;
+
+          &:first-child { margin-top: -1px; }
+          &:last-child { margin-bottom: -1px; }
+        }
+
+        tab {
+          margin-top: 4px;
+          margin-bottom: 4px;
+
+          &.reorderable-page {
+            border-style: none solid;
+            margin-top: 0px;
+            margin-bottom: 0px;
+          }
+        }
+      }
+    }
+
+    &.top tab { padding-bottom: 4px; }
+    &.bottom tab { padding-top: 4px; }
+  }
+
+  > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
+    background-color: $window_bg_color;
+  }
+}

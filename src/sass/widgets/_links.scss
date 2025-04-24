@@ -1,0 +1,59 @@
+@use '../modules' as *;
+@forward 'buttons';
+
+%link,
+*:link {
+  color: $link_color;
+
+  &:visited {
+    color: $link_visited_color;
+
+    *:selected & { color: gtkmix($accent_fg_color, $link_visited_color, 60%); }
+  }
+
+  &:hover {
+    $_fg: gtkmix(white, $link_color, 10%);
+    color: $_fg;
+
+    *:selected & { color: gtkmix($accent_fg_color, $_fg, 90%); }
+  }
+
+  &:active {
+    color: $link_color;
+
+    *:selected & { color: gtkmix($accent_fg_color, $link_color, 80%); }
+  }
+  
+  &:backdrop { &:backdrop:hover, &:backdrop:hover:selected, & { color: gtkalpha($link_color, 0.9); }}
+
+  &:disabled, &:disabled:backdrop { color: gtkalpha(gtkmix(white,black,50%), 0.8); }
+
+  @at-root %link_selected,
+  &:selected,
+  *:selected & { color: gtkmix($accent_fg_color, $link_color, 80%); }
+}
+
+button:link,
+button:visited {
+  @extend %undecorated_button;
+
+  @extend %link;
+
+  text-shadow: none;
+  font-weight: 400;
+
+  &:hover,
+  &:active,
+  &:checked {
+    @extend %undecorated_button;
+
+    text-shadow: none;
+  }
+
+  > label {
+    @extend %link;
+
+    text-decoration-line: underline;
+
+  }
+}

@@ -1,0 +1,240 @@
+@use '../modules' as *;
+@forward '../common';
+@forward 'buttons';
+@forward 'views';
+
+%checkerboard {
+  background-position: 0px 0px, 10px 10px;
+  background-size: 20px 20px;
+  background-image: linear-gradient(
+    45deg, $borders_color 25%,
+    transparent 25%,
+    transparent 75%,
+    $borders_color 75%,
+    $borders_color 100%
+  ),
+  linear-gradient(
+    45deg, $borders_color 25%,
+    $view_bg_color 25%,
+    $view_bg_color 75%,
+    $borders_color 75%,
+    $borders_color 100%
+  );
+}
+
+//content view (grid/list)
+.content-view {
+  background-color: gtkshade($window_bg_color,0.93);
+
+  &:hover { -gtk-icon-effect: highlight; }
+
+  rubberband, .rubberband { @extend rubberband; }
+}
+
+.scale-popup {
+  .osd & { @extend %osd; }
+
+  .osd & button.flat {  //FIXME: quick hack, redo properly
+    border-style: none;
+    border-radius: 5px;
+  }
+
+  button { // +/- buttons on GtkVolumeButton popup
+    &:hover {
+      @extend %undecorated_button;
+      background-color: gtkalpha($window_fg_color,0.1);
+      border-radius: 5px;
+    }
+  }
+}
+
+//touch selection handlebars for the Popover.osd
+cursor-handle {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  border-style: none;
+
+  @each $s,$as in ('','') {
+    &.top#{$s}:dir(ltr), &.bottom#{$s}:dir(rtl) {
+      $_url: 'assets/text-select-start#{$as}#{$asset_suffix}';
+      -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
+                                    url('#{$_url}@2.png'));
+      padding-left: 10px;
+    }
+
+    &.bottom#{$s}:dir(ltr), &.top#{$s}:dir(rtl) {
+      $_url: 'assets/text-select-end#{$as}#{$asset_suffix}';
+      -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
+                                    url('#{$_url}@2.png'));
+      padding-right: 10px;
+    }
+
+    &.insertion-cursor#{$s}:dir(ltr), &.insertion-cursor#{$s}:dir(rtl) {
+      $_url: 'assets/slider-horz-scale-has-marks-above#{$as}#{$asset_suffix}';
+      -gtk-icon-source: -gtk-scaled(url('#{$_url}.png'),
+                                    url('#{$_url}@2.png'));
+    }
+  }
+}
+
+.context-menu { font: initial; } // Decouple the font of context menus from their entry/textview
+
+// shortcut window keys
+.keycap {
+  min-width: 20px;
+  min-height: 25px;
+  margin-top: 2px;
+  padding-bottom: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+
+  color: $window_fg_color;
+  background-color: $view_bg_color;
+  border: 1px solid;
+  border-color: if($variant == 'light', gtkmix($borders_color, $window_bg_color, 50%), $borders_color);
+  border-radius: 5px;
+  box-shadow: if($variant == 'light', inset 0 -3px gtkmix($view_bg_color, $window_bg_color, 20%), inset 0 -3px gtkmix($borders_color, $view_bg_color, 60%));
+  font-size: smaller;
+
+  &:backdrop {
+    background-color: $backdrop_base_color;
+    color: $backdrop_fg_color;
+    transition: $backdrop_transition;
+  }
+}
+
+:not(decoration):not(window):drop(active):focus,
+:not(decoration):not(window):drop(active) { // FIXME needs to be done widget by widget, this wildcard should really die
+  border-color: $accent_bg_color;
+  box-shadow: inset 0 0 0 1px $accent_bg_color;
+  caret-color: $accent_bg_color;
+}
+
+stackswitcher button.text-button { min-width: 100px; } // FIXME aggregate with buttons
+
+stackswitcher button.circular,
+stackswitcher button.text-button.circular { // FIXME aggregate with buttons
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0;
+}
+
+// *************
+// * App Icons *
+// *************
+// Outline for low res icons
+.lowres-icon {
+    -gtk-icon-shadow: 0 -1px rgba(0,0,0,0.05),
+      1px 0 rgba(0,0,0,0.1),
+      0 1px rgba(0,0,0,0.3),
+      -1px 0 rgba(0,0,0,0.1);
+}
+
+// Dropshadow for large icons
+.icon-dropshadow {
+  -gtk-icon-shadow: 0 1px 12px rgba(0,0,0,0.05),
+      0 -1px rgba(0,0,0,0.05),
+      1px 0 rgba(0,0,0,0.1),
+      0 1px rgba(0,0,0,0.3),
+      -1px 0 rgba(0,0,0,0.1);
+}
+
+// *********
+// * Emoji *
+// *********
+
+popover.emoji-picker { 
+  padding-left: 0;
+  padding-right: 0;
+
+  entry.search { margin: 3px 5px 5px 5px; }
+}
+
+button.emoji-section {
+  border-color: transparent;
+  border-width: 3px;
+  border-style: none none solid;
+  border-radius: 0;
+
+  margin: 2px 4px 2px 4px;
+  padding: 3px 0 0;
+  min-width: 32px;
+  min-height: 28px;
+
+  // reset props inherited from the button style
+  background: none;
+  box-shadow: none;
+  text-shadow: none;
+
+  outline-offset: -5px;
+
+  &:first-child { margin-left: 7px; }
+  &:last-child { margin-right: 7px; }
+
+  &:backdrop:not(:checked) { border-color: transparent; }
+  &:hover { border-color: if($variant == 'light', $borders_color, gtkalpha($window_fg_color, .1)); }
+  &:checked { border-color: $selected_color; }
+
+  label {
+    padding: 0;
+    opacity: 0.55;
+  }
+
+  &:hover label { opacity: 0.775; }
+  &:checked label { opacity: 1; }
+}
+
+popover.emoji-picker .emoji {
+  font-size: x-large;
+  padding: 6px;
+  border-radius: $button_radius;
+
+  :focus,
+  :hover {
+    background: $hover_color;
+  }
+
+  :active {
+    background: $active_color;
+  }
+}
+
+popover.emoji-completion arrow {
+  border: none;
+  background: none;
+}
+
+popover.emoji-completion contents row box {
+  padding: 2px 10px;
+}
+
+popover.emoji-completion .emoji:hover {
+  background: $view_hover_color;
+}
+
+// Other misc junk
+// Font fixes when button text is bold
+.flat.popup:not(.title) {
+  font-weight: normal;
+}
+
+// Smaller text in statusbars
+statusbar {
+  font-size: small;
+}
+
+// scrolled window list rows
+scrolledwindow list {
+  &:not(.content) {
+    padding: 6px 0;
+  }
+  row {
+    margin: 0 6px;
+    border-radius: $button_radius;
+  }
+  separator.horizontal {
+    margin: 6px;
+  }
+}
+

@@ -1,0 +1,107 @@
+@use '../modules' as *;
+
+%selected_items {
+  background-color: $view_selected_color;
+
+  @at-root %nobg_selected_items, & {
+    color: $window_fg_color;
+
+    @at-root %selected_items_disabled,
+    &:disabled {
+      //color: gtkmix($accent_fg_color, $accent_bg_color, 50%);
+    }
+
+    @at-root %selected_items_backdrop,
+    &:backdrop {
+      //color: $accent_fg_color;
+      //&:disabled { color: gtkmix($backdrop_selected_fg_color, $accent_bg_color, 30%); }
+    }
+  }
+}
+
+label {
+  caret-color: currentColor; // this shouldn't be needed.
+
+  &.separator {
+    @extend .dim-label;
+  }
+
+  &:selected { @extend %nobg_selected_items; }
+
+  selection {
+    background-color: $accent_bg_color;
+    color: $accent_fg_color;
+  }
+
+  &:disabled {
+    color: $disabled_fg_color;
+
+    button & { color: inherit; }
+
+    &:backdrop {
+      color: $disabled_fg_color;
+
+      button & { color: inherit; }
+    }
+
+    selection { @extend %selected_items_disabled; }
+  }
+
+  &:backdrop {
+    selection { @extend %selected_items_backdrop; }
+  }
+
+  &.error {
+    color: $error_bg_color;
+    &:disabled { color: gtkalpha($error_bg_color, $disabled_opacity); }
+    &:disabled:backdrop { color: gtkalpha($error_bg_color, 0.4); }
+  }
+}
+
+assistant {
+  &.csd .sidebar { border-top-style: none; }
+  .sidebar label { padding: 6px 12px; }
+  .sidebar label.highlight { background-color: $selected_color; }
+}
+
+.dim-label {
+  opacity: 0.55;
+  text-shadow: none;
+}
+
+.large-title {
+  font-weight: 300;
+  font-size: 24pt;
+}
+.title-1 {
+  font-weight: 800;
+  font-size: 20pt;
+}
+.title-2 {
+  font-weight: 800;
+  font-size: 15pt;
+}
+.title-3 {
+  font-weight: 700;
+  font-size: 15pt;
+}
+.title-4 {
+  font-weight: 700;
+  font-size: 13pt;
+}
+.heading {
+  font-weight: 700;
+  font-size: 11pt;
+}
+.body {
+  font-weight: 400;
+  font-size: 11pt;
+}
+.caption-heading {
+  font-weight: 700;
+  font-size: 9pt;
+}
+.caption {
+  font-weight: 400;
+  font-size: 9pt;
+}

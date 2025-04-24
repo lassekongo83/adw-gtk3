@@ -1,3 +1,4 @@
 .gitattributes export-ignore
 .github export-ignore
-screenshot.png export-ignore
+preview-light.png export-ignore
+preview-dark.png export-ignore

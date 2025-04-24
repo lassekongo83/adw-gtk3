@@ -24,27 +24,28 @@ jobs:
 
     - name: Copy css files
       run: |
-        cp libadwaita/src/stylesheet/libadwaita.css $GITHUB_WORKSPACE/gtk/src/adw-gtk3/gtk-3.0/libadwaita.css
-        cp libadwaita/src/stylesheet/gtk.css $GITHUB_WORKSPACE/gtk/src/adw-gtk3/gtk-4.0/gtk.css
-        cp libadwaita/src/stylesheet/gtk-dark.css $GITHUB_WORKSPACE/gtk/src/adw-gtk3/gtk-4.0/gtk-dark.css
-        cp libadwaita/src/stylesheet/gtk-dark.css $GITHUB_WORKSPACE/gtk/src/adw-gtk3-dark/gtk-4.0/gtk.css
-        cp libadwaita/src/stylesheet/gtk-dark.css $GITHUB_WORKSPACE/gtk/src/adw-gtk3-dark/gtk-4.0/gtk-dark.css
+        cp libadwaita/src/stylesheet/libadwaita.css $GITHUB_WORKSPACE/src/theme-light/gtk4/libadwaita.css
+        cp libadwaita/src/stylesheet/gtk.css $GITHUB_WORKSPACE/src/theme-light/gtk4/gtk.css
+        cp libadwaita/src/stylesheet/gtk-dark.css $GITHUB_WORKSPACE/src/theme-light/gtk4/gtk-dark.css
+        cp libadwaita/src/stylesheet/libadwaita.css $GITHUB_WORKSPACE/src/theme-dark/gtk4/libadwaita.css
+        cp libadwaita/src/stylesheet/gtk-dark.css $GITHUB_WORKSPACE/src/theme-dark/gtk4/gtk.css
+        cp libadwaita/src/stylesheet/gtk-dark.css $GITHUB_WORKSPACE/src/theme-dark/gtk4/gtk-dark.css
 
     - name: Add libadwaita to the gtk.css files
       run: |
-        echo "@import '../gtk-3.0/libadwaita.css';" >> ./gtk/src/adw-gtk3/gtk-4.0/gtk.css
-        echo "@import '../gtk-3.0/libadwaita-tweaks.css';" >> ./gtk/src/adw-gtk3/gtk-4.0/gtk.css
-        echo "@import '../gtk-3.0/libadwaita.css';" >> ./gtk/src/adw-gtk3/gtk-4.0/gtk-dark.css
-        echo "@import '../gtk-3.0/libadwaita-tweaks.css';" >> ./gtk/src/adw-gtk3/gtk-4.0/gtk-dark.css
-        echo "@import '../gtk-3.0/libadwaita.css';" >> ./gtk/src/adw-gtk3-dark/gtk-4.0/gtk.css
-        echo "@import '../gtk-3.0/libadwaita-tweaks.css';" >> ./gtk/src/adw-gtk3-dark/gtk-4.0/gtk.css
-        echo "@import '../gtk-3.0/libadwaita.css';" >> ./gtk/src/adw-gtk3-dark/gtk-4.0/gtk-dark.css
-        echo "@import '../gtk-3.0/libadwaita-tweaks.css';" >> ./gtk/src/adw-gtk3-dark/gtk-4.0/gtk-dark.css
+        echo "@import 'libadwaita.css';" >> ./src/theme-light/gtk4/gtk.css
+        echo "@import 'libadwaita-tweaks.css';" >> ./src/theme-light/gtk4/gtk.css
+        echo "@import 'libadwaita.css';" >> ./src/ltheme-ight/gtk4/gtk-dark.css
+        echo "@import 'libadwaita-tweaks.css';" >> ./src/theme-light/gtk4/gtk-dark.css
+        echo "@import 'libadwaita.css';" >> ./src/theme-dark/gtk4/gtk.css
+        echo "@import 'libadwaita-tweaks.css';" >> ./src/theme-dark/gtk4/gtk.css
+        echo "@import 'libadwaita.css';" >> ./src/theme-dark/gtk4/gtk-dark.css
+        echo "@import 'libadwaita-tweaks.css';" >> ./src/theme-dark/gtk4/gtk-dark.css
 
     - name: Commit changes
       run: |
         git config user.name "GitHub-Actions"
         git config user.email "<>"
-        git add gtk/src
+        git add src
         git commit -m "Update gtk4 theme"
         git push

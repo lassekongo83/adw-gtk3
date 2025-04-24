@@ -1,0 +1,420 @@
+// More advanced sass mixins to draw entry and button backgrounds etc.
+
+@use 'settings' as *;
+@use 'functions' as *;
+@use 'colors' as *;
+
+$focus_border_color: gtkalpha($accent_bg_color, 0.5);
+
+@function _widget_edge($c:$borders_edge) {
+  @if $c == none { @return none; }
+  @else { @return 0 1px $c; }
+}
+
+@mixin _shadows($list...) {
+  // Helper mixin to stack up to box-shadows;
+  $shadows: null;
+
+  @each $shadow in $list {
+    @if $shadow!=none { $shadows: $shadows, $shadow; }
+  }
+
+  box-shadow: $shadows;
+}
+
+// *********
+// Entries *
+// *********
+
+@function entry_focus_border($fc:$focus_border_color) {
+  @return $fc;
+}
+
+@function entry_focus_shadow($fc:$focus_border_color) { @return inset 0 0 0 1px $fc; }
+
+@mixin entry($t, $fc:$focus_border_color, $edge: none) {
+  $_entry_edge: if($edge == none, none, _widget_edge($edge));
+
+  $entry_color: gtkalpha(currentColor, 0.1);
+  $entry_disabled: gtkmix(currentColor, $window_bg_color, 5%);
+  $entry_backdrop: $entry_disabled;
+  $entry_backdrop_disabled: $entry_disabled;
+
+  @if $t==normal {
+    color: $view_fg_color;
+    border-color: transparent;
+    background-color: $entry_color;
+    @include _shadows(entry_focus_shadow(gtkalpha($fc, 0)), $_entry_edge); // Needed for focus transition to work
+  }
+  @if $t==focus {
+    @include _shadows(entry_focus_shadow($fc), $_entry_edge);
+    border-color: entry_focus_border($fc);
+    transition: 300ms ease-in-out;
+    transition-property: border, box-shadow;
+  }
+  @if $t==disabled {
+    color: $disabled_fg_color;
+    border-color: transparent;
+    background-color: $entry_disabled;
+  }
+  @if $t==backdrop {
+    color: $backdrop_text_color;
+    border-color: transparent;
+    background-color: $entry_backdrop;
+  }
+  @if $t==backdrop-disabled {
+    color: $backdrop_disabled_color;
+    border-color: transparent;
+    background-color: $entry_backdrop_disabled;
+  }
+  @if $t==osd {
+    color: $osd_text_color;
+    border-color: $osd_borders_color;
+    background-color: transparentize(opacify($osd_borders_color, 1), 0.5);
+    background-clip: padding-box;
+    box-shadow: none;
+    text-shadow: 0 1px black;
+    -gtk-icon-shadow: 0 1px black;
+  }
+  @if $t==osd-focus {
+    color: $osd_text_color;
+    border-color: $accent_bg_color;
+    background-color: transparentize(opacify($osd_borders_color, 1), 0.5);
+    background-clip: padding-box;
+    box-shadow: entry_focus_shadow($fc);
+    text-shadow: 0 1px black;
+    -gtk-icon-shadow: 0 1px black;
+  }
+  @if $t==osd-disabled {
+    color: $osd_disabled_fg_color;
+    border-color: $osd_borders_color;
+    background-color: $osd_disabled_bg_color;
+    background-clip: padding-box;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
+  @if $t==osd-backdrop {
+    color: $osd_text_color;
+    border-color: $osd_borders_color;
+    background-color: transparentize(opacify($osd_borders_color, 1), 0.5);
+    background-clip: padding-box;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
+}
+
+// *********
+// Buttons *
+// *********
+
+@mixin button($t, $c:$window_bg_color, $tc:$window_fg_color, $edge: none, $backimage: null) {
+  $_blank_edge: if($edge == none, none, _widget_edge(transparentize($edge,1)));
+
+  $button_color: gtkmix($tc, $c, 10%);
+  $button_hover_color: gtkmix($tc, $c, 15%);
+  $button_active_color: gtkmix($tc, $c, 30%);
+  $button_checked_color: gtkmix($tc, $c, 30%);
+  $button_checked_hover_color: gtkmix($tc, $c, 35%);
+  $button_checked_active_color: gtkmix($tc, $c, 40%);
+  $button_disabled: gtkmix($tc, $c, 5%);
+
+  $button_text_disabled: gtkalpha($tc, $disabled_opacity);
+
+  @if $t==normal {
+  // normal button
+    color: $tc;
+    outline-color: $focus_border_color;
+    background-color: $button_color;
+  }
+
+  @else if $t==hover {
+  // hovered button
+    color: $tc;
+    background-color: $button_hover_color;
+    box-shadow: none;
+  }
+
+  @else if $t==active {
+  // pushed button
+    color: $tc;
+    background-color: $button_active_color;
+    box-shadow: none;
+
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+    &:hover { background-color: $button_checked_hover_color; }
+  }
+
+  @else if $t==disabled {
+  // disabled button
+    color: gtkalpha($tc, $disabled_opacity);
+    background-color: $button_disabled;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+    box-shadow: none;
+  }
+
+  @else if $t==disabled-active {
+  // disabled pushed button
+    color: $button_text_disabled;
+    background-color: $button_active_color;
+    box-shadow: none;
+  }
+
+  @else if $t==backdrop {
+  // backdrop button
+    color: $button_text_disabled;
+    background-color: $button_color;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
+
+  @else if $t==backdrop-active {
+  // backdrop pushed button
+    color: $button_text_disabled;
+    background-color: $button_active_color;
+    &:hover { background-color: $button_checked_active_color; }
+  }
+
+  @else if $t==backdrop-disabled {
+  // backdrop disabled button
+    color: $button_text_disabled;
+    background-color: $button_color;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
+
+  @else if $t==backdrop-disabled-active {
+  // backdrop disabled pushed button
+    color: $button_text_disabled;
+    background-color: $button_active_color;
+  }
+
+  @else if $t==osd {
+  // normal osd button
+    color: $osd_fg_color;
+    border-color: transparent;
+    background-color: transparentize(black, .35);
+    background-clip: padding-box;
+    outline-color: transparentize($osd_fg_color, 0.7);
+  }
+
+  @else if $t==osd-hover {
+  // active osd button
+    color: white;
+    border-color: transparent;
+    background-color: gtkalpha(gtkmix(black, currentColor, 85%), .65);
+    background-clip: padding-box;
+    outline-color: transparentize($osd_fg_color, 0.7);
+  }
+
+  @else if $t==osd-active {
+  // active osd button
+    color: white;
+    border-color: transparent;
+    background-color: gtkalpha(gtkmix(black, currentColor, 75%), .65);
+    background-clip: padding-box;
+
+    outline-color: transparentize($osd_fg_color, 0.7);
+  }
+
+  @else if $t==osd-disabled {
+  // disabled osd button
+    color: $osd_disabled_fg_color;
+    border-color: transparent;
+    background-color: transparent;
+    background-image: image($osd_disabled_bg_color);
+    background-clip: padding-box;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
+
+  @else if $t==osd-backdrop {
+  // backdrop osd button
+    $_bg: if($c != $window_bg_color, gtkalpha($c, 0.5), $osd_bg_color);
+
+    color: $osd_fg_color;
+    border-color: transparent;
+    background-color: transparent;
+    background-image: image($_bg);
+    background-clip: padding-box;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
+
+  @else if $t==undecorated {
+  // reset
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+
+    @include _shadows(inset 0 1px transparentize(white, 1), $_blank_edge);
+
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
+}
+
+// Libadwaita default style buttons. Good to have on elements that have different background colors.
+// Shouldn't be used too often as too many transparent elements can be cpu heavy on lower end machines.
+@mixin libadwaita-button($t, $fc:$focus_border_color) {
+  $button_color: $adw_button;
+  $button_hover_color: $adw_button_hover;
+  $button_active_color: $adw_button_active;
+  $button_checked_color: $adw_button_checked;
+  $button_checked_hover_color: $adw_button_checked_hover;
+  $button_checked_active_color: $adw_button_checked_active;
+
+  $button_text_color: if($variant == 'light', rgba(0,0,6,0.8), white);
+  $button_disabled_text_color: if($variant == 'light', gtkalpha(rgba(0,0,6,0.8), $disabled_opacity), gtkalpha(white, $disabled_opacity));
+
+  @if $t==normal {
+    outline-color: $fc;
+    color: $button_text_color;
+    background-color: $button_color;
+  }
+  @else if $t==hover {
+    outline-color: $fc;
+    color: $button_text_color;
+    background-color: $button_hover_color;
+  }
+  @else if $t==active {
+    outline-color: $fc;
+    color: $button_text_color;
+    background-color: $button_active_color;
+  }
+  @else if $t==checked {
+    outline-color: $fc;
+    color: $button_text_color;
+    background-color: $button_checked_color;
+    &:hover { background-color: $button_checked_hover_color; }
+    &:active { background-color: $button_checked_active_color; }
+  }
+  @else if $t==backdrop {
+    outline-color: transparent;
+    color: $button_disabled_text_color;
+    background-color: $button_color;
+    &:hover { background-color: $button_hover_color; }
+    &:checked { background-color: $button_checked_color; }
+    &:active { background-color: $button_active_color; }
+    &:checked:hover { background-color: $button_checked_hover_color; }
+    &:checked:active { background-color: $button_checked_active_color; }
+  }
+  @else if $t==disabled {
+    outline-color: transparent;
+    color: $button_disabled_text_color;
+    background-color: $button_color;
+  }
+}
+
+// ***********
+// Headerbar *
+// ***********
+
+@mixin headerbar_fill($c:$headerbar_bg_color, $hc:$top_hilight, $ov: none) {
+  $gradient: linear-gradient(to top, $c, $c);
+  @if $ov != none { background: $c $ov, $gradient; }
+  @else { background: $c $gradient; }
+}
+
+// *********************
+// Check/radio buttons *
+// *********************
+
+@mixin check($t, $c:$window_bg_color, $tc:$window_fg_color, $checked: false) {
+  $_border_color: if($c==$checkradio_bg_color, $c, $trough_color);
+
+  @if $t==normal  {
+    background-clip: if($checked, border-box, padding-box);
+    background-image: image($c);
+    border-color: $_border_color;
+    box-shadow: none;
+    color: $tc;
+  }
+
+  @if $t==hover {
+    &:not(:checked):not(:indeterminate) { border-color: $trough_hover_color; }
+  }
+
+  @if $t==active {
+    box-shadow: none;
+  }
+
+  @if $t==disabled {
+    // FIXME: Background color looks bad when using gtkalpha
+    box-shadow: none;
+    background-image: image($c);
+    color: gtkalpha($tc, $disabled_opacity);
+    border-color: $_border_color;
+  }
+}
+
+// ***********
+// Overshoot *
+// ***********
+
+@mixin overshoot($p, $t:normal, $c:$window_fg_color) {
+  $_small_gradient_length: 5%;
+  $_big_gradient_length: 100%;
+
+  $_position: center top;
+  $_small_gradient_size: 100% $_small_gradient_length;
+  $_big_gradient_size: 100% $_big_gradient_length;
+
+  @if $p==bottom {
+    $_position: center bottom;
+    $_linear_gradient_direction: to top;
+  }
+
+  @else if $p==right {
+    $_position: right center;
+    $_small_gradient_size: $_small_gradient_length 100%;
+    $_big_gradient_size: $_big_gradient_length 100%;
+  }
+
+  @else if $p==left {
+    $_position: left center;
+    $_small_gradient_size: $_small_gradient_length 100%;
+    $_big_gradient_size: $_big_gradient_length 100%;
+  }
+
+  @if $c==$window_fg_color {
+    $_small_gradient_color: gtkshade($borders_color, 0.9);
+    $_big_gradient_color: $window_fg_color;
+
+    @if $t==backdrop { $_small_gradient_color: $backdrop_borders_color; }
+  }
+
+  $_small_gradient: -gtk-gradient(radial,
+                                  $_position, 0,
+                                  $_position, 0.5,
+                                  to($c),
+                                  to(gtkalpha($c, 0)));
+
+  $_big_gradient: -gtk-gradient(radial,
+                                $_position, 0,
+                                $_position, 0.6,
+                                from(gtkalpha($c, 0.07)),
+                                to(gtkalpha($c, 0)));
+
+  @if $t==normal {
+    background-image: $_small_gradient, $_big_gradient;
+    background-size: $_small_gradient_size, $_big_gradient_size;
+  }
+
+  @else if $t==backdrop {
+    background-image: $_small_gradient;
+    background-size: $_small_gradient_size;
+  }
+
+  background-repeat: no-repeat;
+  background-position: $_position;
+
+  background-color: transparent; // reset some properties to be sure to not inherit them somehow
+  border: none;                  //
+  box-shadow: none;              //
+}

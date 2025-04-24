@@ -1,0 +1,73 @@
+@use 'modules' as *;
+
+// Base styles
+
+* {
+  padding: 0;
+  -GtkToolButton-icon-spacing: 4;
+  -GtkTextView-error-underline-color: $error_bg_color;
+
+  -GtkScrolledWindow-scrollbar-spacing: 0;
+  -GtkToolItemGroup-expander-size: 11;
+
+  -GtkWidget-text-handle-width: 20;
+  -GtkWidget-text-handle-height: 24;
+
+  -GtkDialog-button-spacing: 4;
+  -GtkDialog-action-area-border: 0;
+
+  outline-color: gtkalpha(currentColor, 0.3);
+  outline-style: dashed;
+  outline-offset: -3px;
+  outline-width: 1px;
+  -gtk-outline-radius: calc($button-radius - 2px);
+
+  -gtk-secondary-caret-color: $accent_bg_color;
+}
+
+.background {
+  color: $window_fg_color;
+  background-color: $window_bg_color;
+
+  &:backdrop {
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
+}
+
+// Avoid using wildcards as much as possible. This one seems unavoidable though.
+*:disabled { -gtk-icon-effect: dim; }
+
+.gtkstyle-fallback {
+  color: $window_fg_color;
+  background-color: $window_bg_color;
+
+  &:hover {
+    color: $window_fg_color;
+    background-color: gtkshade($window_bg_color, 1.1);
+  }
+
+  &:active {
+    color: $window_fg_color;
+    background-color: gtkshade($window_bg_color, 0.9);
+  }
+
+  &:disabled {
+    color: $disabled_fg_color;
+    background-color: $disabled_bg_color;
+  }
+
+  &:selected {
+    color: $accent_fg_color;
+    background-color: $accent_bg_color;
+  }
+}
+
+%osd,
+.osd {
+  color: $osd_fg_color;
+  border: none;
+  background-color: $osd_bg_color;
+  background-clip: padding-box;
+}
+

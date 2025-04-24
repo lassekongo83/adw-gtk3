@@ -1,0 +1,71 @@
+// Tweaks for the gtk-4.0 theme
+// These fixes are not for libadwaita apps
+
+@use '../settings' as *;
+@use '../functions' as *;
+
+// https://github.com/lassekongo83/adw-gtk3/issues/272
+@define-color accent_bg_color @blue_3;
+@define-color accent_fg_color white;
+
+:root {
+  --accent-blue: #3584e4;
+  --accent-teal: #2190a4;
+  --accent-green: #3a944a;
+  --accent-yellow: #c88800;
+  --accent-orange: #ed5b00;
+  --accent-red: #e62d42;
+  --accent-pink: #d56199;
+  --accent-purple: #9141ac;
+  --accent-slate: #6f8396;
+
+  --accent-color: var(--accent-bg-color);
+  --accent-bg-color: var(--accent-blue);
+  --accent-fg-color: @accent_fg_color;
+
+  --window-bg-color: @window_bg_color;
+  --headerbar-bg-color: @headerbar_bg_color;
+}
+
+// add a bg color to notebook headers
+notebook > header {
+  background-color: var(--headerbar-bg-color);
+  border-color: var(--headerbar-bg-color);
+}
+
+// Better osd
+.osd {
+  &, button { border-radius: 24px; }
+  button { margin: 2px; }
+}
+
+// ******
+// Apps *
+// ******
+
+// Chromium
+.background.chromium {
+  $chr_dark_bg: gtkshade(var(--headerbar-bg-color), 1.2);
+  // Will crash the browser if mixed with any color that is transparent!
+  background-color: if($variant == 'light', var(--window-bg-color), $chr_dark_bg);
+
+  selection {
+    &, &:focus {
+      background-color: var(--accent-bg-color);
+      color: var(--accent-fg-color);
+    }
+  }
+
+  windowcontrols > button {
+    background-color: color-mix(in srgb, currentColor 10%, transparent);
+    min-width: 24px;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 100%;
+    margin: 0 4px; // doesn't work on the far edges of the tab-bar
+    transition: background 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    &:hover { background-color: color-mix(in srgb, currentColor 15%, transparent); }
+    &:active { background-color: color-mix(in srgb, currentColor 30%, transparent); }
+  }
+}
+

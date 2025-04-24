@@ -1,0 +1,704 @@
+@use '../modules' as *;
+@forward 'views';
+
+$_btn_pad: 4px 10px;
+$_img_btn_pad: 4px;
+$_circ_btn_pad: 4px;
+
+$destructive_button_color: gtkalpha(currentColor, .15);
+$destructive_button_hover_color: gtkalpha(currentColor, .2);
+$destructive_button_active_color: gtkalpha(currentColor, .35);
+$destructive_button_checked_hover_color: gtkalpha(currentColor, .4);
+
+// stuff for .needs-attention
+$_dot_color: if($variant=='light', $accent_bg_color,
+                                   gtkmix(white,$accent_bg_color,15%));
+@keyframes needs_attention {
+  from {
+    background-image: -gtk-gradient(radial,
+                                    center center, 0,
+                                    center center, 0.01,
+                                    to($_dot_color),
+                                    to(transparent));
+  }
+
+  to {
+    background-image: -gtk-gradient(radial,
+                                    center center, 0,
+                                    center center, 0.5,
+                                    to($accent_bg_color),
+                                    to(transparent));
+  }
+}
+
+%button,
+button {
+  @at-root %button_basic, & {
+
+    min-height: 24px;
+    min-width: 16px;
+    padding: $_btn_pad;
+    border: 1px solid;
+    border-color: transparent; // Should be in _drawing.scss, but it breaks linked buttons
+    border-radius: $button_radius;
+    transition: $button_transition;
+    font-weight: bold;
+    outline-style: solid;
+    outline-offset: -2px;
+    outline-width: 2px;
+    -gtk-outline-radius: calc($button-radius - 2px);
+
+    @include button(normal);
+
+    @at-root %button_basic_flat,
+    &.flat {
+      @include button(undecorated);
+      // to avoid adiacent buttons borders clashing when transitioning, the transition on the normal state is set
+      // to none, while it's added back in the hover state, so the button decoration will fade in on hover, but
+      // it won't fade out when the pointer leave the button allocation area. To make the transition more evident
+      // in this case the duration is increased.
+      transition: none;
+
+      &:hover {
+        transition: $button_transition;
+
+        &:active { transition: $button_transition; }
+      }
+    }
+
+    &:hover {
+      @include button(hover);
+      -gtk-icon-effect: highlight;
+    }
+
+    &:active,
+    &:checked {
+      @include button(active);
+
+      transition: $button_transition;
+    }
+
+    &:backdrop {
+      &.flat, & {
+        transition: $backdrop_transition;
+        -gtk-icon-effect: none;
+      }
+    }
+
+    @at-root %button_basic_flat,
+    &.flat { &:backdrop, &:disabled, &:backdrop:disabled { @include button(undecorated); }}
+
+    &:disabled {
+      @include button(disabled);
+
+      &:active,
+      &:checked { @include button(disabled-active); }
+    }
+
+    &.image-button {
+      min-width: 24px;
+      padding-left: $_img_btn_pad;
+      padding-right: $_img_btn_pad;
+    }
+
+    &.text-button {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    &.text-button.image-button {
+      padding-left: 4px;
+      padding-right: 4px;
+
+      label {
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+    }
+
+    @at-root %button_basic_drop_active,
+    &:drop(active) {
+      color: $accent_bg_color;
+      border-color: $accent_bg_color;
+      box-shadow: inset 0 0 0 1px $accent_bg_color;
+    }
+  }
+
+  @at-root %button_selected, & {
+    row:selected & {
+      @if $variant == 'light' { border-color: $selected_borders_color; }
+    }
+
+    @at-root %button_selected_flat, &.flat {
+      row:selected & {
+        &:not(:active):not(:checked):not(:hover):not(disabled) {
+          color: $window_fg_color; // This should be accent_fg_color if the background is the accent color
+          border-color: transparent;
+        }
+      }
+    }
+  }
+
+
+  // big standalone buttons like in Documents pager
+  &.osd {
+    min-width: 32px;
+    min-height: 32px;
+
+    &.image-button { min-width: 34px; }
+
+    color: $osd_fg_color;
+    border-radius: 5px;
+
+    @include button(osd);
+
+    border: none;
+    box-shadow: none;
+
+    &:hover {
+      @include button(osd-hover);
+
+      border: none;
+      box-shadow: none;
+    }
+
+    &:active,
+    &:checked {
+      @include button(osd-active);
+
+      border: none;
+      box-shadow: none;
+    }
+
+    &:disabled {
+      &:backdrop, & {
+        @include button(osd-disabled);
+
+        border: none;
+      }
+    }
+
+    &:backdrop {
+      @include button(osd-backdrop);
+
+      border: none;
+    }
+  }
+
+  //overlay / OSD style
+  @at-root %osd_button,
+  .osd & {
+    @include button(osd);
+
+    &:hover { @include button(osd-hover); }
+
+    &:active,
+    &:checked { &:backdrop, & { @include button(osd-active); }}
+
+    &:disabled { &:backdrop, & { @include button(osd-disabled); }}
+
+    &:backdrop { @include button(osd-backdrop); }
+
+    &.flat {
+      @include button(undecorated);
+
+      box-shadow: none; //FIXME respect no edge on the button mixin
+      text-shadow: 0 1px black;
+      -gtk-icon-shadow: 0 1px black;
+
+      &:hover { @include button(osd-hover); }
+
+      &:disabled {
+        @include button(osd-disabled);
+        background-image: none;
+        border-color: transparent;
+        box-shadow: none;
+      }
+
+      &:backdrop { @include button(undecorated); }
+
+      &:active,
+      &:checked { @include button(osd-active); }
+    }
+  }
+
+  // Suggested and Destructive Action buttons
+  // Suggested Action buttons
+  %suggested_action_button,
+  &.suggested-action {
+    @include button(normal, $accent_bg_color, white);
+
+    &.flat {
+      @include button(undecorated);
+
+      color: $accent_bg_color;
+    }
+
+    &:hover { @include button(hover, $accent_bg_color, white); }
+
+    &:active,
+    &:checked { @include button(active, $accent_bg_color, white); }
+
+    &.flat {
+      &:disabled {
+        @include button(undecorated);
+
+        color: gtkalpha($accent_bg_color, 0.8);
+      }
+    }
+
+    &:disabled {
+      @include button(disabled);
+
+      &:active,
+      &:checked { @include button(disabled-active, $accent_bg_color, white); }
+    }
+
+    .osd & {
+      @include button(osd, $accent_bg_color);
+
+      &:hover { @include button(osd-hover, $accent_bg_color); }
+
+      &:active,
+      &:checked { &:backdrop, & { @include button(osd-active, $accent_bg_color); }}
+
+      &:disabled { &:backdrop, & { @include button(osd-disabled, $accent_bg_color); }}
+
+      &:backdrop { @include button(osd-backdrop, $accent_bg_color); }
+    }
+  }
+
+  // Destructive Action buttons
+  %destructive_action_button,
+  &.destructive-action {
+    @include button(normal, $destructive_button_color, $destructive_color);
+
+    &.flat {
+      @include button(undecorated);
+
+      color: $destructive_color;
+    }
+
+    &:hover { @include button(normal, $destructive_button_hover_color, $destructive_color); }
+    &:focus { outline-color: $destructive_color; }
+
+    &:active,
+    &:checked {
+      @include button(normal, $destructive_button_active_color, $destructive_color);
+      &:hover {
+        @include button(normal, $destructive_button_checked_hover_color, $destructive_color);
+      }
+    }
+
+    &.flat {
+      &:disabled {
+        @include button(undecorated);
+
+        color: gtkalpha($destructive_bg_color, 0.8);
+      }
+    }
+
+    &:disabled {
+      @include button(disabled);
+
+      &:active,
+      &:checked { @include button(disabled-active, $destructive_button_color, $destructive_color); }
+    }
+
+    .osd & {
+      @include button(osd, $destructive_button_color, $destructive_color);
+
+      &:hover { @include button(osd-hover, $destructive_button_hover_color, $destructive_color); }
+
+      &:active,
+      &:checked { &:backdrop, & { @include button(osd-active, $destructive_button_active_color, $destructive_color); }}
+
+      &:disabled { &:backdrop, & { @include button(osd-disabled, $destructive_button_color, $destructive_color); }}
+
+      &:backdrop { @include button(osd-backdrop, $destructive_button_color, $destructive_color); }
+    }
+  }
+
+  .stack-switcher > & {
+    // to position the needs attention dot, padding is added to the button
+    // child, a label needs just lateral padding while an icon needs vertical
+    // padding added too.
+
+    outline-offset: -3px; // needs to be set or it gets overriden by GtkRadioButton outline-offset
+
+    > label {
+      padding-left: 6px;  // label padding
+      padding-right: 6px; //
+    }
+
+    > image {
+      padding-left: 6px;   // image padding
+      padding-right: 6px;  //
+      padding-top: 3px;    //
+      padding-bottom: 3px; //
+    }
+
+    &.text-button {
+      // compensate text-button paddings
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    &.image-button {
+      // we want image buttons to have a 1:1 aspect ratio, so compensation
+      // of the padding added to the GtkImage is needed
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+
+    &.needs-attention {
+      > label,
+      > image { @extend %needs_attention; }
+
+      &:active,
+      &:checked {
+        > label,
+        > image {
+          animation: none;
+          background-image: none;
+        }
+      }
+    }
+  }
+
+  // hide separators
+  &.font,
+  &.file { separator { background-color: transparent; }}
+
+  &.font { > box > box > label { font-weight: bold; }}
+
+  // inline-toolbar buttons
+  .inline-toolbar & { @extend %linked; }
+
+  .primary-toolbar & { -gtk-icon-shadow: none; } // tango icons don't need shadows
+
+  .linked > & { @extend %linked; }
+
+  .linked.vertical > & { @extend %linked_vertical; }
+
+  &.circular { // The Bloody Circul Button
+    border-radius: 9999px;
+    -gtk-outline-radius: 9999px;
+    padding: $_circ_btn_pad; // circles instead of ellipses
+
+    label { padding: 0; }
+
+    // the followind code is needed since we use a darker bottom border on buttons, which looks pretty
+    // bad with a 100% border radius (see https://bugzilla.gnome.org/show_bug.cgi?id=771205 for details),
+    // so on relevant states we an additional background-image with a gradient clipped on the border-box,
+    // so setting a transparent border would reveal it.
+
+    $_border_bg: linear-gradient(to top, $alt_borders_color 25%, $border_color 50%);
+
+    &:not(.flat):not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop) {
+      @include button(normal, $backimage: $_border_bg);
+
+      border-color: transparent;
+    }
+
+    &:hover:not(.osd):not(:checked):not(:active):not(:disabled):not(:backdrop) {
+      @include button(hover, $backimage: $_border_bg);
+
+      border-color: transparent;
+    }
+
+    background-origin: padding-box, border-box;
+    background-clip: padding-box, border-box;
+  }
+}
+
+%needs_attention {
+  // the dot is drawn by using two radial gradient, the first one is the actual dot, the other
+  // simulates the shadow labels and icons normally have in buttons.
+  animation: needs_attention 150ms ease-in;
+
+  background-image: radial-gradient(farthest-side, $accent_color 96%, transparent);
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+
+  background-position: right 3px;
+
+  &:dir(rtl) {
+    background-position: left 3px;
+  }
+}
+
+
+// all the following is for the +|- buttons on inline toolbars, that way
+// should really be deprecated...
+.inline-toolbar toolbutton > button { // redefining the button look is
+                                      // needed since those are flat...
+  @include button(normal);
+
+  &:hover { @include button(hover); }
+
+  &:active,
+  &:checked{ @include button(active); }
+
+  &:disabled {
+    @include button(disabled);
+
+    &:active,
+    &:checked { @include button(disabled-active); }
+  }
+
+  &:backdrop {
+    @include button(backdrop);
+
+    &:active,
+    &:checked { @include button(backdrop-active); }
+
+    &:disabled {
+      @include button(backdrop-disabled);
+
+      &:active,
+      &:checked { @include button(backdrop-disabled-active); }
+    }
+  }
+}
+
+// More inline toolbar buttons
+toolbar.inline-toolbar toolbutton {
+  > button.flat { @extend %linked_middle; }
+
+  &:first-child > button.flat { @extend %linked_left; }
+  &:last-child > button.flat { @extend %linked_right; }
+  &:only-child > button.flat { @extend %linked_only_child; }
+}
+
+// menu buttons
+modelbutton.flat,
+.menuitem.button.flat {
+  min-height: 32px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: $button_radius;
+  outline-offset: -2px;
+
+  @extend %undecorated_button;
+
+  &:hover { background-color: $selected_color; }
+
+  &:selected {
+    background-color: $selected_color;
+  }
+}
+
+modelbutton.flat arrow {
+  background: none;
+
+  &:hover { background: none; }
+  &.left { -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); }
+  &.right { -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
+}
+
+button.color {
+  padding: 4px;
+
+  colorswatch:only-child {
+    &, overlay { border-radius: 0; }
+
+    @if $variant == 'light' {
+      .osd & { box-shadow: none; }
+    }
+  }
+
+  @if $variant == 'light' {
+    .osd &, & {
+      &:disabled,
+      &:backdrop,
+      &:active,
+      &:checked { colorswatch:only-child { box-shadow: none; }}
+    }
+  }
+}
+
+// list buttons
+list row button.image-button:not(.flat) {
+  @extend %undecorated_button;
+  &:hover {
+    background-color: $view_hover_color;
+  }
+  &:active {
+    background-color: $view_active_color;
+  }
+  &:checked {
+    background-color: $view_selected_color;
+    &:hover { background-color: $view_selected_hover_color; }
+    &:active { background-color: $view_selected_active_color; }
+  }
+}
+
+// Misc junk
+// Even out toggle button padding to make them more square
+button.toggle:not(.image-button) {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+// Linked osd buttons, like in totem
+.osd .linked > button { border-color: transparent; }
+
+// Linked stuff
+// Would like to use as a module, but it messes with the css ordering
+%linked_middle {
+  border-left-color: $border_color;
+  border-right-color: $border_color;
+  border-right-style: none;
+  border-radius: 0;
+  -gtk-outline-radius: 0;
+}
+
+%linked_left {
+  border-left-color: transparent;
+  border-top-left-radius: $button_radius;
+  border-bottom-left-radius: $button_radius;
+  -gtk-outline-top-left-radius: $button_radius;
+  -gtk-outline-bottom-left-radius: $button_radius;
+  &:not(button):focus { border-left-color: entry_focus_border(); } // Fix for linked entries
+}
+
+%linked_right {
+  border-right-color: transparent;
+  border-right-style: solid;
+  border-top-right-radius: $button_radius;
+  border-bottom-right-radius: $button_radius;
+  -gtk-outline-top-right-radius: $button_radius;
+  -gtk-outline-bottom-right-radius: $button_radius;
+  &:not(button):focus { border-right-color: entry_focus_border(); }
+}
+
+%linked_only_child {
+  border-style: solid;
+  border-radius: $button_radius;
+  -gtk-outline-radius: $button_radius;
+}
+
+// .linked assumes Box, which reverses nodes in RTL, so 1st child is always left
+%linked {
+  border-left-color: $border_color;
+  border-right-color: $border_color;
+  @extend %linked_middle;
+
+  &:first-child { @extend %linked_left; }
+  &:last-child { @extend %linked_right; }
+  &:only-child { @extend %linked_only_child; }
+}
+
+// Other widgets use widget child order, so 1st/last child are at text start/end
+%linked_flippable {
+  @extend %linked_middle;
+
+  &:dir(ltr) {
+    &:first-child { @extend %linked_left; }
+    &:last-child { @extend %linked_right; }
+  }
+
+  &:dir(rtl) {
+    &:first-child { @extend %linked_right; }
+    &:last-child { @extend %linked_left; }
+  }
+
+  &:only-child { @extend %linked_only_child; }
+}
+
+%linked_vertical_middle {
+  border-top-color: $border_color;
+  border-bottom-color: $border_color;
+  border-style: solid none none none;
+  border-radius: 0;
+  -gtk-outline-radius: 0;
+}
+
+%linked_vertical_top {
+  border-top-color: transparent;
+  border-top-left-radius: $button_radius;
+  border-top-right-radius: $button_radius;
+  -gtk-outline-top-left-radius: $button_radius;
+  -gtk-outline-top-right-radius: $button_radius;
+}
+
+%linked_vertical_bottom {
+  border-bottom-color: transparent;
+  border-bottom-style: solid;
+  border-bottom-left-radius: $button_radius;
+  border-bottom-right-radius: $button_radius;
+  -gtk-outline-bottom-left-radius: $button_radius;
+  -gtk-outline-bottom-right-radius: $button_radius;
+}
+
+%linked_vertical_only_child {
+  border-style: solid;
+  border-radius: $button_radius;
+  -gtk-outline-radius: $button_radius;
+}
+
+%linked_vertical {
+  border-top-color: $border_color;
+  border-bottom-color: $border_color;
+
+  @extend %linked_vertical_middle;
+
+  &:first-child { @extend %linked_vertical_top; }
+  &:last-child { @extend %linked_vertical_bottom; }
+  &:only-child { @extend %linked_vertical_only_child; }
+}
+
+%undecorated_button {
+  background-color: transparent;
+  background-image: none;
+  border-color: transparent;
+  box-shadow: inset 0 1px transparentize(white, 1),
+              0 1px transparentize(white, 1);
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+}
+
+%suggested_buttons {
+  @include button(normal, $suggested_bg_color, $accent_fg_color);
+  &:hover {
+    @include button(hover, $suggested_bg_color, $accent_fg_color);
+  }
+
+  &:active, &:checked {
+    @include button(active, gtkalpha($suggested_bg_color, 0.5), $accent_fg_color);
+  }
+
+  &:backdrop, &:backdrop:hover {
+    @include button(backdrop, gtkalpha($suggested_bg_color, 0.5), $accent_fg_color);
+  }
+
+  &:disabled {
+    @include button(disabled, gtkalpha($suggested_bg_color, 0.5), $window_fg_color);
+    &:backdrop { @include button(backdrop-disabled, gtkalpha($suggested_bg_color, 0.5), $backdrop_disabled_color); }
+  }
+}
+
+%destructive_buttons {
+  @include button(normal, $destructive_button_color, $destructive_color);
+  &:hover {
+    @include button(hover, $destructive_button_hover_color, $destructive_color);
+  }
+
+  &:active, &:checked {
+    @include button(active, $destructive_button_active_color, $destructive_color);
+  }
+
+  &:backdrop, &:backdrop:hover {
+    @include button(backdrop, $destructive_button_color, $destructive_color);
+  }
+
+  &:disabled {
+    @include button(disabled, $destructive_button_color, $destructive_color);
+    &:backdrop { @include button(backdrop-disabled, $destructive_button_color, $destructive_color); }
+  }
+  &:focus {
+    outline-color: $destructive_color;
+  }
+}
+

@@ -1,0 +1,16 @@
+@use '../modules' as *;
+
+expander {
+  title > arrow {
+    min-width: 16px;
+    min-height: 16px;
+    -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+    &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic-rtl'); }
+
+    &:hover { color: gtkmix(white,$window_fg_color,30%); } //only lightens the arrow
+    &:disabled { color: $disabled_fg_color; }
+    &:disabled:backdrop { color: $backdrop_disabled_color; }
+
+    &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
+  }
+}

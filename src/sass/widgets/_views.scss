@@ -1,0 +1,83 @@
+@use '../modules' as *;
+
+%selected_items {
+  background-color: $view_selected_color;
+
+  @at-root %nobg_selected_items, & {
+    color: $window_fg_color;
+
+    @at-root %selected_items_disabled,
+    &:disabled {
+      //color: gtkmix($accent_fg_color, $accent_bg_color, 50%);
+    }
+
+    @at-root %selected_items_backdrop,
+    &:backdrop {
+      //color: $accent_fg_color;
+      //&:disabled { color: gtkmix($backdrop_selected_fg_color, $accent_bg_color, 30%); }
+    }
+  }
+}
+
+.view,
+%view {
+  color: $view_fg_color;
+  background-color: $view_bg_color;
+  caret-color: $caret_color;
+
+  &:disabled {
+    color: $disabled_fg_color;
+    background-color: $disabled_bg_color;
+  }
+
+  &:selected {
+    @extend %selected_items;
+    &:focus, & {
+      border-radius: $button_radius;
+    }
+  }
+}
+
+.view,
+textview {
+  text {
+    @extend %view;
+
+    selection { &:focus, & { @extend %selected_items; }}
+  }
+}
+
+textview border { background-color: gtkmix($window_bg_color, $view_bg_color, 50%); }
+
+iconview { @extend .view; }
+
+.rubberband,
+rubberband {
+  border: 1px solid $accent_color;
+  background-color: gtkalpha($accent_color, 0.2);
+}
+
+flowbox {
+  rubberband { @extend rubberband; }
+
+  flowboxchild {
+    padding: 3px;
+
+    &:selected {
+      @extend %selected_items;
+
+      outline-offset: -2px;
+    }
+  }
+}
+
+.content-view .tile {
+  margin: 2px;
+  background-color: if($variant=='light', transparent, black);
+  border-radius: 0;
+  padding: 0;
+  
+  &:backdrop { background-color: if($variant=='light', transparent, gtkmix(black,$window_bg_color,5%)); }
+  &:active, &:selected { background-color: if($variant=='light', transparent, $accent_bg_color); }
+  &:disabled { background-color: if($variant=='light', transparent, $disabled_bg_color); }
+}

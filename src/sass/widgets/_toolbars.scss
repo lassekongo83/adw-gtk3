@@ -1,0 +1,79 @@
+@use '../modules' as *;
+
+%toolbar {
+  -GtkWidget-window-dragging: true;
+  padding: 4px;
+  background-color: $window_bg_color;
+  &:backdrop { background-color: $backdrop_bg_color; }
+}
+
+toolbar {
+  @extend %toolbar;
+
+  padding: 4px 3px 3px 4px;
+
+  // on OSD
+  .osd & { background-color: transparent; }
+
+  // stand-alone OSD toolbars
+  &.osd {
+    padding: 13px;
+    border: none;
+    border-radius: 5px;
+    background-color: $osd_bg_color;
+
+    &.left,
+    &.right,
+    &.top,
+    &.bottom { border-radius: 0; } // positional classes for `attached` osd toolbars
+  }
+
+  // toolbar separators
+  &.horizontal separator { margin: 0 7px 1px 6px; }
+  &.vertical separator { margin: 6px 1px 7px 0; }
+
+  &:not(.inline-toolbar):not(.osd) {
+    // workaround: add margins to the children of tool items to simulate
+    // spacing, ignore the overflow button (.toggle) and the overflow menu
+    // (.popup)
+    > *:not(.toggle):not(.popup) > * {
+      margin-right: 1px;
+      margin-bottom: 1px;
+    }
+  }
+}
+
+//searchbar, location-bar & inline-toolbar
+.inline-toolbar {
+  @extend %toolbar;
+
+  background-color: $window_bg_color;
+  border-color: $border_color;
+  border-style: solid;
+
+  padding: 3px;
+  border-width: 0 1px 1px;
+  border-radius: 0  0 5px 5px;
+}
+
+searchbar > revealer > box,
+.location-bar {
+  @extend %toolbar;
+
+  border-width: 0 0 1px;
+  border-style: solid;
+  border-color: $border_color;
+  padding: 3px;
+}
+
+searchbar > revealer > box {
+  // workaround: undo the GtkContainer:border-width and use CSS padding instead
+  margin: -6px;
+  padding: 6px;
+}
+
+// Misc junk
+.primary-toolbar, .toolbar {
+  background-color: $window_bg_color;
+  &:backdrop { background-color: $backdrop_bg_color; }
+}

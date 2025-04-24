@@ -1,0 +1,76 @@
+@use '../modules' as *;
+@forward 'buttons';
+
+.sidebar {
+  border-style: none;
+  background-color: $sidebar_bg_color;
+  color: $sidebar_fg_color;
+
+  &:backdrop {
+    background-color: $sidebar_backdrop_color;
+  }
+
+  &:not(separator) {
+    @at-root %sidebar_left,
+    &:dir(ltr),
+    &.left,
+    &.left:dir(rtl) {
+      border-right: 1px solid $sidebar_border_color;
+      border-left-style: none;
+    }
+
+    @at-root %sidebar_right,
+    &:dir(rtl),
+    &.right {
+      border-left: 1px solid $sidebar_border_color;
+      border-right-style: none;
+    }
+  }
+
+  list { background-color: transparent; }
+
+  paned & { &.left, &.right, &.left:dir(rtl), &:dir(rtl), &:dir(ltr), & { border-style: none; }}
+
+  row {
+    border-radius: $button_radius;
+    &:backdrop { color: $sidebar_fg_color; }
+  }
+  row, separator {
+    margin: 0 4px;
+  }
+}
+
+stacksidebar {
+  &.sidebar {
+    &:dir(ltr),
+    &.left,
+    &.left:dir(rtl) { list { @extend %sidebar_left; }}
+
+    &:dir(rtl),
+    &.right { list { @extend %sidebar_right; }}
+  }
+
+  row {
+    padding: 10px 4px;
+
+    > label {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+
+    &.needs-attention > label {
+      @extend %needs_attention;
+
+      background-size: 6px 6px, 0 0;
+    }
+  }
+}
+
+separator.sidebar {
+  background-color: $sidebar_border_color;
+
+  &.selection-mode,
+  .selection-mode & {
+    background-color: gtkshade($suggested_bg_color, 0.8);
+  }
+}

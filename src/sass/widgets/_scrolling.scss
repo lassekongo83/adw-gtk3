@@ -1,0 +1,151 @@
+@use '../modules' as *;
+
+scrollbar {
+  $_slider_min_length: 40px;
+  $_slider_width: 8px;
+  $_scrollbar_transition: all 200ms linear;
+  $_fine-tune_slider_border: calc($_slider_width - 3px); //3672
+
+  // disable steppers
+  @at-root * {
+    -GtkScrollbar-has-backward-stepper: false;
+    -GtkScrollbar-has-forward-stepper: false;
+  }
+
+  background-color: $scrollbar_bg_color;
+  transition: $_scrollbar_transition;
+
+  // slider
+  slider {
+    color: $window_fg_color;
+    min-width: $_slider_width;
+    min-height: $_slider_width;
+    margin: -1px;
+    border: 4px solid transparent;
+    border-radius: 10px;
+    background-clip: padding-box;
+    background-color: $scrollbar_slider_color;
+    transition: $_scrollbar_transition;
+
+    &:hover { background-color: $scrollbar_slider_hover_color; }
+
+    &:hover:active { background-color: $scrollbar_slider_active_color; }
+
+    &:disabled { background-color: transparent; }
+  }
+
+  &.fine-tune {
+    slider {
+      &, &:hover, &:active {
+        background-color: gtkalpha($accent_color, .6);
+      }
+    }
+  }
+
+  &.overlay-indicator {
+    &:not(.dragging):not(.hovering) {
+      border-color: transparent;
+      opacity: 0.4;
+      background-color: transparent;
+      transition-property: background-color, min-height, min-width;
+
+      slider {
+        margin: 0;
+        min-width: 3px;
+        min-height: 3px;
+        background-color: $window_fg_color;
+        border: 1px solid if($variant == 'light', white, black);
+      }
+
+      button {
+        min-width: 5px;
+        min-height: 5px;
+        background-color: $window_fg_color;
+        background-clip: padding-box;
+        border-radius: 100%;
+        border: 1px solid if($variant == 'light', white, black);
+        -gtk-icon-source: none;
+      }
+
+      &.horizontal {
+        slider {
+          margin: 0 2px;
+          min-width: $_slider_min_length;
+        }
+
+        button {
+          margin: 1px 2px;
+          min-width: 5px;
+        }
+      }
+
+      &.vertical {
+        slider {
+          margin: 2px 0;
+          min-height: $_slider_min_length;
+        }
+
+        button {
+          margin: 2px 1px;
+          min-height: 5px;
+        }
+      }
+    }
+
+    &.dragging,
+    &.hovering { opacity: 0.8; }
+  }
+
+  &.horizontal slider { min-width: $_slider_min_length; }
+  &.vertical slider { min-height: $_slider_min_length; }
+
+  // button styling
+  button {
+    padding: 0;
+    min-width: 12px;
+    min-height: 12px;
+    border-style: none;
+    border-radius: 0;
+    transition-property: min-height, min-width, color;
+
+    @include button(undecorated);
+
+    color: $scrollbar_slider_color;
+
+    &:hover {
+      @include button(undecorated);
+
+      color: $scrollbar_slider_hover_color;
+    }
+    &:active, &:checked {
+      @include button(undecorated);
+
+      color: $scrollbar_slider_active_color;
+    }
+    &:disabled {
+      @include button(undecorated);
+
+      color: $scrollbar_slider_color;
+    }
+  }
+
+  // button icons
+  &.vertical {
+    button {
+      &.down { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
+      &.up { -gtk-icon-source: -gtk-icontheme('pan-up-symbolic'); }
+    }
+  }
+
+  &.horizontal {
+    button {
+      &.down { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic'); }
+      &.up { -gtk-icon-source: -gtk-icontheme('pan-start-symbolic'); }
+    }
+  }
+}
+
+treeview ~ scrollbar.vertical {
+  border-top: 1px solid $borders_color;
+  margin-top: -1px;
+}

@@ -1,0 +1,45 @@
+// This is the main sass file for the dark variant
+
+@use 'settings' with ($variant: 'dark');
+
+@use 'colors-public';
+@use 'common';
+@use 'widgets/views';
+@use 'widgets/labels';
+@use 'widgets/spinner';
+@use 'widgets/entries';
+@use 'widgets/buttons';
+@use 'widgets/links';
+@use 'widgets/spin-button';
+@use 'widgets/combo-box';
+@use 'widgets/toolbars';
+@use 'widgets/header-bar';
+@use 'widgets/pathbar';
+@use 'widgets/treeviews';
+@use 'widgets/menus';
+@use 'widgets/popovers';
+@use 'widgets/notebook';
+@use 'widgets/scrolling';
+@use 'widgets/switch';
+@use 'widgets/checks';
+@use 'widgets/scale';
+@use 'widgets/progress-bar';
+@use 'widgets/level-bar';
+@use 'widgets/print-dialog';
+@use 'widgets/frame';
+@use 'widgets/lists';
+@use 'widgets/app-notification';
+@use 'widgets/expander';
+@use 'widgets/calendar';
+@use 'widgets/message-dialog';
+@use 'widgets/sidebars';
+@use 'widgets/file-chooser';
+@use 'widgets/paned';
+@use 'widgets/info-bar';
+@use 'widgets/tooltip';
+@use 'widgets/color-chooser';
+@use 'widgets/misc';
+@use 'widgets/window';
+@use 'libhandy';
+@use 'libgranite';
+@use 'apps';

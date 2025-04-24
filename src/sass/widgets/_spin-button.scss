@@ -1,0 +1,189 @@
+@use '../modules' as *;
+@forward 'entries';
+
+$spinbutton_borders_color: gtkalpha(currentColor, 0.15);
+
+spinbutton {
+  &:not(.vertical) {
+    // in this horizontal configuration, the whole spinbutton
+    // behaves as the entry, so we extend the entry styling
+    // and nuke the style on the internal entry
+    @extend %entry;
+
+    padding: 0;
+
+    %spinbutton_horz_entry {
+      min-width: 28px;
+      // reset all the other props since the spinbutton node is styled here
+      margin: 0;
+      background: none;
+      background-color: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+
+      &:backdrop:disabled { background-color: transparent; }
+    }
+
+    entry {
+      @extend %spinbutton_horz_entry;
+    }
+
+    button {
+      min-height: 16px;
+      margin: 0;
+      padding-bottom: 0;
+      padding-top: 0;
+      color: gtkmix($window_fg_color, $view_bg_color, 90%);
+      background-color: transparent;
+      border-style: none none none solid;
+      border-color: $spinbutton_borders_color;
+      border-radius: 0;
+      box-shadow: none;
+
+      &:dir(rtl) { border-style: none solid none none; }
+
+      &:hover {
+        @include button(hover);
+        background-color: gtkalpha(currentColor, 0.1);
+      }
+
+      &:disabled {
+        @include button(disabled);
+        background-color: transparent;
+      }
+
+      &:active {
+        @include button(active);
+        background-color: gtkalpha(currentColor, 0.15);
+      }
+
+      &:dir(ltr):last-child { border-radius: 0 $button_radius $button_radius 0; }
+
+      &:dir(rtl):first-child { border-radius: $button_radius 0 0 $button_radius; }
+    }
+  }
+
+  // OSD horizontal
+  .osd &:not(.vertical) {
+    entry {
+      @extend %spinbutton_horz_entry;
+    }
+
+    button {
+      @include button(undecorated);
+
+      color: $osd_fg_color;
+      border-style: none none none solid;
+      border-color: gtkalpha($osd_borders_color, 0.7);
+      border-radius: 0;
+      box-shadow: none;
+      -gtk-icon-shadow: 0 1px black;
+
+      &:dir(rtl) { border-style: none solid none none; }
+
+      &:hover {
+        @include button(undecorated);
+
+        color: $osd_fg_color;
+        border-color: gtkalpha(opacify($osd_borders_color, 1), 0.5);
+        background-color: gtkalpha($osd_fg_color, 0.1);
+        -gtk-icon-shadow: 0 1px black;
+        box-shadow: none;
+      }
+
+      &:backdrop {
+        @include button(undecorated);
+
+        color: $osd_fg_color;
+        border-color: gtkalpha(opacify($osd_borders_color, 1), 0.5);
+        -gtk-icon-shadow: none;
+        box-shadow: none;
+      }
+
+      &:disabled {
+        @include button(undecorated);
+
+        color: $osd_disabled_fg_color;
+        border-color: gtkalpha(opacify($osd_borders_color, 1), $disabled_opacity);
+        -gtk-icon-shadow: none;
+        box-shadow: none;
+      }
+
+      &:dir(ltr):last-child { border-radius: 0 $button_radius $button_radius 0; }
+
+      &:dir(rtl):first-child { border-radius: $button_radius 0 0 $button_radius; }
+    }
+  }
+
+  // Vertical
+  &.vertical {
+    // in the vertical configuration, we treat the spinbutton
+    // as a box, and tweak the style of the entry in the middle
+    // so that it's linked
+
+    // FIXME: this should not be set at all, but otherwise it gets the wrong
+    // color
+    &:disabled { color: $disabled_fg_color; }
+
+    &:drop(active) {
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    entry {
+      min-height: 32px;
+      min-width: 32px;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    button {
+      min-height: 32px;
+      min-width: 32px;
+      padding: 0;
+
+      &.up { @extend %top_button; }
+
+      &.down { @extend %bottom_button; }
+    }
+
+    %top_button {
+      border-color: $spinbutton_borders_color;
+      border-radius: $button_radius $button_radius 0 0;
+      border-style: none none solid none;
+    }
+
+    %bottom_button {
+      border-color: $spinbutton_borders_color;
+      border-radius: 0 0 $button_radius $button_radius;
+      border-style: solid none none none;
+    }
+  }
+
+  // OSD vertical
+  .osd &.vertical button:first-child {
+    @include button(osd);
+
+    &:hover { @include button(osd-hover);}
+
+    &:active { @include button(osd-active); }
+
+    &:disabled { @include button(osd-disabled); }
+
+    &:backdrop { @include button(osd-backdrop); }
+  }
+
+  // Misc
+  treeview &:not(.vertical) {
+    min-height: 0;
+    border-style: none;
+    border-radius: 0;
+
+    entry {
+      min-height: 0;
+      padding: 1px 2px;
+    }
+  }
+  font-feature-settings: "tnum";
+}

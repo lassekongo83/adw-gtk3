@@ -1,1 +1,0 @@
-option('dark', type: 'boolean', value: true, description: 'Enable dark mode')

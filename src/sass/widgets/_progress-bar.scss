@@ -1,0 +1,77 @@
+@use '../modules' as *;
+@forward 'scale';
+
+progressbar {
+  // sizing
+  &.horizontal {
+    trough,
+    progress { min-height: 8px; }
+  }
+
+  &.vertical {
+    trough,
+    progress { min-width: 8px; }
+  }
+
+  &.horizontal progress { margin: 0 -1px; } // the progress node is positioned after the trough border
+  &.vertical progress { margin: -1px 0; }   // this moves it over it.
+
+
+  // FIXME: insensitive state missing and some other state should be set probably
+  font-size: smaller;
+  color: gtkalpha($window_fg_color, 0.4);
+  font-feature-settings: "tnum";
+
+  &:backdrop {
+    box-shadow: none;
+    transition: $backdrop_transition;
+  }
+
+  trough { @extend %scale_trough; }
+
+  progress {
+    @extend %scale_highlight;
+
+    border-radius: 8px;
+
+    &.left {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+
+    &.right {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    &.top {
+      border-top-right-radius: 8px;
+      border-top-left-radius: 8px;
+    }
+
+    &.bottom {
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+  }
+
+  &.osd { // progressbar.osd used for epiphany page loading progress
+    min-width: 3px;
+    min-height: 3px;
+    background-color: transparent;
+
+    trough {
+      border-style: none;
+      border-radius: 0;
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    progress {
+      border-style: none;
+      border-radius: 0;
+    }
+  }
+
+  trough.empty progress { all: unset; } // makes the progress indicator disappear, when the fraction is 0
+}

@@ -1,0 +1,649 @@
+@use '../modules' as *;
+@forward 'labels';
+@forward 'buttons';
+@forward 'views';
+
+$_headerbar_height: 46px;
+$_sel_menu_pad: 6px 10px;
+$_hb_btn_pad: 6px;
+$_switch_margin: 9px;
+
+%titlebar,
+headerbar {
+  padding: 0 6px;
+  min-height: $_headerbar_height;
+  border-width: 0 0 1px;
+  border-style: solid;
+  border-color: $headerbar_shade_color;
+  border-radius: 0;
+
+  @include headerbar_fill;
+
+  &:backdrop {
+    background-color: $headerbar_backdrop_color;
+    background-image: none;
+    transition: $backdrop_transition;
+  }
+
+  .title {
+    padding-left: 12px;
+    padding-right: 12px;
+    font-weight: bold;
+  }
+
+  .subtitle {
+    font-size: smaller;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    @extend .dim-label;
+  }
+
+  // Darken switchbuttons for headerbars.
+  stackswitcher button:checked,
+  button.toggle:checked {
+    &:backdrop {
+      @include button(backdrop-active);
+    }
+  }
+
+  .selection-mode &,
+  &.selection-mode {
+    $_hc: gtkmix($top_hilight, $suggested_bg_color, 50%); // hilight color
+
+    color: $accent_fg_color;
+    border-color: $suggested_border_color;
+
+    @include headerbar_fill($suggested_bg_color, $_hc);
+
+    &:backdrop {
+      background-color: $suggested_bg_color;
+      background-image: none;
+      box-shadow: inset 0 1px gtkmix($top_hilight, $suggested_bg_color, 60%);
+      
+      label { 
+        text-shadow: none;
+        color: $accent_fg_color; 
+      }
+    }
+
+    .subtitle:link { color: gtkmix($accent_fg_color, $link_color, 80%); }
+
+    button {
+      @include button(normal, $suggested_bg_color, $accent_fg_color);
+
+      @at-root %selection_mode_button_flat,
+      &.flat { @include button(undecorated); }
+
+      &:hover { @include button(hover, $suggested_bg_color, $accent_fg_color); }
+
+      &:active,
+      &:checked,
+      &.toggle:checked,
+      &.toggle:active { @include button(active, $suggested_bg_color, $accent_fg_color); }
+
+      &:backdrop {
+        &.flat, & {
+          @include button(backdrop, $suggested_bg_color, $accent_fg_color);
+
+          -gtk-icon-effect: none;
+          border-color: transparent;
+
+          &:active,
+          &:checked {
+            @include button(backdrop-active, $suggested_bg_color, $accent_fg_color);
+          }
+
+          &:disabled {
+            @include button(backdrop-disabled, $suggested_bg_color, $accent_fg_color);
+
+            &:active, &:checked {
+              @include button(backdrop-disabled-active, $suggested_bg_color, $accent_fg_color);
+            }
+          }
+        }
+      }
+
+      @at-root %selection_mode_button_flat,
+      &.flat { &:backdrop, &:disabled, &:backdrop:disabled { @include button(undecorated); }}
+
+      &:disabled {
+        @include button(disabled, $suggested_bg_color, $accent_fg_color);
+
+        &:active,
+        &:checked { @include button(disabled-active, $suggested_bg_color, $accent_fg_color); }
+      }
+
+      &.suggested-action {
+        @include button(normal);
+
+        border-color: $suggested_border_color;
+
+        &:hover {
+          @include button(hover);
+        }
+
+        &:active {
+          @include button(active);
+        }
+
+        &:disabled {
+          @include button(disabled);
+        }
+
+        &:backdrop {
+          @include button(backdrop);
+        }
+
+        &:backdrop:disabled {
+          @include button(backdrop-disabled);
+        }
+      }
+    }
+
+    .selection-menu {
+      &:backdrop, & {
+        border-color: gtkalpha($suggested_bg_color, 0);
+        background-color: gtkalpha($suggested_bg_color, 0);
+        background-image: none;
+        box-shadow: none;
+        min-height: 20px;
+        padding: $_sel_menu_pad;
+
+        arrow { -GtkArrow-arrow-scaling: 1; }
+
+        .arrow {
+          -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+          color: gtkalpha($accent_fg_color,0.5);
+          -gtk-icon-shadow: none;
+        }
+      }
+    }
+  }
+
+  // squared corners when the window is maximized, tiled, or fullscreen
+  .tiled &,
+  .tiled-top &,
+  .tiled-right &,
+  .tiled-bottom &,
+  .tiled-left &,
+  .maximized &,
+  .fullscreen & {
+    &:backdrop, & {
+      border-radius: 0;
+    }
+  }
+
+  &.default-decoration {
+    min-height: 36px;
+    padding: 0 6px 0 6px;
+
+    button.titlebutton {
+      border-radius: 100%;
+      @extend %titlebutton;
+    }
+  }
+
+  separator.titlebutton { opacity: 0; } // hide the close button separator
+
+  .solid-csd & {
+    &:backdrop, & {
+      &:dir(rtl), &:dir(ltr) { // specificity bump
+        margin-left: -1px;
+        margin-right: -1px;
+        margin-top: -1px;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+headerbar {
+  // add vertical margins to common widget on the headerbar to avoid them spanning the whole height
+  entry,
+  spinbutton,
+  separator:not(.sidebar),
+  button {
+    margin-top: $_hb_btn_pad;
+    margin-bottom: $_hb_btn_pad;
+  }
+  switch {
+    margin-top: $_switch_margin;
+    margin-bottom: $_switch_margin;
+  }
+
+  &.titlebar headerbar:not(.titlebar) {
+    // Drop the background of non-titlebar nested headerbars. This is needed to
+    // work around headerbar sliding animation issues without refactoring
+    // Adwaita's support of titlebars and headerbars as it may break
+    // applications.
+    // See https://gitlab.gnome.org/GNOME/gtk/issues/1264 for more information.
+    background: none;
+    box-shadow: none;
+  }
+}
+
+.background .titlebar {
+  &:backdrop, & {
+    border-top-left-radius: $window_radius;
+    border-top-right-radius: $window_radius;
+  }
+}
+
+.background.tiled .titlebar,
+.background.tiled-top .titlebar,
+.background.tiled-right .titlebar,
+.background.tiled-bottom .titlebar,
+.background.tiled-left .titlebar,
+.background.maximized .titlebar,
+.background.solid-csd .titlebar {
+  &:backdrop, & {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+headerbar { // headerbar border rounding
+
+  window separator:first-child + &,
+  window &:first-child { &:backdrop, & { border-top-left-radius: $window_radius; }}
+  window &:last-child { &:backdrop, & { border-top-right-radius: $window_radius; }}
+
+  window stack & { // tackles the stacked headerbars case
+    &:first-child, &:last-child {
+      &:backdrop, & {
+        border-top-left-radius: $window_radius;
+        border-top-right-radius: $window_radius;
+      }
+    }
+  }
+
+  window.tiled &,
+  window.tiled-top &,
+  window.tiled-right &,
+  window.tiled-bottom &,
+  window.tiled-left &,
+  window.maximized &,
+  window.fullscreen &,
+  window.solid-csd & {
+    &, &:backdrop {
+      &,
+      &:first-child,
+      &:last-child,
+      &:only-child {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+}
+
+.titlebar:not(headerbar) {
+  window.csd > & {
+    // in csd we assume every titlebar is a headerbar so reset anything, this is needed for split toolbars cases
+    padding: 0;
+    background-color: transparent;
+    background-image: none;
+    border-style: none;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  separator {
+    background-color: $border_color;
+    &:backdrop { background-color: $backdrop_borders_color; }
+  }
+
+  @extend %titlebar;
+}
+
+// Development versions of apps to use a differently styled headerbar
+
+window.devel {
+  headerbar.titlebar:not(.selection-mode) {
+    $c: $headerbar_bg_color;
+    $gradient: cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
+               linear-gradient(to right, transparent 65%, gtkalpha($accent_bg_color, 0.2)),
+               linear-gradient(to top, gtkmix(black, $c, 3%), $c 3px, gtkmix(white, $c, 6%));
+    @if $variant == 'dark' {
+      $gradient: cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
+                 linear-gradient(to right, transparent 65%, gtkalpha($accent_bg_color, 0.1)),
+                 linear-gradient(to top, gtkmix(white, $c, 3%) 3px, gtkmix(white, $c, 5%));
+    }
+
+    background: $window_bg_color $gradient;
+
+    &:backdrop {
+      background: $headerbar_backdrop_color cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat,
+                  image($headerbar_backdrop_color); // background-color would flash
+    }
+  }
+}
+
+// Misc stuff
+$disabled_headerbar_fg: gtkmix($headerbar_fg_color, $headerbar_bg_color, 50%);
+$backdrop_headerbar_fg: gtkmix($headerbar_fg_color, $headerbar_backdrop_color, 50%);
+headerbar {
+  box-shadow: 0 1px if($variant == 'light', gtkalpha($headerbar_shade_color, .3), gtkalpha($headerbar_shade_color, .1));
+}
+
+headerbar, .titlebar {
+  // Text colors for gtk named color support (except backdrop and disabled)
+  &:not(.selection-mode) {
+    &, entry {
+      color: $headerbar_fg_color;
+    }
+
+    &:backdrop,
+    entry:backdrop {
+      color: $disabled_headerbar_fg;
+    }
+
+    entry:disabled {
+      color: $disabled_headerbar_fg;
+    }
+
+    button {
+      &:not(.suggested-action):not(.destructive-action) {
+        color: $headerbar_fg_color;
+        &:backdrop { color: $backdrop_headerbar_fg; }
+        &:disabled { color: $disabled_headerbar_fg; }
+      }
+    }
+
+    switch image { color: transparent; }
+  }
+
+  button:not(.titlebutton) {
+    &, &:backdrop { @include button(undecorated); }
+    @extend %headerbar_buttons;
+  }
+
+  // Text buttons
+  button.text-button {
+    &:not(.suggested-action):not(.destructive-action):not(:disabled) { @extend %colored_buttons; }
+  }
+
+  // Linked button borders
+  .linked.raised button:not(:only-child),
+  .linked button:not(:only-child),
+  & > .stack-switcher.linked > button:not(:only-child) {
+    @extend %linked;
+    &:not(:first-child) { border-left-color: $border_color; }
+    &:not(:last-child) { border-right-color: $border_color; }
+    &:first-child { border-left-color: transparent; }
+    &:last-child { border-right-color: transparent; }
+
+    // Trick to get a linked right border on checked buttons, and no left border on the next button
+    &:first-child:not(:backdrop),
+    &:not(:last-child):not(:backdrop) {
+      &:checked, &:active {
+        box-shadow: inset -1px 0 $border_color;
+        + button { border-left-color: transparent; }
+      }
+    }
+  }
+
+  // Linked color fills
+  // In libadwaita the linked buttons appear on hover, so it would be better to have ".linked:hover button" instead, but sadly it is not possible.
+  .linked.raised button,
+  .linked button:not(:only-child),
+  & > .stack-switcher.linked > button { @extend %colored_buttons; }
+
+  // hdy viewswitcher buttons (weather, system monitor, etc.)
+  viewswitcher button.radio:checked {
+    @extend %headerbar_buttons;
+  }
+
+  // Selection mode
+  &.selection-mode {
+    button {
+      &, &.text-button:not(.suggested-action):not(.destructive-action):not(:disabled) {
+        @extend %suggested_buttons;
+      }
+      &:hover:backdrop {
+        @include button(backdrop, gtkalpha($suggested_bg_color, 0.5), $accent_fg_color);
+      }
+    }
+  }
+
+  // Entries
+  entry {
+    min-height: 32px; // Evens out the height for the top and bottom borders which adds 2px
+    @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
+    &:backdrop {
+      @include button(normal, $headerbar_backdrop_color, $backdrop_headerbar_fg);
+    }
+    &:disabled {
+      @include button(disabled, $headerbar_bg_color, $disabled_headerbar_fg);
+    }
+    &:disabled:backdrop {
+      @include button(disabled, $headerbar_backdrop_color, $backdrop_headerbar_fg);
+    }
+
+    image { // icons inside the entry
+      &.left { margin-right: 6px; }
+      &.right { margin-left: 6px; }
+
+      // entry icons colors
+      color: gtkmix($window_fg_color, $view_bg_color, 80%);
+      &:hover { color: $headerbar_fg_color; }
+      &:active { color: $accent_bg_color; }
+      &:backdrop { color: gtkmix($backdrop_fg_color, $backdrop_base_color, 80%); }
+    }
+
+    selection { @extend %selected_items; }
+
+    // entry error and warning style
+    @each $e_type, $e_color in (error, $error_bg_color),
+                               (warning, $warning_bg_color) {
+      &.#{$e_type} {
+        color: $e_color;
+        border-color: entry_focus_border($e_color);
+
+        &:focus { @include entry(focus, $e_color); }
+
+        selection { background-color: $e_color; }
+      }
+    }
+
+    &.flat {
+      &:focus, &:backdrop, &:disabled, &:backdrop:disabled, & {
+        min-height: 0;
+        padding: 2px;
+        background-color: transparent;
+        border-color: transparent;
+        border-radius: 0;
+      }
+    }
+
+    &:drop(active) {
+      &:focus, & {
+        border-color: $accent_bg_color;
+        box-shadow: inset 0 0 0 1px $accent_bg_color;
+      }
+    }
+
+    progress {
+      margin: 2px -6px;
+      background-color: transparent;
+      background-image: none;
+      border-radius: 0;
+      border-width: 0 0 2px;
+      border-color: $progress_bg_color;
+      border-style: solid;
+      box-shadow: none;
+
+      &:backdrop { background-color: transparent; }
+    }
+  }
+
+  .linked entry:not(:first-child) {
+    border-left-color: $border_color;
+    &:backdrop { border-left-color: $border_color; }
+  }
+  .linked entry ~ .image-button { @extend %colored_buttons; }
+
+  // switches
+  switch {
+    &:backdrop {
+      color: $backdrop_fg_color;
+      border-color: $backdrop_borders_color;
+      background-color: $backdrop_dark_fill;
+      text-shadow: none;
+      transition: $backdrop_transition;
+
+      &:checked {
+        @if $variant == 'light' { color: $backdrop_bg_color; }
+        background-color: gtkalpha($checkradio_bg_color, 0.5);
+        &:disabled {
+          background-color: gtkalpha($checkradio_bg_color, 0.3);
+        }
+      }
+
+      &:disabled {
+        @include button(disabled);
+      }
+
+      slider {
+        transition: $backdrop_transition;
+        background-color: gtkmix($view_bg_color, $slider_color, 30%);
+      }
+
+      &:checked > slider { background-color: gtkmix($view_bg_color, $slider_color, 30%); }
+      &:disabled slider { background-color: gtkmix($view_bg_color, $slider_color, 60%); }
+    }
+
+    &:disabled {
+      background-color: gtkshade($backdrop_dark_fill, 0.96);
+      &:backdrop { background-color: $backdrop_dark_fill; }
+    }
+  }
+
+  // better animation when switching from backdrop
+  &:not(:backdrop) {
+    transition: 50ms ease-in;
+    transition-property: background-color, background-image, box-shadow, border-color, color, text-shadow;
+  }
+
+  // Balance out the titlebutton margin
+  .right {
+    margin-left: -4px;
+    separator { min-width: 0; }
+  }
+  .left {
+    margin-right: -4px;
+    separator { min-width: 0; }
+  }
+}
+
+// Legacy application titlebuttons
+.ssd .titlebar {
+  border-width: 0;
+  padding: 0px 4px;
+  min-height: 36px;
+  border-bottom: 1px solid $headerbar_shade_color;
+
+  &.default-decoration button.titlebutton {
+    @extend %titlebutton;
+  }
+}
+
+.default-decoration .title {
+  color: $headerbar_fg_color;
+  &:backdrop { color: $backdrop_headerbar_fg; }
+}
+
+// Misc extends
+
+%titlebutton {
+  background-color: $titlebutton_color;
+  min-height: $titlebutton_size;
+  min-width: $titlebutton_size;
+  margin: 0 4px;
+  padding: 0;
+  &:hover { background-color: $titlebutton_hover_color; }
+  &:hover:active, &:active { background-color: $titlebutton_active_color; }
+  &:backdrop { background: $titlebutton_backdrop; }
+  &:backdrop:hover { background: $titlebutton_hover_color; }
+}
+
+// Buttons in the headerbar that always have a background
+%colored_buttons {
+  @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
+  &:backdrop {
+    @include button(backdrop, $headerbar_backdrop_color, $backdrop_headerbar_fg);
+  }
+
+  &:hover {
+    @include button(hover, $headerbar_bg_color, $headerbar_fg_color);
+    &:backdrop {
+      @include button(hover, $headerbar_backdrop_color, $backdrop_headerbar_fg);
+    }
+  }
+
+  &:active, &:checked {
+    @include button(active, $headerbar_bg_color, $headerbar_fg_color);
+    &:hover {
+      @include button(active, $headerbar_bg_color, $headerbar_fg_color);
+    }
+    &:backdrop {
+      @include button(backdrop-active, $headerbar_backdrop_color, $backdrop_headerbar_fg);
+      &:hover {
+        @include button(backdrop-active, $headerbar_backdrop_color, $backdrop_headerbar_fg);
+      }
+    }
+  }
+
+  &:disabled {
+    @include button(disabled, $headerbar_bg_color, $disabled_headerbar_fg);
+  }
+
+  &:backdrop:disabled {
+    @include button(backdrop-disabled, $headerbar_backdrop_color, $backdrop_headerbar_fg);
+  }
+
+  &.default:not(:backdrop):not(.suggested-action):not(.destructive-action) {
+    @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
+  }
+
+  &.flat:not(:hover):not(:active) { @include button(undecorated); }
+
+  &.suggested-action, &.text-button.suggested-action { @extend %suggested_buttons; }
+  &.destructive-action, &.text-button.destructive-action { @extend %destructive_buttons; }
+}
+
+%headerbar_buttons {
+  // The normal state is set where it's needed. Usually undecorated.
+  &:hover {
+    @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
+
+    &:backdrop {
+      @include button(backdrop, $headerbar_backdrop_color, $backdrop_headerbar_fg);
+    }
+  }
+
+  &:active, &:checked {
+    @include button(active, $headerbar_bg_color, $headerbar_fg_color);
+
+    &:hover {
+      @include button(active, $headerbar_bg_color, $headerbar_fg_color);
+    }
+    &:backdrop {
+      @include button(backdrop-active, $headerbar_backdrop_color, $backdrop_headerbar_fg);
+      &:hover {
+        @include button(backdrop-active, $headerbar_backdrop_color, $backdrop_headerbar_fg);
+      }
+    }
+  }
+
+  &.default:not(:backdrop):not(.suggested-action):not(.destructive-action) {
+    @include button(normal, $headerbar_bg_color, $headerbar_fg_color);
+  }
+
+  &.flat:not(:hover):not(:active) { @include button(undecorated); }
+
+  &.suggested-action, &.text-button.suggested-action { @extend %suggested_buttons; }
+  &.destructive-action, &.text-button.destructive-action { @extend %destructive_buttons; }
+}
