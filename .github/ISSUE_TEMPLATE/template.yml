@@ -17,11 +17,26 @@ body:
           required: true
         - label: The files `~/.config/gtk-3.0/gtk.css` and `~/.config/gtk-4.0/gtk.css` does not exist. (Backup and remove those files and restart any apps.)
           required: true
-        - label: I've made sure that the issue is did not go away by restarting apps or by logging out and in again.
+        - label: I've made sure that the issue did not go away by restarting apps or by logging out and in again.
           required: true
         - label: By running the command `env` I've made sure that there is no environment variable called `GTK_THEME`
           required: false
         - label: Dark theme not applied on some apps? Did you try to run `gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'` ?
+          required: false
+
+  - type: checkboxes
+    attributes:
+      label: Installation method
+      options:
+        - label: Tarball
+          required: false
+        - label: Repository
+          required: false
+        - label: Flatpak
+          required: false
+        - label: Source
+          required: false
+        - label: Other (Specify)
           required: false
 
   - type: textarea
@@ -45,21 +60,6 @@ body:
       label: Adw-gtk3 version/commit.
     validations:
       required: true
-
-  - type: checkboxes
-    attributes:
-      label: Installation method
-      options:
-        - label: Tarball
-          required: false
-        - label: Repository
-          required: false
-        - label: Flatpak
-          required: false
-        - label: Source
-          required: false
-        - label: Other (Specify)
-          required: false
 
   - type: input
     attributes:
