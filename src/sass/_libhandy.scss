@@ -330,6 +330,10 @@ list.content {
       background-color: gtkmix(currentColor, $card_bg_color, 4%);
     }
   }
+
+  + .inline-toolbar {
+    border-color: transparent;
+  }
 }
 
 // List button
@@ -372,11 +376,12 @@ headerbar viewswitcher button {
   &.radio:checked:hover:not(:backdrop) {
     background: image($headerbar_bg_color);
   }
-  &, &:hover:not(:backdrop), &:checked, &:active, &:checked:hover {
+  &, &:hover:not(:backdrop), &:checked, &:active, &:checked:hover, &:active:hover {
     background: image($headerbar_bg_color);
     transition: none;
   }
 
+  // The actual button
   > stack > box {
     transition: $button_transition;
     border-radius: $button_radius;
@@ -461,8 +466,12 @@ viewswitcher {
         border-right-color: $border_color;
       }
 
-      &:hover:backdrop {
-        background: image($headerbar_backdrop_color); // workaround
+      // workarounds
+      &:hover:backdrop, &:active:backdrop, &:active:hover:backdrop {
+        background: image($headerbar_backdrop_color);
+      }
+      &:active, &:active:hover {
+        background: image($headerbar_bg_color);
       }
     }
 

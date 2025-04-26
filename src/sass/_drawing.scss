@@ -4,7 +4,7 @@
 @use 'functions' as *;
 @use 'colors' as *;
 
-$focus_border_color: gtkalpha($accent_bg_color, 0.5);
+$focus_border_color: gtkalpha($accent_color, 0.5);
 
 @function _widget_edge($c:$borders_edge) {
   @if $c == none { @return none; }
