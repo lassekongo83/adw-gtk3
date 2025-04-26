@@ -1,8 +1,8 @@
 // Tweaks for the gtk-4.0 theme
 // These fixes are not for libadwaita apps
 
-@use '../settings' as *;
 @use '../functions' as *;
+@use 'settings' as *;
 
 // https://github.com/lassekongo83/adw-gtk3/issues/272
 @define-color accent_bg_color @blue_3;

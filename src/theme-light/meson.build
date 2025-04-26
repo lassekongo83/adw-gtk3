@@ -59,7 +59,7 @@ gtk4_css = [
 ]
 
 libadwaita_tweaks_target = custom_target('generate_libadwaita_tweaks_css',
-  input: '../sass/gtk4/libadwaita-tweaks.scss',
+  input: '../sass/gtk4/theme-light.scss',
   output: 'libadwaita-tweaks.css',
   command: [sass, '--no-source-map', '@INPUT@', '@OUTPUT@'],
   build_by_default: true,
