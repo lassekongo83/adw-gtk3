@@ -2,24 +2,54 @@
 
 @use 'sass:color';
 @use 'sass:string';
+@use 'settings' as *;
 
+// "gtkalpha(currentColor, 0.7)" will become:
+// GTK3: alpha(currentColor, 0.7)
+// GTK4: color-mix(in srgb, currentColor 70%, transparent)
 @function gtkalpha($c,$a) {
-  @return string.unquote("alpha(#{$c},#{$a})");
+  @if $toolkit == 'gtk4' {
+    $ratio: $a * 100%;
+    @return string.unquote("color-mix(in srgb, #{$c} #{$ratio}, transparent)");
+  }
+  @else {
+    @return string.unquote("alpha(#{$c},#{$a})");
+  }
 }
 
+// "gtkmix(white, black, 10%)" will become:
+// GTK3: mix(white, black, 0.1)
+// GTK4: color-mix(in srgb, white 10%, black)
 @function gtkmix($c1,$c2,$r) {
-  $ratio: calc(1 - $r / 100%); // match SCSS mix()
-  @return string.unquote("mix(#{$c1},#{$c2},#{$ratio})");
+  @if $toolkit == 'gtk4' {
+    $ratio: 100% - $r;
+    @return string.unquote("color-mix(in srgb, #{$c1} #{$ratio}, #{$c2})");
+  }
+  @else {
+    $ratio: calc(1 - $r / 100%);
+    @return string.unquote("mix(#{$c1},#{$c2},#{$ratio})");
+  }
 }
 
+// "gtkshade(pink, 1.2)" will become:
+// GTK3: shade(pink, 1.2)
+// GTK4: hsl(from pink h calc(s * 1.2) calc(l * 1.2))
 @function gtkshade($c,$s) {
-  @return string.unquote("shade(#{$c},#{$s})");
+  @if $toolkit == 'gtk4' {
+    @return string.unquote("hsl(from #{$c} h calc(s * #{$s}) calc(l * #{$s}))");
+  }
+  @else {
+    @return string.unquote("shade(#{$c},#{$s})");
+  }
 }
 
+// Used for variable names in the gtk3 theme
 @function gtkcolor($c) {
   @return string.unquote("@#{$c}");
 }
 
+// FIXME: Legacy stuff. Needs to be removed and updated to something else.
+// These functions should do the same thing as the old libsass functions
 @function transparentize($color, $amount) {
   @return color.adjust($color, $alpha: -$amount);
 }

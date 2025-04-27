@@ -1,5 +1,6 @@
 // This file contains the default variables and settings.
 $variant: null !default; // Defined in gtk.scss and gtk-dark.scss
+$toolkit: null !default; // Only defined as 'gtk4' when needed
 $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $asset_suffix: if($variant=='dark', '-dark', '');
 $backdrop_transition: 200ms ease-out;
