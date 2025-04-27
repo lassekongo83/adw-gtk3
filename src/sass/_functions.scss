@@ -27,11 +27,3 @@
 @function opacify($color, $amount) {
   @return color.adjust($color, $alpha: $amount);
 }
-
-@function darken($color, $amount) {
-  @return color.adjust($color, $lightness: -$amount);
-}
-
-@function lighten($color, $amount) {
-  @return color.adjust($color, $lightness: $amount);
-}
