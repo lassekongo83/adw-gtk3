@@ -11,21 +11,18 @@
   @if $toolkit == 'gtk4' {
     $ratio: $a * 100%;
     @return string.unquote("color-mix(in srgb, #{$c} #{$ratio}, transparent)");
-  }
-  @else {
+  } @else {
     @return string.unquote("alpha(#{$c},#{$a})");
   }
 }
 
-// "gtkmix(white, black, 10%)" will become:
-// GTK3: mix(white, black, 0.1)
-// GTK4: color-mix(in srgb, white 10%, black)
+// "gtkmix(white, black, 15%)" will become:
+// GTK3: mix(white, black, 0.85)
+// GTK4: color-mix(in srgb, white 15%, black)
 @function gtkmix($c1,$c2,$r) {
   @if $toolkit == 'gtk4' {
-    $ratio: 100% - $r;
-    @return string.unquote("color-mix(in srgb, #{$c1} #{$ratio}, #{$c2})");
-  }
-  @else {
+    @return string.unquote("color-mix(in srgb, #{$c1} #{$r}, #{$c2})");
+  } @else {
     $ratio: calc(1 - $r / 100%);
     @return string.unquote("mix(#{$c1},#{$c2},#{$ratio})");
   }
@@ -37,8 +34,7 @@
 @function gtkshade($c,$s) {
   @if $toolkit == 'gtk4' {
     @return string.unquote("hsl(from #{$c} h calc(s * #{$s}) calc(l * #{$s}))");
-  }
-  @else {
+  } @else {
     @return string.unquote("shade(#{$c},#{$s})");
   }
 }
