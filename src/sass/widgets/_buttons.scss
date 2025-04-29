@@ -43,12 +43,10 @@ button {
     border-radius: $button_radius;
     transition: $button_transition;
     font-weight: bold;
-    outline-style: solid;
-    outline-offset: -2px;
-    outline-width: 2px;
     -gtk-outline-radius: calc($button-radius - 2px);
 
     @include button(normal);
+    @include focus-ring($transition: $button_transition);
 
     @at-root %button_basic_flat,
     &.flat {

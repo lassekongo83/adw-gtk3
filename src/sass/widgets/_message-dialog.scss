@@ -55,8 +55,6 @@ messagedialog { // Message Dialog styling
         border-left-style: none;
         border-right-style: none;
         border-color: transparent;
-
-        button { @extend %dialog_buttons; }
       }
     }
   }

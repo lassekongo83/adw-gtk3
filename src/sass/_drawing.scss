@@ -5,6 +5,9 @@
 @use 'colors' as *;
 
 $focus_border_color: gtkalpha($accent_color, 0.5);
+$focus_transition: outline-color 200ms $ease-out-quad,
+                   outline-width 200ms $ease-out-quad,
+                   outline-offset 200ms $ease-out-quad;
 
 @function _widget_edge($c:$borders_edge) {
   @if $c == none { @return none; }
@@ -20,6 +23,20 @@ $focus_border_color: gtkalpha($accent_color, 0.5);
   }
 
   box-shadow: $shadows;
+}
+
+@mixin focus-ring($target: null, $width: 2px, $offset: -$width, $outer: false, $focus-state: ':focus', $transition: null) {
+  & #{$target} {
+    outline: 0 solid transparent;
+    outline-offset: if($outer, $offset + 4px, $offset + $width + 4px);
+    transition: $focus_transition, $transition;
+  }
+
+  &#{$focus-state} #{$target} {
+    outline-color: $focus_border_color;
+    outline-width: $width;
+    outline-offset: $offset;
+  }
 }
 
 // *********
