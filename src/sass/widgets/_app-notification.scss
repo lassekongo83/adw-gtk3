@@ -7,10 +7,9 @@
   @extend %osd;
 
   padding: 10px;
-  border-radius: 0 0 $card_radius $card_radius;
+  border-radius: 0 0 calc($button_radius + 6px) calc($button_radius + 6px);
   background-color: $osd_bg_color;
-  background-image: linear-gradient(to bottom, transparentize(black, 0.8),
-                                               transparent 2px);
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), transparent 2px);
   background-clip: padding-box;
   border: none;
 
