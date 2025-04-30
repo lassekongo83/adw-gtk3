@@ -116,67 +116,55 @@ treeview.view {
 
   header {
     button {
-      $_column_header_color: gtkmix($window_fg_color, $view_bg_color, 50%);
-
-      @extend %column_header_button;
-
-      color: $_column_header_color;
+      padding: 3px 6px;
+      color: gtkmix($view_fg_color, $view_bg_color, 40%); //gtkalpha(currentColor, 0.4);
+      background-image: none;
       background-color: $view_bg_color;
-      font-weight: bold;
-      font-size: smaller;
-      text-shadow: none;
+      border-bottom: 1px solid $borders_color;
+      border-right: none;
+      border-left: none;
+      border-radius: 0;
       box-shadow: none;
+      text-shadow: none;
+      font-size: smaller;
 
       &:hover {
-        @extend %column_header_button;
-
-        color: gtkmix($_column_header_color, $window_fg_color, 50%);
-        box-shadow: none;
-        transition: none; //I shouldn't need this
+        color: gtkmix($view_fg_color, $view_bg_color, 70%);
+        transition: none;
+        background-image: none;
       }
-
       &:active {
-        @extend %column_header_button;
-
-        color: $window_fg_color;
-        transition: none; //I shouldn't need this
+        color: gtkmix($view_fg_color, $view_bg_color, 75%);
+        transition: none;
+        background-color: $view_bg_color;
       }
+
+      &:disabled {
+        border-color: $window_bg_color;
+        background-image: none;
+      }
+
+      &:last-child { &:backdrop, & { border-right-style: none; }}
     }
   }
 
   button.dnd,
   header.button.dnd { // for treeview-like derive widgets
     &:active, &:selected, &:hover, & {
-      padding: 0 6px;
-      color: $view_bg_color;
+      padding: 3px 6px;
+      color: $accent_fg_color;
       background-image: none;
       background-color: $accent_bg_color;
       border-style: none;
       border-radius: 0;
-      box-shadow: inset 0 0 0 1px $view_bg_color;
+      box-shadow: none;
       text-shadow: none;
       transition: none;
+      font-size: smaller;
     }
   }
 
   acceleditor > label { background-color: $accent_bg_color; } // see tests/testaccel to test
-}
-
-%column_header_button {
-  padding: 0 6px;
-  background-image: none;
-  border-style: none;
-  border-radius: 0;
-  text-shadow: none;
-  &:hover { background-color: $hover_color; }
-  &:active { background-color: $active_color; }
-
-  &:disabled {
-    border-color: $window_bg_color;
-    background-image: none;
-  }
-
-  &:last-child { &:backdrop, & { border-right-style: none; }}
 }
 
 // Misc junk
