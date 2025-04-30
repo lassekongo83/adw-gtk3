@@ -117,7 +117,7 @@ treeview.view {
   header {
     button {
       padding: 3px 6px;
-      color: gtkmix($view_fg_color, $view_bg_color, 40%); //gtkalpha(currentColor, 0.4);
+      color: gtkmix($view_fg_color, $view_bg_color, 40%);
       background-image: none;
       background-color: $view_bg_color;
       border-bottom: 1px solid $borders_color;
