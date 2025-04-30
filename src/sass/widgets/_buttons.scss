@@ -222,7 +222,6 @@ button {
 
   // Suggested and Destructive Action buttons
   // Suggested Action buttons
-  %suggested_action_button,
   &.suggested-action {
     @include button(normal, $accent_bg_color, white);
 
@@ -267,7 +266,6 @@ button {
   }
 
   // Destructive Action buttons
-  %destructive_action_button,
   &.destructive-action {
     @include button(normal, $destructive_button_color, $destructive_color);
 
@@ -543,7 +541,6 @@ button.toggle:not(.image-button) {
 .osd .linked > button { border-color: transparent; }
 
 // Linked stuff
-// Would like to use as a module, but it messes with the css ordering
 %linked_middle {
   border-left-color: $border_color;
   border-right-color: $border_color;

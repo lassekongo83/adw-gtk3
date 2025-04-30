@@ -88,12 +88,12 @@ $checkradio_fg_color: $accent_fg_color;
 $checkradio_borders_color: if($variant == 'light', gtkmix(black,$checkradio_bg_color,20%), gtkmix(black,$checkradio_bg_color,40%));
 
 // OSD
-$osd_fg_color: transparentize(white, 0.1);
+$osd_fg_color: rgba(255,255,255,0.9);
 $osd_text_color: white;
-$osd_bg_color: transparentize(black, 0.3);
-$osd_disabled_bg_color: transparentize(black, 0.35);
-$osd_disabled_fg_color: gtkmix($osd_fg_color, opacify($osd_bg_color, 1), 50%);
-$osd_borders_color: transparentize(black, 0.1);
+$osd_bg_color: rgba(0,0,0,0.7);
+$osd_disabled_bg_color: rgba(0,0,0,0.5);
+$osd_disabled_fg_color: rgba(255,255,255,0.5);
+$osd_borders_color: rgba(0,0,0,0.9);
 
 // disabled state derived colors
 $disabled_fg_color: gtkalpha($window_fg_color, $disabled_opacity);

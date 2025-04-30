@@ -211,30 +211,26 @@ $focus_transition: outline-color 200ms $ease-out-quad,
 
   @else if $t==osd {
   // normal osd button
-    color: $osd_fg_color;
+    color: white;
     border-color: transparent;
-    background-color: transparentize(black, .35);
+    background-color: rgba(0,0,0,0.65);
     background-clip: padding-box;
-    outline-color: transparentize($osd_fg_color, 0.7);
   }
 
   @else if $t==osd-hover {
-  // active osd button
+  // hover osd button
     color: white;
     border-color: transparent;
-    background-color: gtkalpha(gtkmix(black, currentColor, 85%), .65);
+    background-color: gtkmix(black, currentColor, 75%);
     background-clip: padding-box;
-    outline-color: transparentize($osd_fg_color, 0.7);
   }
 
   @else if $t==osd-active {
   // active osd button
     color: white;
     border-color: transparent;
-    background-color: gtkalpha(gtkmix(black, currentColor, 75%), .65);
+    background-color: gtkmix(black, currentColor, 80%);
     background-clip: padding-box;
-
-    outline-color: transparentize($osd_fg_color, 0.7);
   }
 
   @else if $t==osd-disabled {
