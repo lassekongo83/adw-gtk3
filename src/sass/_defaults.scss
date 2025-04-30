@@ -24,25 +24,25 @@ $_hb_fg_color: #2f2f30; // Similar to rgba(0,0,6,0.8) on the background #ebebed
 
 @define-color accent_bg_color @blue_3;
 @define-color accent_fg_color white;
-@define-color accent_color #{if($variant == 'dark', '#78aeed', '@blue_4')};
+@define-color accent_color #{if($variant == 'dark', gtkmix('@accent_bg_color', white, 60%), gtkmix('@accent_bg_color', black, 83%))};
 
 // destructive-action buttons
 @define-color destructive_bg_color #{if($variant == 'dark', '@red_4', '@red_3')};
 @define-color destructive_fg_color white;
-@define-color destructive_color #{if($variant == 'dark', '#ff7b63', '@red_4')};
+@define-color destructive_color #{if($variant == 'dark', gtkmix('@destructive_bg_color', white, 60%), gtkmix('@destructive_bg_color', black, 83%))};
 
 // Levelbars, entries, labels and infobars. These don't need text colors
 @define-color success_bg_color #{if($variant == 'dark', '@green_5', '@green_4')};
 @define-color success_fg_color white;
-@define-color success_color #{if($variant == 'dark', '@green_1', '#1b8553')};
+@define-color success_color #{if($variant == 'dark', gtkmix('@success_bg_color', white, 60%), gtkmix('@success_bg_color', black, 83%))};
 
 @define-color warning_bg_color #{if($variant == 'dark', '#cd9309', "@yellow_5")};
 @define-color warning_fg_color rgba(0,0,0,0.8);
-@define-color warning_color #{if($variant == 'dark', '@yellow_2', '#9c6e03')};
+@define-color warning_color #{if($variant == 'dark', gtkmix('@warning_bg_color', white, 60%), gtkmix('@warning_bg_color', black, 83%))};
 
 @define-color error_bg_color #{if($variant == 'dark', '@red_4', '@red_3')};
 @define-color error_fg_color white;
-@define-color error_color #{if($variant == 'dark', '#ff7b63', '@red_4')};
+@define-color error_color #{if($variant == 'dark', gtkmix('@error_bg_color', white, 60%), gtkmix('@error_bg_color', black, 83%))};
 
 // Window
 @define-color window_bg_color #{if($variant == 'light', '#fafafb', '#222226')};
