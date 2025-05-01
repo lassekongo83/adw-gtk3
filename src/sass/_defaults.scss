@@ -8,8 +8,6 @@
 // These are the colors apps are can override. We define the defaults here and
 // define variables for them in _colors.scss
 
-// The main accent color and the matching text value
-
 @use 'sass:color';
 @use 'settings' as *;
 @use 'functions' as *;
@@ -22,27 +20,39 @@ $_fg_color: #323233; // Similar to rgba(0,0,6,0.8) on the background #fafafb
 $_text_color: #333334; // Similar to rgba(0,0,6,0.8) on the background #ffffff
 $_hb_fg_color: #2f2f30; // Similar to rgba(0,0,6,0.8) on the background #ebebed
 
+// The main accent color and the matching text value
 @define-color accent_bg_color @blue_3;
 @define-color accent_fg_color white;
-@define-color accent_color #{if($variant == 'dark', gtkmix('@accent_bg_color', white, 60%), gtkmix('@accent_bg_color', black, 83%))};
 
 // destructive-action buttons
-@define-color destructive_bg_color #{if($variant == 'dark', '@red_4', '@red_3')};
+@define-color destructive_bg_color #{if($variant == 'light', '@red_3', '@red_4')};
 @define-color destructive_fg_color white;
-@define-color destructive_color #{if($variant == 'dark', gtkmix('@destructive_bg_color', white, 60%), gtkmix('@destructive_bg_color', black, 83%))};
 
 // Levelbars, entries, labels and infobars. These don't need text colors
-@define-color success_bg_color #{if($variant == 'dark', '@green_5', '@green_4')};
+@define-color success_bg_color #{if($variant == 'light', '@green_4', '@green_5')};
 @define-color success_fg_color white;
-@define-color success_color #{if($variant == 'dark', gtkmix('@success_bg_color', white, 60%), gtkmix('@success_bg_color', black, 83%))};
 
-@define-color warning_bg_color #{if($variant == 'dark', '#cd9309', "@yellow_5")};
+@define-color warning_bg_color #{if($variant == 'light', '@yellow_5', "#c01c28")};
 @define-color warning_fg_color rgba(0,0,0,0.8);
-@define-color warning_color #{if($variant == 'dark', gtkmix('@warning_bg_color', white, 60%), gtkmix('@warning_bg_color', black, 83%))};
 
-@define-color error_bg_color #{if($variant == 'dark', '@red_4', '@red_3')};
+@define-color error_bg_color #{if($variant == 'light', '@red_3', '@red_4')};
 @define-color error_fg_color white;
-@define-color error_color #{if($variant == 'dark', gtkmix('@error_bg_color', white, 60%), gtkmix('@error_bg_color', black, 83%))};
+
+// Colors derived from their matching bg color
+// Not quite the same as libadwaita but "close enough"
+@if $variant == 'light' {
+  @define-color accent_color #{gtkmix('@accent_bg_color', black, 83%)};
+  @define-color destructive_color #{gtkmix('@destructive_bg_color', black, 83%)};
+  @define-color success_color #{gtkmix('@success_bg_color', black, 83%)};
+  @define-color warning_color #{gtkmix('@warning_bg_color', black, 83%)};
+  @define-color error_color #{gtkmix('@error_bg_color', black, 83%)};
+} @else {
+  @define-color accent_color #{gtkmix('@accent_bg_color', white, 60%)};
+  @define-color destructive_color #{gtkmix('@destructive_bg_color', white, 60%)};
+  @define-color success_color #{gtkmix('@success_bg_color', white, 60%)};
+  @define-color warning_color #{gtkmix('@warning_bg_color', white, 60%)};
+  @define-color error_color #{igtkmix('@error_bg_color', white, 60%)};
+}
 
 // Window
 @define-color window_bg_color #{if($variant == 'light', '#fafafb', '#222226')};
