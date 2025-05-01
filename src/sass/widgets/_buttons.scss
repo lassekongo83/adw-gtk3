@@ -74,6 +74,7 @@ button {
       @include button(active);
 
       transition: $button_transition;
+      @include focus-ring($transition: $button_transition);
     }
 
     &:backdrop {
@@ -116,9 +117,9 @@ button {
 
     @at-root %button_basic_drop_active,
     &:drop(active) {
-      color: $accent_bg_color;
-      border-color: $accent_bg_color;
-      box-shadow: inset 0 0 0 1px $accent_bg_color;
+      color: $drop_target_color;
+      border-color: $drop_target_color;
+      box-shadow: inset 0 0 0 1px $drop_target_color;
     }
   }
 

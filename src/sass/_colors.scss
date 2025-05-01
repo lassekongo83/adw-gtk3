@@ -133,6 +133,7 @@ $top_hilight: $borders_edge;
 $alt_borders_color: if($variant == 'light', gtkmix(black, $window_bg_color, 24%), gtkmix(black, $window_bg_color, 18%));
 $suggested_bg_color: $accent_bg_color;
 $suggested_border_color: $selected_borders_color;
+$drop_target_color: $accent_bg_color;
 
 // XFCE
 $panel_bg_color: gtkcolor(panel_bg_color);

@@ -53,8 +53,8 @@ entry {
 
     &:drop(active) {
       &:focus, & {
-        border-color: $accent_bg_color;
-        box-shadow: inset 0 0 0 1px $accent_bg_color;
+        border-color: $drop_target_color;
+        box-shadow: inset 0 0 0 1px $drop_target_color;
       }
     }
 
@@ -89,7 +89,7 @@ entry {
 
   .linked:not(.vertical) > &:drop(active) + &,
   .linked:not(.vertical) > &:drop(active) + button,
-  .linked:not(.vertical) > &:drop(active) + combobox > box > button.combo { border-left-color: $accent_bg_color; }
+  .linked:not(.vertical) > &:drop(active) + combobox > box > button.combo { border-left-color: $drop_target_color; }
 
   // Vertically linked entries
   // FIXME: take care of "colored" entries
@@ -117,7 +117,7 @@ entry {
     + entry:focus.error:not(:only-child) { border-top-color: entry_focus_border($error_bg_color); }
 
     + %entry:drop(active):not(:only-child),
-    + entry:drop(active):not(:only-child) { border-top-color: $accent_bg_color; }
+    + entry:drop(active):not(:only-child) { border-top-color: $drop_target_color; }
 
     // this takes care of coloring the top border of the focused entry subsequent widget.
     // :not(:only-child) is a specificity bump hack.
@@ -139,7 +139,7 @@ entry {
       + %entry,
       + entry,
       + button,
-      + combobox > box > button.combo { border-top-color: $accent_bg_color; }
+      + combobox > box > button.combo { border-top-color: $drop_target_color; }
     }
   }
 

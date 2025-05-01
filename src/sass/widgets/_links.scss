@@ -50,6 +50,8 @@ button:visited {
     text-shadow: none;
   }
 
+  @include focus-ring($transition: $button_transition);
+
   > label {
     @extend %link;
 
