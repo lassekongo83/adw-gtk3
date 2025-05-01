@@ -2,34 +2,61 @@
 @forward 'buttons';
 
 notebook {
-  &, &.frame { border: none; }
-
   > header {
-    padding: 6px;
-    border: none;
+    padding: 1px;
+    border-width: 0px;
+    background-clip: padding-box;
     background-color: $window_bg_color;
-    box-shadow: none;
-    border-color: transparent;
+    border-color: $window_bg_color;
 
-    tabs { margin: 0px; }
+    tabs { margin: -1px; }
 
     &.top, &.bottom, &.left, &.right {
+      > tabs > tab {
+        &:hover { background-color: $hover_color; }
+      }
+    }
+
+    &.top {
       border-bottom-style: solid;
       > tabs {
-        margin-bottom: 0px;
-        > tab {
-          padding: 2px 8px;
-          border-radius: $button_radius;
-          transition: $button_transition;
-          background-color: transparent;
+        margin-bottom: -2px;
+        > tab:not(.reorderable-page) {
+          &:hover { box-shadow: inset 0 -4px $border_color; }
+          &:checked { box-shadow: inset 0 -4px $accent_bg_color; }
+        }
+      }
+    }
 
-          &:hover {
-            background-color: $hover_color;
-          }
-          &:checked {
-            background-color: $selected_color;
-            &:hover { background-color: $selected_hover_color; }
-          }
+    &.bottom {
+      border-top-style: solid;
+      > tabs {
+        margin-top: -2px;
+        > tab:not(.reorderable-page) {
+          &:hover { box-shadow: inset 0 4px $border_color; }
+          &:checked { box-shadow: inset 0 4px $accent_bg_color; }
+        }
+      }
+    }
+
+    &.left {
+      border-right-style: solid;
+      > tabs {
+        margin-right: -2px;
+        > tab:not(.reorderable-page) {
+          &:hover { box-shadow: inset -4px 0 $border_color; }
+          &:checked { box-shadow: inset -4px 0 $accent_bg_color; }
+        }
+      }
+    }
+
+    &.right {
+      border-left-style: solid;
+      > tabs {
+        margin-left: -2px;
+        > tab:not(.reorderable-page) {
+          &:hover { box-shadow: inset 4px 0 $border_color; }
+          &:checked { box-shadow: inset 4px 0 $accent_bg_color; }
         }
       }
     }
@@ -89,11 +116,7 @@ notebook {
       min-width: 16px;
       border-radius: 0;
 
-      &:hover:not(:active):not(:backdrop) {
-        background-clip: padding-box;
-        background-image: none;
-        background-color: transparentize(white, 0.7);
-        border-color: transparent;
+      &:hover:not(:active) {
         box-shadow: none;
       }
 
@@ -105,8 +128,6 @@ notebook {
       min-width: 30px;
       padding: 3px 12px;
 
-      outline-offset: -5px;
-
       color: $window_fg_color;
       font-weight: normal;
 
@@ -115,22 +136,24 @@ notebook {
 
       &.reorderable-page {
         -gtk-outline-radius: calc($button_radius + 2px);
-        outline-width: 2px;
-        outline-offset: -2px;
-        outline-style: solid;
-        outline-color: entry_focus_border();
+        margin: 4px 2px;
+        border-radius: $button_radius;
+        @include focus-ring($transition: $button_transition);
 
         &:hover {
           background-color: $hover_color;
+          box-shadow: none;
         }
         &:checked {
           background-color: $selected_color;
+          box-shadow: none;
           &:hover { background-color: $selected_hover_color; }
         }
       }
 
       // colors the button like the label, overridden otherwise
       button.flat {
+        color: gtkalpha(currentColor, 0.3);
         padding: 0;
         margin-top: 4px;
         margin-bottom: 4px;
@@ -161,8 +184,8 @@ notebook {
     &.top,
     &.bottom {
       tabs {
-        padding-left: 0px;
-        padding-right: 0px;
+        padding-left: 4px;
+        padding-right: 4px;
 
         &:not(:only-child) {
           margin-left: 3px;
@@ -217,6 +240,6 @@ notebook {
   }
 
   > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
-    background-color: $window_bg_color;
+    background-color: $view_bg_color;
   }
 }

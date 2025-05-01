@@ -19,7 +19,6 @@
   --accent-purple: #9141ac;
   --accent-slate: #6f8396;
 
-  --accent-color: var(--accent-bg-color);
   --accent-bg-color: var(--accent-blue);
   --accent-fg-color: @accent_fg_color;
 
@@ -27,10 +26,11 @@
   --headerbar-bg-color: @headerbar_bg_color;
 }
 
-// add a bg color to notebook headers
+// Some apps don't like transparency or don't style this
+// https://github.com/lassekongo83/adw-gtk3/issues/232
 notebook > header {
-  background-color: var(--headerbar-bg-color);
-  border-color: var(--headerbar-bg-color);
+  background-color: var(--window-bg-color);
+  border-color: var(--window-bg-color);
 }
 
 // Better osd
