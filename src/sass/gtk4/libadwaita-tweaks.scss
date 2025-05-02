@@ -38,6 +38,23 @@ notebook > header {
   button { margin: 2px; }
 }
 
+// Default decoration window controls
+headerbar {
+  // Line up the buttons with csd headerbar buttons
+  &.default-decoration windowcontrols {
+    > button { margin: 0 2px; }
+
+    &.start {
+      margin-left: 3px;
+    }
+
+    &.end {
+      margin-right: 3px;
+    }
+  }
+}
+
+
 // ******
 // Apps *
 // ******
