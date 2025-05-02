@@ -4,10 +4,10 @@
 notebook {
   > header {
     padding: 1px;
-    border-width: 0px;
+    border-width: 1px;
     background-clip: padding-box;
     background-color: $window_bg_color;
-    border-color: $window_bg_color;
+    border-color: $border_color;
 
     tabs { margin: -1px; }
 
