@@ -69,3 +69,8 @@ notebook > header {
   }
 }
 
+// https://github.com/lassekongo83/adw-gtk3/issues/298
+tooltip.background.chromium {
+  background-color: RGB(0 0 6 / 80%);
+}
+
