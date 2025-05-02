@@ -423,6 +423,8 @@ tabbutton indicatorbin > indicator:dir(rtl), tabbutton indicatorbin > mask:dir(r
 
 calendar { color: var(--view-fg-color); background-clip: padding-box; border: 1px solid color-mix(in srgb, currentColor var(--border-opacity), transparent); font-feature-settings: "tnum"; }
 
+calendar.view:disabled, window.print:not(.ssd-frame) calendar.dialog-action-box:disabled { color: var(--view-fg-color); }
+
 calendar > header { border-bottom: 1px solid color-mix(in srgb, currentColor var(--border-opacity), transparent); }
 
 calendar > header > button { border-radius: 0; }
@@ -536,6 +538,8 @@ colorchooser .popover.osd { border-radius: 15px; }
 columnview, treeview.view, window.print:not(.ssd-frame) treeview.dialog-action-box { outline: 0 solid transparent; outline-offset: 4px; transition: outline-color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94), outline-width 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94), outline-offset 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
 columnview:focus:focus-visible, treeview.view:focus:focus-visible, window.print:not(.ssd-frame) treeview.dialog-action-box:focus:focus-visible { outline-color: color-mix(in srgb, var(--accent-color) 50%, transparent); outline-width: 2px; outline-offset: -2px; }
+
+columnview.view:disabled, treeview.view:disabled, window.print:not(.ssd-frame) columnview.dialog-action-box:disabled, window.print:not(.ssd-frame) treeview.dialog-action-box:disabled { color: var(--view-fg-color); }
 
 columnview:drop(active), treeview.view:drop(active), window.print:not(.ssd-frame) treeview.dialog-action-box:drop(active) { box-shadow: none; }
 
@@ -670,6 +674,8 @@ statusbar { padding: 6px 10px 6px 10px; }
 
 /*************** GtkTreeView * */
 treeview.view, window.print:not(.ssd-frame) treeview.dialog-action-box { border-left-color: color-mix(in srgb, currentColor 20%, var(--view-bg-color)); border-top-color: color-mix(in srgb, currentColor 20%, var(--view-bg-color)); }
+
+treeview.view:disabled, window.print:not(.ssd-frame) treeview.dialog-action-box:disabled { color: color-mix(in srgb, var(--view-fg-color) var(--disabled-opacity), transparent); }
 
 treeview.view:not(:selected), window.print:not(.ssd-frame) treeview.dialog-action-box:not(:selected) { background-color: color-mix(in srgb, var(--accent-bg-color) 0.0001%, var(--view-bg-color)); }
 
@@ -947,6 +953,8 @@ headerbar.default-decoration > windowhandle > box { padding: 3px 4px 4px 4px; }
 
 headerbar.default-decoration windowcontrols > button { min-height: 22px; min-width: 22px; padding: 4px; }
 
+headerbar.default-decoration windowcontrols > button > image { padding: 3px; }
+
 headerbar.default-decoration windowcontrols > .icon { margin: 7px; }
 
 window:not(.ssd-frame) > .titlebar:not(.flat) { box-shadow: 0 1px color-mix(in srgb, var(--headerbar-shade-color) 50%, transparent), 0 2px 4px color-mix(in srgb, var(--headerbar-shade-color) 50%, transparent); }
@@ -1035,7 +1043,7 @@ label { caret-color: currentColor; }
 
 label:disabled { filter: Opacity(var(--disabled-opacity)); }
 
-.dimmed, scale > value, progressbar > text, row.expander image.expander-row-arrow, row.property > box.header > box.title > .title, row label.subtitle, .dim-label, spinbutton > text > placeholder, entry > text > placeholder, headerbar .subtitle, windowtitle .subtitle, label.separator { opacity: var(--dim-opacity); }
+.dimmed, scale > value, progressbar > text, row.property > box.header > box.title > .title, row.property.expander > box > list > row.header > box.header > box.title > .title, row.expander image.expander-row-arrow, row label.subtitle, .dim-label, spinbutton > text > placeholder, entry > text > placeholder, headerbar .subtitle, windowtitle .subtitle, label.separator { opacity: var(--dim-opacity); }
 
 .accent { color: var(--accent-color); }
 
@@ -1207,6 +1215,8 @@ button.link > label { text-decoration: underline; }
 
 listview, list { color: var(--view-fg-color); background-color: var(--view-bg-color); background-clip: padding-box; border-color: color-mix(in srgb, currentColor var(--border-opacity), transparent); }
 
+listview.view:disabled, window.print:not(.ssd-frame) listview.dialog-action-box:disabled, list.view:disabled, window.print:not(.ssd-frame) list.dialog-action-box:disabled { color: var(--view-fg-color); }
+
 listview > row, list > row { padding: 2px; background-clip: padding-box; }
 
 listview > row.expander, list > row.expander { padding: 0px; }
@@ -1281,18 +1291,10 @@ row > box.header > .icon:dir(ltr), row > box.header > .prefixes:dir(ltr) { margi
 
 row > box.header > .icon:dir(rtl), row > box.header > .prefixes:dir(rtl) { margin-left: 6px; }
 
-row.property > box.header > box.title > .title { font-size: smaller; }
-
-row.property > box.header > box.title > .subtitle { font-size: inherit; opacity: 1; }
-
-row.property.monospace, row.expander.property > box > list > row.monospace { font-family: inherit; font-size: inherit; }
-
-row.property.monospace > box.header > box.title > .subtitle, row.expander.property > box > list > row.monospace > box.header > box.title > .subtitle { font-family: var(--monospace-font-family); font-size: var(--monospace-font-size); }
-
 /****************************** AdwEntryRow and AdwSpinRow * */
 row.entry:disabled text { opacity: var(--disabled-opacity); }
 
-row.entry:disabled .dimmed, row.entry:disabled scale > value, row.entry:disabled progressbar > text, row.entry:disabled row.expander image.expander-row-arrow, row.expander row.entry:disabled image.expander-row-arrow, row.entry:disabled spinbutton > text > placeholder, row.entry:disabled entry > text > placeholder, row.entry:disabled label.separator, row.entry:disabled row.property > box.header > box.title > .title, row.entry:disabled .dim-label, row.entry:disabled .subtitle { opacity: 1; }
+row.entry:disabled .dimmed, row.entry:disabled scale > value, row.entry:disabled progressbar > text, row.entry:disabled row.property > box.header > box.title > .title, row.entry:disabled row.property.expander > box > list > row.header > box.header > box.title > .title, row.entry:disabled row.expander image.expander-row-arrow, row.expander row.entry:disabled image.expander-row-arrow, row.entry:disabled spinbutton > text > placeholder, row.entry:disabled entry > text > placeholder, row.entry:disabled label.separator, row.entry:disabled .dim-label, row.entry:disabled .subtitle { opacity: 1; }
 
 row.entry > box.header { border-spacing: 0; margin-left: 6px; margin-right: 6px; }
 
@@ -1336,15 +1338,15 @@ row.entry:not(:selected).activatable.focused:hover, row.entry:not(:selected).act
 
 row.entry.error, row.spin.error { color: var(--accent-color); }
 
-row.entry.error .dimmed, row.entry.error scale > value, row.entry.error progressbar > text, row.entry.error row.expander image.expander-row-arrow, row.expander row.entry.error image.expander-row-arrow, row.entry.error spinbutton > text > placeholder, row.entry.error entry > text > placeholder, row.entry.error label.separator, row.entry.error row.property > box.header > box.title > .title, row.entry.error .dim-label, row.entry.error .subtitle, row.spin.error .dimmed, row.spin.error scale > value, row.spin.error progressbar > text, row.spin.error row.expander image.expander-row-arrow, row.expander row.spin.error image.expander-row-arrow, row.spin.error spinbutton > text > placeholder, row.spin.error entry > text > placeholder, row.spin.error label.separator, row.spin.error row.property > box.header > box.title > .title, row.spin.error .dim-label, row.spin.error .subtitle { opacity: 1; }
+row.entry.error .dimmed, row.entry.error scale > value, row.entry.error progressbar > text, row.entry.error row.property > box.header > box.title > .title, row.entry.error row.property.expander > box > list > row.header > box.header > box.title > .title, row.entry.error row.expander image.expander-row-arrow, row.expander row.entry.error image.expander-row-arrow, row.entry.error spinbutton > text > placeholder, row.entry.error entry > text > placeholder, row.entry.error label.separator, row.entry.error .dim-label, row.entry.error .subtitle, row.spin.error .dimmed, row.spin.error scale > value, row.spin.error progressbar > text, row.spin.error row.property > box.header > box.title > .title, row.spin.error row.property.expander > box > list > row.header > box.header > box.title > .title, row.spin.error row.expander image.expander-row-arrow, row.expander row.spin.error image.expander-row-arrow, row.spin.error spinbutton > text > placeholder, row.spin.error entry > text > placeholder, row.spin.error label.separator, row.spin.error .dim-label, row.spin.error .subtitle { opacity: 1; }
 
 row.entry.warning, row.spin.warning { color: var(--accent-color); }
 
-row.entry.warning .dimmed, row.entry.warning scale > value, row.entry.warning progressbar > text, row.entry.warning row.expander image.expander-row-arrow, row.expander row.entry.warning image.expander-row-arrow, row.entry.warning spinbutton > text > placeholder, row.entry.warning entry > text > placeholder, row.entry.warning label.separator, row.entry.warning row.property > box.header > box.title > .title, row.entry.warning .dim-label, row.entry.warning .subtitle, row.spin.warning .dimmed, row.spin.warning scale > value, row.spin.warning progressbar > text, row.spin.warning row.expander image.expander-row-arrow, row.expander row.spin.warning image.expander-row-arrow, row.spin.warning spinbutton > text > placeholder, row.spin.warning entry > text > placeholder, row.spin.warning label.separator, row.spin.warning row.property > box.header > box.title > .title, row.spin.warning .dim-label, row.spin.warning .subtitle { opacity: 1; }
+row.entry.warning .dimmed, row.entry.warning scale > value, row.entry.warning progressbar > text, row.entry.warning row.property > box.header > box.title > .title, row.entry.warning row.property.expander > box > list > row.header > box.header > box.title > .title, row.entry.warning row.expander image.expander-row-arrow, row.expander row.entry.warning image.expander-row-arrow, row.entry.warning spinbutton > text > placeholder, row.entry.warning entry > text > placeholder, row.entry.warning label.separator, row.entry.warning .dim-label, row.entry.warning .subtitle, row.spin.warning .dimmed, row.spin.warning scale > value, row.spin.warning progressbar > text, row.spin.warning row.property > box.header > box.title > .title, row.spin.warning row.property.expander > box > list > row.header > box.header > box.title > .title, row.spin.warning row.expander image.expander-row-arrow, row.expander row.spin.warning image.expander-row-arrow, row.spin.warning spinbutton > text > placeholder, row.spin.warning entry > text > placeholder, row.spin.warning label.separator, row.spin.warning .dim-label, row.spin.warning .subtitle { opacity: 1; }
 
 row.entry.success, row.spin.success { color: var(--accent-color); }
 
-row.entry.success .dimmed, row.entry.success scale > value, row.entry.success progressbar > text, row.entry.success row.expander image.expander-row-arrow, row.expander row.entry.success image.expander-row-arrow, row.entry.success spinbutton > text > placeholder, row.entry.success entry > text > placeholder, row.entry.success label.separator, row.entry.success row.property > box.header > box.title > .title, row.entry.success .dim-label, row.entry.success .subtitle, row.spin.success .dimmed, row.spin.success scale > value, row.spin.success progressbar > text, row.spin.success row.expander image.expander-row-arrow, row.expander row.spin.success image.expander-row-arrow, row.spin.success spinbutton > text > placeholder, row.spin.success entry > text > placeholder, row.spin.success label.separator, row.spin.success row.property > box.header > box.title > .title, row.spin.success .dim-label, row.spin.success .subtitle { opacity: 1; }
+row.entry.success .dimmed, row.entry.success scale > value, row.entry.success progressbar > text, row.entry.success row.property > box.header > box.title > .title, row.entry.success row.property.expander > box > list > row.header > box.header > box.title > .title, row.entry.success row.expander image.expander-row-arrow, row.expander row.entry.success image.expander-row-arrow, row.entry.success spinbutton > text > placeholder, row.entry.success entry > text > placeholder, row.entry.success label.separator, row.entry.success .dim-label, row.entry.success .subtitle, row.spin.success .dimmed, row.spin.success scale > value, row.spin.success progressbar > text, row.spin.success row.property > box.header > box.title > .title, row.spin.success row.property.expander > box > list > row.header > box.header > box.title > .title, row.spin.success row.expander image.expander-row-arrow, row.expander row.spin.success image.expander-row-arrow, row.spin.success spinbutton > text > placeholder, row.spin.success entry > text > placeholder, row.spin.success label.separator, row.spin.success .dim-label, row.spin.success .subtitle { opacity: 1; }
 
 /*************** AdwComboRow * */
 row.combo image.dropdown-arrow:disabled { filter: Opacity(var(--disabled-opacity)); }
@@ -1396,7 +1398,14 @@ row.expander:checked image.expander-row-arrow:not(:disabled) { color: var(--acce
 
 .osd row.expander:checked image.expander-row-arrow:not(:disabled) { color: inherit; }
 
-row.expander.property.monospace > box > list > row > box.header > box.title > .subtitle, row.expander.property > box > list > row.expander.monospace > box > list > row > box.header > box.title > .subtitle { font-family: var(--monospace-font-family); font-size: var(--monospace-font-size); }
+/***************** Property rows * */
+row.property > box.header > box.title > .title, row.property.expander > box > list > row.header > box.header > box.title > .title { font-size: smaller; }
+
+row.property > box.header > box.title > .subtitle, row.property.expander > box > list > row.header > box.header > box.title > .subtitle { font-size: inherit; opacity: 1; }
+
+row.property.monospace, row.property.monospace.expander > box > list > row.header { font-family: inherit; font-size: inherit; }
+
+row.property.monospace > box.header > box.title > .subtitle, row.property.monospace.expander > box > list > row.header > box.header > box.title > .subtitle { font-family: var(--monospace-font-family); font-size: var(--monospace-font-size); }
 
 /*************** AdwButtonRow * */
 row.button > box { margin-left: 12px; margin-right: 12px; border-spacing: 6px; min-height: 40px; }
@@ -2483,7 +2492,7 @@ tooltip > box { border-spacing: 6px; }
 
 .view, window.print:not(.ssd-frame) .dialog-action-box, textview > text, dialog-host > dialog.view sheet, window.print:not(.ssd-frame) dialog-host > dialog.dialog-action-box sheet, iconview { color: var(--view-fg-color); background-color: var(--view-bg-color); }
 
-.view:disabled, window.print:not(.ssd-frame) .dialog-action-box:disabled, textview > text:disabled, dialog-host > dialog.view sheet:disabled, window.print:not(.ssd-frame) dialog-host > dialog.dialog-action-box sheet:disabled, iconview:disabled { color: color-mix(in srgb, currentColor 5%, transparent); background-color: color-mix(in srgb, var(--window-bg-color) 60%, var(--view-bg-color)); }
+.view:disabled, window.print:not(.ssd-frame) .dialog-action-box:disabled, textview > text:disabled, dialog-host > dialog.view sheet:disabled, window.print:not(.ssd-frame) dialog-host > dialog.dialog-action-box sheet:disabled, iconview:disabled { color: color-mix(in srgb, var(--view-fg-color) var(--disabled-opacity), transparent); background-color: color-mix(in srgb, var(--window-bg-color) 60%, var(--view-bg-color)); }
 
 .view:selected:focus, .view:selected, window.print:not(.ssd-frame) .dialog-action-box:selected, textview > text:selected, dialog-host > dialog.view sheet:selected, window.print:not(.ssd-frame) dialog-host > dialog.dialog-action-box sheet:selected, iconview:selected { background-color: color-mix(in srgb, var(--accent-bg-color) 25%, transparent); border-radius: 9px; }
 
@@ -2514,6 +2523,8 @@ gridview > child.activatable:active { background-color: color-mix(in srgb, curre
 gridview > child.activatable:selected:hover { background-color: color-mix(in srgb, var(--accent-bg-color) 32%, transparent); }
 
 gridview > child.activatable:selected:active { background-color: color-mix(in srgb, var(--accent-bg-color) 39%, transparent); }
+
+flowbox.view:disabled, window.print:not(.ssd-frame) flowbox.dialog-action-box:disabled, gridview.view:disabled, window.print:not(.ssd-frame) gridview.dialog-action-box:disabled { color: var(--view-fg-color); }
 
 viewswitcher { border-spacing: 3px; min-height: 34px; }
 
