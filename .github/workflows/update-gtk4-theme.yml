@@ -35,7 +35,7 @@ jobs:
       run: |
         echo "@import 'libadwaita.css';" >> ./src/theme-light/gtk4/gtk.css
         echo "@import 'libadwaita-tweaks.css';" >> ./src/theme-light/gtk4/gtk.css
-        echo "@import 'libadwaita.css';" >> ./src/ltheme-ight/gtk4/gtk-dark.css
+        echo "@import 'libadwaita.css';" >> ./src/theme-ight/gtk4/gtk-dark.css
         echo "@import 'libadwaita-tweaks.css';" >> ./src/theme-light/gtk4/gtk-dark.css
         echo "@import 'libadwaita.css';" >> ./src/theme-dark/gtk4/gtk.css
         echo "@import 'libadwaita-tweaks.css';" >> ./src/theme-dark/gtk4/gtk.css
