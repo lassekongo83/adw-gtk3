@@ -13,7 +13,7 @@ $accent_fg_color: gtkcolor(accent_fg_color);
 $accent_color: gtkcolor(accent_color);
 $headerbar_bg_color: gtkcolor(headerbar_bg_color);
 $headerbar_fg_color: gtkcolor(headerbar_fg_color);
-$headerbar_border_color: gtkalpha(gtkcolor(headerbar_border_color), .15);
+$headerbar_border_color: gtkcolor(headerbar_border_color);
 $headerbar_backdrop_color: gtkcolor(headerbar_backdrop_color);
 $headerbar_shade_color: gtkcolor(headerbar_shade_color);
 $headerbar_darker_shade_color: gtkcolor(headerbar_darker_shade_color);

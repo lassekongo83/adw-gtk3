@@ -51,7 +51,7 @@ $_hb_fg_color: #2f2f30; // Similar to rgba(0,0,6,0.8) on the background #ebebed
   @define-color destructive_color #{gtkmix('@destructive_bg_color', white, 60%)};
   @define-color success_color #{gtkmix('@success_bg_color', white, 60%)};
   @define-color warning_color #{gtkmix('@warning_bg_color', white, 60%)};
-  @define-color error_color #{igtkmix('@error_bg_color', white, 60%)};
+  @define-color error_color #{gtkmix('@error_bg_color', white, 60%)};
 }
 
 // Window
