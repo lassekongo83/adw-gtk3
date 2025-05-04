@@ -163,9 +163,9 @@ notebook {
 
         &:hover {
           color: currentColor;
-          background-color: gtkalpha(currentColor, .15);
+          background-color: $adw_button_hover;
         }
-        &:active { background-color: gtkalpha(currentColor, .3); }
+        &:active { background-color: $adw_button_active; }
 
         &, &:backdrop { color: gtkalpha(currentColor, 0.3); }
 
