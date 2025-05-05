@@ -655,6 +655,18 @@ toolbar.toolbar {
 window.background:not(.solid-csd):not(.csd) > notebook > header {
   // For libreoffice. No idea why.
   border: 0;
-  tab { margin: 0; }
+  tab {
+    margin: 0 1px;
+    // https://github.com/lassekongo83/adw-gtk3/issues/262#issuecomment-2849406909
+    border-radius: $button_radius;
+    box-shadow: none;
+    &:hover { background-color: $hover_color; }
+    &:active, &:checked { background-color: $selected_color; }
+    &:checked:hover { background-color: $selected_hover_color; }
+  }
+}
+
+window.background:not(.solid-csd):not(.csd) > notebook > stack:not(:only-child) {
+  background-color: $window_bg_color;
 }
 
