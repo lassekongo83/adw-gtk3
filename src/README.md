@@ -7,9 +7,14 @@
 | ArchLinux | `pacman -S ninja git meson dart-sass` |
 | Ubuntu | `sudo apt install ninja-build git meson && sudo snap install dart-sass && sudo snap alias dart-sass sass` |
 | Fedora | `sudo dnf install nodejs ninja-build git meson` and then install sass with `npm install -g sass` |
-| Others | Install git, meson, ninja-build, (node.js). Also make sure `sass` is installed from `npm install -g sass` (or `dart-sass` from repo if it exists). |
+| Others | Install git, meson, ninja-build, (node.js). Also make sure `dart-sass` is installed from any available source. |
 
 Other distros may have named the above packages differently.
+
+Dart-sass can also be installed from source if you don't want to use `node.js`:
+1. Download the release for your architecture: https://github.com/sass/dart-sass/releases
+2. Run `tar -xvf dart-sass-<version>-linux-x64.tar.gz` (Replace `<version>` with the version you downloaded, and also `x64` if needed.) This will create a new directory containing the sass executable.
+3. To be able to run the sass command from anywhere in your terminal, you should move the executable to a directory that's included in your system's PATH environment variable. `/usr/local/bin` is a common place for this. This can vary between distros. A safe location is just to move `sass` and `src` to `~/.local/bin` which will allow your user to run the command sass. Then run `sass --version` to confirm that it's working.
 
 Make sure you can run `sass --version` before continuing. If that command displays an error you may need to create an alias in your `~/.bashrc` file with whatever command your package manager provided you with.
 
