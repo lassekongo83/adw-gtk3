@@ -1,5 +1,6 @@
 @use '../modules' as *;
 @forward 'header-bar';
+@forward 'views';
 
 decoration {
   border-radius: $window_radius $window_radius 0 0;
@@ -8,10 +9,10 @@ decoration {
 
   // this needs to be transparent
   // see bug #722563
-  $_wm_border: if($variant=='light', transparentize(black, 0.95), gtkshade($borders_color, 0.86));
-  $_wm_border_backdrop: if($variant=='light', transparentize(black, 0.98), gtkshade($borders_color, 0.7));
+  $_wm_border: if($variant=='light', rgba(0,0,0,0.05), gtkshade($borders_color, 0.86));
+  $_wm_border_backdrop: if($variant=='light', rgba(0,0,0,0.02), gtkshade($borders_color, 0.7));
 
-  box-shadow: 0 3px 12px 1px transparentize(black, 0.7),
+  box-shadow: 0 3px 8px 1px rgba(0,0,0,0.3),
               0 0 0 1px $_wm_border; //doing borders with box-shadow
 
   // FIXME rationalize shadows
@@ -24,8 +25,8 @@ decoration {
     // change when we go to backdrop, to prevent jumping windows.
     // The biggest shadow should be in the same order then in the active state
     // or the jumping will happen during the transition.
-    box-shadow: 0 3px 12px 1px transparent,
-                0 2px 6px 2px transparentize(black, 0.86),
+    box-shadow: 0 3px 8px 1px transparent,
+                0 2px 6px 2px rgba(0,0,0,0.14),
                 0 0 0 1px $_wm_border_backdrop;
 
     transition: $backdrop_transition;
@@ -52,8 +53,8 @@ decoration {
 
   // server-side decorations as used by mutter
   // just doing borders, wm draws actual shadows
-  $_ssd_wm_border: if($variant=='light', transparentize(black, 0.7), gtkshade($borders_color, 0.86));
-  $_ssd_wm_border_backdrop: if($variant=='light', transparentize(black, 0.8), gtkshade($borders_color, 0.7));
+  $_ssd_wm_border: if($variant=='light', rgba(0,0,0,0.3), gtkshade($borders_color, 0.86));
+  $_ssd_wm_border_backdrop: if($variant=='light', rgba(0,0,0,0.2), gtkshade($borders_color, 0.7));
   .ssd & { box-shadow: 0 0 0 1px $_ssd_wm_border; }
   .ssd &:backdrop { box-shadow: 0 0 0 1px $_ssd_wm_border_backdrop; }
   .ssd.maximized &,
@@ -61,7 +62,7 @@ decoration {
 
   .csd.popup & {
     border-radius: $menu_radius;
-    box-shadow: 0 1px 2px transparentize(black, 0.8),
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2),
                 0 0 0 1px gtkalpha($_wm_border, 0.9);
   }
 
@@ -72,7 +73,7 @@ decoration {
 
   messagedialog.csd & {
     border-radius: $window_radius;
-    box-shadow: 0 1px 2px transparentize(black, 0.8),
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2),
                 0 0 0 1px gtkalpha($_wm_border, 0.9);
   }
 
@@ -116,14 +117,6 @@ button.titlebutton {
 headerbar.selection-mode button.titlebutton,
 .titlebar.selection-mode button.titlebutton {
   &:backdrop { -gtk-icon-shadow: none; }
-}
-
-%selected_items {
-  background-color: $view_selected_color;
-
-  @at-root %nobg_selected_items, & {
-    color: $window_fg_color;
-  }
 }
 
 .monospace { font-family: monospace; }
