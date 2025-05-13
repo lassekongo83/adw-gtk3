@@ -14,7 +14,7 @@ Other distros may have named the above packages differently.
 Dart-sass can also be installed from source if you don't want to use `node.js`:
 1. Download the release for your architecture: https://github.com/sass/dart-sass/releases
 2. Run `tar -xvf dart-sass-<version>-linux-x64.tar.gz` (Replace `<version>` with the version you downloaded, and also `x64` if needed.) This will create a new directory containing the sass executable.
-3. To be able to run the sass command from anywhere in your terminal, you should move the executable to a directory that's included in your system's PATH environment variable. `/usr/local/bin` is a common place for this. This can vary between distros. A safe location is just to move `sass` and `src` to `~/.local/bin` which will allow your user to run the command sass. Then run `sass --version` to confirm that it's working.
+3. To be able to run the sass command from anywhere in your terminal, you should move the executable to a directory that's included in your system's PATH environment variable. `/usr/local/bin` is a common place for this, but it can be different on various distros. Run `echo $PATH` to see if it's included. Move `src` and `sass` to that location. Then run `sass --version` to confirm that it's working.
 
 Make sure you can run `sass --version` before continuing. If that command displays an error you may need to create an alias in your `~/.bashrc` file with whatever command your package manager provided you with.
 
