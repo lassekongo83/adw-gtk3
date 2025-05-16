@@ -1,5 +1,6 @@
 # Ignore Backup Copies from Text Editor
 *~
+.goutputstream-*
 
 # Ignore meson build directory
 build
