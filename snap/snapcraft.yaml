@@ -23,13 +23,9 @@ slots:
 parts:
   gtk-3-themes:
     plugin: dump
-    source: https://github.com/lassekongo83/adw-gtk3/releases/download/v6.2/adw-gtk3v6.2.tar.xz
-    override-build: |
-      snapcraftctl build
-      pwd
-      ls -l
-      mkdir -p $CRAFT_PART_INSTALL/share/themes
-      mv -f $CRAFT_PART_INSTALL/adw-gtk3 $CRAFT_PART_INSTALL/share/themes
-      mv -f $CRAFT_PART_INSTALL/adw-gtk3-dark $CRAFT_PART_INSTALL/share/themes
-    stage:
-      - share/themes/
+    source: https://github.com/lassekongo83/adw-gtk3/releases/download/v6.2/adw-gtk3v6.2.tar.gz
+    organize:
+      themes: share/themes
+    prime:
+      - share/themes/*/gtk-3.0
+      - share/themes/*/gtk-4.0
