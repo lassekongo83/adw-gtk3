@@ -92,7 +92,7 @@ The official version of adw-gtk3 can be viewed by clicking the button below.
 
 #### How to activate the theme
 
-1. Install `gnome-tweaks` and set the theme under *Appearance > Legacy Applications*. For dark themes, adjust in `gnome-control-center` > *Appearance*.
+1. Install [refine](https://flathub.org/apps/page.tesk.Refine) and set the theme under *Appearance > GTK3/4 Theme*. For dark themes, adjust in `gnome-control-center` > *Appearance*.
 2. Optional: You can also use `gsettings` to switch themes:
 
 Light theme:
