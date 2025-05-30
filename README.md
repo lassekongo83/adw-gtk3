@@ -32,9 +32,9 @@ An unofficial GTK3 port of [libadwaita](https://gnome.pages.gitlab.gnome.org/lib
 
 <div align="center">
 
-| Tarball | Repository | Flatpak | Source |
-|:---:|:---:|:---:|:---:|
-| 📦 [Download](https://github.com/lassekongo83/adw-gtk3/releases/latest)  | ⬇️ [See info below](#repositories) | 📦 [See info below](#flatpak) | 🔧 [More information](src/README.md) |
+| Tarball | Repository | Flatpak | Source | Snap/Ubuntu |
+|:---:|:---:|:---:|:---:|:---:|
+| 📦 [Download](https://github.com/lassekongo83/adw-gtk3/releases/latest)  | ⬇️ [See info below](#repositories) | 📦 [See info below](#flatpak) | 🔧 [More information](src/README.md) | 📦 [See info below](#snap)
 
 If you download the tarball, then extract the content of the file to: `~/.local/share/themes/`
 
@@ -74,6 +74,21 @@ sudo flatpak override --filesystem=xdg-data/themes
 sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3
 sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3-dark
 ```
+
+### Snap
+
+Snap apps only use themes that are provided by a theme Snap.
+* You can install the Snap version via the Snap Store or using this command:
+```bash
+sudo snap install gtk-theme-adw-gtk3
+```
+
+The official version of adw-gtk3 can be viewed by clicking the button below.
+
+<a href="https://snapcraft.io/gtk-theme-adw-gtk3">
+    <img alt="Get it from the Snap Store" src=https://snapcraft.io/en/dark/install.svg />
+  </a>
+
 
 #### How to activate the theme
 
