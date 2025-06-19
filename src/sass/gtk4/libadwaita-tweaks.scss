@@ -65,7 +65,7 @@ headerbar {
 
   selection {
     &, &:focus {
-      background-color: var(--accent-bg-color);
+      background-color: color-mix(in srgb, var(--accent-bg-color) 30%, transparent);
       color: var(--accent-fg-color);
     }
   }
