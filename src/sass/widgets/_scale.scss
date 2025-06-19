@@ -131,7 +131,7 @@ scale {
     background-color: $slider_color;
     
     // Trying to get this as close to libadwaita as possible. Only one outer box-shadow is allowed. Outlines are not supported.
-    box-shadow: 0 1px 2px 1px transparentize(black, .75);
+    box-shadow: 0 1px 2px 1px rgba(0,0,0,0.25);
     border: 1px solid transparent; //darken($alt_borders_color, 3%);
 
     border-radius: 100%;
@@ -143,17 +143,17 @@ scale {
     &:disabled {
       @include button(disabled);
       background-color: gtkmix($view_bg_color, $slider_color, 50%);
-      box-shadow: 0 0 0 1px transparentize(black, .85);
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
     }
 
     &:backdrop {
       transition: $backdrop_transition;
-      box-shadow: 0 1px 2px 1px transparentize(black, .85);
+      box-shadow: 0 1px 2px 1px rgba(0,0,0,0.15);
 
       //@include button(backdrop);
 
       &:disabled {
-        box-shadow: 0 0 0 1px transparentize(black, .85);
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
       }
     }
 
@@ -163,7 +163,7 @@ scale {
     // OSD
     .osd & {
       background-color: $slider_color;
-      box-shadow: 0 1px 2px 1px transparentize(black, .75);
+      box-shadow: 0 1px 2px 1px rgba(0,0,0,0.25);
       border: 1px solid transparent;
 
       &:hover {
@@ -172,15 +172,15 @@ scale {
 
       &:disabled {
         @include button(disabled);
-        box-shadow: 0 0 0 1px transparentize(black, .8);
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
       }
 
       &:backdrop {
         transition: $backdrop_transition;
-        box-shadow: 0 1px 2px 1px transparentize(black, .8);
+        box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2);
 
         &:disabled {
-          box-shadow: 0 0 0 1px transparentize(black, .8);
+          box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
         }
       }
     }
@@ -235,87 +235,106 @@ scale {
   // FIXME: OSD and selected list rows missing, I don't feel like adding the other 144 assets needed for those...
   $suffix: if($variant == 'light', '', '-dark');
 
-  @each $dir_class, $dir_infix in ('horizontal', 'horz'),
-                                  ('vertical', 'vert') {
-    @each $marks_infix, $marks_class in ('scale-has-marks-above', 'marks-before:not(.marks-after)'),
-                                        ('scale-has-marks-below', 'marks-after:not(.marks-before)') {
-      @each $state, $state_infix in ('', ''),
-                                    (':hover', ''),
-                                    (':disabled', '-disabled'),
-                                    (':backdrop', '-disabled'),
-                                    (':backdrop:disabled', '-disabled') {
+  $directions: (
+    'horizontal': 'horz',
+    'vertical'  : 'vert'
+  );
+
+  $marks: (
+    'scale-has-marks-above': 'marks-before:not(.marks-after)',
+    'scale-has-marks-below': 'marks-after:not(.marks-before)'
+  );
+
+  $states: (
+    '':                 '',
+    ':hover':           '',
+    ':disabled':        '-disabled',
+    ':backdrop':        '-disabled',
+    ':backdrop:disabled': '-disabled'
+  );
+
+  // Mixin for slider dimensions and margin adjustments
+  @mixin slider-dimensions($dir, $mark) {
+    // default background position
+    $bg-pos: bottom;
+
+    @if $dir == 'horizontal' {
+      min-height: 28px;
+      min-width: 23px;
+      @if $mark == 'scale-has-marks-above' {
+        margin-top: -14px;
+        $bg-pos: top;
+      } @else {
+        margin-bottom: -14px;
+      }
+    } @else { // vertical
+      min-height: 23px;
+      min-width: 28px;
+      @if $mark == 'scale-has-marks-above' {
+        margin-left: -14px;
+        $bg-pos: left bottom;
+      } @else {
+        margin-right: -14px;
+        $bg-pos: right bottom;
+      }
+    }
+    background-position: $bg-pos;
+    background-repeat: no-repeat;
+    box-shadow: none;
+  }
+
+  // Mixin for fine-tune slider margins
+  @mixin fine-tune-margin($dir, $mark) {
+    margin: -7px;
+    @if $dir == 'horizontal' {
+      @if $mark == 'scale-has-marks-above' {
+        margin-top: -11px;
+      } @else {
+        margin-bottom: -11px;
+      }
+    } @else {
+      @if $mark == 'scale-has-marks-above' {
+        margin-left: -11px;
+      } @else {
+        margin-right: -11px;
+      }
+    }
+  }
+
+  // Now iterate over maps
+  @each $dir_class, $dir_infix in $directions {
+    @each $marks_infix, $marks_class in $marks {
+      @each $state, $state_infix in $states {
         &.#{$dir_class}.#{$marks_class} {
 
           slider {
             &#{$state} {
-              // an asymmetric slider asset is used here, so the margins are uneven, the smaller
-              // margin is set on the point side.
-              margin: -10px;
+              // Assemble asset path from variables
               $_scale_asset: 'assets/slider-#{$dir_infix}-#{$marks_infix}#{$state_infix}#{$suffix}';
+              // the base margin for the slider asset
+              margin: -10px;
               border-style: none;
               border-radius: 0;
-
               background-color: transparent;
               background-image: -gtk-scaled(url('#{$_scale_asset}.png'), url('#{$_scale_asset}@2.png'));
+
               @if $variant == 'dark' {
                 &:hover, &:active {
-                  background-image: -gtk-scaled(url('assets/slider-#{$dir_infix}-#{$marks_infix}.png'), url('assets/slider-#{$dir_infix}-#{$marks_infix}@2.png'));
+                  background-image: -gtk-scaled(
+                    url('assets/slider-#{$dir_infix}-#{$marks_infix}.png'),
+                    url('assets/slider-#{$dir_infix}-#{$marks_infix}@2.png')
+                  );
                 }
               }
 
-              $_scale_slider_bg_pos: bottom;
-
-              @if $dir_class == 'horizontal' {
-                min-height: 28px;
-                min-width: 23px;
-
-                @if $marks_infix == 'scale-has-marks-above' {
-                  margin-top: -14px;
-
-                  $_scale_slider_bg_pos: top;
-                }
-
-                @else { margin-bottom: -14px; }
-              }
-
-              @else {
-                min-height: 23px;
-                min-width: 28px;
-
-                @if $marks_infix == 'scale-has-marks-above' {
-                  margin-left: -14px;
-
-                  $_scale_slider_bg_pos: left bottom;
-                }
-
-                @else {
-                  margin-right: -14px;
-
-                  $_scale_slider_bg_pos: right bottom;
-                }
-              }
-
-              background-position: $_scale_slider_bg_pos;
-              background-repeat: no-repeat;
-              box-shadow: none;
+              // Apply dimension adjustments via mixin
+              @include slider-dimensions($dir_class, $marks_infix);
             }
           }
 
+          // Fine-tune slider adjustments
           &.fine-tune slider {
-            // bigger negative margins to make the trough grow here as well
-            margin: -7px;
-
-            @if $dir_class == 'horizontal' {
-              @if $marks_infix == 'scale-has-marks-above' { margin-top: -11px; }
-
-              @else { margin-bottom: -11px; }
-            }
-
-            @else {
-              @if $marks_infix == 'scale-has-marks-above' { margin-left: -11px; }
-
-              @else { margin-right: -11px; }
-            }
+            @include fine-tune-margin($dir_class, $marks_infix);
           }
         }
       }
