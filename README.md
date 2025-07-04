@@ -113,7 +113,7 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita' && gsettings set o
 ## Customization
 Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
 
-<sub>If you want to change the accent color for most applications in GNOME 47 or later, you can use a small CLI program [accent-color-change](https://github.com/lassekongo83/adw-colors/tree/main/accent-color-change).</sub>
+<sub>If you want to change the accent color for most applications in GNOME 47 or later, you can use a small CLI program [accent-color-changer](https://github.com/lassekongo83/adw-colors/tree/main/scripts/accent-color-change).</sub>
 
 ![adw-gtk3-customized](images/preview-customized.png?raw=true)
 
