@@ -366,10 +366,8 @@ window#whiskermenu-window {
     min-height: 12px;
     min-width: 12px;
   }
-}
 
-// Make sure text selection is somewhat visible on websites with various backgrounds
-#MozillaGtkWidget.background {
+  // Make sure text selection is somewhat visible on websites with various backgrounds
   selection {
     &:focus, & {
       background-color: $accent_bg_color;
