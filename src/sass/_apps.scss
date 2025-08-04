@@ -358,27 +358,14 @@ window#whiskermenu-window {
 // ***********
 
 #MozillaGtkWidget.background {
-  button { font-weight: initial; }
-
-  // https://github.com/lassekongo83/adw-gtk3/issues/234
-  check, radio {
-    padding: 0;
-    min-height: 12px;
-    min-width: 12px;
-  }
-
   // Make sure text selection is somewhat visible on websites with various backgrounds
+  // One of the very few things that can still be changed in Firefox 140+
   selection {
     &:focus, & {
       background-color: $accent_bg_color;
       color: $accent_fg_color;
     }
   }
-}
-
-// https://github.com/lassekongo83/adw-gtk3/issues/283
-#MozillaGtkWidget {
-  > widget > frame > border { border-top-color: transparent; }
 }
 
 // ******************
