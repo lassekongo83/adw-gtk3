@@ -655,3 +655,20 @@ window.background:not(.solid-csd):not(.csd) > notebook > stack:not(:only-child) 
   background-color: $window_bg_color;
 }
 
+// ***********
+// Xournal++ *
+// ***********
+
+#settingsDialog .dialog-vbox.vertical tab {
+  box-shadow: none;
+  margin-right: 8px;
+  border-radius: $button_radius;
+
+  &:hover {
+    @include button(hover);
+  }
+
+  &:checked {
+    @include button(active);
+  }
+}
