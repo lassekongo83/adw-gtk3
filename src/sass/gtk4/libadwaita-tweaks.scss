@@ -1,8 +1,10 @@
 // Tweaks for the gtk-4.0 theme
 // These fixes are not for libadwaita apps
 
+@use '../settings' with (
+  $toolkit: 'gtk4'
+);
 @use '../functions' as *;
-@use '../settings' as *;
 
 // https://github.com/lassekongo83/adw-gtk3/issues/272
 @define-color accent_bg_color @blue_3;
@@ -59,9 +61,11 @@ headerbar {
 
 // Chromium
 .background.chromium {
-  $chr_dark_bg: gtkshade(var(--headerbar-bg-color), 1.2);
   // Will crash the browser if mixed with any color that is transparent!
-  background-color: if($variant == 'light', var(--window-bg-color), $chr_dark_bg);
+  background-color: var(--window-bg-color);
+  @media (prefers-color-scheme: dark) {
+    background-color: gtkshade(var(--headerbar-bg-color), 1.2);
+  }
 
   selection {
     &, &:focus {

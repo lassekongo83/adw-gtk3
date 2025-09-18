@@ -41,25 +41,18 @@ gtk4_asset_dir = join_paths(gtk4_dir_dark, 'assets')
 
 gtk4_assets = [
   '../assets/bullet-symbolic.svg',
-  '../assets/bullet-symbolic.symbolic.png',
-  '../assets/bullet@2-symbolic.symbolic.png',
   '../assets/check-symbolic.svg',
-  '../assets/check-symbolic.symbolic.png',
-  '../assets/check@2-symbolic.symbolic.png',
   '../assets/dash-symbolic.svg',
-  '../assets/dash-symbolic.symbolic.png',
-  '../assets/dash@2-symbolic.symbolic.png',
   '../assets/devel-symbolic.svg',
 ]
 
 gtk4_css = [
-  'gtk4/gtk.css',
-  'gtk4/gtk-dark.css',
-  'gtk4/libadwaita.css',
+  '../theme-light/gtk4/gtk.css',
+  '../theme-light/gtk4/libadwaita.css',
 ]
 
 libadwaita_tweaks_target = custom_target('generate_libadwaita_tweaks_css',
-  input: '../sass/gtk4/theme-dark.scss',
+  input: '../sass/gtk4/libadwaita-tweaks.scss',
   output: 'libadwaita-tweaks.css',
   command: [sass, '--no-source-map', '@INPUT@', '@OUTPUT@'],
   build_by_default: true,

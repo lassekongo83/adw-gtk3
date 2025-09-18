@@ -1,6 +1,0 @@
-@use '../settings' with (
-  $variant: 'light',
-  $toolkit: 'gtk4'
-);
-
-@use 'libadwaita-tweaks';

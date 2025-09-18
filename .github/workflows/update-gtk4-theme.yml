@@ -16,31 +16,13 @@ jobs:
 
     - name: Clone libadwaita and compile scss
       run: |
-        git clone -b libadwaita-1-7 --single-branch https://gitlab.gnome.org/GNOME/libadwaita.git
+        git clone -b libadwaita-1-8 --single-branch https://gitlab.gnome.org/GNOME/libadwaita.git
         cd libadwaita/src/stylesheet
-        sassc -a -M -t compact base.scss libadwaita.css
-        sassc -a -M -t compact defaults-light.scss gtk.css
-        sassc -a -M -t compact defaults-dark.scss gtk-dark.css
+        sassc -a -M -t compact default.scss libadwaita.css
 
     - name: Copy css files
       run: |
         cp libadwaita/src/stylesheet/libadwaita.css $GITHUB_WORKSPACE/src/theme-light/gtk4/libadwaita.css
-        cp libadwaita/src/stylesheet/gtk.css $GITHUB_WORKSPACE/src/theme-light/gtk4/gtk.css
-        cp libadwaita/src/stylesheet/gtk-dark.css $GITHUB_WORKSPACE/src/theme-light/gtk4/gtk-dark.css
-        cp libadwaita/src/stylesheet/libadwaita.css $GITHUB_WORKSPACE/src/theme-dark/gtk4/libadwaita.css
-        cp libadwaita/src/stylesheet/gtk-dark.css $GITHUB_WORKSPACE/src/theme-dark/gtk4/gtk.css
-        cp libadwaita/src/stylesheet/gtk-dark.css $GITHUB_WORKSPACE/src/theme-dark/gtk4/gtk-dark.css
-
-    - name: Add libadwaita to the gtk.css files
-      run: |
-        echo "@import 'libadwaita.css';" >> ./src/theme-light/gtk4/gtk.css
-        echo "@import 'libadwaita-tweaks.css';" >> ./src/theme-light/gtk4/gtk.css
-        echo "@import 'libadwaita.css';" >> ./src/theme-light/gtk4/gtk-dark.css
-        echo "@import 'libadwaita-tweaks.css';" >> ./src/theme-light/gtk4/gtk-dark.css
-        echo "@import 'libadwaita.css';" >> ./src/theme-dark/gtk4/gtk.css
-        echo "@import 'libadwaita-tweaks.css';" >> ./src/theme-dark/gtk4/gtk.css
-        echo "@import 'libadwaita.css';" >> ./src/theme-dark/gtk4/gtk-dark.css
-        echo "@import 'libadwaita-tweaks.css';" >> ./src/theme-dark/gtk4/gtk-dark.css
 
     - name: Commit changes
       run: |
