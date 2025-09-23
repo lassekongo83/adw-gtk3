@@ -48,6 +48,7 @@ gtk4_assets = [
 
 gtk4_css = [
   '../theme-light/gtk4/gtk.css',
+  '../theme-light/gtk4/gtk-dark.css',
   '../theme-light/gtk4/libadwaita.css',
 ]
 
