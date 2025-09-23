@@ -133,6 +133,7 @@ Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors
 |:---|:---|
 | GTK2 | https://github.com/eylles/adw-gtk2-colorizer |
 | Gimp 3 | https://github.com/dp0sk/adw-gimp3 |
+| KDE | https://github.com/nukusaba/Libadwaita-KDE/ |
 | Kvantum | https://github.com/GabePoel/KvLibadwaita |
 | Firefox | https://github.com/rafaelmardojai/firefox-gnome-theme |
 | Thunderbird | https://github.com/rafaelmardojai/thunderbird-gnome-theme |
