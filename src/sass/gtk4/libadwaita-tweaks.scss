@@ -26,6 +26,7 @@
 
   --window-bg-color: @window_bg_color;
   --headerbar-bg-color: @headerbar_bg_color;
+  --headerbar-bg-color: @headerbar_bg_color;
 }
 
 // Some apps don't like transparency or don't style this
@@ -70,12 +71,16 @@ headerbar {
   selection {
     &, &:focus {
       background-color: color-mix(in srgb, var(--accent-bg-color) 30%, transparent);
+      @media (prefers-color-scheme: dark) {
+        background-color:  var(--accent-bg-color);
+      }
       color: var(--accent-fg-color);
     }
   }
 
   windowcontrols > button {
     background-color: color-mix(in srgb, currentColor 10%, transparent);
+    color: var(--window-fg-color);
     min-width: 24px;
     padding: 0;
     box-shadow: none;
