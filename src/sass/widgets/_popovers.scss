@@ -15,7 +15,7 @@ popover.background {
   }
 
   .csd & {
-    $_popover_border: if($variant=='light', transparentize(black, .86), transparentize(black, .86));
+    $_popover_border: if(sass($variant == 'light'): transparentize(black, 0.86); else: transparentize(black, 0.86));
 
     background-clip: padding-box;
     border-color: $_popover_border;

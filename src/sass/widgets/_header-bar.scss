@@ -325,7 +325,7 @@ window.devel {
 $disabled_headerbar_fg: gtkmix($headerbar_fg_color, $headerbar_bg_color, 50%);
 $backdrop_headerbar_fg: gtkmix($headerbar_fg_color, $headerbar_backdrop_color, 50%);
 headerbar {
-  box-shadow: 0 1px if($variant == 'light', gtkalpha($headerbar_shade_color, .3), gtkalpha($headerbar_shade_color, .1));
+  box-shadow: 0 1px if(sass($variant == 'light'): gtkalpha($headerbar_shade_color, 0.3); else: gtkalpha($headerbar_shade_color, 0.1));
 }
 
 headerbar, .titlebar {

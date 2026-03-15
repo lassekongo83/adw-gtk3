@@ -25,17 +25,17 @@ $_hb_fg_color: #2f2f30; // Similar to rgba(0,0,6,0.8) on the background #ebebed
 @define-color accent_fg_color white;
 
 // destructive-action buttons
-@define-color destructive_bg_color #{if($variant == 'light', '@red_3', '@red_4')};
+@define-color destructive_bg_color #{if(sass($variant == 'light'): '@red_3'; else: '@red_4')};
 @define-color destructive_fg_color white;
 
 // Levelbars, entries, labels and infobars. These don't need text colors
-@define-color success_bg_color #{if($variant == 'light', '@green_4', '@green_5')};
+@define-color success_bg_color #{if(sass($variant == 'light'): '@green_4'; else: '@green_5')};
 @define-color success_fg_color white;
 
-@define-color warning_bg_color #{if($variant == 'light', '@yellow_5', "#c01c28")};
+@define-color warning_bg_color #{if(sass($variant == 'light'): '@yellow_5'; else: "#c01c28")};
 @define-color warning_fg_color rgba(0,0,0,0.8);
 
-@define-color error_bg_color #{if($variant == 'light', '@red_3', '@red_4')};
+@define-color error_bg_color #{if(sass($variant == 'light'): '@red_3'; else: '@red_4')};
 @define-color error_fg_color white;
 
 // Colors derived from their matching bg color
@@ -55,49 +55,49 @@ $_hb_fg_color: #2f2f30; // Similar to rgba(0,0,6,0.8) on the background #ebebed
 }
 
 // Window
-@define-color window_bg_color #{if($variant == 'light', '#fafafb', '#222226')};
-@define-color window_fg_color #{if($variant == 'light', $_fg_color, 'white')};
+@define-color window_bg_color #{if(sass($variant == 'light'): '#fafafb'; else: '#222226')};
+@define-color window_fg_color #{if(sass($variant == 'light'): $_fg_color; else: 'white')};
 
 // Views - e.g. text view or tree view
-@define-color view_bg_color #{if($variant == 'light', '#ffffff', '#1d1d20')};
-@define-color view_fg_color #{if($variant == 'light', $_text_color, 'white')};
+@define-color view_bg_color #{if(sass($variant == 'light'): '#ffffff'; else: '#1d1d20')};
+@define-color view_fg_color #{if(sass($variant == 'light'): $_text_color; else: 'white')};
 
 // Header bar, search bar, tab bar
-@define-color headerbar_bg_color #{if($variant == 'light', '#ebebed', '#2e2e32')};
-@define-color headerbar_fg_color #{if($variant == 'light', $_hb_fg_color, 'white')};
-@define-color headerbar_border_color #{if($variant == 'light', rgba(0,0,6,0.8), 'white')};
+@define-color headerbar_bg_color #{if(sass($variant == 'light'): '#ebebed'; else: '#2e2e32')};
+@define-color headerbar_fg_color #{if(sass($variant == 'light'): $_hb_fg_color; else: 'white')};
+@define-color headerbar_border_color #{if(sass($variant == 'light'): rgba(0,0,6,0.8); else: 'white')};
 @define-color headerbar_backdrop_color @window_bg_color;
-@define-color headerbar_shade_color #{if($variant == 'light', rgba(0,0,6,0.12), rgba(0,0,6,0.36))};
-@define-color headerbar_darker_shade_color #{if($variant == 'light', rgba(0,0,6,0.12), rgba(0,0,12,0.9))};
+@define-color headerbar_shade_color #{if(sass($variant == 'light'): rgba(0,0,6,0.12); else: rgba(0,0,6,0.36))};
+@define-color headerbar_darker_shade_color #{if(sass($variant == 'light'): rgba(0,0,6,0.12); else: rgba(0,0,12,0.9))};
 
 // Split pane views
-@define-color sidebar_bg_color #{if($variant == 'light', '#ebebed', '#2e2e32')};
-@define-color sidebar_fg_color #{if($variant == 'light', $_hb_fg_color, 'white')};
-@define-color sidebar_backdrop_color #{if($variant == 'light', '#f2f2f4', '#28282c')};
-@define-color sidebar_shade_color #{if($variant == 'light', rgba(0,0,6,0.07), rgba(0,0,6,0.25))};
-@define-color sidebar_border_color #{if($variant == 'light', rgba(0,0,6,0.07), rgba(0,0,6,0.36))};
+@define-color sidebar_bg_color #{if(sass($variant == 'light'): '#ebebed'; else: '#2e2e32')};
+@define-color sidebar_fg_color #{if(sass($variant == 'light'): $_hb_fg_color; else: 'white')};
+@define-color sidebar_backdrop_color #{if(sass($variant == 'light'): '#f2f2f4'; else: '#28282c')};
+@define-color sidebar_shade_color #{if(sass($variant == 'light'): rgba(0,0,6,0.07); else: rgba(0,0,6,0.25))};
+@define-color sidebar_border_color #{if(sass($variant == 'light'): rgba(0,0,6,0.07); else: rgba(0,0,6,0.36))};
 
 // Cards, boxed lists
-@define-color card_bg_color #{if($variant == 'light', '#ffffff', rgba(255,255,255,0.08))};
-@define-color card_fg_color #{if($variant == 'light', $_text_color, 'white')};
-@define-color card_shade_color #{if($variant == 'light', rgba(0,0,6,0.07), rgba(0,0,6,0.36))};
+@define-color card_bg_color #{if(sass($variant == 'light'): '#ffffff'; else: rgba(255,255,255,0.08))};
+@define-color card_fg_color #{if(sass($variant == 'light'): $_text_color; else: 'white')};
+@define-color card_shade_color #{if(sass($variant == 'light'): rgba(0,0,6,0.07); else: rgba(0,0,6,0.36))};
 
 // Dialogs
-@define-color dialog_bg_color #{if($variant == 'light', '#fafafb', '#36363a')};
-@define-color dialog_fg_color #{if($variant == 'light', $_fg_color, 'white')};
+@define-color dialog_bg_color #{if(sass($variant == 'light'): '#fafafb'; else: '#36363a')};
+@define-color dialog_fg_color #{if(sass($variant == 'light'): $_fg_color; else: 'white')};
 
 // Popovers
-@define-color popover_bg_color #{if($variant == 'light', '#ffffff', '#36363a')};
-@define-color popover_fg_color #{if($variant == 'light', $_text_color, 'white')};
-@define-color popover_shade_color #{if($variant == 'light', rgba(0,0,6,0.07), rgba(0,0,6,0.25))};
+@define-color popover_bg_color #{if(sass($variant == 'light'): '#ffffff'; else: '#36363a')};
+@define-color popover_fg_color #{if(sass($variant == 'light'): $_text_color; else: 'white')};
+@define-color popover_shade_color #{if(sass($variant == 'light'): rgba(0,0,6,0.07); else: rgba(0,0,6,0.25))};
 
 // Thumbnails
-@define-color thumbnail_bg_color #{if($variant == 'light', '#ffffff', '#39393d')};
-@define-color thumbnail_fg_color #{if($variant == 'light', $_text_color, 'white')};
+@define-color thumbnail_bg_color #{if(sass($variant == 'light'): '#ffffff'; else: '#39393d')};
+@define-color thumbnail_fg_color #{if(sass($variant == 'light'): $_text_color; else: 'white')};
 
 // Miscellaneous
-@define-color shade_color #{if($variant == 'light', rgba(0,0,6,0.07), rgba(0,0,6,0.25))};
-@define-color scrollbar_outline_color #{if($variant == 'light', 'white', rgba(0,0,12,0.95))};
+@define-color shade_color #{if(sass($variant == 'light'): rgba(0,0,6,0.07); else: rgba(0,0,6,0.25))};
+@define-color scrollbar_outline_color #{if(sass($variant == 'light'): 'white'; else: rgba(0,0,12,0.95))};
 
 // XFCE
 @define-color panel_bg_color black;

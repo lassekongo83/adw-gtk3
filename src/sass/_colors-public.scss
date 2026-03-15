@@ -72,7 +72,7 @@
 
 //WM
 
-$_wm_highlight: if($variant=='light', $top_hilight, opacify(black,0));
+$_wm_highlight: if(sass($variant == "light"): $top_hilight; else: opacify(black, 0));
 
 // these colors are exported for the window manager and shouldn't be used in applications,
 // read if you used those and something break with a version upgrade you're on your own...
@@ -99,4 +99,4 @@ $_wm_highlight: if($variant=='light', $top_hilight, opacify(black,0));
 @define-color content_view_bg #{"" + $view_bg_color};
 
 // Very contrasty background for text views (@theme_text_color foreground)
-@define-color text_view_bg #{"" + if($variant == 'light', $view_bg_color, gtkshade($view_bg_color,0.94))};
+@define-color text_view_bg #{"" + if(sass($variant == "light"): $view_bg_color; else: gtkshade($view_bg_color, 0.94))};

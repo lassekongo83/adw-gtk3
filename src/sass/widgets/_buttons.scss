@@ -11,8 +11,8 @@ $destructive_button_active_color: gtkalpha(currentColor, .35);
 $destructive_button_checked_hover_color: gtkalpha(currentColor, .4);
 
 // stuff for .needs-attention
-$_dot_color: if($variant=='light', $accent_bg_color,
-                                   gtkmix(white,$accent_bg_color,15%));
+$_dot_color: if(sass($variant == 'light'): $accent_bg_color; else: gtkmix(white, $accent_bg_color, 15%));
+
 @keyframes needs_attention {
   from {
     background-image: -gtk-gradient(radial,

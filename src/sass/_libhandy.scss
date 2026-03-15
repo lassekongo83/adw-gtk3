@@ -4,19 +4,19 @@
 
 // libhandy styles, mostly borrowed from Yaru https://github.com/ubuntu/yaru
 
-$leaflet_dimming: rgba(0, 0, 0, if($variant == 'light', 0.12, 0.24));
-$leaflet_border: rgba(0, 0, 0, if($variant == 'light', 0.05, 0.2));
-$leaflet_outline: rgba(255, 255, 255, if($variant == 'light', 0.2, 0.05));
+$leaflet_dimming: rgba(0, 0, 0, if(sass($variant == 'light'): 0.12; else: 0.24));
+$leaflet_border: rgba(0, 0, 0, if(sass($variant == 'light'): 0.05; else: 0.2));
+$leaflet_outline: rgba(255, 255, 255, if(sass($variant == 'light'): 0.2; else: 0.05));
 
 @mixin background-shadow($direction) {
   background-image:
     linear-gradient($direction,
-                    rgba(0, 0, 0, if($variant == 'light', 0.05, 0.1)),
-                    rgba(0, 0, 0, if($variant == 'light', 0.01, 0.02)) 40px,
+                    rgba(0, 0, 0, if(sass($variant == 'light'): 0.05; else: 0.1)),
+                    rgba(0, 0, 0, if(sass($variant == 'light'): 0.01; else: 0.02)) 40px,
                     rgba(0, 0, 0, 0) 56px),
     linear-gradient($direction,
-                    rgba(0, 0, 0, if($variant == 'light', 0.03, 0.06)),
-                    rgba(0, 0, 0, if($variant == 'light', 0.01, 0.02)) 7px,
+                    rgba(0, 0, 0, if(sass($variant == 'light'): 0.03; else: 0.06)),
+                    rgba(0, 0, 0, if(sass($variant == 'light'): 0.01; else: 0.02)) 7px,
                     rgba(0, 0, 0, 0) 24px);
 }
 
@@ -745,7 +745,7 @@ tabbar {
     min-height: 26px;
     background-color: $active_color;
 
-    $_wm_border: if($variant=='light', transparentize(black, 0.77), gtkalpha($borders_color, 0.9));
+    $_wm_border: if(sass($variant == 'light'): transparentize(black, 0.77); else: gtkalpha($borders_color, 0.9));
 
     box-shadow: 0 3px 9px 1px transparentize(black, 0.75),
                 0 0 0 1px $_wm_border, //doing borders with box-shadow

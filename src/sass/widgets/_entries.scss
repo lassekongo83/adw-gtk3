@@ -183,10 +183,10 @@ treeview entry {
 
   border-style: none;
 
-  $_entry_tag_color: if($variant=='light', $accent_fg_color, $view_bg_color);
+  $_entry_tag_color: if(sass($variant == 'light'): $accent_fg_color; else: $view_bg_color);
   color: $_entry_tag_color;
 
-  $_entry_tag_bg: if($variant=='light', $accent_bg_color, gtkmix($window_fg_color, $view_bg_color, 50%));
+  $_entry_tag_bg: if(sass($variant == 'light'): $accent_bg_color; else: gtkmix($window_fg_color, $view_bg_color, 50%));
   background-color: $_entry_tag_bg;
 
   &:hover {
@@ -195,8 +195,7 @@ treeview entry {
 
   :backdrop & {
     color: $backdrop_base_color;
-    background-color: if($variant=='light', $accent_bg_color,
-                                            gtkmix($backdrop_fg_color, $backdrop_base_color, 50%));
+    background-color: if(sass($variant == 'light'): $accent_bg_color; else: gtkmix($backdrop_fg_color, $backdrop_base_color, 50%))
   }
 
   &.button {

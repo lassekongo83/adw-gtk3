@@ -124,7 +124,7 @@ radio {
         -gtk-icon-shadow: none;
         color: inherit;
         border-width: 1px;
-        border-color: if($variant=='light', gtkalpha(currentColor, 0.4), gtkalpha(currentColor, 0.6));
+        border-color: if(sass($variant == 'light'): gtkalpha(currentColor, 0.4); else: gtkalpha(currentColor, 0.6));
       }
     }
   }

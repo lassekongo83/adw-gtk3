@@ -51,7 +51,7 @@ levelbar {
     border-radius: 0;
 
     &.low {
-      border-color: if($variant == 'light', gtkshade($warning_bg_color, 0.8), $warning_bg_color);
+      border-color: if(sass($variant == 'light'): gtkshade($warning_bg_color, 0.8); else: $warning_bg_color);
       background-color: $warning_bg_color;
 
       &:backdrop { border-color: $warning_bg_color; };
@@ -59,14 +59,14 @@ levelbar {
 
     &.high,
     &:not(.empty) {
-      border-color: if($variant == 'light', gtkshade($progress_bg_color, 0.8), $progress_bg_color);
+      border-color: if(sass($variant == 'light'): gtkshade($progress_bg_color, 0.8); else: $progress_bg_color);
       background-color: $progress_bg_color;
 
       &:backdrop { border-color: $progress_bg_color; }
     }
 
     &.full {
-      border-color: if($variant == 'light', gtkshade($success_bg_color, 0.8), $success_bg_color);
+      border-color: if(sass($variant == 'light'): gtkshade($success_bg_color, 0.8); else: $success_bg_color);
       background-color: $success_bg_color;
 
       &:backdrop { border-color: $success_bg_color; };
@@ -74,7 +74,7 @@ levelbar {
 
     &.empty {
       background-color: transparent;
-      border-color: if($variant == 'light', gtkalpha($window_fg_color,0.2), gtkalpha($window_fg_color,0.1));
+      border-color: if(sass($variant == 'light'): gtkalpha($window_fg_color, 0.2); else: gtkalpha($window_fg_color, 0.1));
 
       &:backdrop { border-color: gtkalpha($backdrop_fg_color,0.15); }
     }

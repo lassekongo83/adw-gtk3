@@ -9,8 +9,8 @@ decoration {
 
   // this needs to be transparent
   // see bug #722563
-  $_wm_border: if($variant=='light', rgba(0,0,0,0.05), gtkshade($borders_color, 0.86));
-  $_wm_border_backdrop: if($variant=='light', rgba(0,0,0,0.02), gtkshade($borders_color, 0.7));
+  $_wm_border: if(sass($variant == 'light'): rgba(0, 0, 0, 0.05); else: gtkshade($borders_color, 0.86));
+  $_wm_border_backdrop: if(sass($variant == 'light'): rgba(0, 0, 0, 0.02); else: gtkshade($borders_color, 0.7));
 
   box-shadow: 0 3px 8px 1px rgba(0,0,0,0.3),
               0 0 0 1px $_wm_border; //doing borders with box-shadow
@@ -53,8 +53,8 @@ decoration {
 
   // server-side decorations as used by mutter
   // just doing borders, wm draws actual shadows
-  $_ssd_wm_border: if($variant=='light', rgba(0,0,0,0.3), gtkshade($borders_color, 0.86));
-  $_ssd_wm_border_backdrop: if($variant=='light', rgba(0,0,0,0.2), gtkshade($borders_color, 0.7));
+  $_ssd_wm_border: if(sass($variant == 'light'): rgba(0, 0, 0, 0.3); else: gtkshade($borders_color, 0.86));
+  $_ssd_wm_border_backdrop: if(sass($variant == 'light'): rgba(0, 0, 0, 0.2); else: gtkshade($borders_color, 0.7));
   .ssd & { box-shadow: 0 0 0 1px $_ssd_wm_border; }
   .ssd &:backdrop { box-shadow: 0 0 0 1px $_ssd_wm_border_backdrop; }
   .ssd.maximized &,

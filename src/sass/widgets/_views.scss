@@ -73,11 +73,11 @@ flowbox {
 
 .content-view .tile {
   margin: 2px;
-  background-color: if($variant=='light', transparent, black);
+  background-color: if(sass($variant == 'light'): transparent; else: black);
   border-radius: 0;
   padding: 0;
   
-  &:backdrop { background-color: if($variant=='light', transparent, gtkmix(black,$window_bg_color,5%)); }
-  &:active, &:selected { background-color: if($variant=='light', transparent, $accent_bg_color); }
-  &:disabled { background-color: if($variant=='light', transparent, $disabled_bg_color); }
+  &:backdrop { background-color: if(sass($variant == 'light'): transparent; else: gtkmix(black, $window_bg_color, 5%)); }
+  &:active, &:selected { background-color: if(sass($variant == 'light'): transparent; else: $accent_bg_color); }
+  &:disabled { background-color: if(sass($variant == 'light'): transparent; else: $disabled_bg_color); }
 }

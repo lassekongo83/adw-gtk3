@@ -233,7 +233,7 @@ scale {
   // *WARNING* scale with marks madness following
 
   // FIXME: OSD and selected list rows missing, I don't feel like adding the other 144 assets needed for those...
-  $suffix: if($variant == 'light', '', '-dark');
+  $suffix: if(sass($variant == 'light'): ''; else: '-dark');
 
   $directions: (
     'horizontal': 'horz',

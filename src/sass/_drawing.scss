@@ -28,7 +28,7 @@ $focus_transition: outline-color 200ms $ease-out-quad,
 @mixin focus-ring($target: null, $width: 2px, $offset: -$width, $outer: false, $focus-state: ':focus', $transition: null) {
   & #{$target} {
     outline: 0 solid transparent;
-    outline-offset: if($outer, $offset + 4px, $offset + $width + 4px);
+    outline-offset: if(sass($outer): $offset + 4px; else: $offset + $width + 4px);
     transition: $focus_transition, $transition;
   }
 
@@ -50,7 +50,7 @@ $focus_transition: outline-color 200ms $ease-out-quad,
 @function entry_focus_shadow($fc:$focus_border_color) { @return inset 0 0 0 1px $fc; }
 
 @mixin entry($t, $fc:$focus_border_color, $edge: none) {
-  $_entry_edge: if($edge == none, none, _widget_edge($edge));
+  $_entry_edge: if(sass($edge == none): none; else: _widget_edge($edge));
 
   $entry_color: gtkalpha(currentColor, 0.1);
   $entry_disabled: gtkmix(currentColor, $window_bg_color, 5%);
@@ -127,7 +127,7 @@ $focus_transition: outline-color 200ms $ease-out-quad,
 // *********
 
 @mixin button($t, $c:$window_bg_color, $tc:$window_fg_color, $edge: none, $backimage: null) {
-  $_blank_edge: if($edge == none, none, _widget_edge(transparentize($edge,1)));
+  $_blank_edge: if(sass($edge == none): none; else: _widget_edge(transparentize($edge, 1)));
 
   $button_color: gtkmix($tc, $c, 10%);
   $button_hover_color: gtkmix($tc, $c, 15%);
@@ -247,7 +247,7 @@ $focus_transition: outline-color 200ms $ease-out-quad,
 
   @else if $t==osd-backdrop {
   // backdrop osd button
-    $_bg: if($c != $window_bg_color, gtkalpha($c, 0.5), $osd_bg_color);
+    $_bg: if(sass($c != $window_bg_color): gtkalpha($c, 0.5); else: $osd_bg_color);
 
     color: $osd_fg_color;
     border-color: transparent;
@@ -282,8 +282,8 @@ $focus_transition: outline-color 200ms $ease-out-quad,
   $button_checked_hover_color: $adw_button_checked_hover;
   $button_checked_active_color: $adw_button_checked_active;
 
-  $button_text_color: if($variant == 'light', rgba(0,0,6,0.8), white);
-  $button_disabled_text_color: if($variant == 'light', gtkalpha(rgba(0,0,6,0.8), $disabled_opacity), gtkalpha(white, $disabled_opacity));
+  $button_text_color: if(sass($variant == 'light'): rgba(0, 0, 6, 0.8); else: white);
+  $button_disabled_text_color: if(sass($variant == 'light'): gtkalpha(rgba(0, 0, 6, 0.8), $disabled_opacity); else: gtkalpha(white, $disabled_opacity));
 
   @if $t==normal {
     outline-color: $fc;
@@ -339,10 +339,10 @@ $focus_transition: outline-color 200ms $ease-out-quad,
 // *********************
 
 @mixin check($t, $c:$window_bg_color, $tc:$window_fg_color, $checked: false) {
-  $_border_color: if($c==$checkradio_bg_color, $c, $trough_color);
+  $_border_color: if(sass($c == $checkradio_bg_color): $c; else: $trough_color);
 
   @if $t==normal  {
-    background-clip: if($checked, border-box, padding-box);
+    background-clip: if(sass($checked): border-box; else: padding-box);
     background-image: image($c);
     border-color: $_border_color;
     box-shadow: none;
