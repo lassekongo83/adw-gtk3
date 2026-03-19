@@ -32,7 +32,7 @@ $_hb_fg_color: #2f2f30; // Similar to rgba(0,0,6,0.8) on the background #ebebed
 @define-color success_bg_color #{if(sass($variant == 'light'): '@green_4'; else: '@green_5')};
 @define-color success_fg_color white;
 
-@define-color warning_bg_color #{if(sass($variant == 'light'): '@yellow_5'; else: "#c01c28")};
+@define-color warning_bg_color @yellow_5;
 @define-color warning_fg_color rgba(0,0,0,0.8);
 
 @define-color error_bg_color #{if(sass($variant == 'light'): '@red_3'; else: '@red_4')};
