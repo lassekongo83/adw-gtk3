@@ -110,6 +110,16 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita' && gsettings set o
 
 <div align="center">
 
+## Color Variants
+You can build different color variants of the theme ('blue', 'teal', 'green', 'yellow', 'orange', 'red', 'pink', 'purple', 'slate') using the provided build script.
+
+### How to build
+Ensure you have `sass` (dart-sass) installed, then run:
+```bash
+./build_variants.sh
+```
+This will generate 18 variants (9 colors, each with light and dark versions) in the `variants/` directory.
+
 ## Customization
 Adw-gtk3 and libadwaita can be customized with GTK named colors. See [adw-colors](https://github.com/lassekongo83/adw-colors) for more info.
 
