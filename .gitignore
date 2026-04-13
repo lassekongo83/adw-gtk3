@@ -7,3 +7,6 @@ build
 
 # Ignore parsed CSS files
 src/*.css
+
+# Ignore generated variants
+variants
