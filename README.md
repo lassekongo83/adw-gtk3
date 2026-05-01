@@ -108,6 +108,14 @@ Revert to default:
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita' && gsettings set org.gnome.desktop.interface color-scheme 'default'
 ```
 
+If for some reason the dark theme isn't applied to some GTK4 applications, try to add this to `~/.config/gtk-4.0/settings.ini`:
+```
+[Settings]
+gtk-application-prefer-dark-theme=1
+gtk-theme-name=adw-gtk3-dark
+```
+And then relog.
+
 <div align="center">
 
 ## Customization
